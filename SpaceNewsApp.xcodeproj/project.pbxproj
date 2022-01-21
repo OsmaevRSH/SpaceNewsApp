@@ -3,20 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C134923E279AD9D600948C04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134923D279AD9D600948C04 /* AppDelegate.swift */; };
 		C1349240279AD9D600948C04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134923F279AD9D600948C04 /* SceneDelegate.swift */; };
-		C1349242279AD9D600948C04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349241279AD9D600948C04 /* ViewController.swift */; };
-		C1349245279AD9D600948C04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1349243279AD9D600948C04 /* Main.storyboard */; };
 		C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */; };
 		C134924A279AD9D700948C04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1349249279AD9D700948C04 /* Assets.xcassets */; };
 		C134924D279AD9D700948C04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C134924B279AD9D700948C04 /* LaunchScreen.storyboard */; };
 		C1349258279AD9D700948C04 /* SpaceNewsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349257279AD9D700948C04 /* SpaceNewsAppTests.swift */; };
 		C1349262279AD9D700948C04 /* SpaceNewsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349261279AD9D700948C04 /* SpaceNewsAppUITests.swift */; };
 		C1349264279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349263279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift */; };
+		C1349271279ADCB300948C04 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349270279ADCB300948C04 /* BaseTabBarController.swift */; };
+		C1349273279ADCE800948C04 /* MapNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349272279ADCE800948C04 /* MapNavController.swift */; };
+		C1349275279ADD0500948C04 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349274279ADD0500948C04 /* MapViewController.swift */; };
+		C1349277279ADD2900948C04 /* MarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349276279ADD2900948C04 /* MarsViewController.swift */; };
+		C1349279279ADD4500948C04 /* MarsNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349278279ADD4500948C04 /* MarsNavController.swift */; };
+		C134927B279ADD6C00948C04 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134927A279ADD6C00948C04 /* LaunchView.swift */; };
+		C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134927C279ADD8800948C04 /* TemplateOnboardingView.swift */; };
+		C134927F279ADD9E00948C04 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134927E279ADD9E00948C04 /* PageViewController.swift */; };
+		C1349281279ADDAD00948C04 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349280279ADDAD00948C04 /* PageControl.swift */; };
+		C1349283279ADDBD00948C04 /* OnBoardigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349282279ADDBD00948C04 /* OnBoardigView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +48,6 @@
 		C134923A279AD9D600948C04 /* SpaceNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C134923D279AD9D600948C04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C134923F279AD9D600948C04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C1349241279AD9D600948C04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C1349244279AD9D600948C04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1349247279AD9D600948C04 /* SpaceNewsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpaceNewsApp.xcdatamodel; sourceTree = "<group>"; };
 		C1349249279AD9D700948C04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C134924C279AD9D700948C04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,16 @@
 		C134925D279AD9D700948C04 /* SpaceNewsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceNewsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1349261279AD9D700948C04 /* SpaceNewsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceNewsAppUITests.swift; sourceTree = "<group>"; };
 		C1349263279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceNewsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C1349270279ADCB300948C04 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		C1349272279ADCE800948C04 /* MapNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavController.swift; sourceTree = "<group>"; };
+		C1349274279ADD0500948C04 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C1349276279ADD2900948C04 /* MarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsViewController.swift; sourceTree = "<group>"; };
+		C1349278279ADD4500948C04 /* MarsNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsNavController.swift; sourceTree = "<group>"; };
+		C134927A279ADD6C00948C04 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		C134927C279ADD8800948C04 /* TemplateOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateOnboardingView.swift; sourceTree = "<group>"; };
+		C134927E279ADD9E00948C04 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		C1349280279ADDAD00948C04 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		C1349282279ADDBD00948C04 /* OnBoardigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardigView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				C134923C279AD9D600948C04 /* SpaceNewsApp */,
-				C1349256279AD9D700948C04 /* SpaceNewsAppTests */,
-				C1349260279AD9D700948C04 /* SpaceNewsAppUITests */,
+				C14B28A2279ADF1600E1D30A /* Tests */,
 				C134923B279AD9D600948C04 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,14 +116,11 @@
 		C134923C279AD9D600948C04 /* SpaceNewsApp */ = {
 			isa = PBXGroup;
 			children = (
-				C134923D279AD9D600948C04 /* AppDelegate.swift */,
-				C134923F279AD9D600948C04 /* SceneDelegate.swift */,
-				C1349241279AD9D600948C04 /* ViewController.swift */,
-				C1349243279AD9D600948C04 /* Main.storyboard */,
-				C1349249279AD9D700948C04 /* Assets.xcassets */,
-				C134924B279AD9D700948C04 /* LaunchScreen.storyboard */,
-				C134924E279AD9D700948C04 /* Info.plist */,
-				C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */,
+				C14B28A7279ADFE300E1D30A /* Views */,
+				C14B28A5279ADF8900E1D30A /* OnBoarding */,
+				C14B28A9279AE01400E1D30A /* CoreData */,
+				C14B28A6279ADFAF00E1D30A /* AppSceneDelegate */,
+				C14B28A8279ADFF800E1D30A /* Other */,
 			);
 			path = SpaceNewsApp;
 			sourceTree = "<group>";
@@ -128,6 +140,82 @@
 				C1349263279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift */,
 			);
 			path = SpaceNewsAppUITests;
+			sourceTree = "<group>";
+		};
+		C14B28A1279ADEF400E1D30A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C1349274279ADD0500948C04 /* MapViewController.swift */,
+				C1349272279ADCE800948C04 /* MapNavController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		C14B28A2279ADF1600E1D30A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C1349256279AD9D700948C04 /* SpaceNewsAppTests */,
+				C1349260279AD9D700948C04 /* SpaceNewsAppUITests */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		C14B28A4279ADF6200E1D30A /* Mars */ = {
+			isa = PBXGroup;
+			children = (
+				C1349276279ADD2900948C04 /* MarsViewController.swift */,
+				C1349278279ADD4500948C04 /* MarsNavController.swift */,
+			);
+			name = Mars;
+			sourceTree = "<group>";
+		};
+		C14B28A5279ADF8900E1D30A /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				C134927E279ADD9E00948C04 /* PageViewController.swift */,
+				C134927C279ADD8800948C04 /* TemplateOnboardingView.swift */,
+				C1349280279ADDAD00948C04 /* PageControl.swift */,
+				C1349282279ADDBD00948C04 /* OnBoardigView.swift */,
+			);
+			name = OnBoarding;
+			sourceTree = "<group>";
+		};
+		C14B28A6279ADFAF00E1D30A /* AppSceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C134923D279AD9D600948C04 /* AppDelegate.swift */,
+				C134923F279AD9D600948C04 /* SceneDelegate.swift */,
+			);
+			name = AppSceneDelegate;
+			sourceTree = "<group>";
+		};
+		C14B28A7279ADFE300E1D30A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C134927A279ADD6C00948C04 /* LaunchView.swift */,
+				C1349270279ADCB300948C04 /* BaseTabBarController.swift */,
+				C14B28A1279ADEF400E1D30A /* Map */,
+				C14B28A4279ADF6200E1D30A /* Mars */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C14B28A8279ADFF800E1D30A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C1349249279AD9D700948C04 /* Assets.xcassets */,
+				C134924B279AD9D700948C04 /* LaunchScreen.storyboard */,
+				C134924E279AD9D700948C04 /* Info.plist */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		C14B28A9279AE01400E1D30A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +298,7 @@
 				};
 			};
 			buildConfigurationList = C1349235279AD9D600948C04 /* Build configuration list for PBXProject "SpaceNewsApp" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -236,7 +324,6 @@
 			files = (
 				C134924D279AD9D700948C04 /* LaunchScreen.storyboard in Resources */,
 				C134924A279AD9D700948C04 /* Assets.xcassets in Resources */,
-				C1349245279AD9D600948C04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +348,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1349242279AD9D600948C04 /* ViewController.swift in Sources */,
+				C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */,
+				C134927B279ADD6C00948C04 /* LaunchView.swift in Sources */,
+				C1349281279ADDAD00948C04 /* PageControl.swift in Sources */,
+				C134927F279ADD9E00948C04 /* PageViewController.swift in Sources */,
 				C134923E279AD9D600948C04 /* AppDelegate.swift in Sources */,
+				C1349273279ADCE800948C04 /* MapNavController.swift in Sources */,
+				C1349271279ADCB300948C04 /* BaseTabBarController.swift in Sources */,
 				C1349240279AD9D600948C04 /* SceneDelegate.swift in Sources */,
+				C1349277279ADD2900948C04 /* MarsViewController.swift in Sources */,
+				C1349283279ADDBD00948C04 /* OnBoardigView.swift in Sources */,
 				C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */,
+				C1349279279ADD4500948C04 /* MarsNavController.swift in Sources */,
+				C1349275279ADD0500948C04 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +397,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C1349243279AD9D600948C04 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C1349244279AD9D600948C04 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C134924B279AD9D700948C04 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -447,9 +535,10 @@
 				INFOPLIST_FILE = SpaceNewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,7 +548,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -474,9 +563,10 @@
 				INFOPLIST_FILE = SpaceNewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,7 +576,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
