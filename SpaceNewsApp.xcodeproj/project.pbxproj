@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C134923E279AD9D600948C04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134923D279AD9D600948C04 /* AppDelegate.swift */; };
+		C1349240279AD9D600948C04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134923F279AD9D600948C04 /* SceneDelegate.swift */; };
+		C1349242279AD9D600948C04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349241279AD9D600948C04 /* ViewController.swift */; };
+		C1349245279AD9D600948C04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1349243279AD9D600948C04 /* Main.storyboard */; };
+		C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */; };
+		C134924A279AD9D700948C04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1349249279AD9D700948C04 /* Assets.xcassets */; };
+		C134924D279AD9D700948C04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C134924B279AD9D700948C04 /* LaunchScreen.storyboard */; };
+		C1349258279AD9D700948C04 /* SpaceNewsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349257279AD9D700948C04 /* SpaceNewsAppTests.swift */; };
+		C1349262279AD9D700948C04 /* SpaceNewsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349261279AD9D700948C04 /* SpaceNewsAppUITests.swift */; };
+		C1349264279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349263279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1349254279AD9D700948C04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1349232279AD9D600948C04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1349239279AD9D600948C04;
+			remoteInfo = SpaceNewsApp;
+		};
+		C134925E279AD9D700948C04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1349232279AD9D600948C04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1349239279AD9D600948C04;
+			remoteInfo = SpaceNewsApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C134923A279AD9D600948C04 /* SpaceNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C134923D279AD9D600948C04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C134923F279AD9D600948C04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C1349241279AD9D600948C04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C1349244279AD9D600948C04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C1349247279AD9D600948C04 /* SpaceNewsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpaceNewsApp.xcdatamodel; sourceTree = "<group>"; };
+		C1349249279AD9D700948C04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C134924C279AD9D700948C04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C134924E279AD9D700948C04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1349253279AD9D700948C04 /* SpaceNewsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceNewsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1349257279AD9D700948C04 /* SpaceNewsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceNewsAppTests.swift; sourceTree = "<group>"; };
+		C134925D279AD9D700948C04 /* SpaceNewsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceNewsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1349261279AD9D700948C04 /* SpaceNewsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceNewsAppUITests.swift; sourceTree = "<group>"; };
+		C1349263279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceNewsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C1349237279AD9D600948C04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1349250279AD9D700948C04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C134925A279AD9D700948C04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C1349231279AD9D600948C04 = {
+			isa = PBXGroup;
+			children = (
+				C134923C279AD9D600948C04 /* SpaceNewsApp */,
+				C1349256279AD9D700948C04 /* SpaceNewsAppTests */,
+				C1349260279AD9D700948C04 /* SpaceNewsAppUITests */,
+				C134923B279AD9D600948C04 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C134923B279AD9D600948C04 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C134923A279AD9D600948C04 /* SpaceNewsApp.app */,
+				C1349253279AD9D700948C04 /* SpaceNewsAppTests.xctest */,
+				C134925D279AD9D700948C04 /* SpaceNewsAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C134923C279AD9D600948C04 /* SpaceNewsApp */ = {
+			isa = PBXGroup;
+			children = (
+				C134923D279AD9D600948C04 /* AppDelegate.swift */,
+				C134923F279AD9D600948C04 /* SceneDelegate.swift */,
+				C1349241279AD9D600948C04 /* ViewController.swift */,
+				C1349243279AD9D600948C04 /* Main.storyboard */,
+				C1349249279AD9D700948C04 /* Assets.xcassets */,
+				C134924B279AD9D700948C04 /* LaunchScreen.storyboard */,
+				C134924E279AD9D700948C04 /* Info.plist */,
+				C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */,
+			);
+			path = SpaceNewsApp;
+			sourceTree = "<group>";
+		};
+		C1349256279AD9D700948C04 /* SpaceNewsAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				C1349257279AD9D700948C04 /* SpaceNewsAppTests.swift */,
+			);
+			path = SpaceNewsAppTests;
+			sourceTree = "<group>";
+		};
+		C1349260279AD9D700948C04 /* SpaceNewsAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C1349261279AD9D700948C04 /* SpaceNewsAppUITests.swift */,
+				C1349263279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift */,
+			);
+			path = SpaceNewsAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C1349239279AD9D600948C04 /* SpaceNewsApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1349267279AD9D700948C04 /* Build configuration list for PBXNativeTarget "SpaceNewsApp" */;
+			buildPhases = (
+				C1349236279AD9D600948C04 /* Sources */,
+				C1349237279AD9D600948C04 /* Frameworks */,
+				C1349238279AD9D600948C04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpaceNewsApp;
+			productName = SpaceNewsApp;
+			productReference = C134923A279AD9D600948C04 /* SpaceNewsApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C1349252279AD9D700948C04 /* SpaceNewsAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C134926A279AD9D700948C04 /* Build configuration list for PBXNativeTarget "SpaceNewsAppTests" */;
+			buildPhases = (
+				C134924F279AD9D700948C04 /* Sources */,
+				C1349250279AD9D700948C04 /* Frameworks */,
+				C1349251279AD9D700948C04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1349255279AD9D700948C04 /* PBXTargetDependency */,
+			);
+			name = SpaceNewsAppTests;
+			productName = SpaceNewsAppTests;
+			productReference = C1349253279AD9D700948C04 /* SpaceNewsAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C134925C279AD9D700948C04 /* SpaceNewsAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C134926D279AD9D700948C04 /* Build configuration list for PBXNativeTarget "SpaceNewsAppUITests" */;
+			buildPhases = (
+				C1349259279AD9D700948C04 /* Sources */,
+				C134925A279AD9D700948C04 /* Frameworks */,
+				C134925B279AD9D700948C04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C134925F279AD9D700948C04 /* PBXTargetDependency */,
+			);
+			name = SpaceNewsAppUITests;
+			productName = SpaceNewsAppUITests;
+			productReference = C134925D279AD9D700948C04 /* SpaceNewsAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C1349232279AD9D600948C04 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					C1349239279AD9D600948C04 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					C1349252279AD9D700948C04 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = C1349239279AD9D600948C04;
+					};
+					C134925C279AD9D700948C04 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = C1349239279AD9D600948C04;
+					};
+				};
+			};
+			buildConfigurationList = C1349235279AD9D600948C04 /* Build configuration list for PBXProject "SpaceNewsApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C1349231279AD9D600948C04;
+			productRefGroup = C134923B279AD9D600948C04 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1349239279AD9D600948C04 /* SpaceNewsApp */,
+				C1349252279AD9D700948C04 /* SpaceNewsAppTests */,
+				C134925C279AD9D700948C04 /* SpaceNewsAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C1349238279AD9D600948C04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C134924D279AD9D700948C04 /* LaunchScreen.storyboard in Resources */,
+				C134924A279AD9D700948C04 /* Assets.xcassets in Resources */,
+				C1349245279AD9D600948C04 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1349251279AD9D700948C04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C134925B279AD9D700948C04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C1349236279AD9D600948C04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1349242279AD9D600948C04 /* ViewController.swift in Sources */,
+				C134923E279AD9D600948C04 /* AppDelegate.swift in Sources */,
+				C1349240279AD9D600948C04 /* SceneDelegate.swift in Sources */,
+				C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C134924F279AD9D700948C04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1349258279AD9D700948C04 /* SpaceNewsAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1349259279AD9D700948C04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1349264279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift in Sources */,
+				C1349262279AD9D700948C04 /* SpaceNewsAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C1349255279AD9D700948C04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1349239279AD9D600948C04 /* SpaceNewsApp */;
+			targetProxy = C1349254279AD9D700948C04 /* PBXContainerItemProxy */;
+		};
+		C134925F279AD9D700948C04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1349239279AD9D600948C04 /* SpaceNewsApp */;
+			targetProxy = C134925E279AD9D700948C04 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C1349243279AD9D600948C04 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1349244279AD9D600948C04 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C134924B279AD9D700948C04 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C134924C279AD9D700948C04 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C1349265279AD9D700948C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C1349266279AD9D700948C04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C1349268279AD9D700948C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpaceNewsApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ltheresi.SpaceNewsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C1349269279AD9D700948C04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpaceNewsApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ltheresi.SpaceNewsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C134926B279AD9D700948C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ltheresi.SpaceNewsAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceNewsApp.app/SpaceNewsApp";
+			};
+			name = Debug;
+		};
+		C134926C279AD9D700948C04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ltheresi.SpaceNewsAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceNewsApp.app/SpaceNewsApp";
+			};
+			name = Release;
+		};
+		C134926E279AD9D700948C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ltheresi.SpaceNewsAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpaceNewsApp;
+			};
+			name = Debug;
+		};
+		C134926F279AD9D700948C04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ltheresi.SpaceNewsAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpaceNewsApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C1349235279AD9D600948C04 /* Build configuration list for PBXProject "SpaceNewsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1349265279AD9D700948C04 /* Debug */,
+				C1349266279AD9D700948C04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1349267279AD9D700948C04 /* Build configuration list for PBXNativeTarget "SpaceNewsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1349268279AD9D700948C04 /* Debug */,
+				C1349269279AD9D700948C04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C134926A279AD9D700948C04 /* Build configuration list for PBXNativeTarget "SpaceNewsAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C134926B279AD9D700948C04 /* Debug */,
+				C134926C279AD9D700948C04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C134926D279AD9D700948C04 /* Build configuration list for PBXNativeTarget "SpaceNewsAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C134926E279AD9D700948C04 /* Debug */,
+				C134926F279AD9D700948C04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C1349247279AD9D600948C04 /* SpaceNewsApp.xcdatamodel */,
+			);
+			currentVersion = C1349247279AD9D600948C04 /* SpaceNewsApp.xcdatamodel */;
+			path = SpaceNewsApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C1349232279AD9D600948C04 /* Project object */;
+}
