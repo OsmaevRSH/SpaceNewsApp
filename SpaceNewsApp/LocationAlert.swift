@@ -8,7 +8,7 @@
 import UIKit
 
 class AlertIfLocationServiceDisabled: Alert {
-	func getAlert() -> UIAlertController {
+	static func getAlert() -> UIAlertController {
 		let alert = UIAlertController(
 			title: "Location service is disabled",
 			message: "do you want to turn it on?",

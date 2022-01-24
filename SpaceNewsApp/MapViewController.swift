@@ -85,7 +85,7 @@ class MapViewController: UIViewController {
 //			present(AlertIfLocationServiceDisabled().getAlert(), animated: true, completion: nil)
 //		}
 		if CLLocationManager.locationServicesEnabled() != true {
-			present(AlertIfLocationServiceDisabled().getAlert(), animated: true, completion: nil)
+			present(AlertIfLocationServiceDisabled.getAlert(), animated: true, completion: nil)
 		}
 	}
 	
@@ -98,9 +98,9 @@ class MapViewController: UIViewController {
 			case .notDetermined:
 				locationManager.requestWhenInUseAuthorization()
 			case .denied: // Show alert telling users how to turn on permissions
-				present(AlertIfLocationServiceDisabled().getAlert(), animated: true, completion: nil) // Нужно использовать другой allert
+				present(AlertIfLocationServiceDisabled.getAlert(), animated: true, completion: nil) // Нужно использовать другой allert
 			case .restricted: // Show an alert letting them know what’s up
-				present(AlertIfLocationServiceDisabled().getAlert(), animated: true, completion: nil) // Нужно использовать другой allert
+				present(AlertIfLocationServiceDisabled.getAlert(), animated: true, completion: nil) // Нужно использовать другой allert
 			case .authorizedAlways:
 				break
 			@unknown default:

@@ -1,5 +1,5 @@
 import UIKit
 
 protocol Alert {
-	func getAlert() -> UIAlertController
+	static func getAlert() -> UIAlertController
 }
