@@ -42,7 +42,7 @@ class MapView: UIView {
 	private func addConstraitns() {
 		NSLayoutConstraint.activate([
 			///Constraints карты
-			map.topAnchor.constraint(equalTo: topAnchor),
+			map.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
 			map.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
 			map.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
 			map.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),

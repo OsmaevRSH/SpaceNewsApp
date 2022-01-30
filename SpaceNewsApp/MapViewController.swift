@@ -3,9 +3,13 @@ import MapKit
 
 class MapViewController: UIViewController {
 	
-	var mapView = MapView()
+	lazy var mapView = MapView()
 	
-	var locationManager = CLLocationManager()
+	var seacrhController: UISearchController!
+	
+	var locationSearchTable: MapSearchTable!
+	
+	lazy var locationManager = CLLocationManager()
 	
 		/// Метод вызывающийся при загрузке view
 	override func loadView() {
@@ -17,6 +21,10 @@ class MapViewController: UIViewController {
 		super.viewDidLoad()
 		locationManager.delegate = self
 		mapView.delegate = self
+		createMapSearchBar()
+		
+		//
+		locationSearchTable.mapView = mapView.map
 	}
 	
 		/// Метод вызывается сразу после появления карты
@@ -24,6 +32,20 @@ class MapViewController: UIViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		checkLocationServices()
+	}
+	
+		/// Метод для добавления searchBar на карту
+	private func createMapSearchBar() {
+		locationSearchTable = MapSearchTable()
+		seacrhController = UISearchController(searchResultsController: locationSearchTable)
+		seacrhController.searchResultsUpdater = locationSearchTable
+		let searchBar = seacrhController.searchBar
+		searchBar.sizeToFit()
+		searchBar.placeholder = "Search for places"
+		navigationItem.titleView = seacrhController.searchBar
+		seacrhController.hidesNavigationBarDuringPresentation = false
+		seacrhController.obscuresBackgroundDuringPresentation = true
+		definesPresentationContext = true
 	}
 	
 		///Метод проверки, включен ли на устройстве сервис геолокации
