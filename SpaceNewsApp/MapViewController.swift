@@ -1,9 +1,15 @@
 import UIKit
 import MapKit
 
+protocol HandleMapSearch {
+	func dropPinZoomIn(placemark:MKPlacemark)
+}
+
 class MapViewController: UIViewController {
 	
 	lazy var mapView = MapView()
+	
+	var selectedPin:MKPlacemark?
 	
 	var seacrhController: UISearchController!
 	
@@ -22,9 +28,8 @@ class MapViewController: UIViewController {
 		locationManager.delegate = self
 		mapView.delegate = self
 		createMapSearchBar()
-		
-		//
 		locationSearchTable.mapView = mapView.map
+		locationSearchTable.handleMapSearchDelegate = self
 	}
 	
 		/// Метод вызывается сразу после появления карты

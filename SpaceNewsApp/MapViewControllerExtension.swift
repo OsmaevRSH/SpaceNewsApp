@@ -38,3 +38,23 @@ extension MapViewController : CLLocationManagerDelegate {
 		checkLocationAuthorization()
 	}
 }
+
+extension MapViewController: HandleMapSearch {
+	func dropPinZoomIn(placemark:MKPlacemark){
+			// cache the pin
+		selectedPin = placemark
+			// clear existing pins
+		mapView.map.removeAnnotations(mapView.map.annotations)
+		let annotation = MKPointAnnotation()
+		annotation.coordinate = placemark.coordinate
+		annotation.title = placemark.name
+		if placemark.locality != nil &&
+		   placemark.administrativeArea != nil {
+			annotation.subtitle = "(city) (state)"
+		}
+		mapView.map.addAnnotation(annotation)
+		let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+		let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+		mapView.map.setRegion(region, animated: true)
+	}
+}

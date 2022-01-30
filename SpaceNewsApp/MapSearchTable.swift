@@ -13,6 +13,7 @@ class MapSearchTable: UITableViewController {
 	var matchingItems:[MKMapItem] = []
 	var mapView: MKMapView?
 	let cellId = "cellId"
+	var handleMapSearchDelegate:HandleMapSearch?
 	
 	
 		/// Метод для получения адреса найденого объекта
@@ -82,5 +83,11 @@ extension MapSearchTable {
 		cell.textLabel?.text = selectedItem.name
 		cell.detailTextLabel?.text = parseAddress(selectedItem: selectedItem)
 		return cell
+	}
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let selectedItem = matchingItems[indexPath.row].placemark
+		handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem)
+		dismiss(animated: true, completion: nil)
 	}
 }
