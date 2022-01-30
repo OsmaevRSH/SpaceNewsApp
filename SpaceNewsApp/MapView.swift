@@ -30,11 +30,22 @@ class MapView: UIView {
 		var button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.addTarget(self, action: #selector(getCurrentLocation), for: .touchUpInside)
-		button.backgroundColor = .blue
+		button.backgroundColor = .blue.withAlphaComponent(0.7)
 		button.setTitle("Current location", for: .normal)
 		button.setTitleColor(.white, for: .normal)
 		button.setImage(UIImage(systemName: "location.fill"), for: .normal)
 		button.layer.cornerRadius = 20
+		return button
+	}()
+	
+	lazy var photoButton: UIButton = {
+		var button = UIButton(type: .system)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.layer.cornerRadius = 20
+		button.setTitle("Create photo", for: .normal)
+		button.setImage(UIImage(systemName: "camera"), for: .normal)
+		button.backgroundColor = .blue.withAlphaComponent(0.7)
+		button.setTitleColor(.white, for: .normal)
 		return button
 	}()
 	
@@ -47,10 +58,15 @@ class MapView: UIView {
 			map.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
 			map.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
 			///Constraints кнопки текущего местоположения
-			currentLocationButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-			currentLocationButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
-			currentLocationButton.widthAnchor.constraint(equalToConstant: currentLocationButtonWidth),
-			currentLocationButton.heightAnchor.constraint(equalToConstant: currentLocationButtonHeight)
+			currentLocationButton.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
+			currentLocationButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32),
+			currentLocationButton.heightAnchor.constraint(equalToConstant: currentLocationButtonHeight),
+			///Constraints кнопка для создания фото
+			photoButton.centerYAnchor.constraint(equalTo: currentLocationButton.centerYAnchor),
+			photoButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
+			photoButton.widthAnchor.constraint(equalTo: currentLocationButton.widthAnchor),
+			photoButton.heightAnchor.constraint(equalToConstant: currentLocationButtonHeight),
+			photoButton.leftAnchor.constraint(equalTo: currentLocationButton.rightAnchor, constant: 32)
 		])
 	}
 	
@@ -58,6 +74,7 @@ class MapView: UIView {
 	private func addSubviews() {
 		addSubview(map)
 		addSubview(currentLocationButton)
+		addSubview(photoButton)
 	}
 	
 	// MARK: - Init
