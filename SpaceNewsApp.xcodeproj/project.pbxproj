@@ -27,6 +27,8 @@
 		C1349283279ADDBD00948C04 /* OnBoardigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349282279ADDBD00948C04 /* OnBoardigView.swift */; };
 		C1EAAFA6279DA88D00300FB9 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAAFA5279DA88D00300FB9 /* Alert.swift */; };
 		C1EAAFA9279DA91400300FB9 /* LocationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAAFA8279DA91400300FB9 /* LocationAlert.swift */; };
+		C1FE075627A2CC5D0089D1CE /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE075527A2CC5D0089D1CE /* APIServiceProtocol.swift */; };
+		C1FE075827A2CC840089D1CE /* APIServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		C1349282279ADDBD00948C04 /* OnBoardigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardigView.swift; sourceTree = "<group>"; };
 		C1EAAFA5279DA88D00300FB9 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C1EAAFA8279DA91400300FB9 /* LocationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAlert.swift; sourceTree = "<group>"; };
+		C1FE075527A2CC5D0089D1CE /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
+		C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceImplementation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 		C134923C279AD9D600948C04 /* SpaceNewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				C1FE075327A2CC1C0089D1CE /* Services */,
 				C14B28A7279ADFE300E1D30A /* Views */,
 				C14B28A5279ADF8900E1D30A /* OnBoarding */,
 				C14B28A9279AE01400E1D30A /* CoreData */,
@@ -230,6 +235,23 @@
 				C1EAAFA8279DA91400300FB9 /* LocationAlert.swift */,
 			);
 			name = Alert;
+			sourceTree = "<group>";
+		};
+		C1FE075327A2CC1C0089D1CE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C1FE075427A2CC320089D1CE /* HTTPServices */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C1FE075427A2CC320089D1CE /* HTTPServices */ = {
+			isa = PBXGroup;
+			children = (
+				C1FE075527A2CC5D0089D1CE /* APIServiceProtocol.swift */,
+				C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */,
+			);
+			path = HTTPServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,8 +384,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1FE075627A2CC5D0089D1CE /* APIServiceProtocol.swift in Sources */,
 				C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */,
 				C134927B279ADD6C00948C04 /* LaunchView.swift in Sources */,
+				C1FE075827A2CC840089D1CE /* APIServiceImplementation.swift in Sources */,
 				C1349281279ADDAD00948C04 /* PageControl.swift in Sources */,
 				C134927F279ADD9E00948C04 /* PageViewController.swift in Sources */,
 				C134923E279AD9D600948C04 /* AppDelegate.swift in Sources */,
