@@ -15,6 +15,19 @@ extension MapViewController: MapViewDelegate {
 	func getCurrentLocation() {
 		checkLocationAuthorization()
 	}
+	
+		/// Метод обработки нажатия на карту
+		/// - Parameter gestureRecognizer: Обработчик нажатия
+	func createPinOnTap(gestureRecognizer: UITapGestureRecognizer) {
+		let location = gestureRecognizer.location(in: mapView)
+		let coordinate = mapView.map.convert(location, toCoordinateFrom: mapView)
+		
+			// Add annotation:
+		let annotation = MKPointAnnotation()
+		annotation.coordinate = coordinate
+		mapView.map.removeAnnotations(mapView.map.annotations)
+		mapView.map.addAnnotation(annotation)
+	}
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -41,7 +54,7 @@ extension MapViewController : CLLocationManagerDelegate {
 
 // MARK: - HandleMapSearch
 extension MapViewController: HandleMapSearch {
-	func dropPinZoomIn(placemark:MKPlacemark){
+	func dropPinZoomIn(placemark: MKPlacemark){
 			// cache the pin
 		selectedPin = placemark
 			// clear existing pins
