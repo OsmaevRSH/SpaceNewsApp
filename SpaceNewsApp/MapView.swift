@@ -22,6 +22,8 @@ class MapView: UIView {
 	lazy var map: MKMapView = {
 		var map = MKMapView()
 		map.translatesAutoresizingMaskIntoConstraints = false
+		let tap = UITapGestureRecognizer(target: self, action: #selector(createPinOnTap(gestureRecognizer:)))
+		map.addGestureRecognizer(tap)
 		return map
 	}()
 	
@@ -97,5 +99,11 @@ class MapView: UIView {
 		/// Метод для обработки нажания на кнопку текущего местоположения
 	@objc private func getCurrentLocation(){
 		delegate?.getCurrentLocation()
+	}
+	
+		/// Метод для обработки нажатия на карту
+		/// - Parameter gestureRecognizer: Обработкик нажатия
+	@objc private func createPinOnTap(gestureRecognizer: UITapGestureRecognizer) {
+		delegate?.createPinOnTap(gestureRecognizer: gestureRecognizer)
 	}
 }

@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MapViewDelegate: AnyObject {
 	
 		/// Обработчик нажатия клавиши текущего местоположения
 	func getCurrentLocation()
+	
+		/// Обработчик нажатия на карту
+	func createPinOnTap(gestureRecognizer: UITapGestureRecognizer)
 }
