@@ -166,8 +166,8 @@
 				C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */,
 				C1707C4727A6D9D700D1D385 /* MapView.swift */,
 				C1349274279ADD0500948C04 /* MapViewController.swift */,
-				C1349272279ADCE800948C04 /* MapNavController.swift */,
 				C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */,
+				C1349272279ADCE800948C04 /* MapNavController.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";

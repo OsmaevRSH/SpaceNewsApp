@@ -38,6 +38,7 @@ class MapView: UIView {
 		return button
 	}()
 	
+		/// Кнопка создания фото
 	lazy var photoButton: UIButton = {
 		var button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -83,6 +84,8 @@ class MapView: UIView {
 		super.init(frame: frame)
 		addSubviews()
 		addConstraitns()
+		backgroundColor = .white.withAlphaComponent(0.8)
+		tintColor = .white
 	}
 	
 	required init?(coder: NSCoder) {

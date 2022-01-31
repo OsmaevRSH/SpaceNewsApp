@@ -39,6 +39,7 @@ extension MapViewController : CLLocationManagerDelegate {
 	}
 }
 
+// MARK: - HandleMapSearch
 extension MapViewController: HandleMapSearch {
 	func dropPinZoomIn(placemark:MKPlacemark){
 			// cache the pin
