@@ -44,6 +44,8 @@ extension MapViewController: MapViewDelegate {
 			locationForRequest = annotation.coordinate
 		}
 		print(locationForRequest)
+		
+		self.navigationController?.show(PhotoViewController(), sender: self)
 	}
 }
 

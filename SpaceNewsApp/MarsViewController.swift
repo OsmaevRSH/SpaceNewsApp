@@ -4,7 +4,8 @@ class MarsViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		title = "Mars"
 		
-		self.view.backgroundColor = .green
+		self.view.backgroundColor = .gray
 	}
 }
