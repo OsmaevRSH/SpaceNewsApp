@@ -33,13 +33,15 @@ extension MapViewController: MapViewDelegate {
 		/// Метод для отправки запроса на содание фото
 	func CreateRequestToCreatePhoto() {
 		var locationForRequest: CLLocationCoordinate2D
-		if mapView.map.annotations.count == 0 {
-			guard let coordinate = currentLocation?.coordinate else { return }
-			locationForRequest = coordinate
-		}
-		else {
-			guard let coordinate = mapView.map.annotations.first?.coordinate else { return }
-			locationForRequest = coordinate
+		if mapView.map.annotations.count == 1 { // User location
+			let annotation = mapView.map.annotations.first { $0 is MKUserLocation }
+			guard let annotation = annotation else { return }
+			locationForRequest = annotation.coordinate
+			
+		} else {
+			let annotation = mapView.map.annotations.first { $0 is MKPointAnnotation }
+			guard let annotation = annotation else { return }
+			locationForRequest = annotation.coordinate
 		}
 		print(locationForRequest)
 	}
@@ -54,7 +56,6 @@ extension MapViewController : CLLocationManagerDelegate {
 		///   - locations: Location
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		if let lastLocation = locations.last {
-			currentLocation = lastLocation
 			let region = MKCoordinateRegion(center: lastLocation.coordinate, latitudinalMeters: 2500, longitudinalMeters: 2500)
 			mapView.map.setRegion(region, animated: true)
 			locationManager.stopUpdatingLocation()

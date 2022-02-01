@@ -9,8 +9,6 @@ class MapViewController: UIViewController {
 	
 	lazy var mapView = MapView()
 	
-	var currentLocation: CLLocation?
-	
 	var selectedPin: MKPlacemark?
 	
 	var seacrhController: UISearchController?
