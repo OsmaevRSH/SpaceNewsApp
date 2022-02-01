@@ -9,9 +9,11 @@ class MapViewController: UIViewController {
 	
 	lazy var mapView = MapView()
 	
-	var selectedPin:MKPlacemark?
+	var currentLocation: CLLocation?
 	
-	var seacrhController: UISearchController!
+	var selectedPin: MKPlacemark?
+	
+	var seacrhController: UISearchController?
 	
 	var locationSearchTable: MapSearchTable!
 	
@@ -43,13 +45,13 @@ class MapViewController: UIViewController {
 	private func createMapSearchBar() {
 		locationSearchTable = MapSearchTable()
 		seacrhController = UISearchController(searchResultsController: locationSearchTable)
-		seacrhController.searchResultsUpdater = locationSearchTable
-		let searchBar = seacrhController.searchBar
-		searchBar.sizeToFit()
-		searchBar.placeholder = "Search for places"
-		navigationItem.titleView = seacrhController.searchBar
-		seacrhController.hidesNavigationBarDuringPresentation = false
-		seacrhController.obscuresBackgroundDuringPresentation = true
+		seacrhController?.searchResultsUpdater = locationSearchTable
+		let searchBar = seacrhController?.searchBar
+		searchBar?.sizeToFit()
+		searchBar?.placeholder = "Search for places"
+		navigationItem.titleView = seacrhController?.searchBar
+		seacrhController?.hidesNavigationBarDuringPresentation = false
+		seacrhController?.obscuresBackgroundDuringPresentation = true
 		definesPresentationContext = true
 	}
 	

@@ -49,6 +49,7 @@ class MapView: UIView {
 		button.setImage(UIImage(systemName: "camera"), for: .normal)
 		button.backgroundColor = .blue.withAlphaComponent(0.7)
 		button.setTitleColor(.white, for: .normal)
+		button.addTarget(self, action: #selector(CreateRequestToCreatePhoto), for: .touchUpInside)
 		return button
 	}()
 	
@@ -105,5 +106,10 @@ class MapView: UIView {
 		/// - Parameter gestureRecognizer: Обработкик нажатия
 	@objc private func createPinOnTap(gestureRecognizer: UITapGestureRecognizer) {
 		delegate?.createPinOnTap(gestureRecognizer: gestureRecognizer)
+	}
+	
+		/// Метод для отправки запроса на содание фото
+	@objc private func CreateRequestToCreatePhoto() {
+		delegate?.CreateRequestToCreatePhoto()
 	}
 }

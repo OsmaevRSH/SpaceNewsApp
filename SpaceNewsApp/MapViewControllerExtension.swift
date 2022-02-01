@@ -13,6 +13,7 @@ extension MapViewController: MapViewDelegate {
 	
 		/// Обработчик нажатия клавиши текущего местоположения
 	func getCurrentLocation() {
+		mapView.map.removeAnnotations(mapView.map.annotations)
 		checkLocationAuthorization()
 	}
 	
@@ -28,6 +29,20 @@ extension MapViewController: MapViewDelegate {
 		mapView.map.removeAnnotations(mapView.map.annotations)
 		mapView.map.addAnnotation(annotation)
 	}
+	
+		/// Метод для отправки запроса на содание фото
+	func CreateRequestToCreatePhoto() {
+		var locationForRequest: CLLocationCoordinate2D
+		if mapView.map.annotations.count == 0 {
+			guard let coordinate = currentLocation?.coordinate else { return }
+			locationForRequest = coordinate
+		}
+		else {
+			guard let coordinate = mapView.map.annotations.first?.coordinate else { return }
+			locationForRequest = coordinate
+		}
+		print(locationForRequest)
+	}
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -39,6 +54,7 @@ extension MapViewController : CLLocationManagerDelegate {
 		///   - locations: Location
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		if let lastLocation = locations.last {
+			currentLocation = lastLocation
 			let region = MKCoordinateRegion(center: lastLocation.coordinate, latitudinalMeters: 2500, longitudinalMeters: 2500)
 			mapView.map.setRegion(region, animated: true)
 			locationManager.stopUpdatingLocation()
