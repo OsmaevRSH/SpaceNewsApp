@@ -1,12 +1,19 @@
+//
+//  NewsNavController.swift
+//  SpaceNewsApp
+//
+//  Created by Руслан Осмаев on 01.02.2022.
+//
+
 import UIKit
 
-class MarsNavController: UINavigationController {
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
+class NewsNavController: UINavigationController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
 		
-		let marsViewController = MarsViewController()
-		self.viewControllers = [marsViewController]
+		let newsViewController = NewsViewController()
+		self.viewControllers = [newsViewController]
 		
 		let appearance = UINavigationBarAppearance()
 		appearance.backgroundColor = .white
@@ -17,5 +24,5 @@ class MarsNavController: UINavigationController {
 		self.navigationBar.standardAppearance = appearance
 		self.navigationBar.compactAppearance = appearance
 		self.navigationBar.scrollEdgeAppearance = appearance
-	}
+    }
 }
