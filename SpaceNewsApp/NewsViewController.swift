@@ -52,6 +52,11 @@ class NewsViewController: UIViewController {
 		title = "News"
 		newsView.newsTable.delegate = self
 		newsView.newsTable.dataSource = self
+		let newsCell = UINib(nibName: "NewsCell",
+								  bundle: nil)
+		newsView.newsTable.register(newsCell, forCellReuseIdentifier: "Cell")
+		newsView.newsTable.rowHeight =  UITableView .automaticDimension
+		newsView.newsTable.estimatedRowHeight =  600
     }
 	
 	override func loadView() {

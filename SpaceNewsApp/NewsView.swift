@@ -28,6 +28,7 @@ class NewsView: UIView {
 		super.init(frame: frame)
 		addSubview(newsTable)
 		addConstraints()
+		backgroundColor = .black.withAlphaComponent(0.9)
 	}
 	
 	required init?(coder: NSCoder) {
