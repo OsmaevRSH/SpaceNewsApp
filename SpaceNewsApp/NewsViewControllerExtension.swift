@@ -23,4 +23,15 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource {
 		}
 		return UITableViewCell()
 	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		let item = newsDataSet[indexPath.row]
+		if let title = item.title,
+		   let url =  item.url
+		{
+			let breakingNewsView = BreakingNewsViewController(titleViewName: title, newsURL: url)
+			navigationController?.show(breakingNewsView, sender: self)
+		}
+	}
 }

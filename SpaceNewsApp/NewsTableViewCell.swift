@@ -17,6 +17,9 @@ class NewsTableViewCell: UITableViewCell {
         super.awakeFromNib()
 		newsImage.layer.cornerRadius = 20
 		backgroundColor = .black.withAlphaComponent(0.9)
+		let bgColorView = UIView()
+		bgColorView.backgroundColor = .gray.withAlphaComponent(0.2)
+		selectedBackgroundView = bgColorView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
