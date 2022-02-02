@@ -10,15 +10,15 @@ import UIKit
 
 extension NewsViewController : UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return dataSet.count
+		return newsDataSet.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? NewsTableViewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: newsView.cellId, for: indexPath) as? NewsTableViewCell
 		if let cell = cell {
 			cell.newsImage.image = UIImage(named: "TestNews")
-			cell.newsInfo.text = dataSet[indexPath.row].title
-			cell.newsPublishedAt.text = dataSet[indexPath.row].source
+			cell.newsInfo.text = newsDataSet[indexPath.row].title
+			cell.newsPublishedAt.text = newsDataSet[indexPath.row].newsSite
 			return cell
 		}
 		return UITableViewCell()

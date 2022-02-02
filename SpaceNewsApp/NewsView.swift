@@ -8,10 +8,17 @@
 import UIKit
 
 class NewsView: UIView {
+	
+	lazy var cellId = "cellId"
 
+	// MARK: - UI elements
 	lazy var newsTable: UITableView = {
 		var table = UITableView()
 		table.translatesAutoresizingMaskIntoConstraints = false
+		let newsCell = UINib(nibName: "NewsCell", bundle: nil)
+		table.register(newsCell, forCellReuseIdentifier: cellId)
+		table.rowHeight = UITableView.automaticDimension
+		table.estimatedRowHeight =  600
 		return table
 	}()
 	
@@ -24,11 +31,11 @@ class NewsView: UIView {
 		])
 	}
 	
+	// MARK: - Initialize
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		addSubview(newsTable)
 		addConstraints()
-		backgroundColor = .black.withAlphaComponent(0.9)
 	}
 	
 	required init?(coder: NSCoder) {

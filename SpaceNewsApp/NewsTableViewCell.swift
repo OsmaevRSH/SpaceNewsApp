@@ -9,11 +9,9 @@ import UIKit
 
 class NewsTableViewCell: UITableViewCell {
 		
-	
 	@IBOutlet weak var newsImage: UIImageView!
 	@IBOutlet weak var newsInfo: UILabel!
 	@IBOutlet weak var newsPublishedAt: UILabel!
-	
 	
 	override func awakeFromNib() {
         super.awakeFromNib()

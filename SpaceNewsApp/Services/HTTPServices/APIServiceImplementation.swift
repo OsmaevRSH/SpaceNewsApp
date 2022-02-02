@@ -7,14 +7,22 @@
 
 import Foundation
 import UIKit
-import SwiftUI
+import Combine
 
-class APIServiceImplementation<T> : APIServiceProtocol {
-	typealias dataType = T
+class APIServiceImplementation : APIServiceProtocol {
+	static let shared = APIServiceImplementation()
 	
-	func get(url: String, queryItem: [String : String]) -> T? {
-		guard let localURL = generateURL(url: url, queryItem: queryItem) else { return nil }
-		return nil
+	func getNews() -> AnyPublisher<[NewsModel], Never> {
+		let newsURL = "https://api.spaceflightnewsapi.net/v3/articles"
+		guard let localURL = generateURL(url: newsURL, queryItem: nil) else {
+			return Just([NewsModel.placeholder]).eraseToAnyPublisher()
+		}
+		return URLSession.shared.dataTaskPublisher(for: localURL)
+			.map { $0.data }
+			.decode(type: [NewsModel].self, decoder: JSONDecoder())
+			.catch { error in Just([NewsModel.placeholder])}
+			.receive(on: RunLoop.main)
+			.eraseToAnyPublisher()
 	}
 	
 	func generateURL(url: String, queryItem: [String : String]?) -> URL? {

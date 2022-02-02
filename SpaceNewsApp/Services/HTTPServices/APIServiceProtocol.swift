@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import Combine
 
 protocol APIServiceProtocol {
-	associatedtype dataType
-	
-	func get(url: String, queryItem: [String: String]) -> dataType?
+	func getNews() -> AnyPublisher<[NewsModel], Never>
 	func generateURL(url:String, queryItem: [String:String]?) -> URL?
 }

@@ -37,6 +37,8 @@
 		C1B4AB1327A9A76A0089F25F /* NewsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB1227A9A76A0089F25F /* NewsViewControllerExtension.swift */; };
 		C1E4D87E27AA718C00D70F2A /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4D87D27AA718C00D70F2A /* NewsTableViewCell.swift */; };
 		C1E4D88227AA792A00D70F2A /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E4D88127AA792A00D70F2A /* NewsCell.xib */; };
+		C1E4D88627AA986E00D70F2A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4D88527AA986E00D70F2A /* NewsViewModel.swift */; };
+		C1E4D88A27AA98C800D70F2A /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4D88927AA98C800D70F2A /* NewsModel.swift */; };
 		C1EAAFA6279DA88D00300FB9 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAAFA5279DA88D00300FB9 /* Alert.swift */; };
 		C1EAAFA9279DA91400300FB9 /* LocationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAAFA8279DA91400300FB9 /* LocationAlert.swift */; };
 		C1FE075627A2CC5D0089D1CE /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE075527A2CC5D0089D1CE /* APIServiceProtocol.swift */; };
@@ -95,6 +97,8 @@
 		C1B4AB1227A9A76A0089F25F /* NewsViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewControllerExtension.swift; sourceTree = "<group>"; };
 		C1E4D87D27AA718C00D70F2A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		C1E4D88127AA792A00D70F2A /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		C1E4D88527AA986E00D70F2A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		C1E4D88927AA98C800D70F2A /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		C1EAAFA5279DA88D00300FB9 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C1EAAFA8279DA91400300FB9 /* LocationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAlert.swift; sourceTree = "<group>"; };
 		C1FE075527A2CC5D0089D1CE /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 		C134923C279AD9D600948C04 /* SpaceNewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				C1E4D88727AA98B100D70F2A /* Model */,
+				C1E4D88327AA983700D70F2A /* ViewModel */,
 				C1FE075327A2CC1C0089D1CE /* Services */,
 				C14B28A7279ADFE300E1D30A /* Views */,
 				C14B28A5279ADF8900E1D30A /* OnBoarding */,
@@ -286,6 +292,38 @@
 				C1E4D88127AA792A00D70F2A /* NewsCell.xib */,
 			);
 			name = News;
+			sourceTree = "<group>";
+		};
+		C1E4D88327AA983700D70F2A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1E4D88427AA984E00D70F2A /* News */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1E4D88427AA984E00D70F2A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				C1E4D88527AA986E00D70F2A /* NewsViewModel.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		C1E4D88727AA98B100D70F2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C1E4D88827AA98B900D70F2A /* NewsModel */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C1E4D88827AA98B900D70F2A /* NewsModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1E4D88927AA98C800D70F2A /* NewsModel.swift */,
+			);
+			name = NewsModel;
 			sourceTree = "<group>";
 		};
 		C1EAAFA7279DA8B800300FB9 /* Alert */ = {
@@ -454,6 +492,7 @@
 				C1FE075827A2CC840089D1CE /* APIServiceImplementation.swift in Sources */,
 				C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */,
 				C1B4AB1127A9A2110089F25F /* NewsView.swift in Sources */,
+				C1E4D88627AA986E00D70F2A /* NewsViewModel.swift in Sources */,
 				C1B4AB0827A98D2F0089F25F /* PhotoView.swift in Sources */,
 				C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */,
 				C1B4AB0D27A9A0DC0089F25F /* NewsNavController.swift in Sources */,
@@ -468,6 +507,7 @@
 				C1349240279AD9D600948C04 /* SceneDelegate.swift in Sources */,
 				C1349277279ADD2900948C04 /* MarsViewController.swift in Sources */,
 				C1E4D87E27AA718C00D70F2A /* NewsTableViewCell.swift in Sources */,
+				C1E4D88A27AA98C800D70F2A /* NewsModel.swift in Sources */,
 				C1349283279ADDBD00948C04 /* OnBoardigView.swift in Sources */,
 				C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */,
 				C1349279279ADD4500948C04 /* MarsNavController.swift in Sources */,
