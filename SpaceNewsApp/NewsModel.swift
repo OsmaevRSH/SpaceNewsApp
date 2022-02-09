@@ -20,7 +20,7 @@ struct NewsModel: Codable {
 	enum CodingKeys: String, CodingKey {
 		case id, featured, title, url
 		case imageURL = "imageUrl"
-		case newsSite, summary, publishedAt, launches, events
+		case newsSite, summary, publishedAt
 	}
 	
 	static var placeholder: Self = {

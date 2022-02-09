@@ -16,7 +16,7 @@ class NewsView: UIView {
 		var table = UITableView()
 		table.translatesAutoresizingMaskIntoConstraints = false
 		let newsCell = UINib(nibName: "NewsCell", bundle: nil)
-		table.register(newsCell, forCellReuseIdentifier: cellId)
+        table.register(NewsTableViewCell.self, forCellReuseIdentifier: cellId)
 		table.rowHeight = UITableView.automaticDimension
 		table.estimatedRowHeight =  600
 		return table
