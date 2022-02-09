@@ -35,7 +35,7 @@ class BaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.tabBar.backgroundColor = .white
-		self.setViewControllers([mapNavController, marsNavController, newsNavController], animated: true)
+		self.setViewControllers([mapNavController, newsNavController], animated: true)
 //		UserDefaults.standard.set(false, forKey: "LaunchBefore") //Need to see onboarding
     }
 }

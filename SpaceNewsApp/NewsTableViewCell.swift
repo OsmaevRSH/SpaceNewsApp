@@ -14,7 +14,7 @@ class NewsTableViewCell: UITableViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 20
         image.clipsToBounds = true
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
@@ -35,7 +35,6 @@ class NewsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
         addConstraints()
-//        backgroundColor = .black.withAlphaComponent(0.9)
         let bgColorView = UIView()
         bgColorView.backgroundColor = .gray.withAlphaComponent(0.2)
         selectedBackgroundView = bgColorView

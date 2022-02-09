@@ -15,14 +15,14 @@ class NewsNavController: UINavigationController {
 		let newsViewController = NewsViewController()
 		self.viewControllers = [newsViewController]
 		
-		let appearance = UINavigationBarAppearance()
-		appearance.backgroundColor = .white
-		appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-		appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
-		
-		self.navigationBar.tintColor = .black
-		self.navigationBar.standardAppearance = appearance
-		self.navigationBar.compactAppearance = appearance
-		self.navigationBar.scrollEdgeAppearance = appearance
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .white
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        
+        self.navigationBar.tintColor = .black
+        self.navigationBar.standardAppearance = appearance
+        self.navigationBar.compactAppearance = appearance
+        self.navigationBar.scrollEdgeAppearance = appearance
     }
 }

@@ -29,11 +29,13 @@
 		C1707C4A27A6DB1000D1D385 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */; };
 		C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */; };
 		C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */; };
+		C185C96C27B3F5D9006D10B2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96B27B3F5D9006D10B2 /* ImageCache.swift */; };
+		C185C96E27B40745006D10B2 /* NewsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96D27B40745006D10B2 /* NewsCellModel.swift */; };
 		C1B4AB0827A98D2F0089F25F /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0727A98D2F0089F25F /* PhotoView.swift */; };
 		C1B4AB0A27A98D400089F25F /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0927A98D400089F25F /* PhotoViewController.swift */; };
 		C1B4AB0D27A9A0DC0089F25F /* NewsNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0C27A9A0DC0089F25F /* NewsNavController.swift */; };
 		C1B4AB0F27A9A10A0089F25F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */; };
-		C1B4AB1127A9A2110089F25F /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB1027A9A2110089F25F /* NewsView.swift */; };
+		C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB1027A9A2110089F25F /* NewsTableView.swift */; };
 		C1B4AB1327A9A76A0089F25F /* NewsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB1227A9A76A0089F25F /* NewsViewControllerExtension.swift */; };
 		C1E4D87E27AA718C00D70F2A /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4D87D27AA718C00D70F2A /* NewsTableViewCell.swift */; };
 		C1E4D88627AA986E00D70F2A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4D88527AA986E00D70F2A /* NewsViewModel.swift */; };
@@ -90,11 +92,13 @@
 		C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerExtension.swift; sourceTree = "<group>"; };
 		C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchTable.swift; sourceTree = "<group>"; };
+		C185C96B27B3F5D9006D10B2 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		C185C96D27B40745006D10B2 /* NewsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellModel.swift; sourceTree = "<group>"; };
 		C1B4AB0727A98D2F0089F25F /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		C1B4AB0927A98D400089F25F /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		C1B4AB0C27A9A0DC0089F25F /* NewsNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNavController.swift; sourceTree = "<group>"; };
 		C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
-		C1B4AB1027A9A2110089F25F /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		C1B4AB1027A9A2110089F25F /* NewsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableView.swift; sourceTree = "<group>"; };
 		C1B4AB1227A9A76A0089F25F /* NewsViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewControllerExtension.swift; sourceTree = "<group>"; };
 		C1E4D87D27AA718C00D70F2A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		C1E4D88527AA986E00D70F2A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
@@ -262,6 +266,14 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		C185C96A27B3F5B6006D10B2 /* CacheService */ = {
+			isa = PBXGroup;
+			children = (
+				C185C96B27B3F5D9006D10B2 /* ImageCache.swift */,
+			);
+			path = CacheService;
+			sourceTree = "<group>";
+		};
 		C1B4AB0527A98CEF0089F25F /* MapView */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				C1E4D88927AA98C800D70F2A /* NewsModel.swift */,
+				C185C96D27B40745006D10B2 /* NewsCellModel.swift */,
 			);
 			name = NewsModel;
 			sourceTree = "<group>";
@@ -329,7 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */,
-				C1B4AB1027A9A2110089F25F /* NewsView.swift */,
+				C1B4AB1027A9A2110089F25F /* NewsTableView.swift */,
 				C1B4AB1227A9A76A0089F25F /* NewsViewControllerExtension.swift */,
 				C1E4D87D27AA718C00D70F2A /* NewsTableViewCell.swift */,
 			);
@@ -357,18 +370,19 @@
 		C1FE075327A2CC1C0089D1CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C1FE075427A2CC320089D1CE /* HTTPServices */,
+				C185C96A27B3F5B6006D10B2 /* CacheService */,
+				C1FE075427A2CC320089D1CE /* HTTPService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		C1FE075427A2CC320089D1CE /* HTTPServices */ = {
+		C1FE075427A2CC320089D1CE /* HTTPService */ = {
 			isa = PBXGroup;
 			children = (
 				C1FE075527A2CC5D0089D1CE /* APIServiceProtocol.swift */,
 				C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */,
 			);
-			path = HTTPServices;
+			path = HTTPService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C185C96C27B3F5D9006D10B2 /* ImageCache.swift in Sources */,
 				C1FE075627A2CC5D0089D1CE /* APIServiceProtocol.swift in Sources */,
 				C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */,
 				C1E4D89027AAB01B00D70F2A /* BreakingNewsView.swift in Sources */,
@@ -508,9 +523,10 @@
 				C1B4AB0F27A9A10A0089F25F /* NewsViewController.swift in Sources */,
 				C1B4AB1327A9A76A0089F25F /* NewsViewControllerExtension.swift in Sources */,
 				C134927B279ADD6C00948C04 /* LaunchView.swift in Sources */,
+				C185C96E27B40745006D10B2 /* NewsCellModel.swift in Sources */,
 				C1FE075827A2CC840089D1CE /* APIServiceImplementation.swift in Sources */,
 				C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */,
-				C1B4AB1127A9A2110089F25F /* NewsView.swift in Sources */,
+				C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */,
 				C1E4D88627AA986E00D70F2A /* NewsViewModel.swift in Sources */,
 				C1B4AB0827A98D2F0089F25F /* PhotoView.swift in Sources */,
 				C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */,
@@ -710,7 +726,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -738,7 +754,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

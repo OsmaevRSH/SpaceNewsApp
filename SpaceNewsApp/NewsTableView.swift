@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsView: UIView {
+class NewsTableView: UIView {
 	
 	lazy var cellId = "cellId"
 
@@ -15,7 +15,6 @@ class NewsView: UIView {
 	lazy var newsTable: UITableView = {
 		var table = UITableView()
 		table.translatesAutoresizingMaskIntoConstraints = false
-		let newsCell = UINib(nibName: "NewsCell", bundle: nil)
         table.register(NewsTableViewCell.self, forCellReuseIdentifier: cellId)
 		table.rowHeight = UITableView.automaticDimension
 		table.estimatedRowHeight =  600
