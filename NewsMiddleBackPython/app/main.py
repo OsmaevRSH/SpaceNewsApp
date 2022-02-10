@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from newspaper import Article
 
 app = FastAPI()
-print("Start")
 
 
 @app.get("/description")
