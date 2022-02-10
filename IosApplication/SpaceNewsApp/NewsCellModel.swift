@@ -20,6 +20,7 @@ class NewsCellModel: Hashable {
     var title: String?
     var publishedAt: String?
     let newsUrl: NSURL?
+    let newsId: Int
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(identifier)
@@ -29,11 +30,12 @@ class NewsCellModel: Hashable {
         return lhs.identifier == rhs.identifier
     }
     
-    init(imageUrl: NSURL?, title: String?, publishedAt: String?, newsUrl: NSURL?) {
+    init(imageUrl: NSURL?, title: String?, publishedAt: String?, newsUrl: NSURL?, newsId: Int) {
         self.image = nil
         self.imageUrl = imageUrl
         self.title = title
         self.publishedAt = publishedAt
         self.newsUrl = newsUrl
+        self.newsId = newsId
     }
 }

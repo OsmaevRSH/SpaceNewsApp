@@ -19,6 +19,8 @@ class BreakingNewsView: UIView {
     lazy var newsInfo: UITextView = {
        var label = UITextView()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isEditable = false
+        label.font = .systemFont(ofSize: 18, weight: .regular)
         return label
     }()
 	

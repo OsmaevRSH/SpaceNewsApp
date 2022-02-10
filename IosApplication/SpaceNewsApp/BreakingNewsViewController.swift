@@ -18,12 +18,12 @@ class BreakingNewsViewController: UIViewController {
         super.viewDidLoad()
     }
 	
-    convenience init(titleViewName: String, newsURL: URL, imageURL: URL) {
+    convenience init(titleViewName: String, newsURL: URL, imageURL: URL, newsId: Int) {
 		self.init(nibName: nil, bundle: nil)
 		self.title = titleViewName
         binding()
         breakingNewsViewModel.getNewsPhoto(imageUrl: imageURL)
-        breakingNewsViewModel.getNewsInfo(newsUrl: newsURL)
+        breakingNewsViewModel.getNewsInfo(newsUrl: newsURL, newsId: newsId)
 	}
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

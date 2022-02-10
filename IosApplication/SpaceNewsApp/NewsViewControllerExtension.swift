@@ -18,7 +18,8 @@ extension NewsViewController : UITableViewDelegate {
 		{
             let breakingNewsView = BreakingNewsViewController(titleViewName: title,
                                                               newsURL: newsUrl,
-                                                              imageURL: imageUrl)
+                                                              imageURL: imageUrl,
+                                                              newsId: item.newsId)
             navigationController?.show(breakingNewsView, sender: nil)
 		}
 	}
@@ -40,8 +41,9 @@ extension NewsViewController : UITableViewDelegate {
             let data = news.map {
                 NewsCellModel(imageUrl: NSURL(string: $0.imageURL ?? ""),
                               title: $0.title,
-                              publishedAt: $0.publishedAt,
-                              newsUrl: NSURL(string: $0.url ?? "")
+                              publishedAt: $0.newsSite,
+                              newsUrl: NSURL(string: $0.url ?? ""),
+                              newsId: $0.id ?? 0
                               )
             }
             self?.newsDataSet.append(contentsOf: data)

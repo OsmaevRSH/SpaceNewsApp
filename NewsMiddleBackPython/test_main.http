@@ -1,6 +1,6 @@
 # Test your FastAPI endpoints
 
-GET http://127.0.0.1:8000/description/?url=https://spacenews.com/satellite-iot-companies-dont-see-broadband-systems-as-competitors/
+GET http://127.0.0.1:8000/description/?url=http://www.nasa.gov/press-release/nasa-to-discuss-webb-telescope-progress-mirror-alignment&news_id=13903
 Accept: application/json
 
 ###

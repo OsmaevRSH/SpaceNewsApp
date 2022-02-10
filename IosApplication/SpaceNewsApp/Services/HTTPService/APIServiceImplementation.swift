@@ -27,9 +27,9 @@ class APIServiceImplementation : APIServiceProtocol {
 			.eraseToAnyPublisher()
 	}
     
-    func getNewsDescription(url: URL) -> AnyPublisher<String, Never> {
+    func getNewsDescription(url: URL, newsId: Int) -> AnyPublisher<String, Never> {
         let descriptionSeverUrl = "http://localhost:80/description/"
-        guard let localURL = generateURL(url: descriptionSeverUrl, queryItem: ["url": url.description]) else {
+        guard let localURL = generateURL(url: descriptionSeverUrl, queryItem: ["url": url.description, "news_id": "\(newsId)"]) else {
             return Just("").eraseToAnyPublisher()
         }
         return URLSession.shared.dataTaskPublisher(for: localURL)

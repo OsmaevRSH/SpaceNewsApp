@@ -36,8 +36,9 @@ class NewsViewModel {
                 $0.map {
                     NewsCellModel(imageUrl: NSURL(string: $0.imageURL ?? ""),
                                   title: $0.title,
-                                  publishedAt: $0.publishedAt,
-                                  newsUrl: NSURL(string: $0.url ?? "")
+                                  publishedAt: $0.newsSite,
+                                  newsUrl: NSURL(string: $0.url ?? ""),
+                                  newsId: $0.id ?? 0
                                   )
                 }
             }
