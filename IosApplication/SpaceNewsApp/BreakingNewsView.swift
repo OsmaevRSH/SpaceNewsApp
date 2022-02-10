@@ -24,11 +24,12 @@ class BreakingNewsView: UIView {
 	
 	private func addConstraints() {
 		NSLayoutConstraint.activate([
+            //newsImage
             newsImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             newsImage.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             newsImage.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
             newsImage.heightAnchor.constraint(equalToConstant: 250),
-            
+            //newsInfo
             newsInfo.topAnchor.constraint(equalTo: newsImage.bottomAnchor),
             newsInfo.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             newsInfo.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),

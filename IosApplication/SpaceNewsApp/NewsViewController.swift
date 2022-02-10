@@ -10,9 +10,10 @@ import Combine
 
 class NewsViewController: UIViewController {
 	
-	private var cancelableSet: Set<AnyCancellable> = []
-	private let viewModel = NewsViewModel()
-    private var newsTableView = NewsTableView()
+    private let viewModel = NewsViewModel()
+	var cancelableSet: Set<AnyCancellable> = []
+    var newsTableView = NewsTableView()
+    var isFetchMoreNews: Bool = true
     
     var newsDataSet: [NewsCellModel] = [] {
         didSet {
@@ -27,7 +28,7 @@ class NewsViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getNews()
+        viewModel.getNews(newsOffset: 0)
 		title = "News"
         setupDataSource()
         binding()
@@ -54,7 +55,7 @@ class NewsViewController: UIViewController {
             cell.newsImage.image = fetchedItem.image
             
             guard let imageUrl = fetchedItem.imageUrl else { return NewsTableViewCell() }
-            ImageCache.shared.loadImage(url: imageUrl, fetchedItem: fetchedItem) { (fetchedItem, image) in
+            ImageCache.shared.loadImageForTableView(url: imageUrl, fetchedItem: fetchedItem) { (fetchedItem, image) in
                 if let img = image, img != fetchedItem.image {
                     var updatedSnapshot = self.dataSource.snapshot()
                     if let datasourceIndex = updatedSnapshot.indexOfItem(fetchedItem) {
@@ -65,7 +66,6 @@ class NewsViewController: UIViewController {
                     }
                 }
             }
-
             return cell
         }
     }

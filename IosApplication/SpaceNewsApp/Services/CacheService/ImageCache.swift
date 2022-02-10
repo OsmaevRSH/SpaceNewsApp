@@ -7,12 +7,11 @@
 
 import Foundation
 import UIKit
-import SwiftUI
 
 public class ImageCache {
     static let shared = ImageCache()
     
-    private let cachedImages = NSCache<NSURL, UIImage>()
+    let cachedImages = NSCache<NSURL, UIImage>()
     private var loadingResponses = [NSURL: [(NewsCellModel, UIImage?) -> Void]]()
     
     
@@ -28,61 +27,25 @@ public class ImageCache {
     ///   - url: url картинки
     ///   - fetchedItem: Изменяемый объект
     ///   - completion: Замыкание для изменения объекта
-    final func loadImage(url: NSURL, fetchedItem: NewsCellModel, completion: @escaping (NewsCellModel, UIImage?) -> Void) {
+    final func loadImageForTableView(url: NSURL, fetchedItem: NewsCellModel, completion: @escaping (NewsCellModel, UIImage?) -> Void) {
         if let cachedImage = getImageFromCache(url: url) {
             DispatchQueue.main.async {
                 completion(fetchedItem, cachedImage)
             }
             return
         }
-        // Если данное изобрадение было запрошено более одного раза, добляем новый обработчик
-        if loadingResponses[url] != nil {
-            loadingResponses[url]?.append(completion)
-            return
-        } else {
-            loadingResponses[url] = [completion]
-        }
-        // Загрузка изобрадения
-        URLSession.shared.dataTask(with: url as URL) { (data, response, error) in
-            // Check for the error, then data and try to create the image.
-            guard let responseData = data, let image = UIImage(data: responseData),
-                let completionBlocks = self.loadingResponses[url], error == nil else {
-                DispatchQueue.main.async {
-                    completion(fetchedItem, nil)
-                }
-                return
-            }
-            // Кэшировние изображения
-            self.cachedImages.setObject(image, forKey: url, cost: responseData.count)
-            // Проход по всем completion блокам для их выполнения
-            for block in completionBlocks {
-                DispatchQueue.main.async {
-                    block(fetchedItem, image)
-                }
-                return
-            }
-        }.resume()
+        //Загрузка изображения
+        APIServiceImplementation.shared.getImageForTableView(imageUrl: url as URL,
+                                                 fetchedItem: fetchedItem,
+                                                 completion: completion)
     }
     
-    func loadImageForBreakingNews(url: URL, completion: @escaping (Result<UIImage, Error>) -> ()) {
+    final func loadImageForBreakingNews(url: URL, completion: @escaping (Result<UIImage, Error>) -> ()) {
         if let cachedImage = getImageFromCache(url: url as NSURL) {
             completion(.success(cachedImage))
         }
         else {
-            URLSession.shared.dataTask(with: url as URL) { (data, response, error) in
-                // Check for the error, then data and try to create the image.
-                guard let responseData = data, let image = UIImage(data: responseData),
-                    error == nil else {
-                        if let error = error {
-                            completion(.failure(error))
-                        }
-                        return
-                }
-                // Кэшировние изображения
-                self.cachedImages.setObject(image, forKey: url as NSURL, cost: responseData.count)
-                // Проход по всем completion блокам для их выполнения
-                completion(.success(image))
-            }.resume()
+            APIServiceImplementation.shared.getImageForBreakingNews(imageUrl: url, completion: completion)
         }
     }
 }

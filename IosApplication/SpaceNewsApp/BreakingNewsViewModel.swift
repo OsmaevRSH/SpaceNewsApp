@@ -18,7 +18,6 @@ class BreakingNewsViewModel {
         APIServiceImplementation.shared.getNewsDescription(url: newsUrl)
             .sink(receiveValue: { [weak self] description in
                 self?.newsInfo = description
-                print(description)
             })
             .store(in: &cancellableSet)
     }

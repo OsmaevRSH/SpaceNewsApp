@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import SafariServices
 
 extension NewsViewController : UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -23,4 +22,32 @@ extension NewsViewController : UITableViewDelegate {
             navigationController?.show(breakingNewsView, sender: nil)
 		}
 	}
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        let size = newsTableView.newsTable.contentSize.height
+        if position > size - scrollView.visibleSize.height && position > 0 {
+            if isFetchMoreNews {
+                isFetchMoreNews = false
+                loadMoreNews()
+            }
+        }
+    }
+    
+    func loadMoreNews() {
+        print("page: \((newsDataSet.count / 20) * 20)")
+        APIServiceImplementation.shared.getNews(newsOffset: (newsDataSet.count / 20) * 20)
+        .sink { [weak self] news in
+            let data = news.map {
+                NewsCellModel(imageUrl: NSURL(string: $0.imageURL ?? ""),
+                              title: $0.title,
+                              publishedAt: $0.publishedAt,
+                              newsUrl: NSURL(string: $0.url ?? "")
+                              )
+            }
+            self?.newsDataSet.append(contentsOf: data)
+            self?.isFetchMoreNews = true
+        }
+        .store(in: &cancelableSet)
+    }
 }

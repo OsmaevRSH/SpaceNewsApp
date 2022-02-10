@@ -9,6 +9,6 @@ import Foundation
 import Combine
 
 protocol APIServiceProtocol {
-	func getNews() -> AnyPublisher<[NewsModel], Never>
+	func getNews(newsOffset: Int) -> AnyPublisher<[NewsModel], Never>
 	func generateURL(url:String, queryItem: [String:String]?) -> URL?
 }

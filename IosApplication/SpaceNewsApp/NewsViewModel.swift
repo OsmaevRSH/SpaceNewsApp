@@ -30,8 +30,8 @@ class NewsViewModel {
 //            .store(in: &self.cancellableSet)
 //	}
 	
-	func getNews() {
-        APIServiceImplementation.shared.getNews()
+	func getNews(newsOffset: Int) {
+        APIServiceImplementation.shared.getNews(newsOffset: newsOffset)
             .map {
                 $0.map {
                     NewsCellModel(imageUrl: NSURL(string: $0.imageURL ?? ""),

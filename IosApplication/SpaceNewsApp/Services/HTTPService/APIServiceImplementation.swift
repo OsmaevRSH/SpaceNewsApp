@@ -14,9 +14,9 @@ class APIServiceImplementation : APIServiceProtocol {
     
     private init() {}
 	
-	func getNews() -> AnyPublisher<[NewsModel], Never> {
+    func getNews(newsOffset: Int) -> AnyPublisher<[NewsModel], Never> {
 		let newsURL = "https://api.spaceflightnewsapi.net/v3/articles"
-		guard let localURL = generateURL(url: newsURL, queryItem: nil) else {
+        guard let localURL = generateURL(url: newsURL, queryItem: ["_limit": "20", "_start": "\(newsOffset)"]) else {
 			return Just([NewsModel.placeholder]).eraseToAnyPublisher()
 		}
 		return URLSession.shared.dataTaskPublisher(for: localURL)
@@ -28,7 +28,8 @@ class APIServiceImplementation : APIServiceProtocol {
 	}
     
     func getNewsDescription(url: URL) -> AnyPublisher<String, Never> {
-        guard let localURL = generateURL(url: "http://localhost:80/description/", queryItem: ["url": url.description]) else {
+        let descriptionSeverUrl = "http://localhost:80/description/"
+        guard let localURL = generateURL(url: descriptionSeverUrl, queryItem: ["url": url.description]) else {
             return Just("").eraseToAnyPublisher()
         }
         return URLSession.shared.dataTaskPublisher(for: localURL)
@@ -50,4 +51,37 @@ class APIServiceImplementation : APIServiceProtocol {
 		})
 		return urlComponent?.url
 	}
+    
+    func getImageForTableView(imageUrl: URL, fetchedItem: NewsCellModel, completion: @escaping (NewsCellModel, UIImage?) -> Void) {
+        URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
+            // Check for the error, then data and try to create the image.
+            guard let responseData = data, let image = UIImage(data: responseData), error == nil else {
+                DispatchQueue.main.async {
+                    completion(fetchedItem, nil)
+                }
+                return
+            }
+            // Кэшировние изображения
+            ImageCache.shared.cachedImages.setObject(image, forKey: imageUrl as NSURL, cost: responseData.count)
+            completion(fetchedItem, image)
+        }
+        .resume()
+    }
+    
+    func getImageForBreakingNews(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> ()) {
+        URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
+            // Check for the error, then data and try to create the image.
+            guard let responseData = data, let image = UIImage(data: responseData),
+                error == nil else {
+                    if let error = error {
+                        completion(.failure(error))
+                    }
+                    return
+            }
+            // Кэшировние изображения
+            ImageCache.shared.cachedImages.setObject(image, forKey: imageUrl as NSURL, cost: responseData.count)
+            // Проход по всем completion блокам для их выполнения
+            completion(.success(image))
+        }.resume()
+    }
 }
