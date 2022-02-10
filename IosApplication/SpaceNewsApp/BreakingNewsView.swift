@@ -10,25 +10,38 @@ import WebKit
 
 class BreakingNewsView: UIView {
 	
-	lazy var webView: WKWebView = {
-		var view = WKWebView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		return view
-	}()
+    lazy var newsImage: UIImageView = {
+        var image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    lazy var newsInfo: UITextView = {
+       var label = UITextView()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 	
 	private func addConstraints() {
 		NSLayoutConstraint.activate([
-			webView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-			webView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
-			webView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-			webView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor)
+            newsImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            newsImage.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            newsImage.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            newsImage.heightAnchor.constraint(equalToConstant: 250),
+            
+            newsInfo.topAnchor.constraint(equalTo: newsImage.bottomAnchor),
+            newsInfo.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            newsInfo.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            newsInfo.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
 		])
 	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		addSubview(webView)
+		addSubview(newsImage)
+        addSubview(newsInfo)
 		addConstraints()
+        backgroundColor = .systemBackground
 	}
 	
 	required init?(coder: NSCoder) {

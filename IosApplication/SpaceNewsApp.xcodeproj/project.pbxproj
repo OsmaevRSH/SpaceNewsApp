@@ -25,6 +25,7 @@
 		C134927F279ADD9E00948C04 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134927E279ADD9E00948C04 /* PageViewController.swift */; };
 		C1349281279ADDAD00948C04 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349280279ADDAD00948C04 /* PageControl.swift */; };
 		C1349283279ADDBD00948C04 /* OnBoardigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349282279ADDBD00948C04 /* OnBoardigView.swift */; };
+		C1528F7227B518DD000A4F0C /* BreakingNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1528F7127B518DD000A4F0C /* BreakingNewsViewModel.swift */; };
 		C1707C4827A6D9D700D1D385 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4727A6D9D700D1D385 /* MapView.swift */; };
 		C1707C4A27A6DB1000D1D385 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */; };
 		C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */; };
@@ -88,6 +89,7 @@
 		C134927E279ADD9E00948C04 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		C1349280279ADDAD00948C04 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		C1349282279ADDBD00948C04 /* OnBoardigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardigView.swift; sourceTree = "<group>"; };
+		C1528F7127B518DD000A4F0C /* BreakingNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingNewsViewModel.swift; sourceTree = "<group>"; };
 		C1707C4727A6D9D700D1D385 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				C1E4D88527AA986E00D70F2A /* NewsViewModel.swift */,
+				C1528F7127B518DD000A4F0C /* BreakingNewsViewModel.swift */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				C1B4AB1327A9A76A0089F25F /* NewsViewControllerExtension.swift in Sources */,
 				C134927B279ADD6C00948C04 /* LaunchView.swift in Sources */,
 				C185C96E27B40745006D10B2 /* NewsCellModel.swift in Sources */,
+				C1528F7227B518DD000A4F0C /* BreakingNewsViewModel.swift in Sources */,
 				C1FE075827A2CC840089D1CE /* APIServiceImplementation.swift in Sources */,
 				C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */,
 				C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */,

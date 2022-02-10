@@ -6,21 +6,24 @@
 //
 
 import UIKit
+import Combine
 
 class BreakingNewsViewController: UIViewController {
 	
-	var breakingNewsView = BreakingNewsView()
-	
-	var newsURL: String!
+	private var breakingNewsView = BreakingNewsView()
+    private var breakingNewsViewModel = BreakingNewsViewModel()
+    private var cancellableSet: Set<AnyCancellable> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 	
-	convenience init(titleViewName: String, newsURL: String) {
+    convenience init(titleViewName: String, newsURL: URL, imageURL: URL) {
 		self.init(nibName: nil, bundle: nil)
 		self.title = titleViewName
-		self.newsURL = newsURL
+        binding()
+        breakingNewsViewModel.getNewsPhoto(imageUrl: imageURL)
+        breakingNewsViewModel.getNewsInfo(newsUrl: newsURL)
 	}
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -34,12 +37,15 @@ class BreakingNewsViewController: UIViewController {
 	override func loadView() {
 		view = breakingNewsView
 	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		if let url = URL(string: self.newsURL) {
-			let request = URLRequest(url: url)
-			breakingNewsView.webView.load(request)
-		}
-	}
+    
+    private func binding() {
+        breakingNewsViewModel
+            .$newsImage
+            .assign(to: \.breakingNewsView.newsImage.image, on: self)
+            .store(in: &cancellableSet)
+        breakingNewsViewModel
+            .$newsInfo
+            .assign(to: \.breakingNewsView.newsInfo.text, on: self)
+            .store(in: &cancellableSet)
+    }
 }

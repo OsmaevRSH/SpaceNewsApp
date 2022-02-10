@@ -27,7 +27,7 @@ class NewsViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-//        viewModel.getNews()
+        viewModel.getNews()
 		title = "News"
         setupDataSource()
         binding()

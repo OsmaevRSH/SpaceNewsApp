@@ -13,10 +13,14 @@ extension NewsViewController : UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		let item = newsDataSet[indexPath.row]
-        if let url =  item.newsUrl as URL?
+        if let newsUrl =  item.newsUrl as URL?,
+           let title = item.title,
+           let imageUrl = item.imageUrl as URL?
 		{
-            let breakingNewsView = SFSafariViewController(url: url)
-			present(breakingNewsView, animated: true)
+            let breakingNewsView = BreakingNewsViewController(titleViewName: title,
+                                                              newsURL: newsUrl,
+                                                              imageURL: imageUrl)
+            navigationController?.show(breakingNewsView, sender: nil)
 		}
 	}
 }

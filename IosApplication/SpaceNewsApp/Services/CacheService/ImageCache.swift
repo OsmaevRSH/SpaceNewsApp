@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 public class ImageCache {
     static let shared = ImageCache()
@@ -22,6 +23,11 @@ public class ImageCache {
         return cachedImages.object(forKey: url)
     }
     
+    /// Метод для загрузки картинки в ленту новостей
+    /// - Parameters:
+    ///   - url: url картинки
+    ///   - fetchedItem: Изменяемый объект
+    ///   - completion: Замыкание для изменения объекта
     final func loadImage(url: NSURL, fetchedItem: NewsCellModel, completion: @escaping (NewsCellModel, UIImage?) -> Void) {
         if let cachedImage = getImageFromCache(url: url) {
             DispatchQueue.main.async {
@@ -57,5 +63,26 @@ public class ImageCache {
             }
         }.resume()
     }
-        
+    
+    func loadImageForBreakingNews(url: URL, completion: @escaping (Result<UIImage, Error>) -> ()) {
+        if let cachedImage = getImageFromCache(url: url as NSURL) {
+            completion(.success(cachedImage))
+        }
+        else {
+            URLSession.shared.dataTask(with: url as URL) { (data, response, error) in
+                // Check for the error, then data and try to create the image.
+                guard let responseData = data, let image = UIImage(data: responseData),
+                    error == nil else {
+                        if let error = error {
+                            completion(.failure(error))
+                        }
+                        return
+                }
+                // Кэшировние изображения
+                self.cachedImages.setObject(image, forKey: url as NSURL, cost: responseData.count)
+                // Проход по всем completion блокам для их выполнения
+                completion(.success(image))
+            }.resume()
+        }
+    }
 }
