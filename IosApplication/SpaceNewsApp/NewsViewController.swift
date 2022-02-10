@@ -14,14 +14,31 @@ class NewsViewController: UIViewController {
 	var cancelableSet: Set<AnyCancellable> = []
     var newsTableView = NewsTableView()
     var isFetchMoreNews: Bool = true
+    var isRefresh: Bool = false
     
     var newsDataSet: [NewsCellModel] = [] {
         didSet {
             var initialSnapshot = NSDiffableDataSourceSnapshot<Section, NewsCellModel>()
             initialSnapshot.appendSections([.main])
             initialSnapshot.appendItems(newsDataSet)
-            self.dataSource.apply(initialSnapshot, animatingDifferences: true)
+            self.dataSource.apply(initialSnapshot, animatingDifferences: false)
+            if isRefresh {
+                isRefresh = false
+                refreshItem.endRefreshing()
+            }
         }
+    }
+    
+    lazy var refreshItem: UIRefreshControl = {
+        var refresh = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: "Refresh news")
+        refresh.addTarget(self, action: #selector(refreshHandeler), for: .valueChanged)
+        return refresh
+    }()
+    
+    @objc func refreshHandeler() {
+        isRefresh = true
+        self.viewModel.getNews(newsOffset: 0)
     }
     
     var dataSource: UITableViewDiffableDataSource<Section, NewsCellModel>! = nil
@@ -32,6 +49,7 @@ class NewsViewController: UIViewController {
 		title = "News"
         setupDataSource()
         binding()
+        newsTableView.newsTable.addSubview(refreshItem)
         newsTableView.newsTable.delegate = self
     }
 

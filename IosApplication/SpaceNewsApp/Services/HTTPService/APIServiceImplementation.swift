@@ -63,7 +63,9 @@ class APIServiceImplementation : APIServiceProtocol {
             }
             // Кэшировние изображения
             ImageCache.shared.cachedImages.setObject(image, forKey: imageUrl as NSURL, cost: responseData.count)
-            completion(fetchedItem, image)
+            DispatchQueue.main.async {
+                completion(fetchedItem, image)
+            }
         }
         .resume()
     }

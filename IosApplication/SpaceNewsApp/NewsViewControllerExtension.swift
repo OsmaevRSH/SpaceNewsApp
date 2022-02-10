@@ -34,9 +34,8 @@ extension NewsViewController : UITableViewDelegate {
         }
     }
     
-    func loadMoreNews() {
-        print("page: \((newsDataSet.count / 20) * 20)")
-        APIServiceImplementation.shared.getNews(newsOffset: (newsDataSet.count / 20) * 20)
+    private func loadMoreNews() {
+        APIServiceImplementation.shared.getNews(newsOffset: (newsDataSet.count / 20) * 20 + 1)
         .sink { [weak self] news in
             let data = news.map {
                 NewsCellModel(imageUrl: NSURL(string: $0.imageURL ?? ""),

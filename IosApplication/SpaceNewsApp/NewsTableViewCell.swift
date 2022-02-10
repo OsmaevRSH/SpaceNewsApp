@@ -13,6 +13,7 @@ class NewsTableViewCell: UITableViewCell {
         var image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 20
+        image.layer.masksToBounds = true
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
         return image
