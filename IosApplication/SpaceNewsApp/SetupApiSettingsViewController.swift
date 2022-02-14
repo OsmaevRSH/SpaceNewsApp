@@ -1,5 +1,5 @@
 //
-//  PhotoViewController.swift
+//  SetupApiSettingsViewController.swift
 //  SpaceNewsApp
 //
 //  Created by Руслан Осмаев on 01.02.2022.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController {
+class SetupApiSettingsViewController: UIViewController {
 
-	var photoView = PhotoView()
+	var photoView = SetupApiSettingsView()
 	
     override func viewDidLoad() {
         super.viewDidLoad()

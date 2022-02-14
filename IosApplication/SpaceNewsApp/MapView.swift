@@ -45,7 +45,7 @@ class MapView: UIView {
 		var button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.layer.cornerRadius = 20
-		button.setTitle("Create photo", for: .normal)
+		button.setTitle("Setup API settings", for: .normal)
 		button.setImage(UIImage(systemName: "camera"), for: .normal)
 		button.backgroundColor = .blue.withAlphaComponent(0.7)
 		button.setTitleColor(.white, for: .normal)

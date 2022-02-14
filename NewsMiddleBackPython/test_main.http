@@ -4,3 +4,8 @@ GET http://127.0.0.1:8000/description/?url=http://www.nasa.gov/press-release/nas
 Accept: application/json
 
 ###
+
+GET http://127.0.0.1:8000/testApi/?language=en&latitude=55.12&longitude=37.02&radius=25&min_population=100&max_population=10000
+Accept: application/json
+
+###

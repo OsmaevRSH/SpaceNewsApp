@@ -32,8 +32,8 @@
 		C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */; };
 		C185C96C27B3F5D9006D10B2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96B27B3F5D9006D10B2 /* ImageCache.swift */; };
 		C185C96E27B40745006D10B2 /* NewsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96D27B40745006D10B2 /* NewsCellModel.swift */; };
-		C1B4AB0827A98D2F0089F25F /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0727A98D2F0089F25F /* PhotoView.swift */; };
-		C1B4AB0A27A98D400089F25F /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0927A98D400089F25F /* PhotoViewController.swift */; };
+		C1B4AB0827A98D2F0089F25F /* SetupApiSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0727A98D2F0089F25F /* SetupApiSettingsView.swift */; };
+		C1B4AB0A27A98D400089F25F /* SetupApiSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0927A98D400089F25F /* SetupApiSettingsViewController.swift */; };
 		C1B4AB0D27A9A0DC0089F25F /* NewsNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0C27A9A0DC0089F25F /* NewsNavController.swift */; };
 		C1B4AB0F27A9A10A0089F25F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */; };
 		C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB1027A9A2110089F25F /* NewsTableView.swift */; };
@@ -96,8 +96,8 @@
 		C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchTable.swift; sourceTree = "<group>"; };
 		C185C96B27B3F5D9006D10B2 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		C185C96D27B40745006D10B2 /* NewsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellModel.swift; sourceTree = "<group>"; };
-		C1B4AB0727A98D2F0089F25F /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
-		C1B4AB0927A98D400089F25F /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		C1B4AB0727A98D2F0089F25F /* SetupApiSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupApiSettingsView.swift; sourceTree = "<group>"; };
+		C1B4AB0927A98D400089F25F /* SetupApiSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupApiSettingsViewController.swift; sourceTree = "<group>"; };
 		C1B4AB0C27A9A0DC0089F25F /* NewsNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNavController.swift; sourceTree = "<group>"; };
 		C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		C1B4AB1027A9A2110089F25F /* NewsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableView.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				C1349272279ADCE800948C04 /* MapNavController.swift */,
-				C1B4AB0627A98CFC0089F25F /* PhotoView */,
+				C1B4AB0627A98CFC0089F25F /* SetupApiSettingsView */,
 				C1B4AB0527A98CEF0089F25F /* MapView */,
 			);
 			name = Map;
@@ -288,13 +288,13 @@
 			name = MapView;
 			sourceTree = "<group>";
 		};
-		C1B4AB0627A98CFC0089F25F /* PhotoView */ = {
+		C1B4AB0627A98CFC0089F25F /* SetupApiSettingsView */ = {
 			isa = PBXGroup;
 			children = (
-				C1B4AB0727A98D2F0089F25F /* PhotoView.swift */,
-				C1B4AB0927A98D400089F25F /* PhotoViewController.swift */,
+				C1B4AB0727A98D2F0089F25F /* SetupApiSettingsView.swift */,
+				C1B4AB0927A98D400089F25F /* SetupApiSettingsViewController.swift */,
 			);
-			name = PhotoView;
+			name = SetupApiSettingsView;
 			sourceTree = "<group>";
 		};
 		C1B4AB0B27A9A08B0089F25F /* News */ = {
@@ -522,7 +522,7 @@
 				C1FE075627A2CC5D0089D1CE /* APIServiceProtocol.swift in Sources */,
 				C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */,
 				C1E4D89027AAB01B00D70F2A /* BreakingNewsView.swift in Sources */,
-				C1B4AB0A27A98D400089F25F /* PhotoViewController.swift in Sources */,
+				C1B4AB0A27A98D400089F25F /* SetupApiSettingsViewController.swift in Sources */,
 				C1B4AB0F27A9A10A0089F25F /* NewsViewController.swift in Sources */,
 				C1B4AB1327A9A76A0089F25F /* NewsViewControllerExtension.swift in Sources */,
 				C134927B279ADD6C00948C04 /* LaunchView.swift in Sources */,
@@ -532,7 +532,7 @@
 				C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */,
 				C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */,
 				C1E4D88627AA986E00D70F2A /* NewsViewModel.swift in Sources */,
-				C1B4AB0827A98D2F0089F25F /* PhotoView.swift in Sources */,
+				C1B4AB0827A98D2F0089F25F /* SetupApiSettingsView.swift in Sources */,
 				C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */,
 				C1B4AB0D27A9A0DC0089F25F /* NewsNavController.swift in Sources */,
 				C1349281279ADDAD00948C04 /* PageControl.swift in Sources */,

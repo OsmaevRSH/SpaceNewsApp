@@ -45,7 +45,7 @@ extension MapViewController: MapViewDelegate {
 		}
 		print(locationForRequest)
 		
-		self.navigationController?.show(PhotoViewController(), sender: self)
+		self.navigationController?.show(SetupApiSettingsViewController(), sender: self)
 	}
 }
 
