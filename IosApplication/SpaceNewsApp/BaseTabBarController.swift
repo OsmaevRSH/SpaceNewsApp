@@ -1,41 +1,43 @@
 import UIKit
 
 class BaseTabBarController: UITabBarController {
-
-	let mapNavController: UINavigationController = {
-		let navController = MapNavController()
-		let tabBarItem = UITabBarItem(
-			title: "Map",
-			image: UIImage(systemName: "map"),
-			selectedImage: UIImage(systemName: "map"))
-		navController.tabBarItem = tabBarItem
-		return navController
-	}()
-	
-	let marsNavController: UINavigationController = {
-		let navController = MarsNavController()
-		let tabBarItem = UITabBarItem(
-			title: "Map",
-			image: UIImage(systemName: "airplane"),
-			selectedImage: UIImage(systemName: "airplane"))
-		navController.tabBarItem = tabBarItem
-		return navController
-	}()
-	
-	let newsNavController: UINavigationController = {
-		let navController = NewsNavController()
-		let tabBarItem = UITabBarItem(
-			title: "News",
-			image: UIImage(systemName: "newspaper"),
-			selectedImage: UIImage(systemName: "newspaper"))
-		navController.tabBarItem = tabBarItem
-		return navController
-	}()
+    
+    var mapNavController: MapNavController!
+    var marsNavController: MarsNavController!
+    var newsNavController: NewsNavController!
+    
+    private func configureControllers() {
+        let mapTabBarItem = UITabBarItem(
+            title: "Map",
+            image: UIImage(systemName: "map"),
+            selectedImage: UIImage(systemName: "map")
+            )
+        mapNavController.tabBarItem = mapTabBarItem
+        
+        let newsTabBarItem = UITabBarItem(
+            title: "News",
+            image: UIImage(systemName: "newspaper"),
+            selectedImage: UIImage(systemName: "newspaper")
+            )
+        newsNavController.tabBarItem = newsTabBarItem
+        
+        let marsTabBarItem = UITabBarItem(
+            title: "Mars",
+            image: UIImage(systemName: "airplane"),
+            selectedImage: UIImage(systemName: "airplane")
+            )
+        marsNavController.tabBarItem = marsTabBarItem
+    }
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.tabBar.backgroundColor = .white
-		self.setViewControllers([mapNavController, newsNavController], animated: true)
 //		UserDefaults.standard.set(false, forKey: "LaunchBefore") //Need to see onboarding
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureControllers()
+        self.setViewControllers([mapNavController, newsNavController], animated: true)
     }
 }

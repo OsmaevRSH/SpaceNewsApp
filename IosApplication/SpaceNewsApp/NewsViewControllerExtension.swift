@@ -16,11 +16,11 @@ extension NewsViewController : UITableViewDelegate {
            let title = item.title,
            let imageUrl = item.imageUrl as URL?
 		{
-            let breakingNewsView = BreakingNewsViewController(titleViewName: title,
-                                                              newsURL: newsUrl,
-                                                              imageURL: imageUrl,
-                                                              newsId: item.newsId)
-            navigationController?.show(breakingNewsView, sender: nil)
+            breakingNewsViewController.setupFields(titleViewName: title,
+                                         newsURL: newsUrl,
+                                         imageURL: imageUrl,
+                                         newsId: item.newsId)
+            navigationController?.show(breakingNewsViewController, sender: nil)
 		}
 	}
     

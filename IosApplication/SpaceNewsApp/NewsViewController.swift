@@ -10,7 +10,9 @@ import Combine
 
 class NewsViewController: UIViewController {
 	
-    private let viewModel = NewsViewModel()
+    var viewModel: NewsViewModel!
+    var breakingNewsViewController: BreakingNewsViewController!
+    
 	var cancelableSet: Set<AnyCancellable> = []
     var newsTableView = NewsTableView()
     var isFetchMoreNews: Bool = true

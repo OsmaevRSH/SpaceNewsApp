@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		if let windowScene = scene as? UIWindowScene {
 			let window = UIWindow(windowScene: windowScene)
 //			window.rootViewController = UIHostingController(rootView: LaunchView().environmentObject(ViewLaunch()))
-			window.rootViewController = BaseTabBarController()
+            window.rootViewController = AssemblyLayer.configureBaseTabBarController()
 			self.window = window
 			window.makeKeyAndVisible()
 		}

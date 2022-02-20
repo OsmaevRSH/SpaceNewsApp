@@ -8,11 +8,12 @@
 import UIKit
 
 class NewsNavController: UINavigationController {
+    
+    var newsViewController: NewsViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		let newsViewController = NewsViewController()
+        
 		self.viewControllers = [newsViewController]
 		
         let appearance = UINavigationBarAppearance()

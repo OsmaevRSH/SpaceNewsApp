@@ -10,29 +10,28 @@ import Combine
 
 class BreakingNewsViewController: UIViewController {
 	
-	private var breakingNewsView = BreakingNewsView()
-    private var breakingNewsViewModel = BreakingNewsViewModel()
+    var breakingNewsViewModel: BreakingNewsViewModel!
+    
     private var cancellableSet: Set<AnyCancellable> = []
+    private var breakingNewsView = BreakingNewsView()
+    
+    private var imageURL: URL!
+    private var newsURL: URL!
+    private var newsId: Int!
+    
+    func setupFields(titleViewName: String, newsURL: URL, imageURL: URL, newsId: Int) {
+        self.imageURL = imageURL
+        self.newsURL = newsURL
+        self.newsId = newsId
+        self.title = titleViewName
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-	
-    convenience init(titleViewName: String, newsURL: URL, imageURL: URL, newsId: Int) {
-		self.init(nibName: nil, bundle: nil)
-		self.title = titleViewName
         binding()
         breakingNewsViewModel.getNewsPhoto(imageUrl: imageURL)
         breakingNewsViewModel.getNewsInfo(newsUrl: newsURL, newsId: newsId)
-	}
-	
-	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-	}
-	
-	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
+    }
 	
 	override func loadView() {
 		view = breakingNewsView

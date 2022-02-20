@@ -8,11 +8,9 @@
 import UIKit
 
 class SetupApiSettingsView: UIView {
-
-    /*
-     latitude: str, longitude: str, radius: str, min_population: str, max_population: str
-     */
     
+    weak var delegate: SetupApiDelegate?
+
 	// MARK: - Radius
 	lazy var radiusSlider: UISlider = {
 		var slider = UISlider()
@@ -103,6 +101,7 @@ class SetupApiSettingsView: UIView {
         button.backgroundColor = .blue
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 16
+        button.addTarget(self, action: #selector(submitButtonHandler), for: .touchUpInside)
         return button
     }()
     
@@ -153,5 +152,9 @@ class SetupApiSettingsView: UIView {
     private func removeKeyboard() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UITextField.endEditing(_:)))
         self.addGestureRecognizer(tap)
+    }
+    
+    @objc private func submitButtonHandler() {
+        delegate?.submitButtonHandler()
     }
 }

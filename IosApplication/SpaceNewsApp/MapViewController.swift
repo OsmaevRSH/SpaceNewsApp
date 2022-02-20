@@ -7,14 +7,12 @@ protocol HandleMapSearch {
 
 class MapViewController: UIViewController {
 	
+    var setupApiSettingsViewController: SetupApiSettingsViewController!
+    
 	lazy var mapView = MapView()
-	
 	var selectedPin: MKPlacemark?
-	
 	var seacrhController: UISearchController?
-	
 	var locationSearchTable: MapSearchTable!
-	
 	lazy var locationManager = CLLocationManager()
 	
 		/// Метод вызывающийся при загрузке view

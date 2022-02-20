@@ -2,10 +2,11 @@ import UIKit
 
 class MapNavController: UINavigationController {
 	
+    var mapViewController: MapViewController!
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let mapViewController = MapViewController()
 		self.viewControllers = [mapViewController]
 		
 		let appearance = UINavigationBarAppearance()
