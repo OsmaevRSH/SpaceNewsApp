@@ -6,17 +6,34 @@
 //
 
 import UIKit
+import Combine
 
 class TableCityViewController: UIViewController {
 
     var viewModel: ResultCityPageViewModel!
     var page: Pages
+    var cancellableSet: Set<AnyCancellable> = []
+    
+    var dataStorage: [City] = [] {
+        didSet {
+            table.reloadData()
+        }
+    }
+    
+    func binding() {
+        viewModel.$dataStorage
+            .sink { [weak self] value in
+                self?.dataStorage = value.cities
+            }
+            .store(in: &cancellableSet)
+    }
     
     lazy var table: UITableView = {
         var table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.delegate = self
         table.dataSource = self
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
     
@@ -48,12 +65,12 @@ class TableCityViewController: UIViewController {
 
 extension TableCityViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        20
+        dataStorage.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = dataStorage[indexPath.row].name
+        return cell
+    }    
 }

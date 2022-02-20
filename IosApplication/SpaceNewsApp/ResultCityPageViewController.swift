@@ -38,18 +38,12 @@ class ResultCityPageViewController: UIPageViewController {
     private let pages: [Pages] = Pages.allCases
     private var currentIndex = 0
     
-    private var latitude: String!
-    private var longitude: String!
-    private var radius: String!
-    private var minPopulation: String!
-    private var maxPopulation: String!
-    
     func setupFields(latitude: String, longitude: String, radius: String, minPopulation: String, maxPopulation: String) {
-        self.latitude = latitude
-        self.longitude = longitude
-        self.radius = radius
-        self.minPopulation = minPopulation
-        self.maxPopulation = maxPopulation
+        viewModel.getCitys(latitude: latitude,
+                           longitude: longitude,
+                           radius: radius,
+                           minPopulation: minPopulation,
+                           maxPopulation: maxPopulation)
     }
     
     override func viewDidLoad() {
