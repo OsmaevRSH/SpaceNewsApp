@@ -34,6 +34,7 @@ class TableCityViewController: UIViewController {
         table.delegate = self
         table.dataSource = self
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.allowsSelection = false
         return table
     }()
     
@@ -42,6 +43,7 @@ class TableCityViewController: UIViewController {
         view.backgroundColor = .red
         view.addSubview(table)
         addConstraints()
+        binding()
     }
     
     init() {
@@ -69,8 +71,9 @@ extension TableCityViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         cell.textLabel?.text = dataStorage[indexPath.row].name
+        cell.detailTextLabel?.text = dataStorage[indexPath.row].distance
         return cell
-    }    
+    }
 }

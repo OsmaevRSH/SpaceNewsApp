@@ -22,7 +22,7 @@ class AssemblyLayer {
         let breakingNewsViewController = BreakingNewsViewController()
         let breakingNewsViewModel = BreakingNewsViewModel()
         let setupApiSettingsViewController = SetupApiSettingsViewController()
-        let resultCityPageViewController = ResultCityPageViewController()
+        let resultCityPageViewController = ResultCityPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         let mapCityViewController = MapCityViewController()
         let tableCityViewController = TableCityViewController()
         let resultCityPageViewModel = ResultCityPageViewModel()
