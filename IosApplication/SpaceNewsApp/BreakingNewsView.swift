@@ -45,6 +45,8 @@ class BreakingNewsView: UIView {
         addSubview(newsInfo)
 		addConstraints()
         backgroundColor = .systemBackground
+        self.layer.cornerRadius = 22
+        self.layer.masksToBounds = true
 	}
 	
 	required init?(coder: NSCoder) {

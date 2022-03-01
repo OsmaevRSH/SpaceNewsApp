@@ -20,7 +20,8 @@ extension NewsViewController : UITableViewDelegate {
                                          newsURL: newsUrl,
                                          imageURL: imageUrl,
                                          newsId: item.newsId)
-            navigationController?.show(breakingNewsViewController, sender: nil)
+//            navigationController?.show(breakingNewsViewController, sender: nil)
+            showTransparentView()
 		}
 	}
     

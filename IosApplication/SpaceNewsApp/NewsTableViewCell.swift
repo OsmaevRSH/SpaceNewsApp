@@ -50,6 +50,7 @@ class NewsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
         addConstraints()
+        self.selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
@@ -77,15 +78,15 @@ class NewsTableViewCell: UITableViewCell {
             newsImage.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor),
             newsImage.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor),
             
-            newsInfo.topAnchor.constraint(equalTo: newsImage.safeAreaLayoutGuide.bottomAnchor, constant: 8),
-            newsInfo.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 8),
-            newsInfo.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -8),
+            newsInfo.topAnchor.constraint(equalTo: newsImage.safeAreaLayoutGuide.bottomAnchor, constant: 16),
+            newsInfo.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            newsInfo.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -16),
             
             newsPublishedAt.heightAnchor.constraint(equalToConstant: 25),
             newsPublishedAt.topAnchor.constraint(equalTo: newsInfo.safeAreaLayoutGuide.bottomAnchor),
-            newsPublishedAt.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 8),
-            newsPublishedAt.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -8),
-            newsPublishedAt.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -8)
+            newsPublishedAt.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            newsPublishedAt.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            newsPublishedAt.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
 }

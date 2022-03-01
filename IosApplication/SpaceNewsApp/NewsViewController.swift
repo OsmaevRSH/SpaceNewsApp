@@ -9,7 +9,58 @@ import UIKit
 import Combine
 
 class NewsViewController: UIViewController {
-	
+    
+    lazy var transparentView: UIView = {
+        var localView = UIView()
+        localView.frame = view.frame
+        var tap = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
+        localView.addGestureRecognizer(tap)
+        return localView
+    }()
+    
+    @objc private func removeTransparentView() {
+        UIView
+            .animate(withDuration: 0.3,
+                     animations:
+        { [weak self] in
+           self?.transparentView.alpha = 0
+           self?.breakingNewsViewController.view.alpha = 0
+        })
+        { [weak self] _ in
+            self?.transparentView.removeFromSuperview()
+            self?.breakingNewsViewController.view.removeFromSuperview()
+        }
+    }
+    
+    func showTransparentView() {
+        let window = UIApplication.shared.connectedScenes
+            .flatMap{ ($0 as? UIWindowScene)?.windows ?? [] }
+            .first{ $0.isKeyWindow }
+        
+        guard let window = window else {
+            return
+        }
+        
+        let newsViewHeight = window.safeAreaLayoutGuide.layoutFrame.height - 32
+        
+        breakingNewsViewController.view.frame = CGRect(x: window.safeAreaLayoutGuide.layoutFrame.origin.x + 16,
+                                         y: window.safeAreaLayoutGuide.layoutFrame.origin.y + 16,
+                                         width: window.safeAreaLayoutGuide.layoutFrame.width - 32,
+                                         height: newsViewHeight)
+        breakingNewsViewController.view.alpha = 0
+        
+        transparentView.frame = window.frame
+        transparentView.backgroundColor = .black.withAlphaComponent(0.9)
+        transparentView.alpha = 0
+
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.transparentView.alpha = 0.5
+            self?.breakingNewsViewController.view.alpha = 1
+        }
+        window.addSubview(transparentView)
+        window.addSubview(breakingNewsViewController.view)
+    }
+    
     var viewModel: NewsViewModel!
     var breakingNewsViewController: BreakingNewsViewController!
     
