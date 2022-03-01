@@ -13,7 +13,6 @@ class NewsViewController: UIViewController {
     var viewModel: NewsViewModel!
     var breakingNewsViewController: BreakingNewsViewController!
     
-	var cancelableSet: Set<AnyCancellable> = []
     var newsTableView = NewsTableView()
     var isFetchMoreNews: Bool = true
     var isRefresh: Bool = false
@@ -49,10 +48,20 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         viewModel.getNews(newsOffset: 0)
 		title = "News"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "tray.full"),
+                                                           style: .done, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.wave.2"),
+                                                           style: .done, target: nil, action: nil)
         setupDataSource()
         binding()
         newsTableView.newsTable.addSubview(refreshItem)
         newsTableView.newsTable.delegate = self
+    }
+    
+    private func setupFontTitleStyle() {
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "SF Pro Text", size: 17),
+                          NSAttributedString.Key.font: .systemFont(ofSize: 17, weight: .semibold)]
+        UINavigationBar.appearance().titleTextAttributes = attributes as [NSAttributedString.Key : Any]
     }
 
 	override func loadView() {
@@ -62,7 +71,7 @@ class NewsViewController: UIViewController {
 	private func binding() {
 		viewModel
 			.$newsDataSet.assign(to: \.newsDataSet, on: self)
-			.store(in: &self.cancelableSet)
+            .store(in: &CancellableSetService.shared.set)
 	}
     
     private func setupDataSource() {

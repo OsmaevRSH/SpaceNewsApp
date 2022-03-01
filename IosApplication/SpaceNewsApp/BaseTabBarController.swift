@@ -5,12 +5,13 @@ class BaseTabBarController: UITabBarController {
     var mapNavController: MapNavController!
     var marsNavController: MarsNavController!
     var newsNavController: NewsNavController!
+    var videoNavController: VideoNavController!
     
     private func configureControllers() {
         let mapTabBarItem = UITabBarItem(
             title: "Map",
-            image: UIImage(systemName: "map"),
-            selectedImage: UIImage(systemName: "map")
+            image: UIImage(systemName: "mappin.and.ellipse"),
+            selectedImage: UIImage(systemName: "mappin.and.ellipse")
             )
         mapNavController.tabBarItem = mapTabBarItem
         
@@ -27,17 +28,25 @@ class BaseTabBarController: UITabBarController {
             selectedImage: UIImage(systemName: "airplane")
             )
         marsNavController.tabBarItem = marsTabBarItem
+        
+        let videoTabBarItem = UITabBarItem(
+            title: "Videos",
+            image: UIImage(systemName: "play.rectangle"),
+            selectedImage: UIImage(systemName: "play.rectangle")
+            )
+        videoNavController.tabBarItem = videoTabBarItem
     }
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.tabBar.backgroundColor = .white
+        self.tabBar.isTranslucent = false
 //		UserDefaults.standard.set(false, forKey: "LaunchBefore") //Need to see onboarding
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureControllers()
-        self.setViewControllers([mapNavController, newsNavController], animated: true)
+        self.setViewControllers([newsNavController, videoNavController, mapNavController], animated: true)
     }
 }

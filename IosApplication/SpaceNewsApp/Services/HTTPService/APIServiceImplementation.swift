@@ -11,6 +11,7 @@ import Combine
 
 class APIServiceImplementation : APIServiceProtocol {
 	static let shared = APIServiceImplementation()
+    var nextPageVideoToken = ""
     
     private init() {}
 	
@@ -54,14 +55,12 @@ class APIServiceImplementation : APIServiceProtocol {
     
     func getImageForTableView(imageUrl: URL, fetchedItem: NewsCellModel, completion: @escaping (NewsCellModel, UIImage?) -> Void) {
         URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
-            // Check for the error, then data and try to create the image.
             guard let responseData = data, let image = UIImage(data: responseData), error == nil else {
                 DispatchQueue.main.async {
                     completion(fetchedItem, nil)
                 }
                 return
             }
-            // Кэшировние изображения
             ImageCache.shared.cachedImages.setObject(image, forKey: imageUrl as NSURL, cost: responseData.count)
             DispatchQueue.main.async {
                 completion(fetchedItem, image)
@@ -72,22 +71,18 @@ class APIServiceImplementation : APIServiceProtocol {
     
     func getImageForBreakingNews(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> ()) {
         URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
-            // Check for the error, then data and try to create the image.
-            guard let responseData = data, let image = UIImage(data: responseData),
-                error == nil else {
-                    if let error = error {
-                        completion(.failure(error))
-                    }
-                    return
+            guard let responseData = data, let image = UIImage(data: responseData), error == nil else {
+                if let error = error {
+                    completion(.failure(error))
+                }
+                return
             }
-            // Кэшировние изображения
             ImageCache.shared.cachedImages.setObject(image, forKey: imageUrl as NSURL, cost: responseData.count)
-            // Проход по всем completion блокам для их выполнения
             completion(.success(image))
         }.resume()
     }
     
-    func getCitys(latitude: String,
+    func getCitiesAroundThePoint(latitude: String,
                   longitude: String,
                   radius: String,
                   minPopulation: String,
@@ -105,6 +100,33 @@ class APIServiceImplementation : APIServiceProtocol {
             .map { $0.data }
             .decode(type: ResultCitysModel.self, decoder: JSONDecoder())
             .catch { error in Just(ResultCitysModel.placeholder) }
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getAListOfVideos() -> AnyPublisher<[VideoItem], Never> {
+        let url = "https://www.googleapis.com/youtube/v3/search"
+        guard let localUrl = generateURL(
+            url: url,
+            queryItem:
+                [
+                    "key": "AIzaSyD4ZVpI4bi4bk3BELNzgH9ZpXWRwyczPHw",
+                    "channelId": "UCLA_DiR1FfKNvjuUpBHmylQ",
+                    "part": "snippet,id",
+                    "order": "date",
+                    "maxResults": "20",
+                    "pageToken": nextPageVideoToken
+                ]) else {
+            return Just([VideoItem.placeholder]).eraseToAnyPublisher()
+        }
+        return URLSession.shared.dataTaskPublisher(for: localUrl)
+            .map { $0.data }
+            .decode(type: VideosListModel.self, decoder: JSONDecoder())
+            .map {
+                self.nextPageVideoToken = $0.nextPageToken ?? ""
+                return $0.items ?? [VideoItem.placeholder]
+            }
+            .catch { error in Just([VideoItem.placeholder]) }
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }

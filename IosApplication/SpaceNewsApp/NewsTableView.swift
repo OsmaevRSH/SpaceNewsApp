@@ -18,6 +18,8 @@ class NewsTableView: UIView {
         table.register(NewsTableViewCell.self, forCellReuseIdentifier: cellId)
 		table.rowHeight = UITableView.automaticDimension
 		table.estimatedRowHeight =  600
+        table.backgroundColor = Colors.tableViewBackground.color
+        table.separatorStyle = .none
 		return table
 	}()
 	
@@ -35,6 +37,7 @@ class NewsTableView: UIView {
 		super.init(frame: frame)
 		addSubview(newsTable)
 		addConstraints()
+        self.backgroundColor = Colors.tableViewBackground.color
 	}
 	
 	required init?(coder: NSCoder) {

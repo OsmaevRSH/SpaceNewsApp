@@ -12,8 +12,8 @@ public class ImageCache {
     static let shared = ImageCache()
     
     let cachedImages = NSCache<NSURL, UIImage>()
-    private var loadingResponses = [NSURL: [(NewsCellModel, UIImage?) -> Void]]()
     
+    private var loadingResponses = [NSURL: [(NewsCellModel, UIImage?) -> Void]]()
     
     /// Метод для получение изображения из кэша
     /// - Parameter url: URL изображения
@@ -45,7 +45,8 @@ public class ImageCache {
             completion(.success(cachedImage))
         }
         else {
-            APIServiceImplementation.shared.getImageForBreakingNews(imageUrl: url, completion: completion)
+            APIServiceImplementation.shared.getImageForBreakingNews(imageUrl: url,
+                                                                    completion: completion)
         }
     }
 }

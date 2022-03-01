@@ -12,7 +12,8 @@ class NewsTableViewCell: UITableViewCell {
     lazy var newsImage: UIImageView = {
         var image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.layer.cornerRadius = 20
+        image.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        image.layer.cornerRadius = 22
         image.layer.masksToBounds = true
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
@@ -22,24 +23,33 @@ class NewsTableViewCell: UITableViewCell {
     lazy var newsInfo: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "SF Pro Text", size: 15)
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.font = .systemFont(ofSize: 15, weight: .semibold)
         return label
     }()
     
     lazy var newsPublishedAt: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "SF Pro Text", size: 13)
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 13, weight: .regular)
         return label
+    }()
+    
+    lazy var containerView: UIView = {
+        var view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 22
+        view.backgroundColor = .systemBackground
+        return view
     }()
 	
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
         addConstraints()
-        let bgColorView = UIView()
-        bgColorView.backgroundColor = .gray.withAlphaComponent(0.2)
-        selectedBackgroundView = bgColorView
     }
     
     required init?(coder: NSCoder) {
@@ -47,27 +57,35 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     private func addSubviews() {
-        addSubview(newsImage)
-        addSubview(newsInfo)
-        addSubview(newsPublishedAt)
+        self.backgroundColor = Colors.tableViewBackground.color
+        addSubview(containerView)
+        containerView.addSubview(newsImage)
+        containerView.addSubview(newsInfo)
+        containerView.addSubview(newsPublishedAt)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            newsImage.heightAnchor.constraint(equalToConstant: 250),
-            newsImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
-            newsImage.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 8),
-            newsImage.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -8),
+            
+            containerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 4),
+            containerView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
+            containerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -4),
+            containerView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
+            
+            newsImage.heightAnchor.constraint(equalToConstant: 300),
+            newsImage.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor),
+            newsImage.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor),
+            newsImage.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor),
             
             newsInfo.topAnchor.constraint(equalTo: newsImage.safeAreaLayoutGuide.bottomAnchor, constant: 8),
-            newsInfo.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 8),
-            newsInfo.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -8),
+            newsInfo.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 8),
+            newsInfo.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -8),
             
             newsPublishedAt.heightAnchor.constraint(equalToConstant: 25),
-            newsPublishedAt.topAnchor.constraint(equalTo: newsInfo.safeAreaLayoutGuide.bottomAnchor, constant: 8),
-            newsPublishedAt.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 8),
-            newsPublishedAt.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -8),
-            newsPublishedAt.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8)
+            newsPublishedAt.topAnchor.constraint(equalTo: newsInfo.safeAreaLayoutGuide.bottomAnchor),
+            newsPublishedAt.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 8),
+            newsPublishedAt.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -8),
+            newsPublishedAt.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -8)
         ])
     }
 }

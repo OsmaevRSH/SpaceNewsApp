@@ -49,6 +49,6 @@ extension NewsViewController : UITableViewDelegate {
             self?.newsDataSet.append(contentsOf: data)
             self?.isFetchMoreNews = true
         }
-        .store(in: &cancelableSet)
+        .store(in: &CancellableSetService.shared.set)
     }
 }

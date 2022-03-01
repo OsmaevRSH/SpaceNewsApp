@@ -12,7 +12,6 @@ class BreakingNewsViewController: UIViewController {
 	
     var breakingNewsViewModel: BreakingNewsViewModel!
     
-    private var cancellableSet: Set<AnyCancellable> = []
     private var breakingNewsView = BreakingNewsView()
     
     private var imageURL: URL!
@@ -41,10 +40,10 @@ class BreakingNewsViewController: UIViewController {
         breakingNewsViewModel
             .$newsImage
             .assign(to: \.breakingNewsView.newsImage.image, on: self)
-            .store(in: &cancellableSet)
+            .store(in: &CancellableSetService.shared.set)
         breakingNewsViewModel
             .$newsInfo
             .assign(to: \.breakingNewsView.newsInfo.text, on: self)
-            .store(in: &cancellableSet)
+            .store(in: &CancellableSetService.shared.set)
     }
 }

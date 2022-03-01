@@ -13,7 +13,6 @@ class MapCityViewController: UIViewController {
     
     var viewModel: ResultCityPageViewModel!
     var page: Pages
-    var cancellableSet: Set<AnyCancellable> = []
     var cities: ResultCitysModel = ResultCitysModel.placeholder {
         didSet {
             setPinOnMap()
@@ -29,7 +28,7 @@ class MapCityViewController: UIViewController {
     func binding() {
         viewModel.$dataStorage
             .assign(to: \.cities, on: self)
-            .store(in: &cancellableSet)
+            .store(in: &CancellableSetService.shared.set)
     }
     
     private func setPinOnMap(){

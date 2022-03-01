@@ -10,8 +10,6 @@ import Combine
 
 class NewsViewModel {
 	
-	var cancellableSet: Set<AnyCancellable> = []
-	
 	@Published var newsDataSet: [NewsCellModel] = []
 	
 	func getNews(newsOffset: Int) {
@@ -27,6 +25,6 @@ class NewsViewModel {
                 }
             }
             .assign(to: \.newsDataSet, on: self)
-            .store(in: &self.cancellableSet)
+            .store(in: &CancellableSetService.shared.set)
 	}
 }

@@ -16,9 +16,11 @@ class AssemblyLayer {
         let newsNavController = NewsNavController()
         let newsViewController = NewsViewController()
         let newsViewModel = NewsViewModel()
+        let videoViewController = VideoViewController()
         let mapNavController = MapNavController()
         let mapViewController = MapViewController()
         let marsNavController = MarsNavController()
+        let videoNavController = VideoNavController()
         let breakingNewsViewController = BreakingNewsViewController()
         let breakingNewsViewModel = BreakingNewsViewModel()
         let setupApiSettingsViewController = SetupApiSettingsViewController()
@@ -26,10 +28,14 @@ class AssemblyLayer {
         let mapCityViewController = MapCityViewController()
         let tableCityViewController = TableCityViewController()
         let resultCityPageViewModel = ResultCityPageViewModel()
+        let videosListViewModel = VideosListViewModel()
         
         baseTabBarController.mapNavController = mapNavController
         baseTabBarController.newsNavController = newsNavController
         baseTabBarController.marsNavController = marsNavController
+        baseTabBarController.videoNavController = videoNavController
+        videoNavController.videoViewController = videoViewController
+        videoViewController.viewModel = videosListViewModel
         mapNavController.mapViewController = mapViewController
         mapViewController.setupApiSettingsViewController = setupApiSettingsViewController
         setupApiSettingsViewController.resultCityPageViewController = resultCityPageViewController

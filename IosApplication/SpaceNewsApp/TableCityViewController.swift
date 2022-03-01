@@ -12,7 +12,6 @@ class TableCityViewController: UIViewController {
 
     var viewModel: ResultCityPageViewModel!
     var page: Pages
-    var cancellableSet: Set<AnyCancellable> = []
     
     var dataStorage: [City] = [] {
         didSet {
@@ -25,7 +24,7 @@ class TableCityViewController: UIViewController {
             .sink { [weak self] value in
                 self?.dataStorage = value.cities
             }
-            .store(in: &cancellableSet)
+            .store(in: &CancellableSetService.shared.set)
     }
     
     lazy var table: UITableView = {
