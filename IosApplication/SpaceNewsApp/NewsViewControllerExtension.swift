@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension NewsViewController : UITableViewDelegate {
+extension NewsViewController : UITableViewDelegate, BreakingNewsDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		let item = newsDataSet[indexPath.row]
@@ -51,5 +51,21 @@ extension NewsViewController : UITableViewDelegate {
             self?.isFetchMoreNews = true
         }
         .store(in: &CancellableSetService.shared.set)
+    }
+    
+    // MARK: - Метод для скрытия новости и убирания затемняющего view
+    @objc func backButtonHandler() {
+        ///Настройка параметров анимации для скрытия новости
+        UIView
+            .animate(withDuration: 0.3,
+                     animations:
+        { [weak self] in
+           self?.transparentView.alpha = 0
+           self?.breakingNewsViewController.view.alpha = 0
+        })
+        { [weak self] _ in
+            self?.transparentView.removeFromSuperview()
+            self?.breakingNewsViewController.view.removeFromSuperview()
+        }
     }
 }

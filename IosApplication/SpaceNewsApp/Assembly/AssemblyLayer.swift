@@ -24,7 +24,8 @@ class AssemblyLayer {
         let breakingNewsViewController = BreakingNewsViewController()
         let breakingNewsViewModel = BreakingNewsViewModel()
         let setupApiSettingsViewController = SetupApiSettingsViewController()
-        let resultCityPageViewController = ResultCityPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        let resultCityPageViewController = ResultCityPageViewController(
+            transitionStyle: .scroll, navigationOrientation: .horizontal)
         let mapCityViewController = MapCityViewController()
         let tableCityViewController = TableCityViewController()
         let resultCityPageViewModel = ResultCityPageViewModel()
@@ -48,6 +49,7 @@ class AssemblyLayer {
         newsViewController.viewModel = newsViewModel
         newsViewController.breakingNewsViewController = breakingNewsViewController
         breakingNewsViewController.breakingNewsViewModel = breakingNewsViewModel
+        breakingNewsViewController.breakingNewsView.delegate = newsViewController
         
         return baseTabBarController
     }

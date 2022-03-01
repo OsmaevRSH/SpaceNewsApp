@@ -20,27 +20,8 @@ class NewsViewController: UIViewController {
     lazy var transparentView: UIView = {
         var localView = UIView()
         localView.frame = view.frame
-        var tap = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
-        localView.addGestureRecognizer(tap)
         return localView
     }()
-    
-    // MARK: - Метод для скрытия новости и убирания затемняющего view
-    @objc private func removeTransparentView() {
-        
-        ///Настройка параметров анимации для скрытия новости
-        UIView
-            .animate(withDuration: 0.3,
-                     animations:
-        { [weak self] in
-           self?.transparentView.alpha = 0
-           self?.breakingNewsViewController.view.alpha = 0
-        })
-        { [weak self] _ in
-            self?.transparentView.removeFromSuperview()
-            self?.breakingNewsViewController.view.removeFromSuperview()
-        }
-    }
     
     // MARK: - Метод для добавления затемняющего view и показа конкретной новости
     func showTransparentView() {

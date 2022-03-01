@@ -10,6 +10,8 @@ import WebKit
 
 class BreakingNewsView: UIView {
     
+    var delegate: BreakingNewsDelegate!
+    
     lazy var scrollView: UIScrollView = {
         var view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -23,6 +25,7 @@ class BreakingNewsView: UIView {
         btn.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         btn.layer.cornerRadius = 16
         btn.tintColor = .black
+        btn.addTarget(self, action: #selector(backButtonHandler), for: .touchUpInside)
         return btn
     }()
     
@@ -35,7 +38,6 @@ class BreakingNewsView: UIView {
         btn.tintColor = .black
         return btn
     }()
-    
     
     lazy var containerView: UIView = {
         var container = UIView()
@@ -133,4 +135,8 @@ class BreakingNewsView: UIView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+    
+    @objc private func backButtonHandler() {
+        delegate.backButtonHandler()
+    }
 }

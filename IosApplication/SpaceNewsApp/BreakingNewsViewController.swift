@@ -8,11 +8,15 @@
 import UIKit
 import Combine
 
+protocol BreakingNewsDelegate: AnyObject {
+    func backButtonHandler()
+}
+
 class BreakingNewsViewController: UIViewController {
 	
     var breakingNewsViewModel: BreakingNewsViewModel!
     
-    private var breakingNewsView = BreakingNewsView()
+    var breakingNewsView = BreakingNewsView()
     
     private var imageURL: URL!
     private var newsURL: URL!
