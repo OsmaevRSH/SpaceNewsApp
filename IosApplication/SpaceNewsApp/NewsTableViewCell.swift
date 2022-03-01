@@ -24,8 +24,8 @@ class NewsTableViewCell: UITableViewCell {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "SF Pro Text", size: 15)
-        label.numberOfLines = 0
         label.font = .systemFont(ofSize: 15, weight: .semibold)
+        label.numberOfLines = 0
         return label
     }()
     
