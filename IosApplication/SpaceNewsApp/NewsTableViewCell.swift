@@ -73,7 +73,7 @@ class NewsTableViewCell: UITableViewCell {
             containerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -4),
             containerView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
             
-            newsImage.heightAnchor.constraint(equalToConstant: 300),
+            newsImage.heightAnchor.constraint(equalToConstant: 240),
             newsImage.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor),
             newsImage.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor),
             newsImage.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor),

@@ -33,4 +33,8 @@ class BreakingNewsViewModel {
             }
         }
     }
+    
+    func clearNewsTextInfo() {
+        newsInfo = ""
+    }
 }

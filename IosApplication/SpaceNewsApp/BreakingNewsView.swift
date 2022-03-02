@@ -60,9 +60,10 @@ class BreakingNewsView: UIView {
     lazy var newsTitle: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "TITLE!!!"
+        label.text = "Title"
         label.font = UIFont(name: "SF Pro Text", size: 15)
         label.font = .systemFont(ofSize: 15, weight: .semibold)
+        label.numberOfLines = 0
         return label
     }()
     

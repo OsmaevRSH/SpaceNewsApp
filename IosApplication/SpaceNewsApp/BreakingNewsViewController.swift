@@ -26,14 +26,24 @@ class BreakingNewsViewController: UIViewController {
         self.imageURL = imageURL
         self.newsURL = newsURL
         self.newsId = newsId
-        self.title = titleViewName
+        breakingNewsView.newsTitle.text = titleViewName
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         binding()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         breakingNewsViewModel.getNewsPhoto(imageUrl: imageURL)
         breakingNewsViewModel.getNewsInfo(newsUrl: newsURL, newsId: newsId)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        breakingNewsView.scrollView.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: false)
+        breakingNewsViewModel.clearNewsTextInfo()
     }
 	
 	override func loadView() {
