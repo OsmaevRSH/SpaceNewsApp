@@ -54,10 +54,10 @@ class BreakingNewsViewController: UIViewController {
         breakingNewsViewModel
             .$newsImage
             .assign(to: \.breakingNewsView.newsImage.image, on: self)
-            .store(in: &CancellableSetService.shared.set)
+            .store(in: &CancellableSetService.set)
         breakingNewsViewModel
             .$newsInfo
             .assign(to: \.breakingNewsView.newsInfo.text, on: self)
-            .store(in: &CancellableSetService.shared.set)
+            .store(in: &CancellableSetService.set)
     }
 }

@@ -19,6 +19,6 @@ class ResultCityPageViewModel {
                                                  minPopulation: minPopulation,
                                                  maxPopulation: maxPopulation)
             .assign(to: \.dataStorage, on: self)
-            .store(in: &CancellableSetService.shared.set)
+            .store(in: &CancellableSetService.set)
     }
 }

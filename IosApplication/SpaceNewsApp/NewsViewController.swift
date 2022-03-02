@@ -124,7 +124,7 @@ class NewsViewController: UIViewController {
 	private func binding() {
 		viewModel
 			.$newsDataSet.assign(to: \.newsDataSet, on: self)
-            .store(in: &CancellableSetService.shared.set)
+            .store(in: &CancellableSetService.set)
 	}
     
     //MARK: - Метод для установки DataSource

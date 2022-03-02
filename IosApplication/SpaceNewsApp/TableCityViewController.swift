@@ -24,7 +24,7 @@ class TableCityViewController: UIViewController {
             .sink { [weak self] value in
                 self?.dataStorage = value.cities
             }
-            .store(in: &CancellableSetService.shared.set)
+            .store(in: &CancellableSetService.set)
     }
     
     lazy var table: UITableView = {

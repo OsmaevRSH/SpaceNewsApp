@@ -42,7 +42,7 @@ class VideoViewController: UIViewController {
     func binding() {
         viewModel.$videosListData
             .assign(to: \.videosListData, on: self)
-            .store(in: &CancellableSetService.shared.set)
+            .store(in: &CancellableSetService.set)
     }
     
     private func setupDataSource() {

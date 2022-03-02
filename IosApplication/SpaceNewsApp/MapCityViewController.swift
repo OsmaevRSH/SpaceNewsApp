@@ -28,7 +28,7 @@ class MapCityViewController: UIViewController {
     func binding() {
         viewModel.$dataStorage
             .assign(to: \.cities, on: self)
-            .store(in: &CancellableSetService.shared.set)
+            .store(in: &CancellableSetService.set)
     }
     
     private func setPinOnMap(){

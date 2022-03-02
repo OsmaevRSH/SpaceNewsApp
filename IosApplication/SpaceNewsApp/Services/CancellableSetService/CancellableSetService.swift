@@ -9,6 +9,5 @@ import Combine
 import Foundation
 
 class CancellableSetService {
-    static let shared = CancellableSetService()
-    var set: Set<AnyCancellable> = []
+    static var set: Set<AnyCancellable> = []
 }

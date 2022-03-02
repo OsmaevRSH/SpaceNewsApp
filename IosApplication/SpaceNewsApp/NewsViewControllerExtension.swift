@@ -50,7 +50,7 @@ extension NewsViewController : UITableViewDelegate, BreakingNewsDelegate {
             self?.newsDataSet.append(contentsOf: data)
             self?.isFetchMoreNews = true
         }
-        .store(in: &CancellableSetService.shared.set)
+        .store(in: &CancellableSetService.set)
     }
     
     // MARK: - Метод для скрытия новости и убирания затемняющего view

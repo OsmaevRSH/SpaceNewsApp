@@ -25,6 +25,6 @@ class NewsViewModel {
                 }
             }
             .assign(to: \.newsDataSet, on: self)
-            .store(in: &CancellableSetService.shared.set)
+            .store(in: &CancellableSetService.set)
 	}
 }

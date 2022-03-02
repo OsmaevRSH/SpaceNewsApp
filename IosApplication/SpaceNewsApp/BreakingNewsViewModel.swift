@@ -18,7 +18,7 @@ class BreakingNewsViewModel {
             .sink(receiveValue: { [weak self] description in
                 self?.newsInfo = description
             })
-            .store(in: &CancellableSetService.shared.set)
+            .store(in: &CancellableSetService.set)
     }
     
     func getNewsPhoto(imageUrl: URL) {

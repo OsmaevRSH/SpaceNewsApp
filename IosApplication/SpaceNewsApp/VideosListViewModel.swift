@@ -23,6 +23,6 @@ class VideosListViewModel {
                 }
             }
             .assign(to: \.videosListData, on: self)
-            .store(in: &CancellableSetService.shared.set)
+            .store(in: &CancellableSetService.set)
     }
 }
