@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224ADF09746382D7F55089D0 /* Pods_SpaceNewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D93E571586DBA55D5728DA3 /* Pods_SpaceNewsApp.framework */; };
+		4D6642FFA239C0435023ACF6 /* Pods_SpaceNewsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1347A9BD53E63B04F8D576F /* Pods_SpaceNewsAppTests.framework */; };
 		C134923E279AD9D600948C04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134923D279AD9D600948C04 /* AppDelegate.swift */; };
 		C1349240279AD9D600948C04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134923F279AD9D600948C04 /* SceneDelegate.swift */; };
 		C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */; };
@@ -25,6 +27,9 @@
 		C134927F279ADD9E00948C04 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134927E279ADD9E00948C04 /* PageViewController.swift */; };
 		C1349281279ADDAD00948C04 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349280279ADDAD00948C04 /* PageControl.swift */; };
 		C1349283279ADDBD00948C04 /* OnBoardigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349282279ADDBD00948C04 /* OnBoardigView.swift */; };
+		C148E79927D0D3BC000297D4 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148E79827D0D3BC000297D4 /* VideoCell.swift */; };
+		C148E79B27D0D5FF000297D4 /* VideoViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148E79A27D0D5FF000297D4 /* VideoViewControllerExtention.swift */; };
+		C148E79D27D0D9D1000297D4 /* BreakingVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148E79C27D0D9D1000297D4 /* BreakingVideoViewController.swift */; };
 		C14F9AE127CBAA6000CBDDD9 /* VideoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14F9AE027CBAA6000CBDDD9 /* VideoCellModel.swift */; };
 		C14F9AEA27CE18E800CBDDD9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14F9AE927CE18E800CBDDD9 /* Colors.swift */; };
 		C1528F7227B518DD000A4F0C /* BreakingNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1528F7127B518DD000A4F0C /* BreakingNewsViewModel.swift */; };
@@ -64,6 +69,7 @@
 		C1EAAFA9279DA91400300FB9 /* LocationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAAFA8279DA91400300FB9 /* LocationAlert.swift */; };
 		C1FE075627A2CC5D0089D1CE /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE075527A2CC5D0089D1CE /* APIServiceProtocol.swift */; };
 		C1FE075827A2CC840089D1CE /* APIServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */; };
+		E1F4CC558AAC798669256B48 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32516A9B09FF1A5B607D0286 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +90,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B7097E977C9397AC50EEF96 /* Pods-SpaceNewsApp-SpaceNewsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceNewsApp-SpaceNewsAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceNewsApp-SpaceNewsAppUITests/Pods-SpaceNewsApp-SpaceNewsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		32516A9B09FF1A5B607D0286 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceNewsApp_SpaceNewsAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D93E571586DBA55D5728DA3 /* Pods_SpaceNewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceNewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67DA8C859FDAF301FB120C49 /* Pods-SpaceNewsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceNewsAppTests.release.xcconfig"; path = "Target Support Files/Pods-SpaceNewsAppTests/Pods-SpaceNewsAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		6B13F049440F74065A85AAB0 /* Pods-SpaceNewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceNewsApp.debug.xcconfig"; path = "Target Support Files/Pods-SpaceNewsApp/Pods-SpaceNewsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		94EB181804AEB8A0BA520A9C /* Pods-SpaceNewsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceNewsAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceNewsAppTests/Pods-SpaceNewsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A48629C9D0FE03744A496B6C /* Pods-SpaceNewsApp-SpaceNewsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceNewsApp-SpaceNewsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SpaceNewsApp-SpaceNewsAppUITests/Pods-SpaceNewsApp-SpaceNewsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C134923A279AD9D600948C04 /* SpaceNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C134923D279AD9D600948C04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C134923F279AD9D600948C04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +119,9 @@
 		C134927E279ADD9E00948C04 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		C1349280279ADDAD00948C04 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		C1349282279ADDBD00948C04 /* OnBoardigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardigView.swift; sourceTree = "<group>"; };
+		C148E79827D0D3BC000297D4 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		C148E79A27D0D5FF000297D4 /* VideoViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewControllerExtention.swift; sourceTree = "<group>"; };
+		C148E79C27D0D9D1000297D4 /* BreakingVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingVideoViewController.swift; sourceTree = "<group>"; };
 		C14F9AE027CBAA6000CBDDD9 /* VideoCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCellModel.swift; sourceTree = "<group>"; };
 		C14F9AE927CE18E800CBDDD9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C1528F7127B518DD000A4F0C /* BreakingNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingNewsViewModel.swift; sourceTree = "<group>"; };
@@ -145,6 +161,8 @@
 		C1EAAFA8279DA91400300FB9 /* LocationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAlert.swift; sourceTree = "<group>"; };
 		C1FE075527A2CC5D0089D1CE /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
 		C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceImplementation.swift; sourceTree = "<group>"; };
+		ED6E67678E2017322D9BB17C /* Pods-SpaceNewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceNewsApp.release.xcconfig"; path = "Target Support Files/Pods-SpaceNewsApp/Pods-SpaceNewsApp.release.xcconfig"; sourceTree = "<group>"; };
+		F1347A9BD53E63B04F8D576F /* Pods_SpaceNewsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceNewsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224ADF09746382D7F55089D0 /* Pods_SpaceNewsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D6642FFA239C0435023ACF6 /* Pods_SpaceNewsAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,18 +186,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F4CC558AAC798669256B48 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DFFBC51B781C31093B40F89 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6B13F049440F74065A85AAB0 /* Pods-SpaceNewsApp.debug.xcconfig */,
+				ED6E67678E2017322D9BB17C /* Pods-SpaceNewsApp.release.xcconfig */,
+				1B7097E977C9397AC50EEF96 /* Pods-SpaceNewsApp-SpaceNewsAppUITests.debug.xcconfig */,
+				A48629C9D0FE03744A496B6C /* Pods-SpaceNewsApp-SpaceNewsAppUITests.release.xcconfig */,
+				94EB181804AEB8A0BA520A9C /* Pods-SpaceNewsAppTests.debug.xcconfig */,
+				67DA8C859FDAF301FB120C49 /* Pods-SpaceNewsAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C1349231279AD9D600948C04 = {
 			isa = PBXGroup;
 			children = (
 				C134923C279AD9D600948C04 /* SpaceNewsApp */,
 				C14B28A2279ADF1600E1D30A /* Tests */,
 				C134923B279AD9D600948C04 /* Products */,
+				3DFFBC51B781C31093B40F89 /* Pods */,
+				CDC575663C92AE5E8F5E6DF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -281,10 +317,10 @@
 				C134927A279ADD6C00948C04 /* LaunchView.swift */,
 				C1349270279ADCB300948C04 /* BaseTabBarController.swift */,
 				C1B4AB0B27A9A08B0089F25F /* News */,
+				C1A0D0C327C908EF00BD49A6 /* Video */,
 				C14B28A1279ADEF400E1D30A /* Map */,
 				C14B28A4279ADF6200E1D30A /* Mars */,
 				C1EAAFA7279DA8B800300FB9 /* Alert */,
-				C1A0D0C327C908EF00BD49A6 /* Video */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -329,6 +365,9 @@
 				C1A0D0BF27C908D000BD49A6 /* VideoNavController.swift */,
 				C1A0D0C127C908E900BD49A6 /* VideoViewController.swift */,
 				C1DDED5327CB982100EF9166 /* VideosListView.swift */,
+				C148E79827D0D3BC000297D4 /* VideoCell.swift */,
+				C148E79A27D0D5FF000297D4 /* VideoViewControllerExtention.swift */,
+				C148E79C27D0D9D1000297D4 /* BreakingVideoViewController.swift */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -519,6 +558,16 @@
 			path = HTTPService;
 			sourceTree = "<group>";
 		};
+		CDC575663C92AE5E8F5E6DF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D93E571586DBA55D5728DA3 /* Pods_SpaceNewsApp.framework */,
+				32516A9B09FF1A5B607D0286 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework */,
+				F1347A9BD53E63B04F8D576F /* Pods_SpaceNewsAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -526,9 +575,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1349267279AD9D700948C04 /* Build configuration list for PBXNativeTarget "SpaceNewsApp" */;
 			buildPhases = (
+				010B1F4AE713983AFAEADB78 /* [CP] Check Pods Manifest.lock */,
 				C1349236279AD9D600948C04 /* Sources */,
 				C1349237279AD9D600948C04 /* Frameworks */,
 				C1349238279AD9D600948C04 /* Resources */,
+				E0A996D6E4935D14A14ED840 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -543,6 +594,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C134926A279AD9D700948C04 /* Build configuration list for PBXNativeTarget "SpaceNewsAppTests" */;
 			buildPhases = (
+				4ACC8E369C4DFA3D85B37458 /* [CP] Check Pods Manifest.lock */,
 				C134924F279AD9D700948C04 /* Sources */,
 				C1349250279AD9D700948C04 /* Frameworks */,
 				C1349251279AD9D700948C04 /* Resources */,
@@ -561,9 +613,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C134926D279AD9D700948C04 /* Build configuration list for PBXNativeTarget "SpaceNewsAppUITests" */;
 			buildPhases = (
+				2FD03E726BFB1436AE4E473C /* [CP] Check Pods Manifest.lock */,
 				C1349259279AD9D700948C04 /* Sources */,
 				C134925A279AD9D700948C04 /* Frameworks */,
 				C134925B279AD9D700948C04 /* Resources */,
+				4E15EC18EF11F13382236727 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -644,6 +698,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		010B1F4AE713983AFAEADB78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceNewsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FD03E726BFB1436AE4E473C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceNewsApp-SpaceNewsAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4ACC8E369C4DFA3D85B37458 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceNewsAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E15EC18EF11F13382236727 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpaceNewsApp-SpaceNewsAppUITests/Pods-SpaceNewsApp-SpaceNewsAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpaceNewsApp-SpaceNewsAppUITests/Pods-SpaceNewsApp-SpaceNewsAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpaceNewsApp-SpaceNewsAppUITests/Pods-SpaceNewsApp-SpaceNewsAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0A996D6E4935D14A14ED840 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpaceNewsApp/Pods-SpaceNewsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpaceNewsApp/Pods-SpaceNewsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpaceNewsApp/Pods-SpaceNewsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C1349236279AD9D600948C04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -653,11 +810,13 @@
 				C1FE075627A2CC5D0089D1CE /* APIServiceProtocol.swift in Sources */,
 				C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */,
 				C1E295C827CF70AB00693FC8 /* NewsCacheService.swift in Sources */,
+				C148E79927D0D3BC000297D4 /* VideoCell.swift in Sources */,
 				C1E469C927C24737005CEAD2 /* AssemblyLayer.swift in Sources */,
 				C1E4D89027AAB01B00D70F2A /* BreakingNewsView.swift in Sources */,
 				C1E469CD27C26457005CEAD2 /* ResultCitysModel.swift in Sources */,
 				C1A0D0C227C908E900BD49A6 /* VideoViewController.swift in Sources */,
 				C1B4AB0A27A98D400089F25F /* SetupApiSettingsViewController.swift in Sources */,
+				C148E79D27D0D9D1000297D4 /* BreakingVideoViewController.swift in Sources */,
 				C1B4AB0F27A9A10A0089F25F /* NewsViewController.swift in Sources */,
 				C1A758BF27BA704F00B10752 /* ResultCityPageViewController.swift in Sources */,
 				C1B4AB1327A9A76A0089F25F /* NewsViewControllerExtension.swift in Sources */,
@@ -683,6 +842,7 @@
 				C1349273279ADCE800948C04 /* MapNavController.swift in Sources */,
 				C1DDED4E27CB91E800EF9166 /* VideosListModel.swift in Sources */,
 				C14F9AEA27CE18E800CBDDD9 /* Colors.swift in Sources */,
+				C148E79B27D0D5FF000297D4 /* VideoViewControllerExtention.swift in Sources */,
 				C1E4D89227AAB02900D70F2A /* BreakingNewsViewController.swift in Sources */,
 				C172FCA027BB91EF009C0B3F /* MapCityViewController.swift in Sources */,
 				C1EAAFA6279DA88D00300FB9 /* Alert.swift in Sources */,
@@ -866,6 +1026,7 @@
 		};
 		C1349268279AD9D700948C04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B13F049440F74065A85AAB0 /* Pods-SpaceNewsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -878,7 +1039,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -894,6 +1055,7 @@
 		};
 		C1349269279AD9D700948C04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED6E67678E2017322D9BB17C /* Pods-SpaceNewsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -906,7 +1068,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -922,6 +1084,7 @@
 		};
 		C134926B279AD9D700948C04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94EB181804AEB8A0BA520A9C /* Pods-SpaceNewsAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -941,6 +1104,7 @@
 		};
 		C134926C279AD9D700948C04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67DA8C859FDAF301FB120C49 /* Pods-SpaceNewsAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -960,6 +1124,7 @@
 		};
 		C134926E279AD9D700948C04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B7097E977C9397AC50EEF96 /* Pods-SpaceNewsApp-SpaceNewsAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -977,6 +1142,7 @@
 		};
 		C134926F279AD9D700948C04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A48629C9D0FE03744A496B6C /* Pods-SpaceNewsApp-SpaceNewsAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

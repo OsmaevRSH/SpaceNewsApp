@@ -6,24 +6,31 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 class BreakingVideoViewController: UIViewController {
 
+    let videoView: YTPlayerView = {
+        var view = YTPlayerView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .red
+        title = "Video"
+        view.addSubview(videoView)
+        addConstraints()
+        videoView.load(withVideoId: "YE7VzlLtp-4", playerVars: ["playsinline": "1"])
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func addConstraints() {
+        NSLayoutConstraint.activate([
+            videoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            videoView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            videoView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            videoView.widthAnchor.constraint(equalTo: videoView.heightAnchor, multiplier: 16.0/9.0)
+        ])
     }
-    */
-
 }

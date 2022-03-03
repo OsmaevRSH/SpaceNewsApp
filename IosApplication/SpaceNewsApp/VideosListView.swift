@@ -9,15 +9,16 @@ import UIKit
 
 class VideosListView: UIView {
 
-    lazy var cellId = "cellId"
+    lazy var cellId = "videoCell"
 
     // MARK: - UI elements
     lazy var videosTable: UITableView = {
         var table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(NewsTableViewCell.self, forCellReuseIdentifier: cellId)
+        table.register(VideoCell.self, forCellReuseIdentifier: cellId)
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight =  600
+        table.separatorStyle = .none
         return table
     }()
     

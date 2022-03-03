@@ -17,7 +17,7 @@ class VideosListViewModel {
             .map {
                 $0.map {
                     VideoCellModel(
-                        imageUrl: NSURL(string: $0.snippet?.thumbnails?.thumbnailsDefault?.url ?? ""),
+                        imageUrl: NSURL(string: $0.snippet?.thumbnails?.high?.url ?? ""),
                         title: $0.snippet?.title,
                         videoId: $0.id?.videoID)
                 }

@@ -10,29 +10,25 @@ import Combine
 
 class VideoViewController: UIViewController {
 
-    private let VideosView = VideosListView()
+    let VideosView = VideosListView()
     
     var viewModel: VideosListViewModel!
     
     var videosListData: [VideoCellModel] = []
     {
         didSet {
-            var initialSnapshot = NSDiffableDataSourceSnapshot<Section, VideoCellModel>()
-            initialSnapshot.appendSections([.main])
-            initialSnapshot.appendItems(videosListData)
-            self.dataSource.apply(initialSnapshot, animatingDifferences: false)
+            VideosView.videosTable.reloadData()
         }
     }
-    
-    var dataSource: UITableViewDiffableDataSource<Section, VideoCellModel>! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Video"
         self.view.backgroundColor = .gray
         viewModel.getVideosList()
-        setupDataSource()
         binding()
+        VideosView.videosTable.delegate = self
+        VideosView.videosTable.dataSource = self
     }
     
     override func loadView() {
@@ -43,14 +39,5 @@ class VideoViewController: UIViewController {
         viewModel.$videosListData
             .assign(to: \.videosListData, on: self)
             .store(in: &CancellableSetService.set)
-    }
-    
-    private func setupDataSource() {
-        dataSource = UITableViewDiffableDataSource<Section, VideoCellModel>(tableView: VideosView.videosTable) {
-            (tableView: UITableView, indexPath: IndexPath, fetchedItem: VideoCellModel) -> UITableViewCell? in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
-            cell.textLabel?.text = fetchedItem.title
-            return cell
-        }
     }
 }
