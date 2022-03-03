@@ -10,7 +10,7 @@ import youtube_ios_player_helper
 
 class BreakingVideoViewController: UIViewController {
 
-    let videoView: YTPlayerView = {
+    lazy var videoView: YTPlayerView = {
         var view = YTPlayerView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -18,7 +18,7 @@ class BreakingVideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
         title = "Video"
         view.addSubview(videoView)
         addConstraints()
