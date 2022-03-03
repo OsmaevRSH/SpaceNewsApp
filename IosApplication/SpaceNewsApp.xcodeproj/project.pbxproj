@@ -34,7 +34,7 @@
 		C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */; };
 		C172FCA027BB91EF009C0B3F /* MapCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C172FC9F27BB91EF009C0B3F /* MapCityViewController.swift */; };
 		C172FCA227BB91FB009C0B3F /* TableCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C172FCA127BB91FB009C0B3F /* TableCityViewController.swift */; };
-		C185C96C27B3F5D9006D10B2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96B27B3F5D9006D10B2 /* ImageCache.swift */; };
+		C185C96C27B3F5D9006D10B2 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96B27B3F5D9006D10B2 /* ImageCacheService.swift */; };
 		C185C96E27B40745006D10B2 /* NewsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96D27B40745006D10B2 /* NewsCellModel.swift */; };
 		C1A0D0C027C908D000BD49A6 /* VideoNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0D0BF27C908D000BD49A6 /* VideoNavController.swift */; };
 		C1A0D0C227C908E900BD49A6 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0D0C127C908E900BD49A6 /* VideoViewController.swift */; };
@@ -50,6 +50,8 @@
 		C1DDED5127CB975200EF9166 /* VideosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDED5027CB975200EF9166 /* VideosListViewModel.swift */; };
 		C1DDED5427CB982100EF9166 /* VideosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDED5327CB982100EF9166 /* VideosListView.swift */; };
 		C1DDED5627CB9D4600EF9166 /* CancellableSetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDED5527CB9D4600EF9166 /* CancellableSetService.swift */; };
+		C1E295C827CF70AB00693FC8 /* NewsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E295C727CF70AB00693FC8 /* NewsCacheService.swift */; };
+		C1E295CB27CFBB2C00693FC8 /* CustomUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E295CA27CFBB2C00693FC8 /* CustomUIImageView.swift */; };
 		C1E469C927C24737005CEAD2 /* AssemblyLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E469C827C24737005CEAD2 /* AssemblyLayer.swift */; };
 		C1E469CB27C25367005CEAD2 /* ResultCityPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E469CA27C25367005CEAD2 /* ResultCityPageViewModel.swift */; };
 		C1E469CD27C26457005CEAD2 /* ResultCitysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E469CC27C26457005CEAD2 /* ResultCitysModel.swift */; };
@@ -113,7 +115,7 @@
 		C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchTable.swift; sourceTree = "<group>"; };
 		C172FC9F27BB91EF009C0B3F /* MapCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCityViewController.swift; sourceTree = "<group>"; };
 		C172FCA127BB91FB009C0B3F /* TableCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCityViewController.swift; sourceTree = "<group>"; };
-		C185C96B27B3F5D9006D10B2 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		C185C96B27B3F5D9006D10B2 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
 		C185C96D27B40745006D10B2 /* NewsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellModel.swift; sourceTree = "<group>"; };
 		C1A0D0BF27C908D000BD49A6 /* VideoNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNavController.swift; sourceTree = "<group>"; };
 		C1A0D0C127C908E900BD49A6 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,8 @@
 		C1DDED5027CB975200EF9166 /* VideosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosListViewModel.swift; sourceTree = "<group>"; };
 		C1DDED5327CB982100EF9166 /* VideosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosListView.swift; sourceTree = "<group>"; };
 		C1DDED5527CB9D4600EF9166 /* CancellableSetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableSetService.swift; sourceTree = "<group>"; };
+		C1E295C727CF70AB00693FC8 /* NewsCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCacheService.swift; sourceTree = "<group>"; };
+		C1E295CA27CFBB2C00693FC8 /* CustomUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIImageView.swift; sourceTree = "<group>"; };
 		C1E469C827C24737005CEAD2 /* AssemblyLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyLayer.swift; sourceTree = "<group>"; };
 		C1E469CA27C25367005CEAD2 /* ResultCityPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCityPageViewModel.swift; sourceTree = "<group>"; };
 		C1E469CC27C26457005CEAD2 /* ResultCitysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCitysModel.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 		C134923C279AD9D600948C04 /* SpaceNewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				C1E295CC27CFBB3700693FC8 /* CustomUIClasses */,
 				C172FCA327BBB53A009C0B3F /* Assembly */,
 				C1E4D88727AA98B100D70F2A /* Model */,
 				C1E4D88327AA983700D70F2A /* ViewModel */,
@@ -310,12 +315,12 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
-		C185C96A27B3F5B6006D10B2 /* CacheService */ = {
+		C185C96A27B3F5B6006D10B2 /* ImageCacheService */ = {
 			isa = PBXGroup;
 			children = (
-				C185C96B27B3F5D9006D10B2 /* ImageCache.swift */,
+				C185C96B27B3F5D9006D10B2 /* ImageCacheService.swift */,
 			);
-			path = CacheService;
+			path = ImageCacheService;
 			sourceTree = "<group>";
 		};
 		C1A0D0C327C908EF00BD49A6 /* Video */ = {
@@ -393,6 +398,22 @@
 				C1DDED5527CB9D4600EF9166 /* CancellableSetService.swift */,
 			);
 			path = CancellableSetService;
+			sourceTree = "<group>";
+		};
+		C1E295C927CF70B100693FC8 /* NewsCacheService */ = {
+			isa = PBXGroup;
+			children = (
+				C1E295C727CF70AB00693FC8 /* NewsCacheService.swift */,
+			);
+			path = NewsCacheService;
+			sourceTree = "<group>";
+		};
+		C1E295CC27CFBB3700693FC8 /* CustomUIClasses */ = {
+			isa = PBXGroup;
+			children = (
+				C1E295CA27CFBB2C00693FC8 /* CustomUIImageView.swift */,
+			);
+			name = CustomUIClasses;
 			sourceTree = "<group>";
 		};
 		C1E469CE27C29735005CEAD2 /* CitisAroundPoint */ = {
@@ -481,7 +502,8 @@
 		C1FE075327A2CC1C0089D1CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C185C96A27B3F5B6006D10B2 /* CacheService */,
+				C185C96A27B3F5B6006D10B2 /* ImageCacheService */,
+				C1E295C927CF70B100693FC8 /* NewsCacheService */,
 				C1FE075427A2CC320089D1CE /* HTTPService */,
 				C1DDED5727CB9D9A00EF9166 /* CancellableSetService */,
 			);
@@ -627,9 +649,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C185C96C27B3F5D9006D10B2 /* ImageCache.swift in Sources */,
+				C185C96C27B3F5D9006D10B2 /* ImageCacheService.swift in Sources */,
 				C1FE075627A2CC5D0089D1CE /* APIServiceProtocol.swift in Sources */,
 				C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */,
+				C1E295C827CF70AB00693FC8 /* NewsCacheService.swift in Sources */,
 				C1E469C927C24737005CEAD2 /* AssemblyLayer.swift in Sources */,
 				C1E4D89027AAB01B00D70F2A /* BreakingNewsView.swift in Sources */,
 				C1E469CD27C26457005CEAD2 /* ResultCitysModel.swift in Sources */,
@@ -653,6 +676,7 @@
 				C1349281279ADDAD00948C04 /* PageControl.swift in Sources */,
 				C134927F279ADD9E00948C04 /* PageViewController.swift in Sources */,
 				C1DDED5627CB9D4600EF9166 /* CancellableSetService.swift in Sources */,
+				C1E295CB27CFBB2C00693FC8 /* CustomUIImageView.swift in Sources */,
 				C134923E279AD9D600948C04 /* AppDelegate.swift in Sources */,
 				C1707C4827A6D9D700D1D385 /* MapView.swift in Sources */,
 				C1EAAFA9279DA91400300FB9 /* LocationAlert.swift in Sources */,

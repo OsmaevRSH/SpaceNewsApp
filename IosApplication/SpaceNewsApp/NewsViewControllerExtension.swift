@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
-extension NewsViewController : UITableViewDelegate, BreakingNewsDelegate {
+extension NewsViewController : UITableViewDelegate, UITableViewDataSource, BreakingNewsDelegate {
+    
+    // MARK: - UITableViewDelegate
+    
+    /// Метод вызывающийся при нажатии на ячейку таблицы
+    /// - Parameters:
+    ///   - tableView: Текущая таблицы
+    ///   - indexPath: Index path нажатой ячейки
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		let item = newsDataSet[indexPath.row]
@@ -20,11 +27,12 @@ extension NewsViewController : UITableViewDelegate, BreakingNewsDelegate {
                                          newsURL: newsUrl,
                                          imageURL: imageUrl,
                                          newsId: item.newsId)
-//            navigationController?.show(breakingNewsViewController, sender: nil)
             showTransparentView()
 		}
 	}
     
+    /// Метод вызывается при прокрутке таблицы
+    /// - Parameter scrollView: Текущий scrollView
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
         let size = newsTableView.newsTable.contentSize.height
@@ -36,6 +44,7 @@ extension NewsViewController : UITableViewDelegate, BreakingNewsDelegate {
         }
     }
     
+    /// Метод для подгрузки средующей страницы новостей
     private func loadMoreNews() {
         APIServiceImplementation.shared.getNews(newsOffset: (newsDataSet.count / 20) * 20 + 1)
         .sink { [weak self] news in
@@ -53,7 +62,38 @@ extension NewsViewController : UITableViewDelegate, BreakingNewsDelegate {
         .store(in: &CancellableSetService.set)
     }
     
-    // MARK: - Метод для скрытия новости и убирания затемняющего view
+    // MARK: - UITableViewDelegate
+    
+    /// Метод возвращающий кол-во элементов в секции
+    /// - Parameters:
+    ///   - tableView: Текущая таблица
+    ///   - section: Текущая секция
+    /// - Returns: Кол-во элементов в секции
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return newsDataSet.count
+    }
+    
+    /// Метод для отобрадения новой ячейки
+    /// - Parameters:
+    ///   - tableView: Текущая таблица
+    ///   - indexPath: Index path текущей ячейки
+    /// - Returns: Модифицированная ячейка
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: newsTableView.reusableCellIdenifier, for: indexPath) as? NewsTableViewCell
+        else {
+            return NewsTableViewCell()
+        }
+        
+        cell.newsTitle.text = newsDataSet[indexPath.row].title
+        cell.newsImage.loadImage(from: newsDataSet[indexPath.row].imageUrl)
+        cell.newsPublishedAt.text = newsDataSet[indexPath.row].publishedAt
+        return cell
+    }
+    
+    // MARK: - BreakingNewsDelegate
+    
+    /// Метод обработки закрытия конкретной новости
     @objc func backButtonHandler() {
         ///Настройка параметров анимации для скрытия новости
         UIView

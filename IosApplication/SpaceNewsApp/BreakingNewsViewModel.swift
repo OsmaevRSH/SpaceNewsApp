@@ -10,7 +10,8 @@ import Combine
 import UIKit
 
 class BreakingNewsViewModel {
-    @Published var newsImage: UIImage? = UIImage()
+//    var imageLoaderService: ImageCacheService!
+//    @Published var newsImage: UIImage? = UIImage()
     @Published var newsInfo: String? = ""
     
     func getNewsInfo(newsUrl: URL, newsId: Int) {
@@ -21,18 +22,26 @@ class BreakingNewsViewModel {
             .store(in: &CancellableSetService.set)
     }
     
-    func getNewsPhoto(imageUrl: URL) {
-        ImageCache.shared.loadImageForBreakingNews(url: imageUrl) { [weak self] result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self?.newsImage = image
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
+//    func getNewsPhoto(imageUrl: URL) {
+//        imageLoaderService.loadImage(url: imageUrl)
+//            .sink { error in
+//                debugPrint(error)
+//            } receiveValue: { [weak self] image in
+//                self?.newsImage = image
+//            }
+//            .store(in: &CancellableSetService.set)
+
+//        ImageLoaderService.shared.loadImageForBreakingNews(url: imageUrl) { [weak self] result in
+//            switch result {
+//            case .success(let image):
+//                DispatchQueue.main.async {
+//                    self?.newsImage = image
+//                }
+//            case .failure(let error):
+//                print(error)x
+//            }
+//        }
+//    }
     
     func clearNewsTextInfo() {
         newsInfo = ""

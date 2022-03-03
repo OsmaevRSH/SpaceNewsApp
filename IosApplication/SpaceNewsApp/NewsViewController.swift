@@ -10,20 +10,29 @@ import Combine
 
 class NewsViewController: UIViewController {
     
+    /// ViewModel таблицы новостей
     var viewModel: NewsViewModel!
+    
+    /// ViewModel конкретной новости
     var breakingNewsViewController: BreakingNewsViewController!
+    
+    /// View таблицы
     var newsTableView = NewsTableView()
+    
+    /// Нужно ли загружать следующую страницу с новостями
     var isFetchMoreNews: Bool = true
+    
+    /// Происходит ли в данный момент обновления ленты новостей
     var isRefresh: Bool = false
     
-    // MARK: - View для затемнения заднего фона при открытии определенной новости
+    /// View для затемнения заднего фона при открытии определенной новости
     lazy var transparentView: UIView = {
         var localView = UIView()
         localView.frame = view.frame
         return localView
     }()
     
-    // MARK: - Метод для добавления затемняющего view и показа конкретной новости
+    /// Метод для добавления затемняющего view и показа конкретной новости
     func showTransparentView() {
         /// Получаем текщее окно
         let window = UIApplication.shared.connectedScenes
@@ -60,13 +69,10 @@ class NewsViewController: UIViewController {
         window.addSubview(breakingNewsViewController.view)
     }
     
-    // MARK: - Переменная для хранения новостей
+    /// Переменная для хранения новостей
     var newsDataSet: [NewsCellModel] = [] {
         didSet {
-            var initialSnapshot = NSDiffableDataSourceSnapshot<Section, NewsCellModel>()
-            initialSnapshot.appendSections([.main])
-            initialSnapshot.appendItems(newsDataSet)
-            self.dataSource.apply(initialSnapshot, animatingDifferences: false)
+            newsTableView.newsTable.reloadData()
             if isRefresh {
                 isRefresh = false
                 refreshItem.endRefreshing()
@@ -74,7 +80,7 @@ class NewsViewController: UIViewController {
         }
     }
     
-    // MARK: - Refresh controller
+    /// Refresh controller
     lazy var refreshItem: UIRefreshControl = {
         var refresh = UIRefreshControl()
         refresh.attributedTitle = NSAttributedString(string: "Refresh news")
@@ -82,30 +88,30 @@ class NewsViewController: UIViewController {
         return refresh
     }()
     
-    // MARK: - Обработчик refresh controller
+    /// Обработчик взаимодействия с refresh controller
     @objc func refreshHandeler() {
         isRefresh = true
         self.viewModel.getNews(newsOffset: 0)
     }
-    
-    var dataSource: UITableViewDiffableDataSource<Section, NewsCellModel>! = nil
 	
+    /// View did load
     override func viewDidLoad() {
         super.viewDidLoad()
+        newsTableView.newsTable.addSubview(refreshItem)
+        newsTableView.newsTable.delegate = self
+        newsTableView.newsTable.dataSource = self
+        binding()
         viewModel.getNews(newsOffset: 0)
         setupTitleStyle()
         setupBarButtonItem()
-        setupDataSource()
-        binding()
-        newsTableView.newsTable.addSubview(refreshItem)
-        newsTableView.newsTable.delegate = self
     }
     
+    /// Load view для устновки своей view
     override func loadView() {
         view = newsTableView
     }
     
-    //MARK: - Метод настройки BarButtonItems
+    /// Метод для добавдения кнопок в Navigation Bar
     private func setupBarButtonItem() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "tray.full"),
                                                            style: .done, target: nil, action: nil)
@@ -113,43 +119,17 @@ class NewsViewController: UIViewController {
                                                            style: .done, target: nil, action: nil)
     }
     
-    //MARK: - Метод для установки стиля текста Title
+    /// Метод для установки стиля текста Title в Navigation Bar
     private func setupTitleStyle() {
         title = "News"
         let attributes = [NSAttributedString.Key.font: UIFont(name: "SF Pro Text", size: 17)]
         UINavigationBar.appearance().titleTextAttributes = attributes as [NSAttributedString.Key : Any]
     }
-
-    //MARK: - Метод для биндина полей к viewModel
+    
+    /// Метод для биндина полей к viewModel
 	private func binding() {
 		viewModel
 			.$newsDataSet.assign(to: \.newsDataSet, on: self)
             .store(in: &CancellableSetService.set)
 	}
-    
-    //MARK: - Метод для установки DataSource
-    private func setupDataSource() {
-        dataSource = UITableViewDiffableDataSource<Section, NewsCellModel>(tableView: newsTableView.newsTable) {
-            (tableView: UITableView, indexPath: IndexPath, fetchedItem: NewsCellModel) -> UITableViewCell? in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as? NewsTableViewCell else { return NewsTableViewCell() }
-            
-            cell.newsInfo.text = fetchedItem.title
-            cell.newsPublishedAt.text = fetchedItem.publishedAt
-            cell.newsImage.image = fetchedItem.image
-            
-            guard let imageUrl = fetchedItem.imageUrl else { return NewsTableViewCell() }
-            ImageCache.shared.loadImageForTableView(url: imageUrl, fetchedItem: fetchedItem) { (fetchedItem, image) in
-                if let img = image, img != fetchedItem.image {
-                    var updatedSnapshot = self.dataSource.snapshot()
-                    if let datasourceIndex = updatedSnapshot.indexOfItem(fetchedItem) {
-                        let currentCell = self.newsDataSet[datasourceIndex]
-                        currentCell.image = img
-                        updatedSnapshot.reloadItems([currentCell])
-                        self.dataSource.apply(updatedSnapshot, animatingDifferences: true)
-                    }
-                }
-            }
-            return cell
-        }
-    }
 }

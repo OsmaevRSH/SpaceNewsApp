@@ -36,7 +36,7 @@ class BreakingNewsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        breakingNewsViewModel.getNewsPhoto(imageUrl: imageURL)
+        breakingNewsView.newsImage.loadImage(from: imageURL as NSURL)
         breakingNewsViewModel.getNewsInfo(newsUrl: newsURL, newsId: newsId)
     }
     
@@ -51,10 +51,10 @@ class BreakingNewsViewController: UIViewController {
 	}
     
     private func binding() {
-        breakingNewsViewModel
-            .$newsImage
-            .assign(to: \.breakingNewsView.newsImage.image, on: self)
-            .store(in: &CancellableSetService.set)
+//        breakingNewsViewModel
+//            .$newsImage
+//            .assign(to: \.breakingNewsView.newsImage.image, on: self)
+//            .store(in: &CancellableSetService.set)
         breakingNewsViewModel
             .$newsInfo
             .assign(to: \.breakingNewsView.newsInfo.text, on: self)

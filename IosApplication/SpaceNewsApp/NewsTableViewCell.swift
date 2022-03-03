@@ -9,8 +9,9 @@ import UIKit
 
 class NewsTableViewCell: UITableViewCell {
 		
-    lazy var newsImage: UIImageView = {
-        var image = UIImageView()
+    /// View для отображения картинки новости
+    lazy var newsImage: CustomUIImageView = {
+        var image = CustomUIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         image.layer.cornerRadius = 22
@@ -20,7 +21,8 @@ class NewsTableViewCell: UITableViewCell {
         return image
     }()
     
-    lazy var newsInfo: UILabel = {
+    /// View для обображения Title новости
+    lazy var newsTitle: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "SF Pro Text", size: 15)
@@ -29,6 +31,7 @@ class NewsTableViewCell: UITableViewCell {
         return label
     }()
     
+    /// View для отображения, кем была опубликована новость
     lazy var newsPublishedAt: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +41,7 @@ class NewsTableViewCell: UITableViewCell {
         return label
     }()
     
+    /// View контейнер для хранения элементов ячейки
     lazy var containerView: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +49,11 @@ class NewsTableViewCell: UITableViewCell {
         view.backgroundColor = .systemBackground
         return view
     }()
-	
+    
+    /// Конструктор ячейки
+    /// - Parameters:
+    ///   - style: Стиль ячейки
+    ///   - reuseIdentifier: Идентификатор ячейки для переиспользования
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
@@ -53,37 +61,40 @@ class NewsTableViewCell: UITableViewCell {
         self.selectionStyle = .none
     }
     
+    /// Не используемый конструктор
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// Метод для добавления всех Subviews
     private func addSubviews() {
         self.backgroundColor = Colors.tableViewBackground.color
         addSubview(containerView)
         containerView.addSubview(newsImage)
-        containerView.addSubview(newsInfo)
+        containerView.addSubview(newsTitle)
         containerView.addSubview(newsPublishedAt)
     }
     
+    /// Метод для добавления констрентов для всех элементов ячейки
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            
+            //containerView
             containerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 4),
             containerView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
             containerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -4),
             containerView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
-            
+            //newsImage
             newsImage.heightAnchor.constraint(equalToConstant: 240),
             newsImage.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor),
             newsImage.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor),
             newsImage.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor),
-            
-            newsInfo.topAnchor.constraint(equalTo: newsImage.safeAreaLayoutGuide.bottomAnchor, constant: 16),
-            newsInfo.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            newsInfo.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -16),
-            
+            //newsTitle
+            newsTitle.topAnchor.constraint(equalTo: newsImage.safeAreaLayoutGuide.bottomAnchor, constant: 16),
+            newsTitle.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            newsTitle.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            //newsPublishedAt
             newsPublishedAt.heightAnchor.constraint(equalToConstant: 25),
-            newsPublishedAt.topAnchor.constraint(equalTo: newsInfo.safeAreaLayoutGuide.bottomAnchor),
+            newsPublishedAt.topAnchor.constraint(equalTo: newsTitle.safeAreaLayoutGuide.bottomAnchor),
             newsPublishedAt.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 16),
             newsPublishedAt.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -16),
             newsPublishedAt.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -16)

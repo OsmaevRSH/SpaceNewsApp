@@ -45,8 +45,8 @@ class BreakingNewsView: UIView {
         return container
     }()
 	
-    lazy var newsImage: UIImageView = {
-        var image = UIImageView()
+    lazy var newsImage: CustomUIImageView = {
+        var image = CustomUIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
