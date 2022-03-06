@@ -19,35 +19,20 @@ class AssemblyLayer {
         let videoViewController = VideoViewController()
         let mapNavController = MapNavController()
         let mapViewController = MapViewController()
-        let marsNavController = MarsNavController()
         let videoNavController = VideoNavController()
         let breakingNewsViewController = BreakingNewsViewController()
         let breakingNewsViewModel = BreakingNewsViewModel()
-        let setupApiSettingsViewController = SetupApiSettingsViewController()
-        let resultCityPageViewController = ResultCityPageViewController(
-            transitionStyle: .scroll, navigationOrientation: .horizontal)
-        let mapCityViewController = MapCityViewController()
-        let tableCityViewController = TableCityViewController()
-        let resultCityPageViewModel = ResultCityPageViewModel()
         let videosListViewModel = VideosListViewModel()
         let breakingVideoViewController = BreakingVideoViewController()
         
         baseTabBarController.mapNavController = mapNavController
         baseTabBarController.newsNavController = newsNavController
-        baseTabBarController.marsNavController = marsNavController
         baseTabBarController.videoNavController = videoNavController
         videoNavController.videoViewController = videoViewController
         videoViewController.viewModel = videosListViewModel
         videoViewController.breakingVideoViewController = breakingVideoViewController
         breakingVideoViewController.viewModel = videosListViewModel
         mapNavController.mapViewController = mapViewController
-        mapViewController.setupApiSettingsViewController = setupApiSettingsViewController
-        setupApiSettingsViewController.resultCityPageViewController = resultCityPageViewController
-        resultCityPageViewController.mapCityViewController = mapCityViewController
-        resultCityPageViewController.tableCityViewController = tableCityViewController
-        resultCityPageViewController.viewModel = resultCityPageViewModel
-        mapCityViewController.viewModel = resultCityPageViewModel
-        tableCityViewController.viewModel = resultCityPageViewModel
         newsNavController.newsViewController = newsViewController
         newsViewController.viewModel = newsViewModel
         newsViewController.breakingNewsViewController = breakingNewsViewController

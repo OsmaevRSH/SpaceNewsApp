@@ -3,7 +3,6 @@ import UIKit
 class BaseTabBarController: UITabBarController {
     
     var mapNavController: MapNavController!
-    var marsNavController: MarsNavController!
     var newsNavController: NewsNavController!
     var videoNavController: VideoNavController!
     
@@ -21,13 +20,6 @@ class BaseTabBarController: UITabBarController {
             selectedImage: UIImage(systemName: "newspaper")
             )
         newsNavController.tabBarItem = newsTabBarItem
-        
-        let marsTabBarItem = UITabBarItem(
-            title: "Mars",
-            image: UIImage(systemName: "airplane"),
-            selectedImage: UIImage(systemName: "airplane")
-            )
-        marsNavController.tabBarItem = marsTabBarItem
         
         let videoTabBarItem = UITabBarItem(
             title: "Videos",

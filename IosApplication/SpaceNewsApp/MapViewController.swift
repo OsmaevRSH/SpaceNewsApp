@@ -6,8 +6,6 @@ protocol HandleMapSearch {
 }
 
 class MapViewController: UIViewController {
-	
-    var setupApiSettingsViewController: SetupApiSettingsViewController!
     
 	lazy var mapView = MapView()
 	var selectedPin: MKPlacemark?

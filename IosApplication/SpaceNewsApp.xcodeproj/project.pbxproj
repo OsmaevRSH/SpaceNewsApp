@@ -20,8 +20,6 @@
 		C1349271279ADCB300948C04 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349270279ADCB300948C04 /* BaseTabBarController.swift */; };
 		C1349273279ADCE800948C04 /* MapNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349272279ADCE800948C04 /* MapNavController.swift */; };
 		C1349275279ADD0500948C04 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349274279ADD0500948C04 /* MapViewController.swift */; };
-		C1349277279ADD2900948C04 /* MarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349276279ADD2900948C04 /* MarsViewController.swift */; };
-		C1349279279ADD4500948C04 /* MarsNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349278279ADD4500948C04 /* MarsNavController.swift */; };
 		C134927B279ADD6C00948C04 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134927A279ADD6C00948C04 /* LaunchView.swift */; };
 		C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134927C279ADD8800948C04 /* TemplateOnboardingView.swift */; };
 		C134927F279ADD9E00948C04 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134927E279ADD9E00948C04 /* PageViewController.swift */; };
@@ -37,16 +35,10 @@
 		C1707C4A27A6DB1000D1D385 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */; };
 		C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */; };
 		C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */; };
-		C172FCA027BB91EF009C0B3F /* MapCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C172FC9F27BB91EF009C0B3F /* MapCityViewController.swift */; };
-		C172FCA227BB91FB009C0B3F /* TableCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C172FCA127BB91FB009C0B3F /* TableCityViewController.swift */; };
 		C185C96C27B3F5D9006D10B2 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96B27B3F5D9006D10B2 /* ImageCacheService.swift */; };
 		C185C96E27B40745006D10B2 /* NewsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96D27B40745006D10B2 /* NewsCellModel.swift */; };
 		C1A0D0C027C908D000BD49A6 /* VideoNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0D0BF27C908D000BD49A6 /* VideoNavController.swift */; };
 		C1A0D0C227C908E900BD49A6 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0D0C127C908E900BD49A6 /* VideoViewController.swift */; };
-		C1A758BF27BA704F00B10752 /* ResultCityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A758BE27BA704F00B10752 /* ResultCityPageViewController.swift */; };
-		C1A758C327BA733300B10752 /* SetupApiDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A758C227BA733300B10752 /* SetupApiDelegate.swift */; };
-		C1B4AB0827A98D2F0089F25F /* SetupApiSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0727A98D2F0089F25F /* SetupApiSettingsView.swift */; };
-		C1B4AB0A27A98D400089F25F /* SetupApiSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0927A98D400089F25F /* SetupApiSettingsViewController.swift */; };
 		C1B4AB0D27A9A0DC0089F25F /* NewsNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0C27A9A0DC0089F25F /* NewsNavController.swift */; };
 		C1B4AB0F27A9A10A0089F25F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */; };
 		C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB1027A9A2110089F25F /* NewsTableView.swift */; };
@@ -62,7 +54,6 @@
 		C1E295CB27CFBB2C00693FC8 /* CustomUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E295CA27CFBB2C00693FC8 /* CustomUIImageView.swift */; };
 		C1E469C927C24737005CEAD2 /* AssemblyLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E469C827C24737005CEAD2 /* AssemblyLayer.swift */; };
 		C1E469CB27C25367005CEAD2 /* ResultCityPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E469CA27C25367005CEAD2 /* ResultCityPageViewModel.swift */; };
-		C1E469CD27C26457005CEAD2 /* ResultCitysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E469CC27C26457005CEAD2 /* ResultCitysModel.swift */; };
 		C1E4D87E27AA718C00D70F2A /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4D87D27AA718C00D70F2A /* NewsTableViewCell.swift */; };
 		C1E4D88627AA986E00D70F2A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4D88527AA986E00D70F2A /* NewsViewModel.swift */; };
 		C1E4D88A27AA98C800D70F2A /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4D88927AA98C800D70F2A /* NewsModel.swift */; };
@@ -115,8 +106,6 @@
 		C1349270279ADCB300948C04 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		C1349272279ADCE800948C04 /* MapNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavController.swift; sourceTree = "<group>"; };
 		C1349274279ADD0500948C04 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		C1349276279ADD2900948C04 /* MarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsViewController.swift; sourceTree = "<group>"; };
-		C1349278279ADD4500948C04 /* MarsNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsNavController.swift; sourceTree = "<group>"; };
 		C134927A279ADD6C00948C04 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		C134927C279ADD8800948C04 /* TemplateOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateOnboardingView.swift; sourceTree = "<group>"; };
 		C134927E279ADD9E00948C04 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -132,16 +121,10 @@
 		C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerExtension.swift; sourceTree = "<group>"; };
 		C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchTable.swift; sourceTree = "<group>"; };
-		C172FC9F27BB91EF009C0B3F /* MapCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCityViewController.swift; sourceTree = "<group>"; };
-		C172FCA127BB91FB009C0B3F /* TableCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCityViewController.swift; sourceTree = "<group>"; };
 		C185C96B27B3F5D9006D10B2 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
 		C185C96D27B40745006D10B2 /* NewsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellModel.swift; sourceTree = "<group>"; };
 		C1A0D0BF27C908D000BD49A6 /* VideoNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNavController.swift; sourceTree = "<group>"; };
 		C1A0D0C127C908E900BD49A6 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
-		C1A758BE27BA704F00B10752 /* ResultCityPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCityPageViewController.swift; sourceTree = "<group>"; };
-		C1A758C227BA733300B10752 /* SetupApiDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupApiDelegate.swift; sourceTree = "<group>"; };
-		C1B4AB0727A98D2F0089F25F /* SetupApiSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupApiSettingsView.swift; sourceTree = "<group>"; };
-		C1B4AB0927A98D400089F25F /* SetupApiSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupApiSettingsViewController.swift; sourceTree = "<group>"; };
 		C1B4AB0C27A9A0DC0089F25F /* NewsNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNavController.swift; sourceTree = "<group>"; };
 		C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		C1B4AB1027A9A2110089F25F /* NewsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableView.swift; sourceTree = "<group>"; };
@@ -157,7 +140,6 @@
 		C1E295CA27CFBB2C00693FC8 /* CustomUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIImageView.swift; sourceTree = "<group>"; };
 		C1E469C827C24737005CEAD2 /* AssemblyLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyLayer.swift; sourceTree = "<group>"; };
 		C1E469CA27C25367005CEAD2 /* ResultCityPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCityPageViewModel.swift; sourceTree = "<group>"; };
-		C1E469CC27C26457005CEAD2 /* ResultCitysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCitysModel.swift; sourceTree = "<group>"; };
 		C1E4D87D27AA718C00D70F2A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		C1E4D88527AA986E00D70F2A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		C1E4D88927AA98C800D70F2A /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
@@ -272,8 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				C1349272279ADCE800948C04 /* MapNavController.swift */,
-				C1A758BD27BA700900B10752 /* ResultCityPageVeiw */,
-				C1B4AB0627A98CFC0089F25F /* SetupApiSettingsView */,
 				C1B4AB0527A98CEF0089F25F /* MapView */,
 			);
 			name = Map;
@@ -286,15 +266,6 @@
 				C1349260279AD9D700948C04 /* SpaceNewsAppUITests */,
 			);
 			name = Tests;
-			sourceTree = "<group>";
-		};
-		C14B28A4279ADF6200E1D30A /* Mars */ = {
-			isa = PBXGroup;
-			children = (
-				C1349276279ADD2900948C04 /* MarsViewController.swift */,
-				C1349278279ADD4500948C04 /* MarsNavController.swift */,
-			);
-			name = Mars;
 			sourceTree = "<group>";
 		};
 		C14B28A5279ADF8900E1D30A /* OnBoarding */ = {
@@ -325,7 +296,6 @@
 				C1B4AB0B27A9A08B0089F25F /* News */,
 				C1A0D0C327C908EF00BD49A6 /* Video */,
 				C14B28A1279ADEF400E1D30A /* Map */,
-				C14B28A4279ADF6200E1D30A /* Mars */,
 				C1EAAFA7279DA8B800300FB9 /* Alert */,
 			);
 			name = Views;
@@ -375,16 +345,6 @@
 			name = Video;
 			sourceTree = "<group>";
 		};
-		C1A758BD27BA700900B10752 /* ResultCityPageVeiw */ = {
-			isa = PBXGroup;
-			children = (
-				C1A758BE27BA704F00B10752 /* ResultCityPageViewController.swift */,
-				C172FC9F27BB91EF009C0B3F /* MapCityViewController.swift */,
-				C172FCA127BB91FB009C0B3F /* TableCityViewController.swift */,
-			);
-			name = ResultCityPageVeiw;
-			sourceTree = "<group>";
-		};
 		C1B4AB0527A98CEF0089F25F /* MapView */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,16 +355,6 @@
 				C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */,
 			);
 			name = MapView;
-			sourceTree = "<group>";
-		};
-		C1B4AB0627A98CFC0089F25F /* SetupApiSettingsView */ = {
-			isa = PBXGroup;
-			children = (
-				C1B4AB0727A98D2F0089F25F /* SetupApiSettingsView.swift */,
-				C1B4AB0927A98D400089F25F /* SetupApiSettingsViewController.swift */,
-				C1A758C227BA733300B10752 /* SetupApiDelegate.swift */,
-			);
-			name = SetupApiSettingsView;
 			sourceTree = "<group>";
 		};
 		C1B4AB0B27A9A08B0089F25F /* News */ = {
@@ -480,14 +430,6 @@
 			name = CustomUIClasses;
 			sourceTree = "<group>";
 		};
-		C1E469CE27C29735005CEAD2 /* CitisAroundPoint */ = {
-			isa = PBXGroup;
-			children = (
-				C1E469CC27C26457005CEAD2 /* ResultCitysModel.swift */,
-			);
-			name = CitisAroundPoint;
-			sourceTree = "<group>";
-		};
 		C1E469CF27C29768005CEAD2 /* CitisAroundPoint */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,7 +461,6 @@
 			isa = PBXGroup;
 			children = (
 				C1E4D88827AA98B900D70F2A /* NewsModel */,
-				C1E469CE27C29735005CEAD2 /* CitisAroundPoint */,
 				C1DDED4F27CB920300EF9166 /* VideosListModel */,
 			);
 			name = Model;
@@ -839,12 +780,9 @@
 				C1C39C6D27D4B3C100DB8DA3 /* RecomendationVideoCell.swift in Sources */,
 				C1E469C927C24737005CEAD2 /* AssemblyLayer.swift in Sources */,
 				C1E4D89027AAB01B00D70F2A /* BreakingNewsView.swift in Sources */,
-				C1E469CD27C26457005CEAD2 /* ResultCitysModel.swift in Sources */,
 				C1A0D0C227C908E900BD49A6 /* VideoViewController.swift in Sources */,
-				C1B4AB0A27A98D400089F25F /* SetupApiSettingsViewController.swift in Sources */,
 				C148E79D27D0D9D1000297D4 /* BreakingVideoViewController.swift in Sources */,
 				C1B4AB0F27A9A10A0089F25F /* NewsViewController.swift in Sources */,
-				C1A758BF27BA704F00B10752 /* ResultCityPageViewController.swift in Sources */,
 				C1B4AB1327A9A76A0089F25F /* NewsViewControllerExtension.swift in Sources */,
 				C134927B279ADD6C00948C04 /* LaunchView.swift in Sources */,
 				C185C96E27B40745006D10B2 /* NewsCellModel.swift in Sources */,
@@ -854,9 +792,7 @@
 				C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */,
 				C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */,
 				C1E4D88627AA986E00D70F2A /* NewsViewModel.swift in Sources */,
-				C1B4AB0827A98D2F0089F25F /* SetupApiSettingsView.swift in Sources */,
 				C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */,
-				C1A758C327BA733300B10752 /* SetupApiDelegate.swift in Sources */,
 				C1B4AB0D27A9A0DC0089F25F /* NewsNavController.swift in Sources */,
 				C1349281279ADDAD00948C04 /* PageControl.swift in Sources */,
 				C134927F279ADD9E00948C04 /* PageViewController.swift in Sources */,
@@ -870,22 +806,18 @@
 				C14F9AEA27CE18E800CBDDD9 /* Colors.swift in Sources */,
 				C148E79B27D0D5FF000297D4 /* VideoViewControllerExtention.swift in Sources */,
 				C1E4D89227AAB02900D70F2A /* BreakingNewsViewController.swift in Sources */,
-				C172FCA027BB91EF009C0B3F /* MapCityViewController.swift in Sources */,
 				C1EAAFA6279DA88D00300FB9 /* Alert.swift in Sources */,
 				C1349271279ADCB300948C04 /* BaseTabBarController.swift in Sources */,
 				C1DDED5427CB982100EF9166 /* VideosListView.swift in Sources */,
 				C1349240279AD9D600948C04 /* SceneDelegate.swift in Sources */,
 				C1C39C6F27D4B93E00DB8DA3 /* BreakingVideoViewControllerExtention.swift in Sources */,
-				C1349277279ADD2900948C04 /* MarsViewController.swift in Sources */,
 				C1E4D87E27AA718C00D70F2A /* NewsTableViewCell.swift in Sources */,
 				C1E4D88A27AA98C800D70F2A /* NewsModel.swift in Sources */,
 				C1349283279ADDBD00948C04 /* OnBoardigView.swift in Sources */,
 				C1C39C6B27D4AC1900DB8DA3 /* BreakingVideoView.swift in Sources */,
 				C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */,
 				C1E469CB27C25367005CEAD2 /* ResultCityPageViewModel.swift in Sources */,
-				C172FCA227BB91FB009C0B3F /* TableCityViewController.swift in Sources */,
 				C1A0D0C027C908D000BD49A6 /* VideoNavController.swift in Sources */,
-				C1349279279ADD4500948C04 /* MarsNavController.swift in Sources */,
 				C14F9AE127CBAA6000CBDDD9 /* VideoCellModel.swift in Sources */,
 				C1349275279ADD0500948C04 /* MapViewController.swift in Sources */,
 				C1707C4A27A6DB1000D1D385 /* MapViewDelegate.swift in Sources */,

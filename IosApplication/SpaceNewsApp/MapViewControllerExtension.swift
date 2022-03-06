@@ -43,8 +43,8 @@ extension MapViewController: MapViewDelegate {
 			guard let annotation = annotation else { return }
 			locationForRequest = annotation.coordinate
 		}
-        setupApiSettingsViewController.setupFields(location: locationForRequest)
-		self.navigationController?.show(setupApiSettingsViewController, sender: self)
+//        setupApiSettingsViewController.setupFields(location: locationForRequest)
+//		self.navigationController?.show(setupApiSettingsViewController, sender: self)
 	}
 }
 

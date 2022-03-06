@@ -40,19 +40,6 @@ class MapView: UIView {
 		return button
 	}()
 	
-		/// Кнопка создания фото
-	lazy var photoButton: UIButton = {
-		var button = UIButton(type: .system)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		button.layer.cornerRadius = 20
-		button.setTitle("Setup API settings", for: .normal)
-		button.setImage(UIImage(systemName: "camera"), for: .normal)
-		button.backgroundColor = .blue.withAlphaComponent(0.7)
-		button.setTitleColor(.white, for: .normal)
-		button.addTarget(self, action: #selector(CreateRequestToCreatePhoto), for: .touchUpInside)
-		return button
-	}()
-	
 		/// Метод для добавления contraints
 	private func addConstraitns() {
 		NSLayoutConstraint.activate([
@@ -62,15 +49,10 @@ class MapView: UIView {
 			map.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
 			map.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
 			///Constraints кнопки текущего местоположения
-			currentLocationButton.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
+			currentLocationButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
 			currentLocationButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32),
 			currentLocationButton.heightAnchor.constraint(equalToConstant: currentLocationButtonHeight),
-			///Constraints кнопка для создания фото
-			photoButton.centerYAnchor.constraint(equalTo: currentLocationButton.centerYAnchor),
-			photoButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
-			photoButton.widthAnchor.constraint(equalTo: currentLocationButton.widthAnchor),
-			photoButton.heightAnchor.constraint(equalToConstant: currentLocationButtonHeight),
-			photoButton.leftAnchor.constraint(equalTo: currentLocationButton.rightAnchor, constant: 32)
+            currentLocationButton.widthAnchor.constraint(equalToConstant: currentLocationButtonWidth)
 		])
 	}
 	
@@ -78,7 +60,6 @@ class MapView: UIView {
 	private func addSubviews() {
 		addSubview(map)
 		addSubview(currentLocationButton)
-		addSubview(photoButton)
 	}
 	
 	// MARK: - Init
