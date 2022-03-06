@@ -21,6 +21,28 @@ class VideoCell: UITableViewCell {
         return image
     }()
     
+    /// View для отображения иконки канала
+    lazy var chanelIcon: CustomUIImageView = {
+        var image = CustomUIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.layer.cornerRadius = 22.5
+        image.layer.masksToBounds = true
+        image.clipsToBounds = true
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
+    /// Stack view для тайтла и издатля новости
+    lazy var infoStackView: UIStackView = {
+        var stack = UIStackView(arrangedSubviews: [
+            videoTitle, videoPublishedAt
+        ])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = 8.0
+        return stack
+    }()
+    
     /// View для обображения Title новости
     lazy var videoTitle: UILabel = {
         var label = UILabel()
@@ -36,7 +58,6 @@ class VideoCell: UITableViewCell {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "SF Pro Text", size: 13)
-        label.numberOfLines = 0
         label.font = .systemFont(ofSize: 13, weight: .regular)
         return label
     }()
@@ -71,33 +92,33 @@ class VideoCell: UITableViewCell {
         self.backgroundColor = Colors.tableViewBackground.color
         addSubview(containerView)
         containerView.addSubview(videoImage)
-        containerView.addSubview(videoTitle)
-        containerView.addSubview(videoPublishedAt)
+        containerView.addSubview(infoStackView)
+        containerView.addSubview(chanelIcon)
     }
     
     /// Метод для добавления констрентов для всех элементов ячейки
     private func addConstraints() {
         NSLayoutConstraint.activate([
             //containerView
-            containerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 4),
+            containerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
             containerView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
-            containerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -4),
+            containerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             containerView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
             //newsImage
-            videoImage.heightAnchor.constraint(equalToConstant: 240),
+            videoImage.widthAnchor.constraint(equalTo: videoImage.heightAnchor, multiplier: 16.0/9.0),
             videoImage.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor),
             videoImage.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor),
             videoImage.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor),
-            //newsTitle
-            videoTitle.topAnchor.constraint(equalTo: videoImage.safeAreaLayoutGuide.bottomAnchor, constant: 16),
-            videoTitle.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            videoTitle.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -16),
-            //newsPublishedAt
-            videoPublishedAt.heightAnchor.constraint(equalToConstant: 25),
-            videoPublishedAt.topAnchor.constraint(equalTo: videoTitle.safeAreaLayoutGuide.bottomAnchor),
-            videoPublishedAt.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            videoPublishedAt.rightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.rightAnchor, constant: -16),
-            videoPublishedAt.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            //chanelIcon
+            chanelIcon.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16),
+            chanelIcon.widthAnchor.constraint(equalToConstant: 45),
+            chanelIcon.heightAnchor.constraint(equalToConstant: 45),
+            chanelIcon.centerYAnchor.constraint(equalTo: infoStackView.centerYAnchor),
+            //infoStackView
+            infoStackView.topAnchor.constraint(equalTo: videoImage.bottomAnchor, constant: 16),
+            infoStackView.leftAnchor.constraint(equalTo: chanelIcon.rightAnchor, constant: 16),
+            infoStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16),
+            infoStackView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -16)
         ])
     }
 

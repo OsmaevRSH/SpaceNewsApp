@@ -12,6 +12,8 @@ class VideoViewController: UIViewController {
 
     let VideosView = VideosListView()
     
+    var breakingVideoViewController: BreakingVideoViewController!
+    
     var viewModel: VideosListViewModel!
     
     var videosListData: [VideoCellModel] = []

@@ -19,7 +19,8 @@ class VideosListViewModel {
                     VideoCellModel(
                         imageUrl: NSURL(string: $0.snippet?.thumbnails?.high?.url ?? ""),
                         title: $0.snippet?.title,
-                        videoId: $0.id?.videoID)
+                        videoId: $0.id?.videoID,
+                        chanelTitle: $0.snippet?.channelTitle)
                 }
             }
             .assign(to: \.videosListData, on: self)

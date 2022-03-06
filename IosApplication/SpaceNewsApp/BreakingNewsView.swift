@@ -95,7 +95,7 @@ class BreakingNewsView: UIView {
             newsTitle.leftAnchor.constraint(equalTo: newsImage.leftAnchor, constant: 16),
             newsTitle.rightAnchor.constraint(equalTo: newsImage.rightAnchor, constant: -16),
             //newsInfo
-            newsInfo.topAnchor.constraint(equalTo: newsTitle.bottomAnchor),
+            newsInfo.topAnchor.constraint(equalTo: newsTitle.bottomAnchor, constant: 8),
             newsInfo.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16),
             newsInfo.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -16),
             newsInfo.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16),

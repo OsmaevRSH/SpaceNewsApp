@@ -6,31 +6,69 @@
 //
 
 import UIKit
-import youtube_ios_player_helper
+
 
 class BreakingVideoViewController: UIViewController {
 
-    lazy var videoView: YTPlayerView = {
-        var view = YTPlayerView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    let videoView = BreakingVideoView()
+
+    var viewModel: VideosListViewModel!
+    
+    var videosListData: [VideoCellModel] = []
+    
+    var recomendedVideos: [VideoCellModel] = [] {
+        didSet {
+            videoView.recomendationTableView.reloadData()
+        }
+    }
+    
+    private var videoId: String = ""
+    private var videoTitle: String = ""
+    private var videoPublishedAt: String = ""
+    
+    override func loadView() {
+        view = videoView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Video"
-        view.addSubview(videoView)
-        addConstraints()
-        videoView.load(withVideoId: "YE7VzlLtp-4", playerVars: ["playsinline": "1"])
+        videoView.recomendationTableView.delegate = self
+        videoView.recomendationTableView.dataSource = self
+        videoView.recomendationTableView.register(RecomendationVideoCell.self, forCellReuseIdentifier: RecomendationVideoCell.cellId)
+        binding()
     }
     
-    private func addConstraints() {
-        NSLayoutConstraint.activate([
-            videoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            videoView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            videoView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            videoView.widthAnchor.constraint(equalTo: videoView.heightAnchor, multiplier: 16.0/9.0)
-        ])
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        recomendedVideos = videosListData.filter({ [weak self] item in
+            item.videoId != self?.videoId
+        })
+        videoView.videoView.load(withVideoId: videoId)
+        videoView.videoTitle.text = videoTitle
+        videoView.videoPublishedAt.text = videoPublishedAt
+    }
+    
+    private func setupBarButtonItems() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrowshape.turn.up.right"),
+                                                           style: .done, target: nil, action: nil)
+    }
+    
+    func setupVideoInfo(videoId: String, videoTitle: String, videoPublishedAt: String) {
+        self.videoId = videoId
+        self.videoTitle = videoTitle
+        self.videoPublishedAt = videoPublishedAt
+    }
+    
+    func binding() {
+        viewModel.$videosListData
+            .assign(to: \.videosListData, on: self)
+            .store(in: &CancellableSetService.set)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        videoView.recomendationTableView.contentOffset = CGPoint(x: 0, y: 0)
     }
 }

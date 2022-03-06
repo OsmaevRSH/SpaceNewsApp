@@ -51,6 +51,9 @@
 		C1B4AB0F27A9A10A0089F25F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */; };
 		C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB1027A9A2110089F25F /* NewsTableView.swift */; };
 		C1B4AB1327A9A76A0089F25F /* NewsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4AB1227A9A76A0089F25F /* NewsViewControllerExtension.swift */; };
+		C1C39C6B27D4AC1900DB8DA3 /* BreakingVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C39C6A27D4AC1900DB8DA3 /* BreakingVideoView.swift */; };
+		C1C39C6D27D4B3C100DB8DA3 /* RecomendationVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C39C6C27D4B3C100DB8DA3 /* RecomendationVideoCell.swift */; };
+		C1C39C6F27D4B93E00DB8DA3 /* BreakingVideoViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C39C6E27D4B93E00DB8DA3 /* BreakingVideoViewControllerExtention.swift */; };
 		C1DDED4E27CB91E800EF9166 /* VideosListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDED4D27CB91E800EF9166 /* VideosListModel.swift */; };
 		C1DDED5127CB975200EF9166 /* VideosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDED5027CB975200EF9166 /* VideosListViewModel.swift */; };
 		C1DDED5427CB982100EF9166 /* VideosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDED5327CB982100EF9166 /* VideosListView.swift */; };
@@ -143,6 +146,9 @@
 		C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		C1B4AB1027A9A2110089F25F /* NewsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableView.swift; sourceTree = "<group>"; };
 		C1B4AB1227A9A76A0089F25F /* NewsViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewControllerExtension.swift; sourceTree = "<group>"; };
+		C1C39C6A27D4AC1900DB8DA3 /* BreakingVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingVideoView.swift; sourceTree = "<group>"; };
+		C1C39C6C27D4B3C100DB8DA3 /* RecomendationVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationVideoCell.swift; sourceTree = "<group>"; };
+		C1C39C6E27D4B93E00DB8DA3 /* BreakingVideoViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingVideoViewControllerExtention.swift; sourceTree = "<group>"; };
 		C1DDED4D27CB91E800EF9166 /* VideosListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosListModel.swift; sourceTree = "<group>"; };
 		C1DDED5027CB975200EF9166 /* VideosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosListViewModel.swift; sourceTree = "<group>"; };
 		C1DDED5327CB982100EF9166 /* VideosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosListView.swift; sourceTree = "<group>"; };
@@ -363,11 +369,8 @@
 			isa = PBXGroup;
 			children = (
 				C1A0D0BF27C908D000BD49A6 /* VideoNavController.swift */,
-				C1A0D0C127C908E900BD49A6 /* VideoViewController.swift */,
-				C1DDED5327CB982100EF9166 /* VideosListView.swift */,
-				C148E79827D0D3BC000297D4 /* VideoCell.swift */,
-				C148E79A27D0D5FF000297D4 /* VideoViewControllerExtention.swift */,
-				C148E79C27D0D9D1000297D4 /* BreakingVideoViewController.swift */,
+				C1C39C6827D4ABC100DB8DA3 /* VideosList */,
+				C1C39C6927D4ABCF00DB8DA3 /* BreakingVideo */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -412,6 +415,28 @@
 				C1E4D88D27AAAFB700D70F2A /* NewsTableView */,
 			);
 			name = News;
+			sourceTree = "<group>";
+		};
+		C1C39C6827D4ABC100DB8DA3 /* VideosList */ = {
+			isa = PBXGroup;
+			children = (
+				C1A0D0C127C908E900BD49A6 /* VideoViewController.swift */,
+				C1DDED5327CB982100EF9166 /* VideosListView.swift */,
+				C148E79827D0D3BC000297D4 /* VideoCell.swift */,
+				C148E79A27D0D5FF000297D4 /* VideoViewControllerExtention.swift */,
+			);
+			name = VideosList;
+			sourceTree = "<group>";
+		};
+		C1C39C6927D4ABCF00DB8DA3 /* BreakingVideo */ = {
+			isa = PBXGroup;
+			children = (
+				C148E79C27D0D9D1000297D4 /* BreakingVideoViewController.swift */,
+				C1C39C6A27D4AC1900DB8DA3 /* BreakingVideoView.swift */,
+				C1C39C6C27D4B3C100DB8DA3 /* RecomendationVideoCell.swift */,
+				C1C39C6E27D4B93E00DB8DA3 /* BreakingVideoViewControllerExtention.swift */,
+			);
+			name = BreakingVideo;
 			sourceTree = "<group>";
 		};
 		C1DDED4F27CB920300EF9166 /* VideosListModel */ = {
@@ -811,6 +836,7 @@
 				C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */,
 				C1E295C827CF70AB00693FC8 /* NewsCacheService.swift in Sources */,
 				C148E79927D0D3BC000297D4 /* VideoCell.swift in Sources */,
+				C1C39C6D27D4B3C100DB8DA3 /* RecomendationVideoCell.swift in Sources */,
 				C1E469C927C24737005CEAD2 /* AssemblyLayer.swift in Sources */,
 				C1E4D89027AAB01B00D70F2A /* BreakingNewsView.swift in Sources */,
 				C1E469CD27C26457005CEAD2 /* ResultCitysModel.swift in Sources */,
@@ -849,10 +875,12 @@
 				C1349271279ADCB300948C04 /* BaseTabBarController.swift in Sources */,
 				C1DDED5427CB982100EF9166 /* VideosListView.swift in Sources */,
 				C1349240279AD9D600948C04 /* SceneDelegate.swift in Sources */,
+				C1C39C6F27D4B93E00DB8DA3 /* BreakingVideoViewControllerExtention.swift in Sources */,
 				C1349277279ADD2900948C04 /* MarsViewController.swift in Sources */,
 				C1E4D87E27AA718C00D70F2A /* NewsTableViewCell.swift in Sources */,
 				C1E4D88A27AA98C800D70F2A /* NewsModel.swift in Sources */,
 				C1349283279ADDBD00948C04 /* OnBoardigView.swift in Sources */,
+				C1C39C6B27D4AC1900DB8DA3 /* BreakingVideoView.swift in Sources */,
 				C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */,
 				C1E469CB27C25367005CEAD2 /* ResultCityPageViewModel.swift in Sources */,
 				C172FCA227BB91FB009C0B3F /* TableCityViewController.swift in Sources */,

@@ -30,6 +30,7 @@ class AssemblyLayer {
         let tableCityViewController = TableCityViewController()
         let resultCityPageViewModel = ResultCityPageViewModel()
         let videosListViewModel = VideosListViewModel()
+        let breakingVideoViewController = BreakingVideoViewController()
         
         baseTabBarController.mapNavController = mapNavController
         baseTabBarController.newsNavController = newsNavController
@@ -37,6 +38,8 @@ class AssemblyLayer {
         baseTabBarController.videoNavController = videoNavController
         videoNavController.videoViewController = videoViewController
         videoViewController.viewModel = videosListViewModel
+        videoViewController.breakingVideoViewController = breakingVideoViewController
+        breakingVideoViewController.viewModel = videosListViewModel
         mapNavController.mapViewController = mapViewController
         mapViewController.setupApiSettingsViewController = setupApiSettingsViewController
         setupApiSettingsViewController.resultCityPageViewController = resultCityPageViewController

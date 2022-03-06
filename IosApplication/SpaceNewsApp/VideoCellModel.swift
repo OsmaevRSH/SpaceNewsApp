@@ -14,6 +14,7 @@ class VideoCellModel: Hashable {
     var image: UIImage?
     let imageUrl: NSURL?
     var title: String?
+    var chanelTitle: String?
     var videoId: String?
     
     func hash(into hasher: inout Hasher) {
@@ -24,10 +25,11 @@ class VideoCellModel: Hashable {
         return lhs.identifier == rhs.identifier
     }
     
-    init(imageUrl: NSURL?, title: String?, videoId: String?) {
+    init(imageUrl: NSURL?, title: String?, videoId: String?, chanelTitle: String?) {
         self.image = nil
         self.imageUrl = imageUrl
         self.title = title
         self.videoId = videoId
+        self.chanelTitle = chanelTitle
     }
 }
