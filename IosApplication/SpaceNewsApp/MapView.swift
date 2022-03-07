@@ -88,9 +88,4 @@ class MapView: UIView {
 	@objc private func createPinOnTap(gestureRecognizer: UITapGestureRecognizer) {
 		delegate?.createPinOnTap(gestureRecognizer: gestureRecognizer)
 	}
-	
-		/// Метод для отправки запроса на содание фото
-	@objc private func CreateRequestToCreatePhoto() {
-		delegate?.CreateRequestToCreatePhoto()
-	}
 }

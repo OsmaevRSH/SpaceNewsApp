@@ -15,7 +15,6 @@ protocol MapViewDelegate: AnyObject {
 	
 		/// Обработчик нажатия на карту
 	func createPinOnTap(gestureRecognizer: UITapGestureRecognizer)
-	
-		/// Метод для отправки запроса на содание фото
-	func CreateRequestToCreatePhoto()
+    
+    func swipeHandler()
 }

@@ -7,6 +7,10 @@ protocol HandleMapSearch {
 
 class MapViewController: UIViewController {
     
+    var isCityInfoPresented = false
+    
+    let infoView = CityInformationView()
+    
 	lazy var mapView = MapView()
 	var selectedPin: MKPlacemark?
 	var seacrhController: UISearchController?
@@ -26,6 +30,7 @@ class MapViewController: UIViewController {
 		createMapSearchBar()
 		locationSearchTable.mapView = mapView.map
 		locationSearchTable.handleMapSearchDelegate = self
+        infoView.delegate = self
 	}
 	
 		/// Метод вызывается сразу после появления карты

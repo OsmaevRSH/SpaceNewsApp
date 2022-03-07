@@ -10,51 +10,91 @@ import MapKit
 
 // MARK: - MapViewDelegate
 extension MapViewController: MapViewDelegate {
+    func swipeHandler() {
+        if isCityInfoPresented {
+            isCityInfoPresented = false
+            UIView.animate(withDuration: 0.4) {
+                self.infoView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 0)
+                
+            } completion: { _ in
+                self.infoView.removeFromSuperview()
+            }
+        }
+    }
+    
 	
-		/// Обработчик нажатия клавиши текущего местоположения
+    /// Обработчик нажатия клавиши текущего местоположения
 	func getCurrentLocation() {
 		mapView.map.removeAnnotations(mapView.map.annotations)
 		checkLocationAuthorization()
 	}
 	
-		/// Метод обработки нажатия на карту
-		/// - Parameter gestureRecognizer: Обработчик нажатия
+    /// Метод обработки нажатия на карту
+    /// - Parameter gestureRecognizer: Обработчик нажатия
 	func createPinOnTap(gestureRecognizer: UITapGestureRecognizer) {
-		let location = gestureRecognizer.location(in: mapView)
-		let coordinate = mapView.map.convert(location, toCoordinateFrom: mapView)
-		
-			// Add annotation:
-		let annotation = MKPointAnnotation()
-		annotation.coordinate = coordinate
-		mapView.map.removeAnnotations(mapView.map.annotations)
-		mapView.map.addAnnotation(annotation)
+		let gestureRecognizer = gestureRecognizer.location(in: mapView)
+		let coordinate = mapView.map.convert(gestureRecognizer, toCoordinateFrom: mapView)
+//
+//        // Add annotation:
+//		let annotation = MKPointAnnotation()
+//		annotation.coordinate = coordinate
+//		mapView.map.removeAnnotations(mapView.map.annotations)
+//		mapView.map.addAnnotation(annotation)
+        
+        let geoCoder = CLGeocoder()
+        
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+
+            // Place details
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+
+            if let city = placeMark.locality {
+                print(city)
+            }
+            
+            if let country = placeMark.country {
+                print(country)
+            }
+            
+            if let postalCode = placeMark.postalCode {
+                print(postalCode)
+            }
+
+            if let locationName = placeMark.thoroughfare {
+                print(locationName)
+            }
+
+            if let street = placeMark.administrativeArea {
+                print(street)
+            }
+        })
+        
+        presentCityInformation()
 	}
-	
-		/// Метод для отправки запроса на содание фото
-	func CreateRequestToCreatePhoto() {
-		var locationForRequest: CLLocationCoordinate2D
-		if mapView.map.annotations.count == 1 { // User location
-			let annotation = mapView.map.annotations.first { $0 is MKUserLocation }
-			guard let annotation = annotation else { return }
-			locationForRequest = annotation.coordinate
-			
-		} else {
-			let annotation = mapView.map.annotations.first { $0 is MKPointAnnotation }
-			guard let annotation = annotation else { return }
-			locationForRequest = annotation.coordinate
-		}
-//        setupApiSettingsViewController.setupFields(location: locationForRequest)
-//		self.navigationController?.show(setupApiSettingsViewController, sender: self)
-	}
+    
+    func presentCityInformation() {
+        if !isCityInfoPresented {
+            isCityInfoPresented = true
+            infoView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 0)
+            self.view.addSubview(infoView)
+            UIView.animate(withDuration: 0.4) {
+                self.infoView.frame = CGRect(x: 0, y: self.view.frame.height - 200, width: self.view.frame.width, height: 200)
+            }
+        }
+    }
 }
+
 
 // MARK: - CLLocationManagerDelegate
 extension MapViewController : CLLocationManagerDelegate {
 	
-		/// Метод реализующий получение последнего местоположения пользователя
-		/// - Parameters:
-		///   - manager: Location Manager
-		///   - locations: Location
+    /// Метод реализующий получение последнего местоположения пользователя
+    /// - Parameters:
+    ///   - manager: Location Manager
+    ///   - locations: Location
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		if let lastLocation = locations.last {
 			let region = MKCoordinateRegion(center: lastLocation.coordinate, latitudinalMeters: 2500, longitudinalMeters: 2500)
@@ -63,8 +103,8 @@ extension MapViewController : CLLocationManagerDelegate {
 		}
 	}
 	
-		/// Метод срабатывает в случае изменения правил доступа к геолокации
-		/// - Parameter manager: Location Manager
+    /// Метод срабатывает в случае изменения правил доступа к геолокации
+    /// - Parameter manager: Location Manager
 	func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
 		checkLocationAuthorization()
 	}
