@@ -18,6 +18,7 @@ extension MapViewController: MapViewDelegate {
                 
             } completion: { _ in
                 self.infoView.removeFromSuperview()
+                self.mapView.map.removeAnnotations(self.mapView.map.annotations)
             }
         }
     }
@@ -34,15 +35,15 @@ extension MapViewController: MapViewDelegate {
 	func createPinOnTap(gestureRecognizer: UITapGestureRecognizer) {
 		let gestureRecognizer = gestureRecognizer.location(in: mapView)
 		let coordinate = mapView.map.convert(gestureRecognizer, toCoordinateFrom: mapView)
-//
-//        // Add annotation:
-//		let annotation = MKPointAnnotation()
-//		annotation.coordinate = coordinate
-//		mapView.map.removeAnnotations(mapView.map.annotations)
-//		mapView.map.addAnnotation(annotation)
+
+        // Add annotation:
+		let annotation = MKPointAnnotation()
+		annotation.coordinate = coordinate
+		mapView.map.removeAnnotations(mapView.map.annotations)
+		mapView.map.addAnnotation(annotation)
         
         let geoCoder = CLGeocoder()
-        
+
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
         geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
@@ -51,25 +52,30 @@ extension MapViewController: MapViewDelegate {
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]
 
-            if let city = placeMark.locality {
-                print(city)
-            }
+            self.infoView.setupFields(city: placeMark.locality,
+                                      country: placeMark.country,
+                                      ZIP: placeMark.postalCode,
+                                      address: placeMark.thoroughfare ?? "")
             
-            if let country = placeMark.country {
-                print(country)
-            }
-            
-            if let postalCode = placeMark.postalCode {
-                print(postalCode)
-            }
-
-            if let locationName = placeMark.thoroughfare {
-                print(locationName)
-            }
-
-            if let street = placeMark.administrativeArea {
-                print(street)
-            }
+//            if let city = placeMark.locality {
+//                print(city)
+//            }
+//
+//            if let country = placeMark.country {
+//                print(country)
+//            }
+//
+//            if let postalCode = placeMark.postalCode {
+//                print(postalCode)
+//            }
+//
+//            if let locationName = placeMark.thoroughfare {
+//                print(locationName)
+//            }
+//
+//            if let street = placeMark.administrativeArea {
+//                print(street)
+//            }
         })
         
         presentCityInformation()
@@ -128,5 +134,7 @@ extension MapViewController: HandleMapSearch {
 		let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
 		let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
 		mapView.map.setRegion(region, animated: true)
+        
+        presentCityInformation()
 	}
 }
