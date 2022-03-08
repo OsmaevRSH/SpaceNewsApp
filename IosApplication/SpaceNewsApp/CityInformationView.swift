@@ -9,8 +9,10 @@ import UIKit
 
 class CityInformationView: UIView {
     
+    /// Делегат для обработки событий
     var delegate: MapViewDelegate?
     
+    /// Линия вверху view для скрытия view при свайпе
     lazy var swipeLine: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +23,18 @@ class CityInformationView: UIView {
         view.addGestureRecognizer(swipe)
         return view
     }()
-
+    
+    /// CollectionView для отображения списка городов
+    lazy var cityCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        var collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.register(CityCell.self, forCellWithReuseIdentifier: CityCell.reusebleIdenifier)
+        return collection
+    }()
+    
+    /// Лейбел для вывода страны, города и индекса
     lazy var cityInfoLbl: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +44,7 @@ class CityInformationView: UIView {
         return label
     }()
     
+    /// Лейбел для вывода адреса
     lazy var addressLbl: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -40,6 +54,7 @@ class CityInformationView: UIView {
         return label
     }()
     
+    /// Лейбел для вывода кол-во жителей в выбранном городе
     lazy var cityPopulation: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +65,7 @@ class CityInformationView: UIView {
         return label
     }()
     
+    /// Заголовок списка городов
     lazy var cityInAreaTitle: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -60,27 +76,33 @@ class CityInformationView: UIView {
         return label
     }()
     
+    /// Конструктор
+    /// - Parameter frame: Размер окна
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         self.backgroundColor = .systemBackground
-        
         self.layer.cornerRadius = 22
-        
+        addSubviews()
+        addConstraints()
+    }
+    
+    /// Не используемый конструктор
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    /// Метод для добавления subviews
+    private func addSubviews() {
         addSubview(swipeLine)
         addSubview(cityInfoLbl)
         addSubview(addressLbl)
         addSubview(cityPopulation)
         addSubview(cityInAreaTitle)
-        
-        addConstraints()
+        addSubview(cityCollectionView)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func addConstraints() {
+    /// Метод для добавления констрейнтов
+    private func addConstraints() {
         NSLayoutConstraint.activate([
             swipeLine.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
             swipeLine.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
@@ -102,13 +124,25 @@ class CityInformationView: UIView {
             cityInAreaTitle.topAnchor.constraint(equalTo: cityPopulation.bottomAnchor, constant: 16),
             cityInAreaTitle.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
             cityInAreaTitle.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
+            
+            cityCollectionView.topAnchor.constraint(equalTo: cityInAreaTitle.bottomAnchor),
+            cityCollectionView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            cityCollectionView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            cityCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
+    /// Обработчик свайпа закрытия view
     @objc func swipeHandler() {
         delegate?.swipeHandler()
     }
     
+    /// Метод для установки полей view
+    /// - Parameters:
+    ///   - city: Город
+    ///   - country: Страна
+    ///   - ZIP: Индекс
+    ///   - address: Адрес
     func setupFields(city: String?, country: String?, ZIP: String?, address: String) {
         var localCity = ""
         var localCountry = ""

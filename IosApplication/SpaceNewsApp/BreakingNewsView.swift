@@ -48,6 +48,8 @@ class BreakingNewsView: UIView {
     lazy var newsImage: CustomUIImageView = {
         var image = CustomUIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.clipsToBounds = true
+        image.contentMode = .scaleAspectFill
         return image
     }()
     

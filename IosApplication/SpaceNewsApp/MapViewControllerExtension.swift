@@ -14,10 +14,12 @@ extension MapViewController: MapViewDelegate {
         if isCityInfoPresented {
             isCityInfoPresented = false
             UIView.animate(withDuration: 0.4) {
-                self.infoView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 0)
+                self.cityViewController.cityView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 0)
                 
             } completion: { _ in
-                self.infoView.removeFromSuperview()
+                self.cityViewController.willMove(toParent: nil)
+                self.cityViewController.removeFromParent()
+                self.cityViewController.cityView.removeFromSuperview()
                 self.mapView.map.removeAnnotations(self.mapView.map.annotations)
             }
         }
@@ -52,30 +54,10 @@ extension MapViewController: MapViewDelegate {
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]
 
-            self.infoView.setupFields(city: placeMark.locality,
+            self.cityViewController.cityView.setupFields(city: placeMark.locality,
                                       country: placeMark.country,
                                       ZIP: placeMark.postalCode,
                                       address: placeMark.thoroughfare ?? "")
-            
-//            if let city = placeMark.locality {
-//                print(city)
-//            }
-//
-//            if let country = placeMark.country {
-//                print(country)
-//            }
-//
-//            if let postalCode = placeMark.postalCode {
-//                print(postalCode)
-//            }
-//
-//            if let locationName = placeMark.thoroughfare {
-//                print(locationName)
-//            }
-//
-//            if let street = placeMark.administrativeArea {
-//                print(street)
-//            }
         })
         
         presentCityInformation()
@@ -84,10 +66,12 @@ extension MapViewController: MapViewDelegate {
     func presentCityInformation() {
         if !isCityInfoPresented {
             isCityInfoPresented = true
-            infoView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 0)
-            self.view.addSubview(infoView)
+            cityViewController.cityView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 0)
+            addChild(cityViewController)
+            self.view.addSubview(cityViewController.view)
+            cityViewController.didMove(toParent: self)
             UIView.animate(withDuration: 0.4) {
-                self.infoView.frame = CGRect(x: 0, y: self.view.frame.height - 200, width: self.view.frame.width, height: 200)
+                self.cityViewController.cityView.frame = CGRect(x: 0, y: self.view.frame.height - self.cityInfoViewHeight, width: self.view.frame.width, height: self.cityInfoViewHeight)
             }
         }
     }

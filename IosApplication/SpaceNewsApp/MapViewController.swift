@@ -9,7 +9,9 @@ class MapViewController: UIViewController {
     
     var isCityInfoPresented = false
     
-    let infoView = CityInformationView()
+    let cityInfoViewHeight: CGFloat = 300
+    
+    let cityViewController = CityInformationController()
     
 	lazy var mapView = MapView()
 	var selectedPin: MKPlacemark?
@@ -30,7 +32,7 @@ class MapViewController: UIViewController {
 		createMapSearchBar()
 		locationSearchTable.mapView = mapView.map
 		locationSearchTable.handleMapSearchDelegate = self
-        infoView.delegate = self
+        cityViewController.cityView.delegate = self
 	}
 	
 		/// Метод вызывается сразу после появления карты

@@ -79,27 +79,27 @@ class APIServiceImplementation : APIServiceProtocol {
     ///   - minPopulation: Минимальное кол-во жителей
     ///   - maxPopulation: Максимальное кол-во жителей
     /// - Returns: Список всех найденных городов
-//    func getCitiesAroundThePoint(latitude: String,
-//                  longitude: String,
-//                  radius: String,
-//                  minPopulation: String,
-//                  maxPopulation: String) -> AnyPublisher<ResultCitysModel, Never> {
-//        guard let url = generateURL(url: "http://localhost:80/testApi/", queryItem: [ //TODO
-//            "latitude": latitude,
-//            "longitude": longitude,
-//            "radius": radius,
-//            "min_population": minPopulation,
-//            "max_population": maxPopulation
-//        ]) else {
-//            return Just(ResultCitysModel.placeholder).eraseToAnyPublisher()
-//        }
-//        return URLSession.shared.dataTaskPublisher(for: url)
-//            .map { $0.data }
-//            .decode(type: ResultCitysModel.self, decoder: JSONDecoder())
-//            .catch { error in Just(ResultCitysModel.placeholder) }
-//            .receive(on: RunLoop.main)
-//            .eraseToAnyPublisher()
-//    }
+    func getCitiesAroundThePoint(latitude: String,
+                  longitude: String,
+                  radius: String,
+                  minPopulation: String,
+                  maxPopulation: String) -> AnyPublisher<ResultCitysModel, Never> {
+        guard let url = generateURL(url: "http://localhost:80/testApi/", queryItem: [ //TODO
+            "latitude": latitude,
+            "longitude": longitude,
+            "radius": radius,
+            "min_population": minPopulation,
+            "max_population": maxPopulation
+        ]) else {
+            return Just(ResultCitysModel.placeholder).eraseToAnyPublisher()
+        }
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(type: ResultCitysModel.self, decoder: JSONDecoder())
+            .catch { error in Just(ResultCitysModel.placeholder) }
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
     
     /// Получение списка видео с канала
     /// - Returns: Список видео
