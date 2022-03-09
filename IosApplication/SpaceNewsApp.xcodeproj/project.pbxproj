@@ -30,6 +30,9 @@
 		C148E79D27D0D9D1000297D4 /* BreakingVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148E79C27D0D9D1000297D4 /* BreakingVideoViewController.swift */; };
 		C14F9AE127CBAA6000CBDDD9 /* VideoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14F9AE027CBAA6000CBDDD9 /* VideoCellModel.swift */; };
 		C14F9AEA27CE18E800CBDDD9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14F9AE927CE18E800CBDDD9 /* Colors.swift */; };
+		C151DCAA27D8919500DD5D3D /* FavoriteNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C151DCA927D8919500DD5D3D /* FavoriteNewsViewController.swift */; };
+		C151DCAD27D892B500DD5D3D /* FavoriteNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C151DCAC27D892B500DD5D3D /* FavoriteNewsView.swift */; };
+		C151DCAF27D893CE00DD5D3D /* FavoriteNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C151DCAE27D893CE00DD5D3D /* FavoriteNewsCell.swift */; };
 		C1528F7227B518DD000A4F0C /* BreakingNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1528F7127B518DD000A4F0C /* BreakingNewsViewModel.swift */; };
 		C1707C4827A6D9D700D1D385 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4727A6D9D700D1D385 /* MapView.swift */; };
 		C1707C4A27A6DB1000D1D385 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */; };
@@ -120,6 +123,9 @@
 		C148E79C27D0D9D1000297D4 /* BreakingVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingVideoViewController.swift; sourceTree = "<group>"; };
 		C14F9AE027CBAA6000CBDDD9 /* VideoCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCellModel.swift; sourceTree = "<group>"; };
 		C14F9AE927CE18E800CBDDD9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C151DCA927D8919500DD5D3D /* FavoriteNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNewsViewController.swift; sourceTree = "<group>"; };
+		C151DCAC27D892B500DD5D3D /* FavoriteNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNewsView.swift; sourceTree = "<group>"; };
+		C151DCAE27D893CE00DD5D3D /* FavoriteNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNewsCell.swift; sourceTree = "<group>"; };
 		C1528F7127B518DD000A4F0C /* BreakingNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingNewsViewModel.swift; sourceTree = "<group>"; };
 		C1707C4727A6D9D700D1D385 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
@@ -328,6 +334,16 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		C151DCAB27D891A300DD5D3D /* FavoriteNews */ = {
+			isa = PBXGroup;
+			children = (
+				C151DCA927D8919500DD5D3D /* FavoriteNewsViewController.swift */,
+				C151DCAC27D892B500DD5D3D /* FavoriteNewsView.swift */,
+				C151DCAE27D893CE00DD5D3D /* FavoriteNewsCell.swift */,
+			);
+			name = FavoriteNews;
+			sourceTree = "<group>";
+		};
 		C172FCA327BBB53A009C0B3F /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +387,7 @@
 			children = (
 				C1B4AB0C27A9A0DC0089F25F /* NewsNavController.swift */,
 				C1E4D88E27AAAFC600D70F2A /* BreakingNewsView */,
+				C151DCAB27D891A300DD5D3D /* FavoriteNews */,
 				C1E4D88D27AAAFB700D70F2A /* NewsTableView */,
 			);
 			name = News;
@@ -806,12 +823,14 @@
 				C1B4AB0F27A9A10A0089F25F /* NewsViewController.swift in Sources */,
 				C1C39C7427D7533200DB8DA3 /* CityCell.swift in Sources */,
 				C1B4AB1327A9A76A0089F25F /* NewsViewControllerExtension.swift in Sources */,
+				C151DCAF27D893CE00DD5D3D /* FavoriteNewsCell.swift in Sources */,
 				C134927B279ADD6C00948C04 /* LaunchView.swift in Sources */,
 				C185C96E27B40745006D10B2 /* NewsCellModel.swift in Sources */,
 				C1528F7227B518DD000A4F0C /* BreakingNewsViewModel.swift in Sources */,
 				C1DDED5127CB975200EF9166 /* VideosListViewModel.swift in Sources */,
 				C1FE075827A2CC840089D1CE /* APIServiceImplementation.swift in Sources */,
 				C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */,
+				C151DCAD27D892B500DD5D3D /* FavoriteNewsView.swift in Sources */,
 				C1C39C7127D5FE9E00DB8DA3 /* CityInformationView.swift in Sources */,
 				C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */,
 				C1C39C7627D7558F00DB8DA3 /* CityInformationController.swift in Sources */,
@@ -840,6 +859,7 @@
 				C1349283279ADDBD00948C04 /* OnBoardigView.swift in Sources */,
 				C1C39C6B27D4AC1900DB8DA3 /* BreakingVideoView.swift in Sources */,
 				C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */,
+				C151DCAA27D8919500DD5D3D /* FavoriteNewsViewController.swift in Sources */,
 				C1E469CB27C25367005CEAD2 /* ResultCityPageViewModel.swift in Sources */,
 				C1A0D0C027C908D000BD49A6 /* VideoNavController.swift in Sources */,
 				C14F9AE127CBAA6000CBDDD9 /* VideoCellModel.swift in Sources */,

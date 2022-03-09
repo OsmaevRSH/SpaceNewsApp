@@ -16,6 +16,9 @@ class NewsViewController: UIViewController {
     /// ViewModel конкретной новости
     var breakingNewsViewController: BreakingNewsViewController!
     
+    /// ViewController избранных новостей
+    var favoriteNewsViewController: FavoriteNewsViewController!
+    
     /// View таблицы
     var newsTableView = NewsTableView()
     
@@ -114,7 +117,7 @@ class NewsViewController: UIViewController {
     /// Метод для добавдения кнопок в Navigation Bar
     private func setupBarButtonItem() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "tray.full"),
-                                                           style: .done, target: nil, action: nil)
+                                                           style: .done, target: self, action: #selector(favoriteButtonHandler))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.wave.2"),
                                                            style: .done, target: nil, action: nil)
     }
@@ -132,4 +135,8 @@ class NewsViewController: UIViewController {
 			.$newsDataSet.assign(to: \.newsDataSet, on: self)
             .store(in: &CancellableSetService.set)
 	}
+    
+    @objc private func favoriteButtonHandler() {
+        navigationController?.show(favoriteNewsViewController, sender: nil)
+    }
 }
