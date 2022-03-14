@@ -14,21 +14,26 @@ public class NewsReadingList: NSManagedObject {
     
     private static let dataManager = DataStoreManager.shared
     
-    class func saveToReadingList(title: String?, text: String?, image: Data?) {
+    class func saveToReadingList(title: String?, text: String?, image: Data?, id: Int) {
         let news = NewsReadingList(context: dataManager.viewContext)
-        news.uuid = UUID()
+        news.uuid = Int64(id)
         news.title = title
         news.text = text
         news.image = image
         dataManager.saveContext()
     }
     
-    class func removeFromReadingList(by uuid: UUID) {
-        let fetchRequest = NewsReadingList.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "uuid = %@", uuid as CVarArg)
-        guard let news = try? dataManager.viewContext.fetch(fetchRequest) else { return }
-        guard let breakingNews = news.first else { return }
+    class func removeFromReadingList(by uuid: Int) {
+        guard let breakingNews = findBy(id: uuid) else { return }
         dataManager.viewContext.delete(breakingNews)
         dataManager.saveContext()
+    }
+    
+    class func findBy(id: Int) -> NewsReadingList? {
+        let fetchRequest = NewsReadingList.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "uuid = %d", id)
+        guard let news = try? dataManager.viewContext.fetch(fetchRequest) else { return nil }
+        guard let breakingNews = news.first else { return nil }
+        return breakingNews
     }
 }

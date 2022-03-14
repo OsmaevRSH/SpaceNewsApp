@@ -73,7 +73,11 @@ extension BreakingNewsViewController: MoreViewButtonDelegate, DetailButtonDelega
         NewsReadingList.saveToReadingList(
             title: breakingNewsView.newsTitle.text,
             text: breakingNewsView.newsInfo.text,
-            image: breakingNewsView.newsImage.image?.pngData())
+            image: breakingNewsView.newsImage.image?.pngData(),
+            id: newsId)
+        if let _ = NewsReadingList.findBy(id: newsId) {
+            detailView.addFavoriteBtn.backgroundColor = .green
+        }
     }
     
     func readTextHandler() {

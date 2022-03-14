@@ -19,7 +19,7 @@ extension NewsReadingList {
     @NSManaged public var title: String?
     @NSManaged public var text: String?
     @NSManaged public var image: Data?
-    @NSManaged public var uuid: UUID?
+    @NSManaged public var uuid: Int64
 
 }
 
