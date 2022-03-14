@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-extension NewsViewController : UITableViewDelegate, UITableViewDataSource, BreakingNewsDelegate {
-    
+extension NewsViewController : UITableViewDelegate, UITableViewDataSource, BreakingNewsDelegate {    
     // MARK: - UITableViewDelegate
     
     /// Метод вызывающийся при нажатии на ячейку таблицы
@@ -100,12 +99,16 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource, Break
             .animate(withDuration: 0.3,
                      animations:
         { [weak self] in
-           self?.transparentView.alpha = 0
-           self?.breakingNewsViewController.view.alpha = 0
+                self?.transparentView.alpha = 0
+                self?.breakingNewsViewController.view.alpha = 0
         })
         { [weak self] _ in
             self?.transparentView.removeFromSuperview()
             self?.breakingNewsViewController.view.removeFromSuperview()
+            if let check = self?.breakingNewsViewController.isDetailPresent, check {
+                self?.breakingNewsViewController.detailView.removeFromSuperview()
+                self?.breakingNewsViewController.isDetailPresent = false
+            }
         }
     }
 }

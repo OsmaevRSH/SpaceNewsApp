@@ -10,7 +10,8 @@ import WebKit
 
 class BreakingNewsView: UIView {
     
-    var delegate: BreakingNewsDelegate!
+    var delegate: BreakingNewsDelegate?
+    var detailButtonDelegate: DetailButtonDelegate?
     
     lazy var scrollView: UIScrollView = {
         var view = UIScrollView()
@@ -36,6 +37,7 @@ class BreakingNewsView: UIView {
         btn.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         btn.layer.cornerRadius = 16
         btn.tintColor = .black
+        btn.addTarget(self, action: #selector(detailButtonHandler), for: .touchUpInside)
         return btn
     }()
     
@@ -140,6 +142,10 @@ class BreakingNewsView: UIView {
 	}
     
     @objc private func backButtonHandler() {
-        delegate.backButtonHandler()
+        delegate?.backButtonHandler()
+    }
+    
+    @objc private func detailButtonHandler() {
+        detailButtonDelegate?.detailButtonHandler()
     }
 }

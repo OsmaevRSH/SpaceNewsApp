@@ -13,6 +13,7 @@ class FavoriteNewsView: UIView {
         var table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(FavoriteNewsCell.self, forCellReuseIdentifier: FavoriteNewsCell.reusibleIdentifier)
+        table.separatorStyle = .none
         return table
     }()
     

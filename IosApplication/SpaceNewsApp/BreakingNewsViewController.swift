@@ -12,11 +12,19 @@ protocol BreakingNewsDelegate: AnyObject {
     func backButtonHandler()
 }
 
+protocol DetailButtonDelegate: AnyObject {
+    func detailButtonHandler()
+}
+
 class BreakingNewsViewController: UIViewController {
 	
     var breakingNewsViewModel: BreakingNewsViewModel!
     
     var breakingNewsView = BreakingNewsView()
+    
+    let detailView = MoreButtonView()
+    
+    var isDetailPresent = false
     
     private var imageURL: URL!
     private var newsURL: URL!
@@ -32,6 +40,7 @@ class BreakingNewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         binding()
+        breakingNewsView.detailButtonDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,13 +60,42 @@ class BreakingNewsViewController: UIViewController {
 	}
     
     private func binding() {
-//        breakingNewsViewModel
-//            .$newsImage
-//            .assign(to: \.breakingNewsView.newsImage.image, on: self)
-//            .store(in: &CancellableSetService.set)
         breakingNewsViewModel
             .$newsInfo
             .assign(to: \.breakingNewsView.newsInfo.text, on: self)
             .store(in: &CancellableSetService.set)
+    }
+}
+
+extension BreakingNewsViewController: MoreViewButtonDelegate, DetailButtonDelegate {
+    func addFavoriteHandler() {
+        print("addFavorite")
+    }
+    
+    func readTextHandler() {
+        print("readText")
+    }
+    
+    func detailButtonHandler() {
+        if !isDetailPresent {
+            isDetailPresent = true
+            detailView.frame = CGRect(x: view.frame.midX,
+                                      y: breakingNewsView.detailBtn.frame.maxY + 10,
+                                      width: breakingNewsView.detailBtn.frame.maxX - view.frame.midX,
+                                      height: 80)
+            detailView.alpha = 0
+            view.addSubview(detailView)
+            UIView.animate(withDuration: 0.3) {
+                self.detailView.alpha = 1
+            }
+        }
+        else {
+            isDetailPresent = false
+            UIView.animate(withDuration: 0.3) {
+                self.detailView.alpha = 0
+            } completion: { _ in
+                self.detailView.removeFromSuperview()
+            }
+        }
     }
 }
