@@ -73,7 +73,7 @@ class NewsViewController: UIViewController {
     }
     
     /// Переменная для хранения новостей
-    var newsDataSet: [NewsCellModel] = [] {
+    var newsDataSet: [NewsModel] = [] {
         didSet {
             newsTableView.newsTable.reloadData()
             if isRefresh {

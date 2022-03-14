@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - VideosListModel
-struct VideosListModel: Codable {
+struct VideoServerModel: Codable {
     let kind, etag, nextPageToken, prevPageToken, regionCode: String?
     let pageInfo: PageInfo?
     let items: [VideoItem]?

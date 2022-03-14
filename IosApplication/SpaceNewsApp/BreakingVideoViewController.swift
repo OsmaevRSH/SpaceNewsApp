@@ -14,9 +14,9 @@ class BreakingVideoViewController: UIViewController {
 
     var viewModel: VideosListViewModel!
     
-    var videosListData: [VideoCellModel] = []
+    var videosListData: [VideoModel] = []
     
-    var recomendedVideos: [VideoCellModel] = [] {
+    var recomendedVideos: [VideoModel] = [] {
         didSet {
             videoView.recomendationTableView.reloadData()
         }

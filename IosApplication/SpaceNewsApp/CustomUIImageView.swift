@@ -9,9 +9,16 @@ import Foundation
 import UIKit
 
 class CustomUIImageView: UIImageView {
+    
     private var task: URLSessionDataTask!
+    
     var imageCacheService = ImageCacheService.shared
-    let loadIndicator = UIActivityIndicatorView(style: .large)
+    
+    let loadIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
 
     /// Метод для асинхронной загрузи изображения в UIImageView
     /// - Parameter url: url до изображения
@@ -23,9 +30,11 @@ class CustomUIImageView: UIImageView {
 
         image = nil
         addSubview(loadIndicator)
-        loadIndicator.translatesAutoresizingMaskIntoConstraints = false
-        loadIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        loadIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            loadIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            loadIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
+       
         loadIndicator.startAnimating()
 
         if let task = task {

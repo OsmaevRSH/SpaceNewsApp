@@ -10,7 +10,7 @@ import UIKit
 class CityInformationController: UIViewController {
 
     let cityView = CityInformationView()
-    let viewModel = ResultCityPageViewModel()
+    let viewModel = CityViewModel()
     var data: [City] = [] {
         didSet {
             cityView.cityCollectionView.reloadData()

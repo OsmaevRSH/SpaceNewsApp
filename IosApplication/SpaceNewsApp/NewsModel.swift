@@ -1,43 +1,30 @@
 //
-//  NewsModel.swift
+//  NewsCellModel.swift
 //  SpaceNewsApp
 //
-//  Created by Руслан Осмаев on 02.02.2022.
+//  Created by Руслан Осмаев on 09.02.2022.
 //
 
 import Foundation
+import UIKit
 
-	// MARK: - NewsModel
-struct NewsModel: Codable {
-	typealias dataType = Self
-	
-	var id: Int?
-	var featured: Bool?
-	var title, url, imageURL, newsSite: String?
-	var summary, publishedAt: String?
-	var launches, events: [Event]?
-	
-	enum CodingKeys: String, CodingKey {
-		case id, featured, title, url
-		case imageURL = "imageUrl"
-		case newsSite, summary, publishedAt
-	}
-	
-	static var placeholder: Self = {
-		return NewsModel(id: nil,
-						 featured: nil,
-						 title: nil,
-						 url: nil,
-						 imageURL: nil,
-						 newsSite: nil,
-						 summary: nil,
-						 publishedAt: nil,
-						 launches: nil,
-						 events: nil)
-	}()
+enum Section {
+    case main
 }
 
-	// MARK: - Event
-struct Event: Codable {
-	var id, provider: String?
+class NewsModel {
+    
+    let imageUrl: NSURL?
+    var title: String?
+    var publishedAt: String?
+    let newsUrl: NSURL?
+    let newsId: Int
+    
+    init(imageUrl: NSURL?, title: String?, publishedAt: String?, newsUrl: NSURL?, newsId: Int) {
+        self.imageUrl = imageUrl
+        self.title = title
+        self.publishedAt = publishedAt
+        self.newsUrl = newsUrl
+        self.newsId = newsId
+    }
 }

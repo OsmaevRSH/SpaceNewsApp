@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ResultCityPageViewModel {
+class CityViewModel {
     @Published var dataStorage: [City] = []
     
     @Published var localStorage: [City] = []

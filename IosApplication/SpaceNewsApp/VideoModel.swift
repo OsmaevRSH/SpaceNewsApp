@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class VideoCellModel: Hashable {
+class VideoModel: Hashable {
     
     let identifier = UUID()
     var image: UIImage?
@@ -21,7 +21,7 @@ class VideoCellModel: Hashable {
         hasher.combine(identifier)
     }
     
-    static func == (lhs: VideoCellModel, rhs: VideoCellModel) -> Bool {
+    static func == (lhs: VideoModel, rhs: VideoModel) -> Bool {
         return lhs.identifier == rhs.identifier
     }
     

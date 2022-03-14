@@ -16,7 +16,7 @@ class VideoViewController: UIViewController {
     
     var viewModel: VideosListViewModel!
     
-    var videosListData: [VideoCellModel] = []
+    var videosListData: [VideoModel] = []
     {
         didSet {
             VideosView.videosTable.reloadData()

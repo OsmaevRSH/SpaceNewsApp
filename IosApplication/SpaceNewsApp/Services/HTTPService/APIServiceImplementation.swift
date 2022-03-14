@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-class APIServiceImplementation : APIServiceProtocol {
+class APIServiceImplementation {
     
     /// Singleton
 	static let shared = APIServiceImplementation()
@@ -23,15 +23,15 @@ class APIServiceImplementation : APIServiceProtocol {
     /// Метод для получения списка новостей
     /// - Parameter newsOffset: Текущая загружаемся страница
     /// - Returns: Список новостей
-    func getNews(newsOffset: Int) -> AnyPublisher<[NewsModel], Never> {
+    func getNews(newsOffset: Int) -> AnyPublisher<[NewsServerModel], Never> {
 		let newsURL = "https://api.spaceflightnewsapi.net/v3/articles"
         guard let localURL = generateURL(url: newsURL, queryItem: ["_limit": "20", "_start": "\(newsOffset)"]) else {
-			return Just([NewsModel.placeholder]).eraseToAnyPublisher()
+			return Just([NewsServerModel.placeholder]).eraseToAnyPublisher()
 		}
 		return URLSession.shared.dataTaskPublisher(for: localURL)
 			.map { $0.data }
-			.decode(type: [NewsModel].self, decoder: JSONDecoder())
-			.catch { error in Just([NewsModel.placeholder])}
+			.decode(type: [NewsServerModel].self, decoder: JSONDecoder())
+			.catch { error in Just([NewsServerModel.placeholder])}
 			.receive(on: RunLoop.main)
 			.eraseToAnyPublisher()
 	}
@@ -83,7 +83,7 @@ class APIServiceImplementation : APIServiceProtocol {
                   longitude: String,
                   radius: String,
                   minPopulation: String,
-                  maxPopulation: String) -> AnyPublisher<ResultCitysModel, Never> {
+                  maxPopulation: String) -> AnyPublisher<CityServerModel, Never> {
         guard let url = generateURL(url: "http://localhost:80/testApi/", queryItem: [ //TODO
             "latitude": latitude,
             "longitude": longitude,
@@ -91,12 +91,12 @@ class APIServiceImplementation : APIServiceProtocol {
             "min_population": minPopulation,
             "max_population": maxPopulation
         ]) else {
-            return Just(ResultCitysModel.placeholder).eraseToAnyPublisher()
+            return Just(CityServerModel.placeholder).eraseToAnyPublisher()
         }
         return URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
-            .decode(type: ResultCitysModel.self, decoder: JSONDecoder())
-            .catch { error in Just(ResultCitysModel.placeholder) }
+            .decode(type: CityServerModel.self, decoder: JSONDecoder())
+            .catch { error in Just(CityServerModel.placeholder) }
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
@@ -120,7 +120,7 @@ class APIServiceImplementation : APIServiceProtocol {
         }
         return URLSession.shared.dataTaskPublisher(for: localUrl)
             .map { $0.data }
-            .decode(type: VideosListModel.self, decoder: JSONDecoder())
+            .decode(type: VideoServerModel.self, decoder: JSONDecoder())
             .map {
                 self.nextPageVideoToken = $0.nextPageToken ?? ""
                 return $0.items ?? [VideoItem.placeholder]

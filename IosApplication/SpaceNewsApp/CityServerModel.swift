@@ -7,7 +7,7 @@
 import Foundation
 
 // MARK: - Welcome
-struct ResultCitysModel: Codable {
+struct CityServerModel: Codable {
     let links: Links?
     let page, perPage, totalPages, totalCities: Int
     let cities: [City]
@@ -23,7 +23,7 @@ struct ResultCitysModel: Codable {
         case cities, radius, location, status
     }
     
-    static var placeholder: Self = ResultCitysModel(links: nil,
+    static var placeholder: Self = CityServerModel(links: nil,
                                                     page: 0,
                                                     perPage: 0,
                                                     totalPages: 0,

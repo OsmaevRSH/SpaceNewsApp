@@ -48,7 +48,7 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource, Break
         APIServiceImplementation.shared.getNews(newsOffset: (newsDataSet.count / 20) * 20 + 1)
         .sink { [weak self] news in
             let data = news.map {
-                NewsCellModel(imageUrl: NSURL(string: $0.imageURL ?? ""),
+                NewsModel(imageUrl: NSURL(string: $0.imageURL ?? ""),
                               title: $0.title,
                               publishedAt: $0.newsSite,
                               newsUrl: NSURL(string: $0.url ?? ""),

@@ -10,13 +10,13 @@ import Combine
 
 class NewsViewModel {
 	
-	@Published var newsDataSet: [NewsCellModel] = []
+	@Published var newsDataSet: [NewsModel] = []
 	
 	func getNews(newsOffset: Int) {
         APIServiceImplementation.shared.getNews(newsOffset: newsOffset)
             .map {
                 $0.map {
-                    NewsCellModel(imageUrl: NSURL(string: $0.imageURL ?? ""),
+                    NewsModel(imageUrl: NSURL(string: $0.imageURL ?? ""),
                                   title: $0.title,
                                   publishedAt: $0.newsSite,
                                   newsUrl: NSURL(string: $0.url ?? ""),

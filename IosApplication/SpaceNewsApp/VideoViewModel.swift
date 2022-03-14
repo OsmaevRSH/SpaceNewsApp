@@ -10,13 +10,13 @@ import Foundation
 
 class VideosListViewModel {
     
-    @Published var videosListData: [VideoCellModel] = []
+    @Published var videosListData: [VideoModel] = []
     
     func getVideosList() {
         APIServiceImplementation.shared.getAListOfVideos()
             .map {
                 $0.map {
-                    VideoCellModel(
+                    VideoModel(
                         imageUrl: NSURL(string: $0.snippet?.thumbnails?.high?.url ?? ""),
                         title: $0.snippet?.title,
                         videoId: $0.id?.videoID,
