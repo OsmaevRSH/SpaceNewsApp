@@ -41,6 +41,7 @@ class BreakingNewsViewController: UIViewController {
         super.viewDidLoad()
         binding()
         breakingNewsView.detailButtonDelegate = self
+        detailView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +70,10 @@ class BreakingNewsViewController: UIViewController {
 
 extension BreakingNewsViewController: MoreViewButtonDelegate, DetailButtonDelegate {
     func addFavoriteHandler() {
-        print("addFavorite")
+        NewsReadingList.saveToReadingList(
+            title: breakingNewsView.newsTitle.text,
+            text: breakingNewsView.newsInfo.text,
+            image: breakingNewsView.newsImage.image?.pngData())
     }
     
     func readTextHandler() {

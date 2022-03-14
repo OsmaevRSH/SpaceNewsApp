@@ -70,6 +70,9 @@
 		C1E4D89227AAB02900D70F2A /* BreakingNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4D89127AAB02900D70F2A /* BreakingNewsViewController.swift */; };
 		C1EAAFA6279DA88D00300FB9 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAAFA5279DA88D00300FB9 /* Alert.swift */; };
 		C1EAAFA9279DA91400300FB9 /* LocationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAAFA8279DA91400300FB9 /* LocationAlert.swift */; };
+		C1F9C18B27DF1FA60079EF13 /* NewsReadingList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C18927DF1FA60079EF13 /* NewsReadingList+CoreDataClass.swift */; };
+		C1F9C18C27DF1FA60079EF13 /* NewsReadingList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C18A27DF1FA60079EF13 /* NewsReadingList+CoreDataProperties.swift */; };
+		C1F9C18E27DF1FFB0079EF13 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C18D27DF1FFB0079EF13 /* DataStoreManager.swift */; };
 		C1FE075627A2CC5D0089D1CE /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE075527A2CC5D0089D1CE /* APIServiceProtocol.swift */; };
 		C1FE075827A2CC840089D1CE /* APIServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */; };
 		E1F4CC558AAC798669256B48 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32516A9B09FF1A5B607D0286 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework */; };
@@ -165,6 +168,9 @@
 		C1E4D89127AAB02900D70F2A /* BreakingNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingNewsViewController.swift; sourceTree = "<group>"; };
 		C1EAAFA5279DA88D00300FB9 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C1EAAFA8279DA91400300FB9 /* LocationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAlert.swift; sourceTree = "<group>"; };
+		C1F9C18927DF1FA60079EF13 /* NewsReadingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsReadingList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C1F9C18A27DF1FA60079EF13 /* NewsReadingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsReadingList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C1F9C18D27DF1FFB0079EF13 /* DataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
 		C1FE075527A2CC5D0089D1CE /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
 		C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceImplementation.swift; sourceTree = "<group>"; };
 		ED6E67678E2017322D9BB17C /* Pods-SpaceNewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceNewsApp.release.xcconfig"; path = "Target Support Files/Pods-SpaceNewsApp/Pods-SpaceNewsApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -333,6 +339,9 @@
 		C14B28A9279AE01400E1D30A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C1F9C18D27DF1FFB0079EF13 /* DataStoreManager.swift */,
+				C1F9C18927DF1FA60079EF13 /* NewsReadingList+CoreDataClass.swift */,
+				C1F9C18A27DF1FA60079EF13 /* NewsReadingList+CoreDataProperties.swift */,
 				C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */,
 			);
 			name = CoreData;
@@ -840,6 +849,7 @@
 				C1C39C7127D5FE9E00DB8DA3 /* CityInformationView.swift in Sources */,
 				C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */,
 				C151DCB327D89A1300DD5D3D /* MoreViewButtonDelegate.swift in Sources */,
+				C1F9C18E27DF1FFB0079EF13 /* DataStoreManager.swift in Sources */,
 				C1C39C7627D7558F00DB8DA3 /* CityInformationController.swift in Sources */,
 				C1E4D88627AA986E00D70F2A /* NewsViewModel.swift in Sources */,
 				C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */,
@@ -864,7 +874,9 @@
 				C1C39C6F27D4B93E00DB8DA3 /* BreakingVideoViewControllerExtention.swift in Sources */,
 				C1E4D87E27AA718C00D70F2A /* NewsTableViewCell.swift in Sources */,
 				C1E4D88A27AA98C800D70F2A /* NewsModel.swift in Sources */,
+				C1F9C18C27DF1FA60079EF13 /* NewsReadingList+CoreDataProperties.swift in Sources */,
 				C1349283279ADDBD00948C04 /* OnBoardigView.swift in Sources */,
+				C1F9C18B27DF1FA60079EF13 /* NewsReadingList+CoreDataClass.swift in Sources */,
 				C1C39C6B27D4AC1900DB8DA3 /* BreakingVideoView.swift in Sources */,
 				C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */,
 				C151DCAA27D8919500DD5D3D /* FavoriteNewsViewController.swift in Sources */,
