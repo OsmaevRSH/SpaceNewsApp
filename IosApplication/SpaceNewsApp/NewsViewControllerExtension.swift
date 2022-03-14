@@ -45,7 +45,7 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource, Break
     
     /// Метод для подгрузки средующей страницы новостей
     private func loadMoreNews() {
-        APIServiceImplementation.shared.getNews(newsOffset: (newsDataSet.count / 20) * 20 + 1)
+        NewsHttpService.shared.getNews(newsOffset: (newsDataSet.count / 20) * 20 + 1)
         .sink { [weak self] news in
             let data = news.map {
                 NewsModel(imageUrl: NSURL(string: $0.imageURL ?? ""),

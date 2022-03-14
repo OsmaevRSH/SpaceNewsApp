@@ -15,7 +15,7 @@ class BreakingNewsViewModel {
     @Published var newsInfo: String? = ""
     
     func getNewsInfo(newsUrl: URL, newsId: Int) {
-        APIServiceImplementation.shared.getNewsDescription(url: newsUrl, newsId: newsId)
+        NewsHttpService.shared.getNewsDescription(url: newsUrl, newsId: newsId)
             .sink(receiveValue: { [weak self] description in
                 self?.newsInfo = description
             })

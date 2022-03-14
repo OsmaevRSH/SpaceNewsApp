@@ -73,9 +73,10 @@
 		C1F9C18B27DF1FA60079EF13 /* NewsReadingList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C18927DF1FA60079EF13 /* NewsReadingList+CoreDataClass.swift */; };
 		C1F9C18C27DF1FA60079EF13 /* NewsReadingList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C18A27DF1FA60079EF13 /* NewsReadingList+CoreDataProperties.swift */; };
 		C1F9C18E27DF1FFB0079EF13 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C18D27DF1FFB0079EF13 /* DataStoreManager.swift */; };
-		C1F9C1A227DF68930079EF13 /* NewsListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C1A127DF68930079EF13 /* NewsListLoader.swift */; };
-		C1F9C1A427DF68B00079EF13 /* VideoListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C1A327DF68B00079EF13 /* VideoListLoader.swift */; };
-		C1FE075827A2CC840089D1CE /* APIServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */; };
+		C1F9C1A227DF68930079EF13 /* NewsHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C1A127DF68930079EF13 /* NewsHttpService.swift */; };
+		C1F9C1A427DF68B00079EF13 /* VideoHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C1A327DF68B00079EF13 /* VideoHttpService.swift */; };
+		C1F9C1A627DF71810079EF13 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C1A527DF71810079EF13 /* HttpHelper.swift */; };
+		C1F9C1A827DF72300079EF13 /* CityHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C1A727DF72300079EF13 /* CityHttpService.swift */; };
 		E1F4CC558AAC798669256B48 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32516A9B09FF1A5B607D0286 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -172,9 +173,10 @@
 		C1F9C18927DF1FA60079EF13 /* NewsReadingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsReadingList+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C1F9C18A27DF1FA60079EF13 /* NewsReadingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsReadingList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C1F9C18D27DF1FFB0079EF13 /* DataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
-		C1F9C1A127DF68930079EF13 /* NewsListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListLoader.swift; sourceTree = "<group>"; };
-		C1F9C1A327DF68B00079EF13 /* VideoListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListLoader.swift; sourceTree = "<group>"; };
-		C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceImplementation.swift; sourceTree = "<group>"; };
+		C1F9C1A127DF68930079EF13 /* NewsHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHttpService.swift; sourceTree = "<group>"; };
+		C1F9C1A327DF68B00079EF13 /* VideoHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHttpService.swift; sourceTree = "<group>"; };
+		C1F9C1A527DF71810079EF13 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
+		C1F9C1A727DF72300079EF13 /* CityHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHttpService.swift; sourceTree = "<group>"; };
 		ED6E67678E2017322D9BB17C /* Pods-SpaceNewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceNewsApp.release.xcconfig"; path = "Target Support Files/Pods-SpaceNewsApp/Pods-SpaceNewsApp.release.xcconfig"; sourceTree = "<group>"; };
 		F1347A9BD53E63B04F8D576F /* Pods_SpaceNewsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceNewsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -572,9 +574,10 @@
 		C1FE075427A2CC320089D1CE /* HTTPService */ = {
 			isa = PBXGroup;
 			children = (
-				C1FE075727A2CC840089D1CE /* APIServiceImplementation.swift */,
-				C1F9C1A127DF68930079EF13 /* NewsListLoader.swift */,
-				C1F9C1A327DF68B00079EF13 /* VideoListLoader.swift */,
+				C1F9C1A127DF68930079EF13 /* NewsHttpService.swift */,
+				C1F9C1A327DF68B00079EF13 /* VideoHttpService.swift */,
+				C1F9C1A727DF72300079EF13 /* CityHttpService.swift */,
+				C1F9C1A527DF71810079EF13 /* HttpHelper.swift */,
 			);
 			path = HTTPService;
 			sourceTree = "<group>";
@@ -829,9 +832,10 @@
 			files = (
 				C185C96C27B3F5D9006D10B2 /* ImageCacheService.swift in Sources */,
 				C1C39C9E27D77C3900DB8DA3 /* CityServerModel.swift in Sources */,
+				C1F9C1A627DF71810079EF13 /* HttpHelper.swift in Sources */,
 				C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */,
 				C1E295C827CF70AB00693FC8 /* NewsCacheService.swift in Sources */,
-				C1F9C1A427DF68B00079EF13 /* VideoListLoader.swift in Sources */,
+				C1F9C1A427DF68B00079EF13 /* VideoHttpService.swift in Sources */,
 				C148E79927D0D3BC000297D4 /* VideoCell.swift in Sources */,
 				C1C39C6D27D4B3C100DB8DA3 /* RecomendationVideoCell.swift in Sources */,
 				C1E469C927C24737005CEAD2 /* AssemblyLayer.swift in Sources */,
@@ -846,9 +850,8 @@
 				C185C96E27B40745006D10B2 /* NewsModel.swift in Sources */,
 				C1528F7227B518DD000A4F0C /* BreakingNewsViewModel.swift in Sources */,
 				C1DDED5127CB975200EF9166 /* VideoViewModel.swift in Sources */,
-				C1FE075827A2CC840089D1CE /* APIServiceImplementation.swift in Sources */,
 				C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */,
-				C1F9C1A227DF68930079EF13 /* NewsListLoader.swift in Sources */,
+				C1F9C1A227DF68930079EF13 /* NewsHttpService.swift in Sources */,
 				C151DCAD27D892B500DD5D3D /* FavoriteNewsView.swift in Sources */,
 				C1C39C7127D5FE9E00DB8DA3 /* CityInformationView.swift in Sources */,
 				C1B4AB1127A9A2110089F25F /* NewsTableView.swift in Sources */,
@@ -884,6 +887,7 @@
 				C1C39C6B27D4AC1900DB8DA3 /* BreakingVideoView.swift in Sources */,
 				C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */,
 				C151DCAA27D8919500DD5D3D /* FavoriteNewsViewController.swift in Sources */,
+				C1F9C1A827DF72300079EF13 /* CityHttpService.swift in Sources */,
 				C1E469CB27C25367005CEAD2 /* CityViewModel.swift in Sources */,
 				C1A0D0C027C908D000BD49A6 /* VideoNavController.swift in Sources */,
 				C14F9AE127CBAA6000CBDDD9 /* VideoModel.swift in Sources */,

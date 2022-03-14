@@ -13,7 +13,7 @@ class VideosListViewModel {
     @Published var videosListData: [VideoModel] = []
     
     func getVideosList() {
-        APIServiceImplementation.shared.getAListOfVideos()
+        VideoHttpService.shared.getAListOfVideos()
             .map {
                 $0.map {
                     VideoModel(

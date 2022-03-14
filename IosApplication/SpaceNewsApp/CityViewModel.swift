@@ -14,7 +14,7 @@ class CityViewModel {
     @Published var localStorage: [City] = []
     
     func getCitys(latitude: String, longitude: String, radius: String, minPopulation: String, maxPopulation: String) {
-        APIServiceImplementation.shared.getCitiesAroundThePoint(latitude: latitude,
+        CityHttpService.shared.getCitiesAroundThePoint(latitude: latitude,
                                                  longitude: longitude,
                                                  radius: radius,
                                                  minPopulation: minPopulation,

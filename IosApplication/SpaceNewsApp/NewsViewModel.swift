@@ -13,7 +13,7 @@ class NewsViewModel {
 	@Published var newsDataSet: [NewsModel] = []
 	
 	func getNews(newsOffset: Int) {
-        APIServiceImplementation.shared.getNews(newsOffset: newsOffset)
+        NewsHttpService.shared.getNews(newsOffset: newsOffset)
             .map {
                 $0.map {
                     NewsModel(imageUrl: NSURL(string: $0.imageURL ?? ""),
