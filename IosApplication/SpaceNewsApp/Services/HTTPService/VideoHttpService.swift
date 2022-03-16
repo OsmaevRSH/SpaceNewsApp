@@ -20,7 +20,10 @@ class VideoHttpService {
     
     /// Получение списка видео с канала
     /// - Returns: Список видео
-    func getAListOfVideos() -> AnyPublisher<[VideoItem], Never> {
+    func getAListOfVideos(loadFirstPage: Bool) -> AnyPublisher<[VideoItem], Never> {
+        if loadFirstPage {
+            nextPageVideoToken = ""
+        }
         let url = "https://www.googleapis.com/youtube/v3/search"
         guard let localUrl = HttpHelper.generateURL(
             url: url,

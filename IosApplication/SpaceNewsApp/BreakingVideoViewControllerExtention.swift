@@ -46,4 +46,36 @@ extension BreakingVideoViewController: UITableViewDelegate, UITableViewDataSourc
         guard let newIndexPath = videoView.recomendationTableView.indexPathForRow(at: CGPoint(x: 0, y: 0)) else { return }
         videoView.recomendationTableView.scrollToRow(at: newIndexPath, at: .none, animated: true)
     }
+    
+    /// Метод вызывается при прокрутке таблицы
+    /// - Parameter scrollView: Текущий scrollView
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        let size = videoView.recomendationTableView.contentSize.height
+        if position > size - scrollView.visibleSize.height && position > 0 {
+            if isFetchMoreNews {
+                isFetchMoreNews = false
+                loadMoreNews()
+            }
+        }
+    }
+    
+    /// Метод для подгрузки средующей страницы новостей
+    private func loadMoreNews() {
+        VideoHttpService.shared.getAListOfVideos(loadFirstPage: false)
+            .map {
+                $0.map {
+                    VideoModel(
+                        imageUrl: NSURL(string: $0.snippet?.thumbnails?.high?.url ?? ""),
+                        title: $0.snippet?.title,
+                        videoId: $0.id?.videoID,
+                        chanelTitle: $0.snippet?.channelTitle)
+                }
+            }
+            .sink { [weak self] videos in
+                self?.recomendedVideos.append(contentsOf: videos)
+                self?.isFetchMoreNews = true
+            }
+            .store(in: &CancellableSetService.set)
+    }
 }

@@ -48,7 +48,7 @@ class NewsViewController: UIViewController {
     }()
     
     /// Обработчик взаимодействия с refresh controller
-    @objc func refreshHandeler() {
+    @objc private func refreshHandeler() {
         isRefresh = true
         self.viewModel.getNews(newsOffset: 0)
     }

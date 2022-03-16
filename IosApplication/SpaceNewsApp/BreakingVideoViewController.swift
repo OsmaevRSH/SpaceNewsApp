@@ -9,7 +9,10 @@ import UIKit
 
 
 class BreakingVideoViewController: UIViewController {
-
+    
+    /// Нужно ли загружать следующую страницу с новостями
+    var isFetchMoreNews: Bool = true
+    
     let videoView = BreakingVideoView()
 
     var viewModel: VideosListViewModel!

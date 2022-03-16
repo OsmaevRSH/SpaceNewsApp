@@ -15,7 +15,7 @@ extension VideoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: VideosView.cellId, for: indexPath) as? VideoCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: VideoCell.reusableCellIdenifier, for: indexPath) as? VideoCell
         else {
             return VideoCell()
         }
@@ -36,5 +36,37 @@ extension VideoViewController: UITableViewDataSource, UITableViewDelegate {
             }
         breakingVideoViewController.setupVideoInfo(videoId:  videoId, videoTitle: videoTitle, videoPublishedAt: videoPublishedAt)
         navigationController?.show(breakingVideoViewController, sender: nil)
+    }
+    
+    /// Метод вызывается при прокрутке таблицы
+    /// - Parameter scrollView: Текущий scrollView
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        let size = VideosView.videosTable.contentSize.height
+        if position > size - scrollView.visibleSize.height && position > 0 {
+            if isFetchMoreNews {
+                isFetchMoreNews = false
+                loadMoreNews()
+            }
+        }
+    }
+    
+    /// Метод для подгрузки средующей страницы новостей
+    private func loadMoreNews() {
+        VideoHttpService.shared.getAListOfVideos(loadFirstPage: false)
+            .map {
+                $0.map {
+                    VideoModel(
+                        imageUrl: NSURL(string: $0.snippet?.thumbnails?.high?.url ?? ""),
+                        title: $0.snippet?.title,
+                        videoId: $0.id?.videoID,
+                        chanelTitle: $0.snippet?.channelTitle)
+                }
+            }
+            .sink { [weak self] videos in
+                self?.videosListData.append(contentsOf: videos)
+                self?.isFetchMoreNews = true
+            }
+            .store(in: &CancellableSetService.set)
     }
 }

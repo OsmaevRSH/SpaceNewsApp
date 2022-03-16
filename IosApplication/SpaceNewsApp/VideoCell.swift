@@ -9,6 +9,9 @@ import UIKit
 
 class VideoCell: UITableViewCell {
 
+    /// Идентификатор кастомной ячейки
+    static let reusableCellIdenifier = "VideoCell"
+    
     /// View для отображения превью видео
     lazy var videoImage: CustomUIImageView = {
         var image = CustomUIImageView()

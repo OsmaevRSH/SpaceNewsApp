@@ -9,19 +9,18 @@ import UIKit
 
 class VideosListView: UIView {
 
-    lazy var cellId = "videoCell"
-
-    // MARK: - UI elements
+    /// Таблица для представления списка видео
     lazy var videosTable: UITableView = {
         var table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(VideoCell.self, forCellReuseIdentifier: cellId)
+        table.register(VideoCell.self, forCellReuseIdentifier: VideoCell.reusableCellIdenifier)
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight =  600
         table.separatorStyle = .none
         return table
     }()
     
+    /// Метод для добавления констрейнтов
     private func addConstraints() {
         NSLayoutConstraint.activate([
             videosTable.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -31,13 +30,14 @@ class VideosListView: UIView {
         ])
     }
     
-    // MARK: - Initialize
+    /// Конструктор
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(videosTable)
         addConstraints()
     }
     
+    /// Не используемый конструктор
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -12,8 +12,8 @@ class VideosListViewModel {
     
     @Published var videosListData: [VideoModel] = []
     
-    func getVideosList() {
-        VideoHttpService.shared.getAListOfVideos()
+    func getVideosList(loadFirstPage: Bool = false) {
+        VideoHttpService.shared.getAListOfVideos(loadFirstPage: loadFirstPage)
             .map {
                 $0.map {
                     VideoModel(
