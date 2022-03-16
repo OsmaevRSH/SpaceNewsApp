@@ -11,6 +11,9 @@ class CityInformationController: UIViewController {
 
     let cityView = CityInformationView()
     let viewModel = CityViewModel()
+    let cityInfoViewHeight: CGFloat = 200
+    
+    var isCityInfoPresented = false
     var data: [City] = [] {
         didSet {
             cityView.cityCollectionView.reloadData()
@@ -29,11 +32,38 @@ class CityInformationController: UIViewController {
         binding()
     }
     
-    func binding() {
+    private func binding() {
         viewModel
             .$dataStorage
             .assign(to: \.data, on: self)
             .store(in: &CancellableSetService.set)
+    }
+    
+    func presentController(from parent: UIViewController) {
+        if !isCityInfoPresented {
+            isCityInfoPresented = true
+            self.cityView.frame = CGRect(x: 0, y: parent.view.frame.height, width: parent.view.frame.width, height: 0)
+            parent.addChild(self)
+            parent.view.addSubview(self.view)
+            self.didMove(toParent: parent)
+            UIView.animate(withDuration: 0.4) {
+                self.cityView.frame = CGRect(x: 0, y: parent.view.frame.height - self.cityInfoViewHeight, width: parent.view.frame.width, height: self.cityInfoViewHeight)
+            }
+        }
+    }
+    
+    func removeController(from parent: UIViewController) {
+        if isCityInfoPresented {
+            isCityInfoPresented = false
+            UIView.animate(withDuration: 0.4) {
+                self.cityView.frame = CGRect(x: 0, y: parent.view.frame.height, width: parent.view.frame.width, height: 0)
+                
+            } completion: { _ in
+                self.willMove(toParent: nil)
+                self.removeFromParent()
+                self.cityView.removeFromSuperview()
+            }
+        }
     }
 }
 
@@ -60,7 +90,7 @@ extension CityInformationController: UICollectionViewDelegateFlowLayout {
         let padding = 16 * (numberOfCell + 1)
         let avaliableHeight = collectionView.frame.height - padding * 2
         let cellSize = avaliableHeight / numberOfCell
-        return CGSize(width: cellSize, height: cellSize)
+        return CGSize(width: cellSize * 2.5, height: cellSize) // 2.5 множитель ширины относительно высоты
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

@@ -8,15 +8,12 @@
 import UIKit
 
 class NewsTableView: UIView {
-	
-    /// Идентификатор кастомной ячейки
-	lazy var reusableCellIdenifier = "cellId"
     
     /// Таблица для отображения новостей
 	lazy var newsTable: UITableView = {
 		var table = UITableView()
 		table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(NewsTableViewCell.self, forCellReuseIdentifier: reusableCellIdenifier)
+        table.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.reusableCellIdenifier)
 		table.rowHeight = UITableView.automaticDimension
 		table.estimatedRowHeight =  600
         table.backgroundColor = Colors.tableViewBackground.color
@@ -47,5 +44,5 @@ class NewsTableView: UIView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
 }
+  

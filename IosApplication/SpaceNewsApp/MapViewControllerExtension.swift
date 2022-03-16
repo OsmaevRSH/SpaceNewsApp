@@ -10,22 +10,13 @@ import MapKit
 
 // MARK: - MapViewDelegate
 extension MapViewController: MapViewDelegate {
+    
+    /// Метод обработки свайпа вниз view с детальной информацией об отмеченной точке
     func swipeHandler() {
-        if isCityInfoPresented {
-            isCityInfoPresented = false
-            UIView.animate(withDuration: 0.4) {
-                self.cityViewController.cityView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 0)
-                
-            } completion: { _ in
-                self.cityViewController.willMove(toParent: nil)
-                self.cityViewController.removeFromParent()
-                self.cityViewController.cityView.removeFromSuperview()
-                self.mapView.map.removeAnnotations(self.mapView.map.annotations)
-            }
-        }
+        cityInformationController.removeController(from: self)
+        self.mapView.map.removeAnnotations(self.mapView.map.annotations)
     }
     
-	
     /// Обработчик нажатия клавиши текущего местоположения
 	func getCurrentLocation() {
 		mapView.map.removeAnnotations(mapView.map.annotations)
@@ -54,29 +45,36 @@ extension MapViewController: MapViewDelegate {
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]
 
-            self.cityViewController.cityView.setupFields(city: placeMark.locality,
+            self.cityInformationController.cityView.setupFields(city: placeMark.locality,
                                       country: placeMark.country,
                                       ZIP: placeMark.postalCode,
                                       address: placeMark.thoroughfare ?? "")
         })
         
-        presentCityInformation()
+        cityInformationController.presentController(from: self)
 	}
     
-    func presentCityInformation() {
-        if !isCityInfoPresented {
-            isCityInfoPresented = true
-            cityViewController.cityView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 0)
-            addChild(cityViewController)
-            self.view.addSubview(cityViewController.view)
-            cityViewController.didMove(toParent: self)
-            UIView.animate(withDuration: 0.4) {
-                self.cityViewController.cityView.frame = CGRect(x: 0, y: self.view.frame.height - self.cityInfoViewHeight, width: self.view.frame.width, height: self.cityInfoViewHeight)
-            }
+    /// Метод добавления пина на карту через поиск
+    func dropPinZoomIn(placemark: MKPlacemark){
+            // cache the pin
+        selectedPin = placemark
+            // clear existing pins
+        mapView.map.removeAnnotations(mapView.map.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        annotation.title = placemark.name
+        if placemark.locality != nil &&
+           placemark.administrativeArea != nil {
+            annotation.subtitle = "(city) (state)"
         }
+        mapView.map.addAnnotation(annotation)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+        mapView.map.setRegion(region, animated: true)
+        
+        cityInformationController.presentController(from: self)
     }
 }
-
 
 // MARK: - CLLocationManagerDelegate
 extension MapViewController : CLLocationManagerDelegate {
@@ -97,28 +95,5 @@ extension MapViewController : CLLocationManagerDelegate {
     /// - Parameter manager: Location Manager
 	func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
 		checkLocationAuthorization()
-	}
-}
-
-// MARK: - HandleMapSearch
-extension MapViewController: HandleMapSearch {
-	func dropPinZoomIn(placemark: MKPlacemark){
-			// cache the pin
-		selectedPin = placemark
-			// clear existing pins
-		mapView.map.removeAnnotations(mapView.map.annotations)
-		let annotation = MKPointAnnotation()
-		annotation.coordinate = placemark.coordinate
-		annotation.title = placemark.name
-		if placemark.locality != nil &&
-		   placemark.administrativeArea != nil {
-			annotation.subtitle = "(city) (state)"
-		}
-		mapView.map.addAnnotation(annotation)
-		let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-		let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
-		mapView.map.setRegion(region, animated: true)
-        
-        presentCityInformation()
 	}
 }

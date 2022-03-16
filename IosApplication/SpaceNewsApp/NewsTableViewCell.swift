@@ -8,6 +8,9 @@
 import UIKit
 
 class NewsTableViewCell: UITableViewCell {
+    
+    /// Идентификатор кастомной ячейки
+    static let reusableCellIdenifier = "NewsTableViewCell"
 		
     /// View для отображения картинки новости
     lazy var newsImage: CustomUIImageView = {

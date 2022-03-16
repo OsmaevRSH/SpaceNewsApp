@@ -26,7 +26,7 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource, Break
                                          newsURL: newsUrl,
                                          imageURL: imageUrl,
                                          newsId: item.newsId)
-            showTransparentView()
+            breakingNewsViewController.showBreakingNews()
 		}
 	}
     
@@ -61,8 +61,6 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource, Break
         .store(in: &CancellableSetService.set)
     }
     
-    // MARK: - UITableViewDelegate
-    
     /// Метод возвращающий кол-во элементов в секции
     /// - Parameters:
     ///   - tableView: Текущая таблица
@@ -79,14 +77,14 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource, Break
     /// - Returns: Модифицированная ячейка
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: newsTableView.reusableCellIdenifier, for: indexPath) as? NewsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.reusableCellIdenifier, for: indexPath) as? NewsTableViewCell
         else {
             return NewsTableViewCell()
         }
-        
-        cell.newsTitle.text = newsDataSet[indexPath.row].title
-        cell.newsImage.loadImage(from: newsDataSet[indexPath.row].imageUrl)
-        cell.newsPublishedAt.text = newsDataSet[indexPath.row].publishedAt
+        let item = newsDataSet[indexPath.row]
+        cell.newsTitle.text = item.title
+        cell.newsImage.loadImage(from: item.imageUrl)
+        cell.newsPublishedAt.text = item.publishedAt
         return cell
     }
     
@@ -95,20 +93,6 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource, Break
     /// Метод обработки закрытия конкретной новости
     @objc func backButtonHandler() {
         ///Настройка параметров анимации для скрытия новости
-        UIView
-            .animate(withDuration: 0.3,
-                     animations:
-        { [weak self] in
-                self?.transparentView.alpha = 0
-                self?.breakingNewsViewController.view.alpha = 0
-        })
-        { [weak self] _ in
-            self?.transparentView.removeFromSuperview()
-            self?.breakingNewsViewController.view.removeFromSuperview()
-            if let check = self?.breakingNewsViewController.isDetailPresent, check {
-                self?.breakingNewsViewController.detailView.removeFromSuperview()
-                self?.breakingNewsViewController.isDetailPresent = false
-            }
-        }
+        breakingNewsViewController.removeBreakingNews()
     }
 }

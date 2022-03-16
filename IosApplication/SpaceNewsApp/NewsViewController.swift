@@ -28,50 +28,6 @@ class NewsViewController: UIViewController {
     /// Происходит ли в данный момент обновления ленты новостей
     var isRefresh: Bool = false
     
-    /// View для затемнения заднего фона при открытии определенной новости
-    lazy var transparentView: UIView = {
-        var localView = UIView()
-        localView.frame = view.frame
-        return localView
-    }()
-    
-    /// Метод для добавления затемняющего view и показа конкретной новости
-    func showTransparentView() {
-        /// Получаем текщее окно
-        let window = UIApplication.shared.connectedScenes
-            .flatMap{ ($0 as? UIWindowScene)?.windows ?? [] }
-            .first{ $0.isKeyWindow }
-        
-        guard let window = window else {
-            return
-        }
-        
-        /// Рассчитываем высоту окна конкретной новости
-        let newsViewHeight = window.safeAreaLayoutGuide.layoutFrame.height - 32
-        
-        /// Устанавливаем положение и размер окна конкретной новости
-        breakingNewsViewController.view.frame = CGRect(x: window.safeAreaLayoutGuide.layoutFrame.origin.x + 16,
-                                         y: window.safeAreaLayoutGuide.layoutFrame.origin.y + 16,
-                                         width: window.safeAreaLayoutGuide.layoutFrame.width - 32,
-                                         height: newsViewHeight)
-        
-        breakingNewsViewController.view.alpha = 0
-        
-        /// Задаем параметры для затемняющего view
-        transparentView.frame = window.frame
-        transparentView.backgroundColor = .black.withAlphaComponent(0.9)
-        transparentView.alpha = 0
-
-        /// Устновка параметров анимации появления конкретной новости
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            self?.transparentView.alpha = 0.5
-            self?.breakingNewsViewController.view.alpha = 1
-        }
-        
-        window.addSubview(transparentView)
-        window.addSubview(breakingNewsViewController.view)
-    }
-    
     /// Переменная для хранения новостей
     var newsDataSet: [NewsModel] = [] {
         didSet {

@@ -22,13 +22,14 @@ class VideoCell: UITableViewCell {
     }()
     
     /// View для отображения иконки канала
-    lazy var chanelIcon: CustomUIImageView = {
-        var image = CustomUIImageView()
+    lazy var chanelIcon: UIImageView = {
+        var image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 22.5
         image.layer.masksToBounds = true
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
+        image.image = UIImage(named: "Nasa")
         return image
     }()
     

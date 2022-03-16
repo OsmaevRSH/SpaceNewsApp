@@ -390,10 +390,10 @@
 		C1B4AB0527A98CEF0089F25F /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */,
 				C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */,
 				C1707C4727A6D9D700D1D385 /* MapView.swift */,
 				C1349274279ADD0500948C04 /* MapViewController.swift */,
+				C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */,
 				C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */,
 			);
 			name = MapView;

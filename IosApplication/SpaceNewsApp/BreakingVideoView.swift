@@ -18,9 +18,9 @@ class BreakingVideoView: UIView {
     }()
     
     /// Иконка нканала
-    lazy var icon: CustomUIImageView = {
-        var view = CustomUIImageView()
-        view.loadImage(from: NSURL(string: "https://s3-alpha-sig.figma.com/img/038e/1e38/52a01ca7ac25f3fae4e57f030adb0225?Expires=1647216000&Signature=IzC4z1i9OqQYuDM4E6YnoWEMaEv-ESGZvi4Ex8LrDP6MmpDFPB4u7MXHFzTFN5eZrKDfcUFNEevQXPUqSF-2sE4X1eW9yQp9sH3b~CdZku0g9aiHKdaZAVfJ4QKFGVqM5GfRTO0r8tSWCMEjRQ6N2t-i0ZUHhklIE4ysR1LRzvO3EghNlZdaPNIP5j3E8OEu2XZokhjQNc5yQJ-ZwcZpsvHA2U5hEzQ6jveEx0WjDhGoEw2Srd1OPGspVfkY57HAIVi4N6qoD1Rg024cEvPsnV4-S0QKSipw8sksjhBiDvlY7NoQPZAVeU18sQE7s3vfMK~9iEwRaPAtAx9WrgIxoA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"))
+    lazy var icon: UIImageView = {
+        var view = UIImageView()
+        view.image = UIImage(named: "Nasa")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

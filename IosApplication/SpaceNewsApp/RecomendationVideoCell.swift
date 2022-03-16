@@ -14,7 +14,7 @@ class RecomendationVideoCell: UITableViewCell {
     lazy var container: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 22
+        view.layer.cornerRadius = 13
         view.layer.masksToBounds = true
         view.backgroundColor = .systemBackground
         return view
@@ -24,8 +24,10 @@ class RecomendationVideoCell: UITableViewCell {
         var image = CustomUIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        image.layer.cornerRadius = 22
+        image.layer.cornerRadius = 13
         image.layer.masksToBounds = true
+        image.clipsToBounds = true
+        image.contentMode = .scaleAspectFill
         return image
     }()
 

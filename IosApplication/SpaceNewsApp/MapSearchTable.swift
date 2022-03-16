@@ -10,15 +10,15 @@ import MapKit
 
 class MapSearchTable: UITableViewController {
 	
+    let reusableCellIdenifier = "MapSearchCell"
+    
 	var matchingItems:[MKMapItem] = []
 	var mapView: MKMapView?
-	let cellId = "cellId"
-	var handleMapSearchDelegate:HandleMapSearch?
+    var delegate: MapViewDelegate?
 	
-	
-		/// Метод для получения адреса найденого объекта
-		/// - Parameter selectedItem: Найденый объект
-		/// - Returns: Вычесленный адрей
+    /// Метод для получения адреса найденого объекта
+    /// - Parameter selectedItem: Найденый объект
+    /// - Returns: Вычесленный адрей
 	func parseAddress(selectedItem:MKPlacemark) -> String {
 			// put a space between "4" and "Melrose Place"
 		let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
@@ -70,9 +70,9 @@ extension MapSearchTable {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
+		var cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdenifier)
 		if cell == nil {
-			cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+			cell = UITableViewCell(style: .subtitle, reuseIdentifier: reusableCellIdenifier)
 		}
 		let selectedItem = matchingItems[indexPath.row].placemark
 		
@@ -87,7 +87,7 @@ extension MapSearchTable {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let selectedItem = matchingItems[indexPath.row].placemark
-		handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem)
+        delegate?.dropPinZoomIn(placemark: selectedItem)
 		dismiss(animated: true, completion: nil)
 	}
 }

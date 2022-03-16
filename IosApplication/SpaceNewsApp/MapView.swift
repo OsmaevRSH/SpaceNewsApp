@@ -11,14 +11,11 @@ import MapKit
 class MapView: UIView {
 	
 	weak var delegate: MapViewDelegate?
-	
-	// MARK: - Constants
+    
 	private let currentLocationButtonWidth: CGFloat = 170
 	private let currentLocationButtonHeight: CGFloat = 40
 	
-	// MARK: - UI Elements
-	
-		/// Инициализация карты
+    /// Инициализация карты
 	lazy var map: MKMapView = {
 		var map = MKMapView()
 		map.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +24,7 @@ class MapView: UIView {
 		return map
 	}()
 	
-		/// Инициализация кнопки текущего местоположения
+    /// Инициализация кнопки текущего местоположения
 	lazy var currentLocationButton: UIButton = {
 		var button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +37,7 @@ class MapView: UIView {
 		return button
 	}()
 	
-		/// Метод для добавления contraints
+    /// Метод для добавления contraints
 	private func addConstraitns() {
 		NSLayoutConstraint.activate([
 			///Constraints карты
@@ -56,13 +53,11 @@ class MapView: UIView {
 		])
 	}
 	
-		/// Метод для добавления всех subview
+    /// Метод для добавления всех subview
 	private func addSubviews() {
 		addSubview(map)
 		addSubview(currentLocationButton)
 	}
-	
-	// MARK: - Init
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -75,16 +70,14 @@ class MapView: UIView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
-	// MARK: - Handlers
-	
-		/// Метод для обработки нажания на кнопку текущего местоположения
+		
+    /// Метод для обработки нажания на кнопку текущего местоположения
 	@objc private func getCurrentLocation(){
 		delegate?.getCurrentLocation()
 	}
 	
-		/// Метод для обработки нажатия на карту
-		/// - Parameter gestureRecognizer: Обработкик нажатия
+    /// Метод для обработки нажатия на карту
+    /// - Parameter gestureRecognizer: Обработкик нажатия
 	@objc private func createPinOnTap(gestureRecognizer: UITapGestureRecognizer) {
 		delegate?.createPinOnTap(gestureRecognizer: gestureRecognizer)
 	}
