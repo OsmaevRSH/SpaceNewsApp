@@ -21,14 +21,12 @@ public class NewsReadingList: NSManagedObject {
         news.text = text
         news.image = image
         dataManager.saveContext()
-        print("Add")
     }
     
     class func removeFromReadingList(by id: Int) {
         guard let breakingNews = findBy(id: id) else { return }
         dataManager.viewContext.delete(breakingNews)
         dataManager.saveContext()
-        print("Remove")
     }
     
     class func findBy(id: Int) -> NewsReadingList? {

@@ -41,6 +41,7 @@ class BreakingVideoViewController: UIViewController {
         videoView.recomendationTableView.dataSource = self
         videoView.recomendationTableView.register(RecomendationVideoCell.self, forCellReuseIdentifier: RecomendationVideoCell.cellId)
         binding()
+        setupBarButtonItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +56,7 @@ class BreakingVideoViewController: UIViewController {
     
     private func setupBarButtonItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrowshape.turn.up.right"),
-                                                           style: .done, target: nil, action: nil)
+                                                            style: .done, target: self, action: #selector(shareButtonHandler))
     }
     
     func setupVideoInfo(videoId: String, videoTitle: String, videoPublishedAt: String) {
@@ -73,5 +74,33 @@ class BreakingVideoViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         videoView.recomendationTableView.contentOffset = CGPoint(x: 0, y: 0)
+    }
+    
+    @objc private func shareButtonHandler() {
+            let firstActivityItem = "Video: "
+
+            let secondActivityItem : NSURL = NSURL(string: "https://m.youtube.com/watch?v=\(videoId)&feature=youtu.be")!
+            
+            let activityViewController : UIActivityViewController = UIActivityViewController(
+                activityItems: [firstActivityItem, secondActivityItem], applicationActivities: nil)
+            
+            activityViewController.activityItemsConfiguration = [
+            UIActivity.ActivityType.message
+            ] as? UIActivityItemsConfigurationReading
+            
+            activityViewController.excludedActivityTypes = [
+                UIActivity.ActivityType.postToWeibo,
+                UIActivity.ActivityType.print,
+                UIActivity.ActivityType.assignToContact,
+                UIActivity.ActivityType.saveToCameraRoll,
+                UIActivity.ActivityType.addToReadingList,
+                UIActivity.ActivityType.postToFlickr,
+                UIActivity.ActivityType.postToVimeo,
+                UIActivity.ActivityType.postToTencentWeibo,
+                UIActivity.ActivityType.postToFacebook
+            ]
+            
+            activityViewController.isModalInPresentation = true
+            self.present(activityViewController, animated: true, completion: nil)
     }
 }

@@ -88,10 +88,16 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-//    // MARK: - BreakingNewsDelegate
-//    
-//    /// Метод обработки закрытия конкретной новости
-//    @objc func backButtonHandler() {
-//        breakingNewsViewController.removeBreakingNews()
-//    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        tableView.sectionHeaderHeight = 200
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
 }
