@@ -73,7 +73,7 @@ class NewsViewController: UIViewController {
     /// Метод для добавдения кнопок в Navigation Bar
     private func setupBarButtonItem() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "tray.full"),
-                                                           style: .done, target: self, action: #selector(favoriteButtonHandler))
+                                                           style: .done, target: self, action: #selector(readingListButtonHandler))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.wave.2"),
                                                            style: .done, target: nil, action: nil)
     }
@@ -92,7 +92,7 @@ class NewsViewController: UIViewController {
             .store(in: &CancellableSetService.set)
 	}
     
-    @objc private func favoriteButtonHandler() {
+    @objc private func readingListButtonHandler() {
         navigationController?.show(favoriteNewsViewController, sender: nil)
     }
 }

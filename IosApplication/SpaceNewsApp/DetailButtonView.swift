@@ -1,5 +1,5 @@
 //
-//  MoreButtonView.swift
+//  DetailButtonView.swift
 //  SpaceNewsApp
 //
 //  Created by Руслан Осмаев on 09.03.2022.
@@ -7,15 +7,17 @@
 
 import UIKit
 
-class MoreButtonView: UIView {
+class DetailButtonView: UIView {
     
-    var delegate: MoreViewButtonDelegate?
+    var delegate: DetailButtonViewDelegate?
     
     lazy var addFavoriteBtn: UIButton = {
         var button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(addFavoriteHandler), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addToReadingListHandler), for: .touchUpInside)
         button.setTitle("Reading list", for: .normal)
+        button.layer.cornerRadius = 22
+        button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         return button
     }()
     
@@ -42,20 +44,20 @@ class MoreButtonView: UIView {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            addFavoriteBtn.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 8),
-            addFavoriteBtn.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 8),
-            addFavoriteBtn.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -8),
+            addFavoriteBtn.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            addFavoriteBtn.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            addFavoriteBtn.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
             addFavoriteBtn.heightAnchor.constraint(equalTo: readTextBtn.heightAnchor),
             
-            readTextBtn.topAnchor.constraint(equalTo: addFavoriteBtn.bottomAnchor, constant: 8),
-            readTextBtn.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 8),
-            readTextBtn.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8),
-            readTextBtn.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -8)
+            readTextBtn.topAnchor.constraint(equalTo: addFavoriteBtn.bottomAnchor),
+            readTextBtn.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            readTextBtn.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            readTextBtn.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor)
         ])
     }
     
-    @objc private func addFavoriteHandler() {
-        delegate?.addFavoriteHandler()
+    @objc private func addToReadingListHandler() {
+        delegate?.addToReadingListHandler()
     }
     
     @objc private func readTextHandler() {

@@ -12,6 +12,8 @@ class FavoriteNewsViewController: UIViewController {
 
     private let newsView = FavoriteNewsView()
     
+    var breakingNewsViewController: BreakingNewsViewController!
+    
     let dataManager = DataStoreManager.shared
     
     var fetchedResultsController: NSFetchedResultsController<NewsReadingList>!
@@ -79,9 +81,12 @@ extension FavoriteNewsViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        guard let indexPath = indexPath else { return }
         switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { return }
+            newsView.newsTable.insertRows(at: [newIndexPath], with: .middle)
         case .delete:
+            guard let indexPath = indexPath else { return }
             newsView.newsTable.deleteRows(at: [indexPath], with: .middle)
         default:
             break
@@ -92,10 +97,25 @@ extension FavoriteNewsViewController: UITableViewDataSource, UITableViewDelegate
         switch editingStyle {
         case .delete:
             let item = fetchedResultsController.object(at: indexPath)
-            dataManager.viewContext.delete(item)
-            dataManager.saveContext()
+            NewsReadingList.removeFromReadingList(by: Int(item.uuid))
         default:
             break
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = fetchedResultsController.object(at: indexPath)
+        guard let title = item.title,
+              let text = item.text,
+              let image = item.image
+        else {
+            return
+        }
+        breakingNewsViewController.setupFields(
+            titleViewName: title,
+            newsText: text,
+            newsImage: image,
+            newsId: Int(item.uuid))
+        breakingNewsViewController.showBreakingNews()
     }
 }

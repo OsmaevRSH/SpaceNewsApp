@@ -11,7 +11,6 @@ import WebKit
 class BreakingNewsView: UIView {
     
     var delegate: BreakingNewsDelegate?
-    var detailButtonDelegate: DetailButtonDelegate?
     
     lazy var scrollView: UIScrollView = {
         var view = UIScrollView()
@@ -146,6 +145,6 @@ class BreakingNewsView: UIView {
     }
     
     @objc private func detailButtonHandler() {
-        detailButtonDelegate?.detailButtonHandler()
+        delegate?.detailButtonHandler()
     }
 }

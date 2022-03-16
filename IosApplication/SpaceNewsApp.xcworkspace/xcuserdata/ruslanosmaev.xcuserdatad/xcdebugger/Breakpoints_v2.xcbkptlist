@@ -3,4 +3,22 @@
    uuid = "028769FC-F6EE-4BFC-9F54-DEC00D48FEF2"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E6D27FA-6179-4103-8918-E322621DC770"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpaceNewsApp/BreakingNewsViewController.swift"
+            startingColumnNumber = "22"
+            endingColumnNumber = "35"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "setupFields(titleViewName:newsURL:imageURL:newsId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

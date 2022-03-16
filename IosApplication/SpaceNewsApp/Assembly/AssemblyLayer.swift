@@ -25,6 +25,7 @@ class AssemblyLayer {
         let videosListViewModel = VideosListViewModel()
         let breakingVideoViewController = BreakingVideoViewController()
         let favoriteViewController = FavoriteNewsViewController()
+        let detailButtonViewController = DetailButtonViewController()
         
         baseTabBarController.mapNavController = mapNavController
         baseTabBarController.newsNavController = newsNavController
@@ -39,7 +40,8 @@ class AssemblyLayer {
         newsViewController.favoriteNewsViewController = favoriteViewController
         newsViewController.breakingNewsViewController = breakingNewsViewController
         breakingNewsViewController.breakingNewsViewModel = breakingNewsViewModel
-        breakingNewsViewController.breakingNewsView.delegate = newsViewController
+        breakingNewsViewController.detailButtonViewController = detailButtonViewController
+        favoriteViewController.breakingNewsViewController = breakingNewsViewController
         
         return baseTabBarController
     }

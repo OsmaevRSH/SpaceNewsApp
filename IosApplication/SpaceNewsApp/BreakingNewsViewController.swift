@@ -8,22 +8,11 @@
 import UIKit
 import Combine
 
-protocol BreakingNewsDelegate: AnyObject {
-    func backButtonHandler()
-}
-
-protocol DetailButtonDelegate: AnyObject {
-    func detailButtonHandler()
-}
-
 class BreakingNewsViewController: UIViewController {
 	
     var breakingNewsViewModel: BreakingNewsViewModel!
-    
+    var detailButtonViewController: DetailButtonViewController!
     var breakingNewsView = BreakingNewsView()
-    
-    let detailView = MoreButtonView()
-    
     var isDetailPresent = false
     
     /// View для затемнения заднего фона при открытии определенной новости
@@ -34,7 +23,7 @@ class BreakingNewsViewController: UIViewController {
     
     private var imageURL: URL!
     private var newsURL: URL!
-    private var newsId: Int!
+    var newsId: Int!
     
     func setupFields(titleViewName: String, newsURL: URL, imageURL: URL, newsId: Int) {
         self.imageURL = imageURL
@@ -42,16 +31,25 @@ class BreakingNewsViewController: UIViewController {
         self.newsId = newsId
         breakingNewsView.newsTitle.text = titleViewName
     }
+    
+    func setupFields(titleViewName: String, newsText: String, newsImage: Data, newsId: Int) {
+        self.newsId = newsId
+        imageURL = nil
+        newsURL = nil
+        breakingNewsView.newsTitle.text = titleViewName
+        breakingNewsView.newsInfo.text = newsText
+        breakingNewsView.newsImage.image = UIImage(data: newsImage)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         binding()
-        breakingNewsView.detailButtonDelegate = self
-        detailView.delegate = self
+        breakingNewsView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard let newsURL = newsURL, let imageURL = imageURL else { return }
         breakingNewsView.newsImage.loadImage(from: imageURL as NSURL)
         breakingNewsViewModel.getNewsInfo(newsUrl: newsURL, newsId: newsId)
     }
@@ -121,49 +119,18 @@ class BreakingNewsViewController: UIViewController {
             self?.transparentView.removeFromSuperview()
             self?.view.removeFromSuperview()
             if let check = self?.isDetailPresent, check {
-                self?.detailView.removeFromSuperview()
                 self?.isDetailPresent = false
             }
         }
     }
 }
 
-extension BreakingNewsViewController: MoreViewButtonDelegate, DetailButtonDelegate {
-    func addFavoriteHandler() {
-        NewsReadingList.saveToReadingList(
-            title: breakingNewsView.newsTitle.text,
-            text: breakingNewsView.newsInfo.text,
-            image: breakingNewsView.newsImage.image?.pngData(),
-            id: newsId)
-        if let _ = NewsReadingList.findBy(id: newsId) {
-            detailView.addFavoriteBtn.backgroundColor = .green
-        }
-    }
-    
-    func readTextHandler() {
-        print("readText")
-    }
-    
+extension BreakingNewsViewController: BreakingNewsDelegate {
     func detailButtonHandler() {
-        if !isDetailPresent {
-            isDetailPresent = true
-            detailView.frame = CGRect(x: view.frame.midX,
-                                      y: breakingNewsView.detailBtn.frame.maxY + 10,
-                                      width: breakingNewsView.detailBtn.frame.maxX - view.frame.midX,
-                                      height: 80)
-            detailView.alpha = 0
-            view.addSubview(detailView)
-            UIView.animate(withDuration: 0.3) {
-                self.detailView.alpha = 1
-            }
-        }
-        else {
-            isDetailPresent = false
-            UIView.animate(withDuration: 0.3) {
-                self.detailView.alpha = 0
-            } completion: { _ in
-                self.detailView.removeFromSuperview()
-            }
-        }
+        detailButtonViewController.presentController(parent: self)
+    }
+    
+    func backButtonHandler() {
+        self.removeBreakingNews()
     }
 }

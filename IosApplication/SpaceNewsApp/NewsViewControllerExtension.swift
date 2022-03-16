@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension NewsViewController : UITableViewDelegate, UITableViewDataSource, BreakingNewsDelegate {    
+extension NewsViewController : UITableViewDelegate, UITableViewDataSource {
     // MARK: - UITableViewDelegate
     
     /// Метод вызывающийся при нажатии на ячейку таблицы
@@ -88,11 +88,10 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource, Break
         return cell
     }
     
-    // MARK: - BreakingNewsDelegate
-    
-    /// Метод обработки закрытия конкретной новости
-    @objc func backButtonHandler() {
-        ///Настройка параметров анимации для скрытия новости
-        breakingNewsViewController.removeBreakingNews()
-    }
+//    // MARK: - BreakingNewsDelegate
+//    
+//    /// Метод обработки закрытия конкретной новости
+//    @objc func backButtonHandler() {
+//        breakingNewsViewController.removeBreakingNews()
+//    }
 }
