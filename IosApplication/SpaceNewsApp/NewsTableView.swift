@@ -18,6 +18,7 @@ class NewsTableView: UIView {
 		table.estimatedRowHeight =  600
         table.backgroundColor = Colors.tableViewBackground.color
         table.separatorStyle = .none
+        table.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
 		return table
 	}()
     

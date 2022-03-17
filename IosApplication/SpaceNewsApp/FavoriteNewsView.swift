@@ -14,6 +14,8 @@ class FavoriteNewsView: UIView {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(FavoriteNewsCell.self, forCellReuseIdentifier: FavoriteNewsCell.reusibleIdentifier)
         table.separatorStyle = .none
+        table.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+        table.backgroundColor = Colors.tableViewBackground.color
         return table
     }()
     

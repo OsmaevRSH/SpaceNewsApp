@@ -79,9 +79,9 @@ class RecomendationVideoCell: UITableViewCell {
 
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            container.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 4),
             container.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
-            container.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            container.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -4),
             container.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
 
             videoImage.topAnchor.constraint(equalTo: container.topAnchor),

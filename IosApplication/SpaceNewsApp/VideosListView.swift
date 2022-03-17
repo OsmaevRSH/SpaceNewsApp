@@ -17,6 +17,8 @@ class VideosListView: UIView {
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight =  600
         table.separatorStyle = .none
+        table.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+        table.backgroundColor = Colors.tableViewBackground.color
         return table
     }()
     

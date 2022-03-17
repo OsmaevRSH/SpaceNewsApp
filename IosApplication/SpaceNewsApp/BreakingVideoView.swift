@@ -61,6 +61,7 @@ class BreakingVideoView: UIView {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.separatorStyle = .none
         table.backgroundColor = Colors.tableViewBackground.color
+        table.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
         return table
     }()
     
