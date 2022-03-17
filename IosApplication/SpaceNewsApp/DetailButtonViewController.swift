@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import AVFoundation
 
 class DetailButtonViewController: UIViewController {
 
     let detailView = DetailButtonView()
     
+    let synthesizer = AVSpeechSynthesizer()
+    
     var isDetailPresent = false
+    
+    var isRobotOn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +94,22 @@ extension DetailButtonViewController: DetailButtonViewDelegate {
     }
     
     func readTextHandler() {
-        print("readText")
+        guard let parent = self.parent as? BreakingNewsViewController else {
+            return
+        }
+        isRobotOn = !isRobotOn
+        if isRobotOn
+        {
+            guard let speechText = parent.breakingNewsView.newsInfo.text else { return }
+            let speech = AVSpeechUtterance(string: speechText)
+            synthesizer.speak(speech)
+        }
+        else
+        {
+            if synthesizer.isSpeaking
+            {
+                synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
+            }
+        }
     }
 }
