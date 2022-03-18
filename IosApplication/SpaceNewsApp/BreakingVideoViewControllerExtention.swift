@@ -62,7 +62,7 @@ extension BreakingVideoViewController: UITableViewDelegate, UITableViewDataSourc
     
     /// Метод для подгрузки средующей страницы новостей
     private func loadMoreNews() {
-        VideoHttpService.shared.getAListOfVideos(loadFirstPage: false)
+        VideoHttpService.shared.getVideos(loadFirstPage: false)
             .map {
                 $0.map {
                     VideoModel(

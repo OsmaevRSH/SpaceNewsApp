@@ -20,7 +20,7 @@ class VideoHttpService {
     
     /// Получение списка видео с канала
     /// - Returns: Список видео
-    func getAListOfVideos(loadFirstPage: Bool) -> AnyPublisher<[VideoItem], Never> {
+    func getVideos(loadFirstPage: Bool) -> AnyPublisher<[VideoItem], Never> {
         if loadFirstPage {
             nextPageVideoToken = ""
         }
@@ -35,6 +35,33 @@ class VideoHttpService {
                     "order": "date",
                     "maxResults": "20",
                     "pageToken": nextPageVideoToken
+                ]) else {
+            return Just([VideoItem.placeholder]).eraseToAnyPublisher()
+        }
+        return URLSession.shared.dataTaskPublisher(for: localUrl)
+            .map { $0.data }
+            .decode(type: VideoServerModel.self, decoder: JSONDecoder())
+            .map {
+                self.nextPageVideoToken = $0.nextPageToken ?? ""
+                return $0.items ?? [VideoItem.placeholder]
+            }
+            .catch { error in Just([VideoItem.placeholder]) }
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getLiveVideos() -> AnyPublisher<[VideoItem], Never> {
+        let url = "https://www.googleapis.com/youtube/v3/search"
+        guard let localUrl = HttpHelper.generateURL(
+            url: url,
+            queryItem:
+                [
+                    "key": "AIzaSyD4ZVpI4bi4bk3BELNzgH9ZpXWRwyczPHw",
+                    "channelId": "UCLA_DiR1FfKNvjuUpBHmylQ",
+                    "part": "snippet,id",
+                    "order": "date",
+                    "eventType": "live",
+                    "type": "video"
                 ]) else {
             return Just([VideoItem.placeholder]).eraseToAnyPublisher()
         }
