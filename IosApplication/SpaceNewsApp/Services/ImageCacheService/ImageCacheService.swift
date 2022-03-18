@@ -9,10 +9,6 @@ import Foundation
 import UIKit
 import Combine
 
-enum ImageError: Error {
-    case error
-}
-
 public class ImageCacheService {
     static let shared = ImageCacheService()
     

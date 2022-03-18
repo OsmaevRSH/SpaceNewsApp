@@ -12,6 +12,8 @@ class NewsHttpService {
     /// Singleton
     static let shared = NewsHttpService()
     
+    private let cache = NewsCacheService.shared
+    
     /// Приватный конструктор для парильной работы singleton
     private init() {}
     
@@ -41,11 +43,17 @@ class NewsHttpService {
         guard let localURL = HttpHelper.generateURL(url: descriptionSeverUrl, queryItem: ["url": url.description, "news_id": "\(newsId)"]) else {
             return Just("").eraseToAnyPublisher()
         }
+        if let newsText = cache.getImageFromCache(for: localURL as NSURL) {
+            return Just(newsText as String).eraseToAnyPublisher()
+        }
         return URLSession.shared.dataTaskPublisher(for: localURL)
             .map { $0.data }
             .decode(type: String.self, decoder: JSONDecoder())
             .catch { error in Just("") }
             .receive(on: RunLoop.main)
+            .handleEvents(receiveOutput: { [weak self] newsText in
+                self?.cache.saveImageToCache(for: newsText as NSString, from: localURL as NSURL)
+            })
             .eraseToAnyPublisher()
     }
 }
