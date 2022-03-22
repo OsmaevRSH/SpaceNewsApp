@@ -149,17 +149,25 @@ class CityInformationView: UIView {
         var localZIP = ""
         
         if let city = city {
-            localCity = city
+            if !city.isEmpty {
+                localCity = "\(city)"
+            }
         }
+        
         if let country = country {
-            localCountry = ", \(country)"
+            if !country.isEmpty {
+                localCountry = " \(country)"
+            }
         }
         
         if let ZIP = ZIP {
-            localZIP = ", \(ZIP)"
+            if !ZIP.isEmpty {
+                localZIP = " \(ZIP)"
+            }
         }
-        
-        cityInfoLbl.text = "\(localCity) \(localCountry) \(localZIP)"
+        var resultString = "\(localCity)\(localCountry)\(localZIP)"
+        resultString = resultString.trimmingCharacters(in: [" "])
+        cityInfoLbl.text = resultString.replacingOccurrences(of: " ", with: ", ")
         addressLbl.text = address
     }
 }
