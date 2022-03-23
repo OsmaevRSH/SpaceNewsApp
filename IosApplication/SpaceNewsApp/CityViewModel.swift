@@ -9,27 +9,25 @@ import Foundation
 import Combine
 
 class CityViewModel {
-    @Published var dataStorage: [City] = []
+    @Published var dataStorage: [CityInfo] = []
+    @Published var currentCity: CurrentCityServerModel = CurrentCityServerModel.placeholder
     
-    @Published var localStorage: [City] = []
-    
-    func getCitys(latitude: String, longitude: String, radius: String, minPopulation: String, maxPopulation: String) {
-        CityHttpService.shared.getCitiesAroundThePoint(latitude: latitude,
-                                                 longitude: longitude,
-                                                 radius: radius,
-                                                 minPopulation: minPopulation,
-                                                 maxPopulation: maxPopulation)
-            .map { $0.cities }
-            .assign(to: \.localStorage, on: self)
+    func getCitys(latitude: String, longitude: String) {
+        CityHttpService.shared.getCitysInArea(latitude: latitude, longitude: longitude)
+            .sink(receiveValue: { [weak self] city in
+                if let data = city.data {
+                    self?.dataStorage = data
+                }
+            })
             .store(in: &CancellableSetService.set)
     }
     
-    init() {
-        $localStorage
-            .sink { Array in
-                self.dataStorage = Array.sorted(by: { lhs, rhs in
-                    lhs.distance < rhs.distance
-                })
+    func getInfoAboutCurrentCity(latitude: String, longitude: String) {
+        CityHttpService.shared.getCurrentCityInformation(latitude: latitude, longitude: longitude)
+            .sink { [weak self] citys in
+                if let city = citys.first {
+                    self?.currentCity = city
+                }
             }
             .store(in: &CancellableSetService.set)
     }

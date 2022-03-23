@@ -16,32 +16,52 @@ class CityHttpService {
     /// Приватный конструктор для парильной работы singleton
     private init() {}
     
-    /// Метод для отравки запроса к API для получения списка городов вокруг точки
+    /// Метод для отравки запроса к API для получения информации о текущем городе
     /// - Parameters:
     ///   - latitude: Широта
     ///   - longitude: Долгота
-    ///   - radius: Радиус поиска
-    ///   - minPopulation: Минимальное кол-во жителей
-    ///   - maxPopulation: Максимальное кол-во жителей
-    /// - Returns: Список всех найденных городов
-    func getCitiesAroundThePoint(latitude: String,
-                  longitude: String,
-                  radius: String,
-                  minPopulation: String,
-                  maxPopulation: String) -> AnyPublisher<CityServerModel, Never> {
-        guard let url = HttpHelper.generateURL(url: "http://localhost:80/testApi/", queryItem: [ //TODO
+    /// - Returns: Текущий ближайший город по координатам
+    func getCurrentCityInformation(latitude: String, longitude: String) -> AnyPublisher<[CurrentCityServerModel], Never> {
+        guard let url = HttpHelper.generateURL(url: "https://geocodeapi.p.rapidapi.com/GetNearestCities", queryItem: [
             "latitude": latitude,
             "longitude": longitude,
-            "radius": radius,
-            "min_population": minPopulation,
-            "max_population": maxPopulation
+            "range": "0"
         ]) else {
-            return Just(CityServerModel.placeholder).eraseToAnyPublisher()
+            return Just([CurrentCityServerModel.placeholder]).eraseToAnyPublisher()
         }
-        return URLSession.shared.dataTaskPublisher(for: url)
+        var request = URLRequest(url: url)
+        request.setValue("geocodeapi.p.rapidapi.com", forHTTPHeaderField: "X-RapidAPI-Host")
+        request.setValue("816c641d6amsh0baed9b87a5d4c9p169f3bjsn0b8e14e432ce", forHTTPHeaderField: "X-RapidAPI-Key")
+        return URLSession.shared.dataTaskPublisher(for: request)
             .map { $0.data }
-            .decode(type: CityServerModel.self, decoder: JSONDecoder())
-            .catch { error in Just(CityServerModel.placeholder) }
+            .decode(type: [CurrentCityServerModel].self, decoder: JSONDecoder())
+            .catch { error in Just([CurrentCityServerModel.placeholder]) }
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getCitysInArea(latitude: String, longitude: String) -> AnyPublisher<CityInAreaServerModel, Never> {
+        var localLongitude = ""
+        if longitude.contains("-") {
+            localLongitude = "\(longitude)"
+        }
+        else {
+            localLongitude = "+\(longitude)"
+        }
+        
+        guard let url = HttpHelper.generateURL(url: "https://wft-geo-db.p.rapidapi.com/v1/geo/locations/\(latitude)\(localLongitude)/nearbyCities", queryItem: [
+            "radius": "100",
+            "limit": "10"
+        ]) else {
+            return Just(CityInAreaServerModel.placeholder).eraseToAnyPublisher()
+        }
+        var request = URLRequest(url: url)
+        request.setValue("wft-geo-db.p.rapidapi.com", forHTTPHeaderField: "X-RapidAPI-Host")
+        request.setValue("816c641d6amsh0baed9b87a5d4c9p169f3bjsn0b8e14e432ce", forHTTPHeaderField: "X-RapidAPI-Key")
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map { $0.data }
+            .decode(type: CityInAreaServerModel.self, decoder: JSONDecoder())
+            .catch { error in Just(CityInAreaServerModel.placeholder) }
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }

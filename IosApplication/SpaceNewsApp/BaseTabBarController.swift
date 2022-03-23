@@ -40,5 +40,6 @@ class BaseTabBarController: UITabBarController {
         super.viewWillAppear(animated)
         configureControllers()
         self.setViewControllers([newsNavController, videoNavController, mapNavController], animated: true)
+//        self.setViewControllers([mapNavController], animated: true)
     }
 }

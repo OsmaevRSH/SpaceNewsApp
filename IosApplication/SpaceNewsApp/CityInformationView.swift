@@ -31,6 +31,7 @@ class CityInformationView: UIView {
         var collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.register(CityCell.self, forCellWithReuseIdentifier: CityCell.reusebleIdenifier)
+        collection.showsHorizontalScrollIndicator = false
         return collection
     }()
     
@@ -44,16 +45,6 @@ class CityInformationView: UIView {
         return label
     }()
     
-    /// Лейбел для вывода адреса
-    lazy var addressLbl: UILabel = {
-        var label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "SF Pro Text", size: 13)
-        label.font = .systemFont(ofSize: 13, weight: .regular)
-        label.textColor = UIColor(displayP3Red: 138/255, green: 138/255, blue: 142/255, alpha: 1)
-        return label
-    }()
-    
     /// Лейбел для вывода кол-во жителей в выбранном городе
     lazy var cityPopulation: UILabel = {
         var label = UILabel()
@@ -61,7 +52,6 @@ class CityInformationView: UIView {
         label.font = UIFont(name: "SF Pro Text", size: 13)
         label.font = .systemFont(ofSize: 13, weight: .regular)
         label.textColor = UIColor(displayP3Red: 138/255, green: 138/255, blue: 142/255, alpha: 1)
-        label.text = "Население Москвы: 12 655 050"
         return label
     }()
     
@@ -72,7 +62,7 @@ class CityInformationView: UIView {
         label.font = UIFont(name: "SF Pro Text", size: 13)
         label.font = .systemFont(ofSize: 13, weight: .regular)
         label.textColor = UIColor(displayP3Red: 138/255, green: 138/255, blue: 142/255, alpha: 1)
-        label.text = "Города в радиусе 100 км:"
+        label.text = "Cities within a radius of 100 km:"
         return label
     }()
     
@@ -95,7 +85,6 @@ class CityInformationView: UIView {
     private func addSubviews() {
         addSubview(swipeLine)
         addSubview(cityInfoLbl)
-        addSubview(addressLbl)
         addSubview(cityPopulation)
         addSubview(cityInAreaTitle)
         addSubview(cityCollectionView)
@@ -113,11 +102,7 @@ class CityInformationView: UIView {
             cityInfoLbl.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
             cityInfoLbl.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
             
-            addressLbl.topAnchor.constraint(equalTo: cityInfoLbl.bottomAnchor),
-            addressLbl.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
-            addressLbl.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
-            
-            cityPopulation.topAnchor.constraint(equalTo: addressLbl.bottomAnchor, constant: 8),
+            cityPopulation.topAnchor.constraint(equalTo: cityInfoLbl.bottomAnchor, constant: 8),
             cityPopulation.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
             cityPopulation.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
             
@@ -135,39 +120,5 @@ class CityInformationView: UIView {
     /// Обработчик свайпа закрытия view
     @objc func swipeHandler() {
         delegate?.swipeHandler()
-    }
-    
-    /// Метод для установки полей view
-    /// - Parameters:
-    ///   - city: Город
-    ///   - country: Страна
-    ///   - ZIP: Индекс
-    ///   - address: Адрес
-    func setupFields(city: String?, country: String?, ZIP: String?, address: String) {
-        var localCity = ""
-        var localCountry = ""
-        var localZIP = ""
-        
-        if let city = city {
-            if !city.isEmpty {
-                localCity = "\(city)"
-            }
-        }
-        
-        if let country = country {
-            if !country.isEmpty {
-                localCountry = " \(country)"
-            }
-        }
-        
-        if let ZIP = ZIP {
-            if !ZIP.isEmpty {
-                localZIP = " \(ZIP)"
-            }
-        }
-        var resultString = "\(localCity)\(localCountry)\(localZIP)"
-        resultString = resultString.trimmingCharacters(in: [" "])
-        cityInfoLbl.text = resultString.replacingOccurrences(of: " ", with: ", ")
-        addressLbl.text = address
     }
 }

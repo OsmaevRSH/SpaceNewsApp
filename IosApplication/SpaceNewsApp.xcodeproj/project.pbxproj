@@ -40,6 +40,7 @@
 		C1707C4A27A6DB1000D1D385 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */; };
 		C1707C4C27A6DD2800D1D385 /* MapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */; };
 		C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */; };
+		C17CF5D927EB3D7E00206838 /* CurrentCityServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17CF5D827EB3D7E00206838 /* CurrentCityServerModel.swift */; };
 		C185C96C27B3F5D9006D10B2 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96B27B3F5D9006D10B2 /* ImageCacheService.swift */; };
 		C185C96E27B40745006D10B2 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185C96D27B40745006D10B2 /* NewsModel.swift */; };
 		C1A0D0C027C908D000BD49A6 /* VideoNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0D0BF27C908D000BD49A6 /* VideoNavController.swift */; };
@@ -54,7 +55,7 @@
 		C1C39C7127D5FE9E00DB8DA3 /* CityInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C39C7027D5FE9E00DB8DA3 /* CityInformationView.swift */; };
 		C1C39C7427D7533200DB8DA3 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C39C7327D7533200DB8DA3 /* CityCell.swift */; };
 		C1C39C7627D7558F00DB8DA3 /* CityInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C39C7527D7558F00DB8DA3 /* CityInformationController.swift */; };
-		C1C39C9E27D77C3900DB8DA3 /* CityServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C39C9D27D77C3900DB8DA3 /* CityServerModel.swift */; };
+		C1C39C9E27D77C3900DB8DA3 /* CityInAreaServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C39C9D27D77C3900DB8DA3 /* CityInAreaServerModel.swift */; };
 		C1D6B14727E27B5700007F4E /* BreakingNewsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6B14627E27B5700007F4E /* BreakingNewsDelegate.swift */; };
 		C1D6B14927E27D6200007F4E /* DetailButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6B14827E27D6200007F4E /* DetailButtonViewController.swift */; };
 		C1DDED4E27CB91E800EF9166 /* VideoServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDED4D27CB91E800EF9166 /* VideoServerModel.swift */; };
@@ -142,6 +143,7 @@
 		C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerExtension.swift; sourceTree = "<group>"; };
 		C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchTable.swift; sourceTree = "<group>"; };
+		C17CF5D827EB3D7E00206838 /* CurrentCityServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCityServerModel.swift; sourceTree = "<group>"; };
 		C185C96B27B3F5D9006D10B2 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
 		C185C96D27B40745006D10B2 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		C1A0D0BF27C908D000BD49A6 /* VideoNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNavController.swift; sourceTree = "<group>"; };
@@ -156,7 +158,7 @@
 		C1C39C7027D5FE9E00DB8DA3 /* CityInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInformationView.swift; sourceTree = "<group>"; };
 		C1C39C7327D7533200DB8DA3 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		C1C39C7527D7558F00DB8DA3 /* CityInformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInformationController.swift; sourceTree = "<group>"; };
-		C1C39C9D27D77C3900DB8DA3 /* CityServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityServerModel.swift; sourceTree = "<group>"; };
+		C1C39C9D27D77C3900DB8DA3 /* CityInAreaServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInAreaServerModel.swift; sourceTree = "<group>"; };
 		C1D6B14627E27B5700007F4E /* BreakingNewsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingNewsDelegate.swift; sourceTree = "<group>"; };
 		C1D6B14827E27D6200007F4E /* DetailButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailButtonViewController.swift; sourceTree = "<group>"; };
 		C1DDED4D27CB91E800EF9166 /* VideoServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoServerModel.swift; sourceTree = "<group>"; };
@@ -373,6 +375,15 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		C17CF5D727EB3D5C00206838 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				C1C39C9D27D77C3900DB8DA3 /* CityInAreaServerModel.swift */,
+				C17CF5D827EB3D7E00206838 /* CurrentCityServerModel.swift */,
+			);
+			name = City;
+			sourceTree = "<group>";
+		};
 		C185C96A27B3F5B6006D10B2 /* ImageCacheService */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,7 +530,7 @@
 			children = (
 				C1E4D88827AA98B900D70F2A /* News */,
 				C1DDED4F27CB920300EF9166 /* Video */,
-				C1C39C9D27D77C3900DB8DA3 /* CityServerModel.swift */,
+				C17CF5D727EB3D5C00206838 /* City */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -837,7 +848,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C185C96C27B3F5D9006D10B2 /* ImageCacheService.swift in Sources */,
-				C1C39C9E27D77C3900DB8DA3 /* CityServerModel.swift in Sources */,
+				C1C39C9E27D77C3900DB8DA3 /* CityInAreaServerModel.swift in Sources */,
 				C1F9C1A627DF71810079EF13 /* HttpHelper.swift in Sources */,
 				C134927D279ADD8800948C04 /* TemplateOnboardingView.swift in Sources */,
 				C1E295C827CF70AB00693FC8 /* NewsCacheService.swift in Sources */,
@@ -869,6 +880,7 @@
 				C1707C4E27A6E7E200D1D385 /* MapSearchTable.swift in Sources */,
 				C1B4AB0D27A9A0DC0089F25F /* NewsNavController.swift in Sources */,
 				C1D6B14927E27D6200007F4E /* DetailButtonViewController.swift in Sources */,
+				C17CF5D927EB3D7E00206838 /* CurrentCityServerModel.swift in Sources */,
 				C1349281279ADDAD00948C04 /* PageControl.swift in Sources */,
 				C134927F279ADD9E00948C04 /* PageViewController.swift in Sources */,
 				C1DDED5627CB9D4600EF9166 /* CancellableSetService.swift in Sources */,

@@ -30,29 +30,24 @@ extension MapViewController: MapViewDelegate {
 		let coordinate = mapView.map.convert(gestureRecognizer, toCoordinateFrom: mapView)
 
         // Add annotation:
-		let annotation = MKPointAnnotation()
-		annotation.coordinate = coordinate
-		mapView.map.removeAnnotations(mapView.map.annotations)
-		mapView.map.addAnnotation(annotation)
-        
-        let geoCoder = CLGeocoder()
-
-        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-
-        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
-
-            // Place details
-            var placeMark: CLPlacemark!
-            placeMark = placemarks?[0]
-
-            self.cityInformationController.cityView.setupFields(city: placeMark.locality,
-                                      country: placeMark.country,
-                                      ZIP: placeMark.postalCode,
-                                      address: placeMark.thoroughfare ?? "")
-        })
-        
+		addNewsAnnotation(coordinate: coordinate)
         cityInformationController.presentController(from: self)
 	}
+    
+    func addNewsAnnotation(coordinate: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        mapView.map.removeAnnotations(mapView.map.annotations)
+        mapView.map.addAnnotation(annotation)
+        cityInformationController.viewModel.getInfoAboutCurrentCity(latitude: "\(coordinate.latitude)", longitude: "\(coordinate.longitude)")
+        cityInformationController.viewModel.getCitys(latitude: "\(coordinate.latitude)", longitude: "\(coordinate.longitude)")
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        mapView.map.setRegion(region, animated: true)
+        if cityInformationController.cityView.cityCollectionView.indexPathsForVisibleItems.first != nil {
+            cityInformationController.cityView.cityCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .right, animated: true)
+        }
+    }
     
     /// Метод добавления пина на карту через поиск
     func dropPinZoomIn(placemark: MKPlacemark){
@@ -72,6 +67,7 @@ extension MapViewController: MapViewDelegate {
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.map.setRegion(region, animated: true)
         
+        addNewsAnnotation(coordinate: placemark.coordinate)
         cityInformationController.presentController(from: self)
     }
 }

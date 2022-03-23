@@ -17,6 +17,7 @@ class CityCell: UICollectionViewCell {
         label.font = UIFont(name: "SF Pro Text", size: 15)
         label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
     
@@ -33,7 +34,7 @@ class CityCell: UICollectionViewCell {
     lazy var container: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = 10
         view.backgroundColor = .systemGray6
         return view
     }()
@@ -61,14 +62,15 @@ class CityCell: UICollectionViewCell {
             container.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             container.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
             
-            cityNameLbl.topAnchor.constraint(equalTo: container.topAnchor, constant: 8),
-            cityNameLbl.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 8),
-            cityNameLbl.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -8),
+            cityNameLbl.topAnchor.constraint(equalTo: container.topAnchor, constant: 5),
+            cityNameLbl.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 12),
+            cityNameLbl.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -12),
             
             distanceToCityLbl.topAnchor.constraint(equalTo: cityNameLbl.bottomAnchor, constant: 8),
-            distanceToCityLbl.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 8),
-            distanceToCityLbl.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -8),
-            distanceToCityLbl.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -8)
+            distanceToCityLbl.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 12),
+            distanceToCityLbl.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -5),
+            distanceToCityLbl.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -12),
+            distanceToCityLbl.heightAnchor.constraint(equalToConstant: 12)
         ])
     }
 }
