@@ -39,7 +39,7 @@ class NewsHttpService {
     ///   - newsId: ID новости
     /// - Returns: Описание новости
     func getNewsDescription(url: URL, newsId: Int) -> AnyPublisher<String, Never> {
-        let descriptionSeverUrl = "http://localhost:80/description/"
+        let descriptionSeverUrl = "https://ltheresi.herokuapp.com/description/"
         guard let localURL = HttpHelper.generateURL(url: descriptionSeverUrl, queryItem: ["url": url.description, "news_id": "\(newsId)"]) else {
             return Just("").eraseToAnyPublisher()
         }

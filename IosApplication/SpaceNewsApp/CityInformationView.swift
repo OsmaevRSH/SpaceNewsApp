@@ -18,9 +18,6 @@ class CityInformationView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .systemGray3
         view.layer.cornerRadius = 2.5
-        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
-        swipe.direction = .down
-        view.addGestureRecognizer(swipe)
         return view
     }()
     
@@ -74,6 +71,9 @@ class CityInformationView: UIView {
         self.layer.cornerRadius = 22
         addSubviews()
         addConstraints()
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
+        swipe.direction = .down
+        self.addGestureRecognizer(swipe)
     }
     
     /// Не используемый конструктор
