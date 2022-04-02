@@ -203,7 +203,7 @@ class ARViewController: UIViewController {
     
     /// Метод для добавдения кнопок в Navigation Bar
     private func setupBarButtonItem() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.circle"),
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"),
                                                            style: .done, target: self, action: #selector(presentSideBar))
     }
     
