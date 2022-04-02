@@ -142,10 +142,22 @@ class SideBarView: UIView {
     }
     
     @objc private func enableEarthSwitchHandler(sender: UISwitch) {
+        if sender.isOn {
+            enableSatelliteSwitch.isEnabled = false
+        }
+        else {
+            enableSatelliteSwitch.isEnabled = true
+        }
         arSettingsDelegate?.enableEarthSwitchHandler(sender: sender)
     }
     
     @objc private func enableSatelliteSwitchHandler(sender: UISwitch) {
+        if sender.isOn {
+            enableEarthSwitch.isEnabled = false
+        }
+        else {
+            enableEarthSwitch.isEnabled = true
+        }
         arSettingsDelegate?.enableSatelliteSwitchHandler(sender: sender)
     }
 }
