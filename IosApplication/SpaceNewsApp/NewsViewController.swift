@@ -74,8 +74,6 @@ class NewsViewController: UIViewController {
     private func setupBarButtonItem() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "tray.full"),
                                                            style: .done, target: self, action: #selector(readingListButtonHandler))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.wave.2"),
-                                                           style: .done, target: nil, action: nil)
     }
     
     /// Метод для установки стиля текста Title в Navigation Bar

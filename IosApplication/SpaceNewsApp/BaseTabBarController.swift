@@ -5,6 +5,7 @@ class BaseTabBarController: UITabBarController {
     var mapNavController: MapNavController!
     var newsNavController: NewsNavController!
     var videoNavController: VideoNavController!
+    var arNavController: ARNavController!
     
     private func configureControllers() {
         let mapTabBarItem = UITabBarItem(
@@ -27,6 +28,13 @@ class BaseTabBarController: UITabBarController {
             selectedImage: UIImage(systemName: "play.rectangle")
             )
         videoNavController.tabBarItem = videoTabBarItem
+        
+        let arTabBarItem = UITabBarItem(
+            title: "AR",
+            image: UIImage(systemName: "airplane.circle"),
+            selectedImage: UIImage(systemName: "airplane.circle")
+        )
+        arNavController.tabBarItem = arTabBarItem
     }
 	
     override func viewDidLoad() {
@@ -39,7 +47,7 @@ class BaseTabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureControllers()
-        self.setViewControllers([newsNavController, videoNavController, mapNavController], animated: true)
-//        self.setViewControllers([mapNavController], animated: true)
+//        self.setViewControllers([newsNavController, videoNavController, mapNavController, arNavController], animated: true)
+        self.setViewControllers([arNavController], animated: true)
     }
 }
