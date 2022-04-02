@@ -20,13 +20,15 @@ class ARSideBarViewController: UIViewController {
     
     private let sideBarView = SideBarView()
     
-    private var parentVC: UIViewController!
+    private var parentVC: ARViewController!
     
     func presentVC(parent: UIViewController) {
-        if sideBarView.delegate == nil {
-            sideBarView.delegate = self
+        self.parentVC = parent as? ARViewController
+        if sideBarView.sideBarDelegate == nil {
+            sideBarView.sideBarDelegate = self
+            sideBarView.arSettingsDelegate = self.parentVC
         }
-        self.parentVC = parent
+        
         let size = parent.view.frame.width * 4 / 5
         
         let window = UIApplication.shared.connectedScenes

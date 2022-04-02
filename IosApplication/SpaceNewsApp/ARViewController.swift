@@ -11,6 +11,12 @@ import ARKit
 
 class ARViewController: UIViewController {
     
+    private var earthMode = false
+    
+    private var enableEarth = false
+    
+    private var enableSatellite = false
+    
     private let arSideBarVC = ARSideBarViewController()
     
     private lazy var containerView: UIView = {
@@ -161,12 +167,22 @@ class ARViewController: UIViewController {
     
     private func createEarth(root: SCNNode) {
         let earthGeometry = SCNSphere(radius: earthRadius)
-        earthGeometry.firstMaterial?.diffuse.contents = UIImage(named: "8k_earth_daymap")
-//        earthGeometry.firstMaterial?.diffuse.contents = UIImage(named: "8k_earth_nightmap")
+        if self.earthMode {
+            earthGeometry.firstMaterial?.diffuse.contents = UIImage(named: "8k_earth_nightmap")
+        }
+        else {
+            earthGeometry.firstMaterial?.diffuse.contents = UIImage(named: "8k_earth_daymap")
+        }
         earthGeometry.firstMaterial?.specular.contents = UIImage(named: "8k_earth_specular_map")
         earthGeometry.firstMaterial?.normal.contents = UIImage(named: "8k_earth_normal_map")
         earthGeometry.firstMaterial?.emission.contents = UIImage(named: "8k_earth_clouds")
         let earthNode = SCNNode(geometry: earthGeometry)
+        if self.enableEarth {
+            earthNode.isHidden = true
+        }
+        else {
+            earthNode.isHidden = false
+        }
         earthNode.name = "Earth"
         earthNode.position = SCNVector3(0, 0, -0.8)
         root.addChildNode(earthNode)
@@ -179,6 +195,12 @@ class ARViewController: UIViewController {
         starlinkNode.name = name
         let coord = CoordinateConverter.convertTo3DecatrSystem(latitude: lat, longitude: lon, radius: earthRadius + 0.05)
         starlinkNode.position = SCNVector3(coord.x, coord.y, coord.z)
+        if self.enableSatellite {
+            starlinkNode.isHidden = true
+        }
+        else {
+            starlinkNode.isHidden = false
+        }
         root.addChildNode(starlinkNode)
     }
     
@@ -195,7 +217,22 @@ class ARViewController: UIViewController {
             sceneView.scene = scene
             DispatchQueue.global(qos: .default).async {
                 self.sceneView.scene.rootNode.enumerateChildNodes { node, _ in
-                    node.isHidden = false
+                    if node.name == "Earth" {
+                        if self.enableEarth {
+                            node.isHidden = true
+                        }
+                        else {
+                            node.isHidden = false
+                        }
+                    }
+                    else {
+                        if self.enableSatellite {
+                            node.isHidden = true
+                        }
+                        else {
+                            node.isHidden = false
+                        }
+                    }
                 }
             }
         }
@@ -212,7 +249,55 @@ class ARViewController: UIViewController {
     }
 }
 
-extension ARViewController: SatelliteInfoDelegate {
+extension ARViewController: SatelliteInfoDelegate, ARSettingsDelegate {
+    func earthModeSwitchHandler(sender: UISwitch) {
+        self.earthMode = sender.isOn
+        DispatchQueue.global(qos: .default).async {
+            self.sceneView.scene.rootNode.enumerateChildNodes { node, _ in
+                if node.name == "Earth" {
+                    if self.earthMode {
+                        node.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "8k_earth_nightmap")
+                    }
+                    else {
+                        node.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "8k_earth_daymap")
+                    }
+                }
+            }
+        }
+    }
+    
+    func enableEarthSwitchHandler(sender: UISwitch) {
+        self.enableEarth = sender.isOn
+        DispatchQueue.global(qos: .default).async {
+            self.sceneView.scene.rootNode.enumerateChildNodes { node, _ in
+                if node.name == "Earth" {
+                    if self.enableEarth {
+                        node.isHidden = true
+                    }
+                    else {
+                        node.isHidden = false
+                    }
+                }
+            }
+        }
+    }
+    
+    func enableSatelliteSwitchHandler(sender: UISwitch) {
+        self.enableSatellite = sender.isOn
+        DispatchQueue.global(qos: .default).async {
+            self.sceneView.scene.rootNode.enumerateChildNodes { node, _ in
+                if node.name != "Earth" {
+                    if self.enableSatellite {
+                        node.isHidden = true
+                    }
+                    else {
+                        node.isHidden = false
+                    }
+                }
+            }
+        }
+    }
+    
     func swipeHandler() {
         satelliteInfoVC.removeController()
         selectedNode.geometry?.firstMaterial?.diffuse.contents = UIColor.systemGray6
