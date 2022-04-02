@@ -13,9 +13,9 @@ class ARViewController: UIViewController {
     
     private var earthMode = false
     
-    private var enableEarth = false
+    private var disableEarth = false
     
-    private var enableSatellite = false
+    private var disableSatellite = false
     
     private let arSideBarVC = ARSideBarViewController()
     
@@ -177,7 +177,7 @@ class ARViewController: UIViewController {
         earthGeometry.firstMaterial?.normal.contents = UIImage(named: "8k_earth_normal_map")
         earthGeometry.firstMaterial?.emission.contents = UIImage(named: "8k_earth_clouds")
         let earthNode = SCNNode(geometry: earthGeometry)
-        if self.enableEarth {
+        if self.disableEarth {
             earthNode.isHidden = true
         }
         else {
@@ -195,7 +195,7 @@ class ARViewController: UIViewController {
         starlinkNode.name = name
         let coord = CoordinateConverter.convertTo3DecatrSystem(latitude: lat, longitude: lon, radius: earthRadius + 0.05)
         starlinkNode.position = SCNVector3(coord.x, coord.y, coord.z)
-        if self.enableSatellite {
+        if self.disableSatellite {
             starlinkNode.isHidden = true
         }
         else {
@@ -218,7 +218,7 @@ class ARViewController: UIViewController {
             DispatchQueue.global(qos: .default).async {
                 self.sceneView.scene.rootNode.enumerateChildNodes { node, _ in
                     if node.name == "Earth" {
-                        if self.enableEarth {
+                        if self.disableEarth {
                             node.isHidden = true
                         }
                         else {
@@ -226,7 +226,7 @@ class ARViewController: UIViewController {
                         }
                     }
                     else {
-                        if self.enableSatellite {
+                        if self.disableSatellite {
                             node.isHidden = true
                         }
                         else {
@@ -267,11 +267,11 @@ extension ARViewController: SatelliteInfoDelegate, ARSettingsDelegate {
     }
     
     func enableEarthSwitchHandler(sender: UISwitch) {
-        self.enableEarth = sender.isOn
+        self.disableEarth = sender.isOn
         DispatchQueue.global(qos: .default).async {
             self.sceneView.scene.rootNode.enumerateChildNodes { node, _ in
                 if node.name == "Earth" {
-                    if self.enableEarth {
+                    if self.disableEarth {
                         node.isHidden = true
                     }
                     else {
@@ -283,11 +283,11 @@ extension ARViewController: SatelliteInfoDelegate, ARSettingsDelegate {
     }
     
     func enableSatelliteSwitchHandler(sender: UISwitch) {
-        self.enableSatellite = sender.isOn
+        self.disableSatellite = sender.isOn
         DispatchQueue.global(qos: .default).async {
             self.sceneView.scene.rootNode.enumerateChildNodes { node, _ in
                 if node.name != "Earth" {
-                    if self.enableSatellite {
+                    if self.disableSatellite {
                         node.isHidden = true
                     }
                     else {
