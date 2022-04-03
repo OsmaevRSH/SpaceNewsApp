@@ -11,6 +11,8 @@ import ARKit
 
 class ARViewController: UIViewController {
     
+    private var isMoved = false
+    
     private var earthMode = false
     
     private var disableEarth = false
@@ -60,9 +62,9 @@ class ARViewController: UIViewController {
         didSet {
             if !starlinkSatillitesInfo.isEmpty {
                 DispatchQueue.global(qos: .userInitiated).async { [scene, starlinkSatillitesInfo, self] in
-                    self.createEarth(root: scene.rootNode)
+                    let earthNode = self.createEarth(root: scene.rootNode)
                     starlinkSatillitesInfo.forEach { item in
-                        self.createStarlinkSatillite(root: scene.rootNode, lat: item.value.latitude!, lon: item.value.longitude!, name: item.key)
+                        self.createStarlinkSatillite(root: earthNode, lat: item.value.latitude!, lon: item.value.longitude!, name: item.key)
                     }
                 }
                 isCanCreateEarth = true
@@ -79,9 +81,11 @@ class ARViewController: UIViewController {
         addArViewConstraints()
         sceneView.showsStatistics = true
         satelliteInfoVC.delegate = self
-//        sceneView.debugOptions = [.showWorldOrigin]
+        sceneView.autoenablesDefaultLighting = true
+//        sceneView.debugOptions = [.showBoundingBoxes, .showCameras, .showWorldOrigin]
         bindung()
         setupBarButtonItem()
+        addPinchGestureToSceneView()
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HandleTapGesture(sender:)));
         let longTapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(HandleLongTabGesture(sender:)))
@@ -102,7 +106,7 @@ class ARViewController: UIViewController {
                 if let satellite = starlinkSatillitesInfo[name],
                     let spaceTrack = satellite.spaceTrack {
                     if selectedNode != nil {
-                        selectedNode.geometry?.firstMaterial?.diffuse.contents = UIColor.systemGray6
+                        selectedNode.geometry?.firstMaterial?.diffuse.contents = UIColor.systemBackground
                     }
                     selectedNode = hit.node
                     selectedNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
@@ -165,7 +169,7 @@ class ARViewController: UIViewController {
         ])
     }
     
-    private func createEarth(root: SCNNode) {
+    private func createEarth(root: SCNNode) -> SCNNode {
         let earthGeometry = SCNSphere(radius: earthRadius)
         if self.earthMode {
             earthGeometry.firstMaterial?.diffuse.contents = UIImage(named: "8k_earth_nightmap")
@@ -186,6 +190,7 @@ class ARViewController: UIViewController {
         earthNode.name = "Earth"
         earthNode.position = SCNVector3(0, 0, -0.8)
         root.addChildNode(earthNode)
+        return earthNode
     }
     
     private func createStarlinkSatillite(root: SCNNode, lat: Double, lon: Double, name: String) {
@@ -246,6 +251,77 @@ class ARViewController: UIViewController {
     
     @objc private func presentSideBar() {
         arSideBarVC.presentVC(parent: self)
+    }
+    
+    func addPinchGestureToSceneView(){
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePitch(withGestureRecognizer:)))
+        let leftGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(withGestureRecognizer:)))
+        leftGestureRecognizer.direction = .left
+        let rightGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(withGestureRecognizer:)))
+        rightGestureRecognizer.direction = .right
+        let downGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(withGestureRecognizer:)))
+        downGestureRecognizer.direction = .down
+        let upGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(withGestureRecognizer:)))
+        upGestureRecognizer.direction = .up
+        sceneView.addGestureRecognizer(pinchGestureRecognizer)
+        sceneView.addGestureRecognizer(leftGestureRecognizer)
+        sceneView.addGestureRecognizer(rightGestureRecognizer)
+        sceneView.addGestureRecognizer(downGestureRecognizer)
+        sceneView.addGestureRecognizer(upGestureRecognizer)
+    }
+    
+    @objc func handleSwipe(withGestureRecognizer recognizer: UISwipeGestureRecognizer) {
+        defer {
+            isMoved = false
+        }
+        if isMoved {
+            return
+        } else {
+            isMoved = true
+        }
+        let tapRecognizer = recognizer.location(in: sceneView)
+        let hitTestResults = sceneView.hitTest(tapRecognizer)
+        guard let _ = hitTestResults.first?.node else {
+            return
+        }
+        
+        if let earthNode = self.sceneView.scene.rootNode.childNodes.first {
+            switch recognizer.direction {
+            case .left:
+                earthNode.localRotate(by: SCNQuaternion(x: 0, y: -0.259, z: 0, w: 0.966))
+            case .right:
+                earthNode.localRotate(by: SCNQuaternion(x: 0, y: 0.259, z: 0, w: 0.966))
+            case .down:
+                earthNode.localRotate(by: SCNQuaternion(x: 0.259, y: 0, z: 0, w: 0.966))
+            case .up:
+                earthNode.localRotate(by: SCNQuaternion(x: -0.259, y: 0, z: 0, w: 0.966))
+            default:
+                break
+            }
+        }
+    }
+    
+    @objc func handlePitch(withGestureRecognizer recognizer: UIPinchGestureRecognizer) {
+        guard !isMoved else {
+            return
+        }
+        let tapRecognizer = recognizer.location(in: sceneView)
+        let hitTestResults = sceneView.hitTest(tapRecognizer)
+        guard let _ = hitTestResults.first?.node else {
+            return
+        }
+        
+        sceneView.session.setWorldOrigin(relativeTransform: sceneView.session.currentFrame!.camera.transform)
+        
+        if recognizer.state == .changed {
+            isMoved = true
+            let velocity = Float((1 - recognizer.scale) * 0.3)
+            if let earthNode = self.sceneView.scene.rootNode.childNodes.first {
+                earthNode.position.z = earthNode.position.z - velocity
+            }
+            recognizer.scale = 1
+            self.isMoved = false
+        }
     }
 }
 
