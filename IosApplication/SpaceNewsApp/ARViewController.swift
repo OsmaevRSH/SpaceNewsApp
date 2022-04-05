@@ -310,8 +310,12 @@ class ARViewController: UIViewController {
         guard let _ = hitTestResults.first?.node else {
             return
         }
+//        print("\(sceneView.session.currentFrame!.camera.transform)\n\(sceneView.scene.rootNode.simdTransform)\n\n")
         
-        sceneView.session.setWorldOrigin(relativeTransform: sceneView.session.currentFrame!.camera.transform)
+        print(simd_sub(sceneView.session.currentFrame!.camera.transform, sceneView.scene.rootNode.simdTransform))
+        print("\n")
+        
+//        sceneView.session.setWorldOrigin(relativeTransform: sceneView.session.currentFrame!.camera.transform)
         
         if recognizer.state == .changed {
             isMoved = true
@@ -336,22 +340,6 @@ extension ARViewController: SatelliteInfoDelegate, ARSettingsDelegate {
                     }
                     else {
                         node.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "8k_earth_daymap")
-                    }
-                }
-            }
-        }
-    }
-    
-    func enableEarthSwitchHandler(sender: UISwitch) {
-        self.disableEarth = sender.isOn
-        DispatchQueue.global(qos: .default).async {
-            self.sceneView.scene.rootNode.enumerateChildNodes { node, _ in
-                if node.name == "Earth" {
-                    if self.disableEarth {
-                        node.isHidden = true
-                    }
-                    else {
-                        node.isHidden = false
                     }
                 }
             }

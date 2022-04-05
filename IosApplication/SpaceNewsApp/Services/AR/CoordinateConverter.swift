@@ -14,6 +14,13 @@ struct Vector3 {
 }
 
 class CoordinateConverter {
+    
+    /// Метод для перевода долготы и широты в трехмерные координаты
+    /// - Parameters:
+    ///   - latitude: Долгота
+    ///   - longitude: Широта
+    ///   - radius: Радиус
+    /// - Returns: Трехмерные координаты
     static func convertTo3DecatrSystem(latitude: Double, longitude: Double, radius: Double) -> Vector3 {
         let x = radius * cos(latitude) * cos(longitude)
         let y = radius * cos(latitude) * sin(longitude)

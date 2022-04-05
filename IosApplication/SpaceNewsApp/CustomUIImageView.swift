@@ -10,10 +10,13 @@ import UIKit
 
 class CustomUIImageView: UIImageView {
     
+    /// Текущая задача
     private var task: URLSessionDataTask!
     
+    /// Singleton
     var imageCacheService = ImageCacheService.shared
     
+    /// Индикатор загрузки
     let loadIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.translatesAutoresizingMaskIntoConstraints = false

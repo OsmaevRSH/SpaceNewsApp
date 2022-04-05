@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Сервис кэширования новостей
 public class NewsCacheService {
     static let shared = NewsCacheService()
     

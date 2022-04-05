@@ -14,7 +14,7 @@
 		C117850127F85AF1008CB321 /* CoordinateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117850027F85AF1008CB321 /* CoordinateConverter.swift */; };
 		C117850327F85B09008CB321 /* SatelliteInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117850227F85B09008CB321 /* SatelliteInfoViewController.swift */; };
 		C117850527F85B2B008CB321 /* SpaceXSatilliteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117850427F85B2B008CB321 /* SpaceXSatilliteModel.swift */; };
-		C117850727F85B44008CB321 /* StarlinkDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117850627F85B44008CB321 /* StarlinkDataService.swift */; };
+		C117850727F85B44008CB321 /* StarlinkHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117850627F85B44008CB321 /* StarlinkHttpService.swift */; };
 		C117850A27F85EBF008CB321 /* ARNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117850927F85EBF008CB321 /* ARNavController.swift */; };
 		C117850C27F86445008CB321 /* ARSideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117850B27F86445008CB321 /* ARSideBarViewController.swift */; };
 		C117850E27F87860008CB321 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117850D27F87860008CB321 /* SideBarView.swift */; };
@@ -122,7 +122,7 @@
 		C117850027F85AF1008CB321 /* CoordinateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateConverter.swift; sourceTree = "<group>"; };
 		C117850227F85B09008CB321 /* SatelliteInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteInfoViewController.swift; sourceTree = "<group>"; };
 		C117850427F85B2B008CB321 /* SpaceXSatilliteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXSatilliteModel.swift; sourceTree = "<group>"; };
-		C117850627F85B44008CB321 /* StarlinkDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarlinkDataService.swift; sourceTree = "<group>"; };
+		C117850627F85B44008CB321 /* StarlinkHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarlinkHttpService.swift; sourceTree = "<group>"; };
 		C117850927F85EBF008CB321 /* ARNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARNavController.swift; sourceTree = "<group>"; };
 		C117850B27F86445008CB321 /* ARSideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSideBarViewController.swift; sourceTree = "<group>"; };
 		C117850D27F87860008CB321 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
@@ -433,6 +433,30 @@
 			name = Video;
 			sourceTree = "<group>";
 		};
+		C1A9246527FC67A6008B2FB3 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				C117850427F85B2B008CB321 /* SpaceXSatilliteModel.swift */,
+			);
+			name = AR;
+			sourceTree = "<group>";
+		};
+		C1A9246627FC68CA008B2FB3 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				C11784FE27F85ACE008CB321 /* ARViewModel.swift */,
+			);
+			name = AR;
+			sourceTree = "<group>";
+		};
+		C1A9246727FC699F008B2FB3 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				C117850027F85AF1008CB321 /* CoordinateConverter.swift */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
 		C1B4AB0527A98CEF0089F25F /* MapView */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,10 +564,10 @@
 		C1E4D88327AA983700D70F2A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C1A9246627FC68CA008B2FB3 /* AR */,
 				C1E4D88427AA984E00D70F2A /* News */,
 				C1DDED5227CB976E00EF9166 /* Video */,
 				C1E469CF27C29768005CEAD2 /* City */,
-				C11784FE27F85ACE008CB321 /* ARViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -560,10 +584,10 @@
 		C1E4D88727AA98B100D70F2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C1A9246527FC67A6008B2FB3 /* AR */,
 				C1E4D88827AA98B900D70F2A /* News */,
 				C1DDED4F27CB920300EF9166 /* Video */,
 				C17CF5D727EB3D5C00206838 /* City */,
-				C117850427F85B2B008CB321 /* SpaceXSatilliteModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -613,12 +637,11 @@
 		C1FE075327A2CC1C0089D1CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C1A9246727FC699F008B2FB3 /* AR */,
 				C185C96A27B3F5B6006D10B2 /* ImageCacheService */,
 				C1E295C927CF70B100693FC8 /* NewsCacheService */,
 				C1FE075427A2CC320089D1CE /* HTTPService */,
 				C1DDED5727CB9D9A00EF9166 /* CancellableSetService */,
-				C117850027F85AF1008CB321 /* CoordinateConverter.swift */,
-				C117850627F85B44008CB321 /* StarlinkDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -626,6 +649,7 @@
 		C1FE075427A2CC320089D1CE /* HTTPService */ = {
 			isa = PBXGroup;
 			children = (
+				C117850627F85B44008CB321 /* StarlinkHttpService.swift */,
 				C1F9C1A127DF68930079EF13 /* NewsHttpService.swift */,
 				C1F9C1A327DF68B00079EF13 /* VideoHttpService.swift */,
 				C1F9C1A727DF72300079EF13 /* CityHttpService.swift */,
@@ -923,7 +947,7 @@
 				C134927F279ADD9E00948C04 /* PageViewController.swift in Sources */,
 				C1DDED5627CB9D4600EF9166 /* CancellableSetService.swift in Sources */,
 				C1E295CB27CFBB2C00693FC8 /* CustomUIImageView.swift in Sources */,
-				C117850727F85B44008CB321 /* StarlinkDataService.swift in Sources */,
+				C117850727F85B44008CB321 /* StarlinkHttpService.swift in Sources */,
 				C134923E279AD9D600948C04 /* AppDelegate.swift in Sources */,
 				C1707C4827A6D9D700D1D385 /* MapView.swift in Sources */,
 				C1EAAFA9279DA91400300FB9 /* LocationAlert.swift in Sources */,

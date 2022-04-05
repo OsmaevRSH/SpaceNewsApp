@@ -40,6 +40,11 @@ class CityHttpService {
             .eraseToAnyPublisher()
     }
     
+    /// Метод для получения информации о городах в радиусе 100 км
+    /// - Parameters:
+    ///   - latitude: Долгота
+    ///   - longitude: Широта
+    /// - Returns: Список городов
     func getCitysInArea(latitude: String, longitude: String) -> AnyPublisher<CityInAreaServerModel, Never> {
         var localLongitude = ""
         if longitude.contains("-") {

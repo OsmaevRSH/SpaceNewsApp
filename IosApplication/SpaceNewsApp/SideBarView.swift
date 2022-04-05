@@ -13,7 +13,6 @@ protocol ARSideBarViewDelegate {
 
 protocol ARSettingsDelegate {
     func earthModeSwitchHandler(sender: UISwitch)
-    func enableEarthSwitchHandler(sender: UISwitch)
     func enableSatelliteSwitchHandler(sender: UISwitch)
 }
 
@@ -37,12 +36,6 @@ class SideBarView: UIView {
         return label
     }()
     
-    lazy var enableEarthLbl: UILabel = {
-        var label = UILabel()
-        label.text = "Enable/Disable earth"
-        return label
-    }()
-    
     lazy var enableSatelliteLbl: UILabel = {
         var label = UILabel()
         label.text = "Enable/Disable satellite"
@@ -55,12 +48,6 @@ class SideBarView: UIView {
         return swich
     }()
     
-    lazy var enableEarthSwitch: UISwitch = {
-        var swich = UISwitch()
-        swich.addTarget(self, action: #selector(enableEarthSwitchHandler(sender:)), for: .valueChanged)
-        return swich
-    }()
-    
     lazy var enableSatelliteSwitch: UISwitch = {
         var swich = UISwitch()
         swich.addTarget(self, action: #selector(enableSatelliteSwitchHandler(sender:)), for: .valueChanged)
@@ -69,7 +56,7 @@ class SideBarView: UIView {
     
     lazy var stackContainer: UIStackView = {
         var stack = UIStackView(arrangedSubviews: [
-            earthModeStack, enableEarthStack, enableSatelliteStack
+            earthModeStack, enableSatelliteStack
         ])
         stack.axis = .vertical
         stack.alignment = .leading
@@ -81,14 +68,6 @@ class SideBarView: UIView {
     lazy var earthModeStack: UIStackView = {
         var stack = UIStackView(arrangedSubviews: [
             earthModeLbl, earthModeSwitch
-        ])
-        stack.axis = .horizontal
-        return stack
-    }()
-    
-    lazy var enableEarthStack: UIStackView = {
-        var stack = UIStackView(arrangedSubviews: [
-            enableEarthLbl, enableEarthSwitch
         ])
         stack.axis = .horizontal
         return stack
@@ -132,7 +111,6 @@ class SideBarView: UIView {
             stackContainer.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
             stackContainer.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
             earthModeSwitch.rightAnchor.constraint(equalTo: stackContainer.rightAnchor),
-            enableEarthSwitch.rightAnchor.constraint(equalTo: stackContainer.rightAnchor),
             enableSatelliteSwitch.rightAnchor.constraint(equalTo: stackContainer.rightAnchor)
         ])
     }
@@ -141,23 +119,7 @@ class SideBarView: UIView {
         arSettingsDelegate?.earthModeSwitchHandler(sender: sender)
     }
     
-    @objc private func enableEarthSwitchHandler(sender: UISwitch) {
-        if sender.isOn {
-            enableSatelliteSwitch.isEnabled = false
-        }
-        else {
-            enableSatelliteSwitch.isEnabled = true
-        }
-        arSettingsDelegate?.enableEarthSwitchHandler(sender: sender)
-    }
-    
     @objc private func enableSatelliteSwitchHandler(sender: UISwitch) {
-        if sender.isOn {
-            enableEarthSwitch.isEnabled = false
-        }
-        else {
-            enableEarthSwitch.isEnabled = true
-        }
         arSettingsDelegate?.enableSatelliteSwitchHandler(sender: sender)
     }
 }

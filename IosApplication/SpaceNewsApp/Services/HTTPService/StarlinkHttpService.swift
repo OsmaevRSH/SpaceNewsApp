@@ -8,11 +8,13 @@
 import Foundation
 import Combine
 
-class StarlinkDataService {
-    static let shared = StarlinkDataService()
+class StarlinkHttpService {
+    static let shared = StarlinkHttpService()
     let starlinkurl = URL(string:"https://api.spacexdata.com/v4/starlink")
     let session = URLSession(configuration: .default)
     
+    /// Метод для получения списка всех спутников
+    /// - Returns: Список спутников
     public func getStarlinks() -> AnyPublisher<[SpaceXSatilliteModelElement], Never>
     {
         guard let starlinkurl = starlinkurl else {

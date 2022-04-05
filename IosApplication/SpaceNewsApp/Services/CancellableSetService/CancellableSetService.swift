@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 
+/// Сервис для хранения издателей
 class CancellableSetService {
     static var set: Set<AnyCancellable> = []
 }

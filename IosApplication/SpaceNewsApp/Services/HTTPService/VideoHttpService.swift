@@ -50,6 +50,8 @@ class VideoHttpService {
             .eraseToAnyPublisher()
     }
     
+    /// Метод для получения стримов
+    /// - Returns: Список видео
     func getLiveVideos() -> AnyPublisher<[VideoItem], Never> {
         let url = "https://www.googleapis.com/youtube/v3/search"
         guard let localUrl = HttpHelper.generateURL(

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
+/// Сервис кэширования фотографий
 public class ImageCacheService {
     static let shared = ImageCacheService()
     

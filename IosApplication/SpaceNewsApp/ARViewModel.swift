@@ -13,8 +13,9 @@ class ARViewModel {
     
     @Published var starlinkSatillitesInfo = [String: SpaceXSatilliteModelElement]()
     
+    /// Конструктор к котором происходит запрос для получения всех спутников
     init() {
-        StarlinkDataService.shared.getStarlinks()
+        StarlinkHttpService.shared.getStarlinks()
             .sink { [weak self] satillites in
                 DispatchQueue.global(qos: .userInitiated).async {
                     self?.starlinkSatillitesInfo = Dictionary(uniqueKeysWithValues: satillites.compactMap {

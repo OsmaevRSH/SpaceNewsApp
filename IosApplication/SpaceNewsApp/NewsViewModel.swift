@@ -11,7 +11,9 @@ import Combine
 class NewsViewModel {
 	
 	@Published var newsDataSet: [NewsModel] = []
-	
+    
+    /// Метод для получения списка новостей
+    /// - Parameter newsOffset: Смещение, необходимо для постраничной загрузки
 	func getNews(newsOffset: Int) {
         NewsHttpService.shared.getNews(newsOffset: newsOffset)
             .map {

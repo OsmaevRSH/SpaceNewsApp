@@ -12,6 +12,8 @@ class VideosListViewModel {
     
     @Published var videosListData: [VideoModel] = []
     
+    /// Метод для получения offline видео
+    /// - Parameter loadFirstPage: Загружать первую страницу, или нет
     func getVideosList(loadFirstPage: Bool = false) {
         VideoHttpService.shared.getVideos(loadFirstPage: loadFirstPage)
             .map {
@@ -27,6 +29,7 @@ class VideosListViewModel {
             .store(in: &CancellableSetService.set)
     }
     
+    /// Метод для получения стримов
     func getLiveVideoList() {
         VideoHttpService.shared.getLiveVideos()
             .map {

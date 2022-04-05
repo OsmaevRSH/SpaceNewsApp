@@ -8,10 +8,13 @@
 import Foundation
 import UIKit
 
+/// Класс для реализации DI
 class AssemblyLayer {
     
+    /// Функция конфигурации
+    /// - Returns: Базовый контроллер для инициализации
     class func configureBaseTabBarController() -> UITabBarController {
-        
+
         let baseTabBarController = BaseTabBarController()
         let newsNavController = NewsNavController()
         let newsViewController = NewsViewController()
