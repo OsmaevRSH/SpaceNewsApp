@@ -13,7 +13,7 @@ class AssemblyLayer {
     
     /// Функция конфигурации
     /// - Returns: Базовый контроллер для инициализации
-    class func configureBaseTabBarController() -> UITabBarController {
+    class func configureBaseTabBarController() -> BaseTabBarController {
 
         let baseTabBarController = BaseTabBarController()
         let newsNavController = NewsNavController()

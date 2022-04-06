@@ -24,31 +24,10 @@ struct OnBoardigView: View {
 	
 	var body: some View {
 		VStack(alignment: .leading) {
-			HStack {
-				if self.currentPageIndex != 2 {
-					Spacer()
-					Button(action: {
-					}) {
-						ExitButtonContent()
-					}
-					.padding(16)
-					.hidden()
-				}
-				else {
-					Spacer()
-					Button(action: {
-						UserDefaults.standard.set(true, forKey: "LaunchBefore")
-						withAnimation {
-							self.viewlaunch.currentPage = "ContentView"
-						}
-					}) {
-						ExitButtonContent()
-					}
-					.padding(16)
-				}
-			}
 			PageViewController(currentPageIndex: $currentPageIndex, viewControllers: subviews)
-				.frame(height: 500)
+                .frame(height: UIScreen.main.bounds.height / 2)
+                .padding(.top, 16)
+            Spacer()
 			Group {
 				Text(titles[currentPageIndex])
 					.font(.title)
@@ -58,45 +37,55 @@ struct OnBoardigView: View {
 					.frame(width: 300, height: 50, alignment: .leading)
 					.lineLimit(nil)
 			}
-			.padding()
+            .padding([.leading, .trailing], 32)
+            .padding([.top, .bottom], 16)
+            Spacer()
 			HStack() {
-				PageControl(numberOfPages: subviews.count, currentPageIndex: $currentPageIndex)
-					.frame(width: 60, height: 20)
-				Spacer()
+                PageControl(numberOfPages: subviews.count, currentPageIndex: $currentPageIndex)
+                    .frame(width: 40)
+                Spacer()
 				Button(action: {
-					if self.currentPageIndex+1 == self.subviews.count {
-						self.currentPageIndex = 0
-					} else {
-						self.currentPageIndex += 1
-					}
+					if self.currentPageIndex + 1 != self.subviews.count {
+                        self.currentPageIndex += 1
+                    }
+                    else {
+                        UserDefaults.standard.set(true, forKey: "LaunchBefore")
+                        withAnimation {
+                            self.viewlaunch.currentPage = "ContentView"
+                        }
+                    }
 				}) {
-					NextButtonContent()
+                    if self.currentPageIndex + 1 == self.subviews.count {
+                        CompleteButtonContent()
+                    } else {
+                        NextButtonContent()
+                    }
 				}
 			}
-			.padding()
+            .padding([.leading, .trailing], 32)
+            .padding([.top, .bottom], 16)
 		}
 	}
 }
 
 struct NextButtonContent: View {
 	var body: some View {
-		Image(systemName: "arrow.right")
-			.resizable()
-			.foregroundColor(.white)
-			.frame(width: 30, height: 30)
+		Text(verbatim: "Next")
+            .foregroundColor(.black)
+			.frame(width: 50, height: 4)
 			.padding()
 			.background(Color.orange)
 			.cornerRadius(30)
 	}
 }
 
-struct ExitButtonContent: View {
-	var body: some View {
-		Image(systemName: "stopwatch")
-			.foregroundColor(.white)
-			.frame(width: 5, height: 5)
-			.padding()
-			.background(Color.orange)
-			.cornerRadius(3)
-	}
+struct CompleteButtonContent: View {
+    var body: some View {
+        Text(verbatim: "Complete")
+            .foregroundColor(.black)
+            .frame(width: 90, height: 4)
+            .padding()
+            .background(Color.orange)
+            .cornerRadius(30)
+    }
 }

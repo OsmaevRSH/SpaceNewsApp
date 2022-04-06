@@ -41,7 +41,7 @@ class BaseTabBarController: UITabBarController {
         super.viewDidLoad()
 		self.tabBar.backgroundColor = .white
         self.tabBar.isTranslucent = false
-//		UserDefaults.standard.set(false, forKey: "LaunchBefore") //Need to see onboarding
+		UserDefaults.standard.set(false, forKey: "LaunchBefore") //Need to see onboarding
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -34,7 +34,7 @@ struct CastomUIKitView: UIViewControllerRepresentable {
 	typealias UIViewControllerType = BaseTabBarController
 	
 	func makeUIViewController(context: Context) -> UIViewControllerType {
-		let myViewController = UIViewControllerType()
+		let myViewController = AssemblyLayer.configureBaseTabBarController()
 		return myViewController
 	}
 	
