@@ -262,11 +262,10 @@
 		C1349231279AD9D600948C04 = {
 			isa = PBXGroup;
 			children = (
-				C186437A27FDBE0A00FC1AA9 /* New Group */,
 				C134923C279AD9D600948C04 /* SpaceNewsApp */,
-				C14B28A2279ADF1600E1D30A /* Tests */,
-				C134923B279AD9D600948C04 /* Products */,
+				C186437A27FDBE0A00FC1AA9 /* Tests */,
 				3DFFBC51B781C31093B40F89 /* Pods */,
+				C134923B279AD9D600948C04 /* Products */,
 				CDC575663C92AE5E8F5E6DF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -324,15 +323,6 @@
 			);
 			name = Map;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		C14B28A2279ADF1600E1D30A /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				C1349256279AD9D700948C04 /* SpaceNewsAppTests */,
-				C1349260279AD9D700948C04 /* SpaceNewsAppUITests */,
-			);
-			name = Tests;
 			sourceTree = "<group>";
 		};
 		C14B28A8279ADFF800E1D30A /* Other */ = {
@@ -456,11 +446,13 @@
 			path = AppSceneDelegate;
 			sourceTree = "<group>";
 		};
-		C186437A27FDBE0A00FC1AA9 /* New Group */ = {
+		C186437A27FDBE0A00FC1AA9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C1349256279AD9D700948C04 /* SpaceNewsAppTests */,
+				C1349260279AD9D700948C04 /* SpaceNewsAppUITests */,
 			);
-			path = "New Group";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		C1A0D0C327C908EF00BD49A6 /* Video */ = {
