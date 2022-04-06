@@ -256,11 +256,13 @@
 				C117850D27F87860008CB321 /* SideBarView.swift */,
 			);
 			name = AR;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1349231279AD9D600948C04 = {
 			isa = PBXGroup;
 			children = (
+				C186437A27FDBE0A00FC1AA9 /* New Group */,
 				C134923C279AD9D600948C04 /* SpaceNewsApp */,
 				C14B28A2279ADF1600E1D30A /* Tests */,
 				C134923B279AD9D600948C04 /* Products */,
@@ -282,17 +284,16 @@
 		C134923C279AD9D600948C04 /* SpaceNewsApp */ = {
 			isa = PBXGroup;
 			children = (
-				C1E295CC27CFBB3700693FC8 /* CustomUIClasses */,
+				C186437927FDBDDF00FC1AA9 /* AppSceneDelegate */,
+				C186437827FDBD6C00FC1AA9 /* CoreData */,
+				C186437727FDBD4900FC1AA9 /* OnBoarding */,
+				C186437627FDBD3200FC1AA9 /* Views */,
+				C186437427FDBD0500FC1AA9 /* ViewModel */,
+				C186437327FDBCE400FC1AA9 /* Model */,
+				C186437227FDBCB200FC1AA9 /* CustomUIClasses */,
 				C172FCA327BBB53A009C0B3F /* Assembly */,
-				C1E4D88727AA98B100D70F2A /* Model */,
-				C1E4D88327AA983700D70F2A /* ViewModel */,
 				C1FE075327A2CC1C0089D1CE /* Services */,
-				C14B28A7279ADFE300E1D30A /* Views */,
-				C14B28A5279ADF8900E1D30A /* OnBoarding */,
-				C14B28A9279AE01400E1D30A /* CoreData */,
-				C14B28A6279ADFAF00E1D30A /* AppSceneDelegate */,
 				C14B28A8279ADFF800E1D30A /* Other */,
-				C14F9AE927CE18E800CBDDD9 /* Colors.swift */,
 			);
 			path = SpaceNewsApp;
 			sourceTree = "<group>";
@@ -322,6 +323,7 @@
 				C1C39C7227D7531200DB8DA3 /* CityInformation */,
 			);
 			name = Map;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C14B28A2279ADF1600E1D30A /* Tests */ = {
@@ -333,40 +335,6 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
-		C14B28A5279ADF8900E1D30A /* OnBoarding */ = {
-			isa = PBXGroup;
-			children = (
-				C134927E279ADD9E00948C04 /* PageViewController.swift */,
-				C134927C279ADD8800948C04 /* TemplateOnboardingView.swift */,
-				C1349280279ADDAD00948C04 /* PageControl.swift */,
-				C1349282279ADDBD00948C04 /* OnBoardigView.swift */,
-			);
-			name = OnBoarding;
-			sourceTree = "<group>";
-		};
-		C14B28A6279ADFAF00E1D30A /* AppSceneDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				C134923D279AD9D600948C04 /* AppDelegate.swift */,
-				C134923F279AD9D600948C04 /* SceneDelegate.swift */,
-			);
-			name = AppSceneDelegate;
-			sourceTree = "<group>";
-		};
-		C14B28A7279ADFE300E1D30A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C134927A279ADD6C00948C04 /* LaunchView.swift */,
-				C1349270279ADCB300948C04 /* BaseTabBarController.swift */,
-				C1B4AB0B27A9A08B0089F25F /* News */,
-				C1A0D0C327C908EF00BD49A6 /* Video */,
-				C14B28A1279ADEF400E1D30A /* Map */,
-				C1EAAFA7279DA8B800300FB9 /* Alert */,
-				C117850827F85E9B008CB321 /* AR */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
 		C14B28A8279ADFF800E1D30A /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,17 +343,6 @@
 				C134924E279AD9D700948C04 /* Info.plist */,
 			);
 			name = Other;
-			sourceTree = "<group>";
-		};
-		C14B28A9279AE01400E1D30A /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				C1F9C18D27DF1FFB0079EF13 /* DataStoreManager.swift */,
-				C1F9C18927DF1FA60079EF13 /* NewsReadingList+CoreDataClass.swift */,
-				C1F9C18A27DF1FA60079EF13 /* NewsReadingList+CoreDataProperties.swift */,
-				C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */,
-			);
-			name = CoreData;
 			sourceTree = "<group>";
 		};
 		C151DCAB27D891A300DD5D3D /* FavoriteNews */ = {
@@ -413,6 +370,7 @@
 				C17CF5D827EB3D7E00206838 /* CurrentCityServerModel.swift */,
 			);
 			name = City;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C185C96A27B3F5B6006D10B2 /* ImageCacheService */ = {
@@ -423,6 +381,88 @@
 			path = ImageCacheService;
 			sourceTree = "<group>";
 		};
+		C186437227FDBCB200FC1AA9 /* CustomUIClasses */ = {
+			isa = PBXGroup;
+			children = (
+				C1E295CA27CFBB2C00693FC8 /* CustomUIImageView.swift */,
+			);
+			path = CustomUIClasses;
+			sourceTree = "<group>";
+		};
+		C186437327FDBCE400FC1AA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C1A9246527FC67A6008B2FB3 /* AR */,
+				C1E4D88827AA98B900D70F2A /* News */,
+				C1DDED4F27CB920300EF9166 /* Video */,
+				C17CF5D727EB3D5C00206838 /* City */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C186437427FDBD0500FC1AA9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1A9246627FC68CA008B2FB3 /* AR */,
+				C1E4D88427AA984E00D70F2A /* News */,
+				C1DDED5227CB976E00EF9166 /* Video */,
+				C1E469CF27C29768005CEAD2 /* City */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C186437627FDBD3200FC1AA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C134927A279ADD6C00948C04 /* LaunchView.swift */,
+				C1349270279ADCB300948C04 /* BaseTabBarController.swift */,
+				C1B4AB0B27A9A08B0089F25F /* News */,
+				C1A0D0C327C908EF00BD49A6 /* Video */,
+				C14B28A1279ADEF400E1D30A /* Map */,
+				C1EAAFA7279DA8B800300FB9 /* Alert */,
+				C117850827F85E9B008CB321 /* AR */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C186437727FDBD4900FC1AA9 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				C134927E279ADD9E00948C04 /* PageViewController.swift */,
+				C134927C279ADD8800948C04 /* TemplateOnboardingView.swift */,
+				C1349280279ADDAD00948C04 /* PageControl.swift */,
+				C1349282279ADDBD00948C04 /* OnBoardigView.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		C186437827FDBD6C00FC1AA9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C1F9C18D27DF1FFB0079EF13 /* DataStoreManager.swift */,
+				C1F9C18927DF1FA60079EF13 /* NewsReadingList+CoreDataClass.swift */,
+				C1F9C18A27DF1FA60079EF13 /* NewsReadingList+CoreDataProperties.swift */,
+				C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C186437927FDBDDF00FC1AA9 /* AppSceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C134923D279AD9D600948C04 /* AppDelegate.swift */,
+				C134923F279AD9D600948C04 /* SceneDelegate.swift */,
+			);
+			path = AppSceneDelegate;
+			sourceTree = "<group>";
+		};
+		C186437A27FDBE0A00FC1AA9 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		C1A0D0C327C908EF00BD49A6 /* Video */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +471,7 @@
 				C1C39C6927D4ABCF00DB8DA3 /* BreakingVideo */,
 			);
 			name = Video;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1A9246527FC67A6008B2FB3 /* AR */ = {
@@ -439,6 +480,7 @@
 				C117850427F85B2B008CB321 /* SpaceXSatilliteModel.swift */,
 			);
 			name = AR;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1A9246627FC68CA008B2FB3 /* AR */ = {
@@ -447,6 +489,7 @@
 				C11784FE27F85ACE008CB321 /* ARViewModel.swift */,
 			);
 			name = AR;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1A9246727FC699F008B2FB3 /* AR */ = {
@@ -478,6 +521,7 @@
 				C1E4D88D27AAAFB700D70F2A /* NewsTableView */,
 			);
 			name = News;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1C39C6827D4ABC100DB8DA3 /* VideosList */ = {
@@ -519,6 +563,7 @@
 				C14F9AE027CBAA6000CBDDD9 /* VideoModel.swift */,
 			);
 			name = Video;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1DDED5227CB976E00EF9166 /* Video */ = {
@@ -527,6 +572,7 @@
 				C1DDED5027CB975200EF9166 /* VideoViewModel.swift */,
 			);
 			name = Video;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1DDED5727CB9D9A00EF9166 /* CancellableSetService */ = {
@@ -545,31 +591,13 @@
 			path = NewsCacheService;
 			sourceTree = "<group>";
 		};
-		C1E295CC27CFBB3700693FC8 /* CustomUIClasses */ = {
-			isa = PBXGroup;
-			children = (
-				C1E295CA27CFBB2C00693FC8 /* CustomUIImageView.swift */,
-			);
-			name = CustomUIClasses;
-			sourceTree = "<group>";
-		};
 		C1E469CF27C29768005CEAD2 /* City */ = {
 			isa = PBXGroup;
 			children = (
 				C1E469CA27C25367005CEAD2 /* CityViewModel.swift */,
 			);
 			name = City;
-			sourceTree = "<group>";
-		};
-		C1E4D88327AA983700D70F2A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				C1A9246627FC68CA008B2FB3 /* AR */,
-				C1E4D88427AA984E00D70F2A /* News */,
-				C1DDED5227CB976E00EF9166 /* Video */,
-				C1E469CF27C29768005CEAD2 /* City */,
-			);
-			name = ViewModel;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1E4D88427AA984E00D70F2A /* News */ = {
@@ -579,17 +607,7 @@
 				C1528F7127B518DD000A4F0C /* BreakingNewsViewModel.swift */,
 			);
 			name = News;
-			sourceTree = "<group>";
-		};
-		C1E4D88727AA98B100D70F2A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C1A9246527FC67A6008B2FB3 /* AR */,
-				C1E4D88827AA98B900D70F2A /* News */,
-				C1DDED4F27CB920300EF9166 /* Video */,
-				C17CF5D727EB3D5C00206838 /* City */,
-			);
-			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1E4D88827AA98B900D70F2A /* News */ = {
@@ -599,6 +617,7 @@
 				C185C96D27B40745006D10B2 /* NewsModel.swift */,
 			);
 			name = News;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1E4D88D27AAAFB700D70F2A /* NewsTableView */ = {
@@ -632,11 +651,13 @@
 				C1EAAFA8279DA91400300FB9 /* LocationAlert.swift */,
 			);
 			name = Alert;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C1FE075327A2CC1C0089D1CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C14F9AE927CE18E800CBDDD9 /* Colors.swift */,
 				C1A9246727FC699F008B2FB3 /* AR */,
 				C185C96A27B3F5B6006D10B2 /* ImageCacheService */,
 				C1E295C927CF70B100693FC8 /* NewsCacheService */,

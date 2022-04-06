@@ -100,12 +100,14 @@ extension DetailButtonViewController: DetailButtonViewDelegate {
         isRobotOn = !isRobotOn
         if isRobotOn
         {
+            detailView.readTextBtn.backgroundColor = .blue.withAlphaComponent(0.4)
             guard let speechText = parent.breakingNewsView.newsInfo.text else { return }
             let speech = AVSpeechUtterance(string: speechText)
             synthesizer.speak(speech)
         }
         else
         {
+            detailView.readTextBtn.backgroundColor = .systemBackground
             if synthesizer.isSpeaking
             {
                 synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)

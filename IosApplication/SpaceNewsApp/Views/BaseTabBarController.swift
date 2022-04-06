@@ -47,7 +47,11 @@ class BaseTabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureControllers()
-        self.setViewControllers([newsNavController, videoNavController, mapNavController, arNavController], animated: true)
-//        self.setViewControllers([arNavController], animated: true)
+        if UIAccessibility.isVoiceOverRunning {
+            self.setViewControllers([newsNavController, videoNavController, mapNavController], animated: true)
+        }
+        else {
+            self.setViewControllers([newsNavController, videoNavController, mapNavController, arNavController], animated: true)
+        }
     }
 }

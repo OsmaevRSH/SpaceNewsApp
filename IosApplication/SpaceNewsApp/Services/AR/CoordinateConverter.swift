@@ -22,9 +22,9 @@ class CoordinateConverter {
     ///   - radius: Радиус
     /// - Returns: Трехмерные координаты
     static func convertTo3DecatrSystem(latitude: Double, longitude: Double, radius: Double) -> Vector3 {
-        let x = radius * cos(latitude) * cos(longitude)
-        let y = radius * cos(latitude) * sin(longitude)
-        let z = radius * sin(latitude)
+        let x = radius * cos(longitude) * cos(latitude)
+        let y = radius * cos(longitude) * sin(latitude)
+        let z = radius * sin(longitude)
         return Vector3(x: x, y: y, z: z)
     }
 }

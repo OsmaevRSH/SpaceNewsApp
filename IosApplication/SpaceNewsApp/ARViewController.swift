@@ -310,12 +310,29 @@ class ARViewController: UIViewController {
         guard let _ = hitTestResults.first?.node else {
             return
         }
-//        print("\(sceneView.session.currentFrame!.camera.transform)\n\(sceneView.scene.rootNode.simdTransform)\n\n")
         
-        print(simd_sub(sceneView.session.currentFrame!.camera.transform, sceneView.scene.rootNode.simdTransform))
-        print("\n")
+        let pointA = sceneView.session.currentFrame!.camera.transform.columns.3
+        let pointB = sceneView.scene.rootNode.simdTransform.columns.3
+                      
         
-//        sceneView.session.setWorldOrigin(relativeTransform: sceneView.session.currentFrame!.camera.transform)
+        let currentVecDiff = simd_sub(sceneView.session.currentFrame!.camera.transform, sceneView.scene.rootNode.simdTransform)
+        if abs(currentVecDiff.columns.3.x) > 0.25
+            || abs(currentVecDiff.columns.3.y) > 0.25
+            || abs(currentVecDiff.columns.3.z) > 0.25 {
+            sceneView.session.setWorldOrigin(relativeTransform: sceneView.session.currentFrame!.camera.transform)
+        }
+        
+        let a = pointA.x * pointB.x + pointA.y * pointB.y + pointA.z * pointB.z
+        let b = sqrt(pointA.x * pointA.x + pointA.y * pointA.y + pointA.z * pointA.z) * sqrt(pointB.x * pointB.x + pointB.y * pointB.y + pointB.z * pointB.z)
+        print(acos(a/b))
+        
+        /*
+         angle = arccos ( a * b / |a| * |b| );
+         where:
+         a * b = ax * bx + ay * by + az * bz
+         |a| = sqrt( ax * ax + ay * ay + az * az )
+         |b| = sqrt( bx * bx + by * by + bz * bz )
+         */
         
         if recognizer.state == .changed {
             isMoved = true

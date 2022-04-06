@@ -26,6 +26,8 @@ class DetailButtonView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(readTextHandler), for: .touchUpInside)
         button.setTitle("Text to speech", for: .normal)
+        button.layer.cornerRadius = 22
+        button.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         return button
     }()
     
