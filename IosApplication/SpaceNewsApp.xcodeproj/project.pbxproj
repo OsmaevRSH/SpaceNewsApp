@@ -317,9 +317,9 @@
 		C14B28A1279ADEF400E1D30A /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				C186438227FDBF9B00FC1AA9 /* CityInformation */,
+				C186438127FDBF8A00FC1AA9 /* MapView */,
 				C1349272279ADCE800948C04 /* MapNavController.swift */,
-				C1B4AB0527A98CEF0089F25F /* MapView */,
-				C1C39C7227D7531200DB8DA3 /* CityInformation */,
 			);
 			name = Map;
 			path = ..;
@@ -333,16 +333,6 @@
 				C134924E279AD9D700948C04 /* Info.plist */,
 			);
 			name = Other;
-			sourceTree = "<group>";
-		};
-		C151DCAB27D891A300DD5D3D /* FavoriteNews */ = {
-			isa = PBXGroup;
-			children = (
-				C151DCA927D8919500DD5D3D /* FavoriteNewsViewController.swift */,
-				C151DCAC27D892B500DD5D3D /* FavoriteNewsView.swift */,
-				C151DCAE27D893CE00DD5D3D /* FavoriteNewsCell.swift */,
-			);
-			name = FavoriteNews;
 			sourceTree = "<group>";
 		};
 		C172FCA327BBB53A009C0B3F /* Assembly */ = {
@@ -455,12 +445,90 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		C186437B27FDBF1600FC1AA9 /* BreakingNewsView */ = {
+			isa = PBXGroup;
+			children = (
+				C1D6B14627E27B5700007F4E /* BreakingNewsDelegate.swift */,
+				C1E4D88F27AAB01B00D70F2A /* BreakingNewsView.swift */,
+				C1E4D89127AAB02900D70F2A /* BreakingNewsViewController.swift */,
+				C151DCB227D89A1300DD5D3D /* DetailButtonViewDelegate.swift */,
+				C151DCB027D8970600DD5D3D /* DetailButtonView.swift */,
+				C1D6B14827E27D6200007F4E /* DetailButtonViewController.swift */,
+			);
+			path = BreakingNewsView;
+			sourceTree = "<group>";
+		};
+		C186437C27FDBF2C00FC1AA9 /* FavoriteNews */ = {
+			isa = PBXGroup;
+			children = (
+				C151DCA927D8919500DD5D3D /* FavoriteNewsViewController.swift */,
+				C151DCAC27D892B500DD5D3D /* FavoriteNewsView.swift */,
+				C151DCAE27D893CE00DD5D3D /* FavoriteNewsCell.swift */,
+			);
+			path = FavoriteNews;
+			sourceTree = "<group>";
+		};
+		C186437E27FDBF4900FC1AA9 /* NewsTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */,
+				C1B4AB1027A9A2110089F25F /* NewsTableView.swift */,
+				C1B4AB1227A9A76A0089F25F /* NewsViewControllerExtension.swift */,
+				C1E4D87D27AA718C00D70F2A /* NewsTableViewCell.swift */,
+			);
+			path = NewsTableView;
+			sourceTree = "<group>";
+		};
+		C186437F27FDBF6500FC1AA9 /* VideosList */ = {
+			isa = PBXGroup;
+			children = (
+				C1A0D0C127C908E900BD49A6 /* VideoViewController.swift */,
+				C1DDED5327CB982100EF9166 /* VideosListView.swift */,
+				C148E79827D0D3BC000297D4 /* VideoCell.swift */,
+				C148E79A27D0D5FF000297D4 /* VideoViewControllerExtention.swift */,
+			);
+			path = VideosList;
+			sourceTree = "<group>";
+		};
+		C186438027FDBF7600FC1AA9 /* BreakingVideo */ = {
+			isa = PBXGroup;
+			children = (
+				C148E79C27D0D9D1000297D4 /* BreakingVideoViewController.swift */,
+				C1C39C6A27D4AC1900DB8DA3 /* BreakingVideoView.swift */,
+				C1C39C6C27D4B3C100DB8DA3 /* RecomendationVideoCell.swift */,
+				C1C39C6E27D4B93E00DB8DA3 /* BreakingVideoViewControllerExtention.swift */,
+			);
+			path = BreakingVideo;
+			sourceTree = "<group>";
+		};
+		C186438127FDBF8A00FC1AA9 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */,
+				C1707C4727A6D9D700D1D385 /* MapView.swift */,
+				C1349274279ADD0500948C04 /* MapViewController.swift */,
+				C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */,
+				C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		C186438227FDBF9B00FC1AA9 /* CityInformation */ = {
+			isa = PBXGroup;
+			children = (
+				C1C39C7027D5FE9E00DB8DA3 /* CityInformationView.swift */,
+				C1C39C7327D7533200DB8DA3 /* CityCell.swift */,
+				C1C39C7527D7558F00DB8DA3 /* CityInformationController.swift */,
+			);
+			path = CityInformation;
+			sourceTree = "<group>";
+		};
 		C1A0D0C327C908EF00BD49A6 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				C186438027FDBF7600FC1AA9 /* BreakingVideo */,
+				C186437F27FDBF6500FC1AA9 /* VideosList */,
 				C1A0D0BF27C908D000BD49A6 /* VideoNavController.swift */,
-				C1C39C6827D4ABC100DB8DA3 /* VideosList */,
-				C1C39C6927D4ABCF00DB8DA3 /* BreakingVideo */,
 			);
 			name = Video;
 			path = ..;
@@ -492,60 +560,16 @@
 			path = AR;
 			sourceTree = "<group>";
 		};
-		C1B4AB0527A98CEF0089F25F /* MapView */ = {
-			isa = PBXGroup;
-			children = (
-				C1707C4927A6DB1000D1D385 /* MapViewDelegate.swift */,
-				C1707C4727A6D9D700D1D385 /* MapView.swift */,
-				C1349274279ADD0500948C04 /* MapViewController.swift */,
-				C1707C4B27A6DD2800D1D385 /* MapViewControllerExtension.swift */,
-				C1707C4D27A6E7E200D1D385 /* MapSearchTable.swift */,
-			);
-			name = MapView;
-			sourceTree = "<group>";
-		};
 		C1B4AB0B27A9A08B0089F25F /* News */ = {
 			isa = PBXGroup;
 			children = (
+				C186437E27FDBF4900FC1AA9 /* NewsTableView */,
+				C186437C27FDBF2C00FC1AA9 /* FavoriteNews */,
+				C186437B27FDBF1600FC1AA9 /* BreakingNewsView */,
 				C1B4AB0C27A9A0DC0089F25F /* NewsNavController.swift */,
-				C1E4D88E27AAAFC600D70F2A /* BreakingNewsView */,
-				C151DCAB27D891A300DD5D3D /* FavoriteNews */,
-				C1E4D88D27AAAFB700D70F2A /* NewsTableView */,
 			);
 			name = News;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		C1C39C6827D4ABC100DB8DA3 /* VideosList */ = {
-			isa = PBXGroup;
-			children = (
-				C1A0D0C127C908E900BD49A6 /* VideoViewController.swift */,
-				C1DDED5327CB982100EF9166 /* VideosListView.swift */,
-				C148E79827D0D3BC000297D4 /* VideoCell.swift */,
-				C148E79A27D0D5FF000297D4 /* VideoViewControllerExtention.swift */,
-			);
-			name = VideosList;
-			sourceTree = "<group>";
-		};
-		C1C39C6927D4ABCF00DB8DA3 /* BreakingVideo */ = {
-			isa = PBXGroup;
-			children = (
-				C148E79C27D0D9D1000297D4 /* BreakingVideoViewController.swift */,
-				C1C39C6A27D4AC1900DB8DA3 /* BreakingVideoView.swift */,
-				C1C39C6C27D4B3C100DB8DA3 /* RecomendationVideoCell.swift */,
-				C1C39C6E27D4B93E00DB8DA3 /* BreakingVideoViewControllerExtention.swift */,
-			);
-			name = BreakingVideo;
-			sourceTree = "<group>";
-		};
-		C1C39C7227D7531200DB8DA3 /* CityInformation */ = {
-			isa = PBXGroup;
-			children = (
-				C1C39C7027D5FE9E00DB8DA3 /* CityInformationView.swift */,
-				C1C39C7327D7533200DB8DA3 /* CityCell.swift */,
-				C1C39C7527D7558F00DB8DA3 /* CityInformationController.swift */,
-			);
-			name = CityInformation;
 			sourceTree = "<group>";
 		};
 		C1DDED4F27CB920300EF9166 /* Video */ = {
@@ -610,30 +634,6 @@
 			);
 			name = News;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		C1E4D88D27AAAFB700D70F2A /* NewsTableView */ = {
-			isa = PBXGroup;
-			children = (
-				C1B4AB0E27A9A10A0089F25F /* NewsViewController.swift */,
-				C1B4AB1027A9A2110089F25F /* NewsTableView.swift */,
-				C1B4AB1227A9A76A0089F25F /* NewsViewControllerExtension.swift */,
-				C1E4D87D27AA718C00D70F2A /* NewsTableViewCell.swift */,
-			);
-			name = NewsTableView;
-			sourceTree = "<group>";
-		};
-		C1E4D88E27AAAFC600D70F2A /* BreakingNewsView */ = {
-			isa = PBXGroup;
-			children = (
-				C1D6B14627E27B5700007F4E /* BreakingNewsDelegate.swift */,
-				C1E4D88F27AAB01B00D70F2A /* BreakingNewsView.swift */,
-				C1E4D89127AAB02900D70F2A /* BreakingNewsViewController.swift */,
-				C151DCB227D89A1300DD5D3D /* DetailButtonViewDelegate.swift */,
-				C151DCB027D8970600DD5D3D /* DetailButtonView.swift */,
-				C1D6B14827E27D6200007F4E /* DetailButtonViewController.swift */,
-			);
-			name = BreakingNewsView;
 			sourceTree = "<group>";
 		};
 		C1EAAFA7279DA8B800300FB9 /* Alert */ = {
