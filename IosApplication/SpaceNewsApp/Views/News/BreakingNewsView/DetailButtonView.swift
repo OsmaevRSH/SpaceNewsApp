@@ -18,6 +18,8 @@ class DetailButtonView: UIView {
         button.setTitle("Reading list", for: .normal)
         button.layer.cornerRadius = 22
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        button.accessibilityLabel = "Add to the reading list"
+        button.accessibilityHint = "Adds the news to the list for reading, to access them without the Internet"
         return button
     }()
     
@@ -28,6 +30,7 @@ class DetailButtonView: UIView {
         button.setTitle("Text to speech", for: .normal)
         button.layer.cornerRadius = 22
         button.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        button.accessibilityLabel = "Reading the news"
         return button
     }()
     

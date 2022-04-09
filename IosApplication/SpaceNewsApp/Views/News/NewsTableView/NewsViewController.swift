@@ -72,8 +72,11 @@ class NewsViewController: UIViewController {
     
     /// Метод для добавдения кнопок в Navigation Bar
     private func setupBarButtonItem() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "tray.full"),
-                                                           style: .done, target: self, action: #selector(readingListButtonHandler))
+        let item = UIBarButtonItem(image: UIImage(systemName: "tray.full"),
+                                   style: .done, target: self, action: #selector(readingListButtonHandler))
+        item.accessibilityLabel = "Saved news"
+        item.accessibilityHint = "Opens saved news"
+        navigationItem.leftBarButtonItem = item
     }
     
     /// Метод для установки стиля текста Title в Navigation Bar

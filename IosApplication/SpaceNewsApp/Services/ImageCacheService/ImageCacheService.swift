@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Combine
 
 /// Сервис кэширования фотографий
 public class ImageCacheService {

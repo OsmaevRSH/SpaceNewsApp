@@ -5,21 +5,25 @@ struct OnBoardigView: View {
 	@EnvironmentObject var viewlaunch: ViewLaunch
 	
 	var subviews = [
-		UIHostingController(rootView: TemplateOnboardingView(imageString: "meditating")),
-		UIHostingController(rootView: TemplateOnboardingView(imageString: "skydiving")),
-		UIHostingController(rootView: TemplateOnboardingView(imageString: "sitting"))
+		UIHostingController(rootView: TemplateOnboardingView(imageString: "1")),
+		UIHostingController(rootView: TemplateOnboardingView(imageString: "2")),
+		UIHostingController(rootView: TemplateOnboardingView(imageString: "3")),
+        UIHostingController(rootView: TemplateOnboardingView(imageString: "4"))
 	]
 	
 	@State var currentPageIndex = 0
 	var titles = [
-		"Take some time out",
-		"Conquer personal hindrances",
-		"Create a peaceful mind"
+        "News page",
+        "Video page",
+        "Map page",
+        "Augmented Reality page"
 	]
+    
 	var captions =  [
-		"Take your time out and bring awareness into your everyday life",
-		"Meditating helps you dealing with anxiety and other psychic problems",
-		"Regular medidation sessions creates a peaceful inner mind"
+        "Here you can find all the latest space-related news, read them, and save them for offline access",
+        "On this page you can watch videos and streams about space. It is also possible to send a video to someone",
+        "On this page, you can use the search to find a place or city, find out the number of residents in this area or city, as well as the nearest districts or cities within a radius of 100 km",
+        "On this page you can see our planet in augmented reality, see Starlink satellites, and also get information on each separate satellite"
 	]
 	
 	var body: some View {
@@ -34,7 +38,6 @@ struct OnBoardigView: View {
 				Text(captions[currentPageIndex])
 					.font(.subheadline)
 					.foregroundColor(.gray)
-					.frame(width: 300, height: 50, alignment: .leading)
 					.lineLimit(nil)
 			}
             .padding([.leading, .trailing], 32)
@@ -65,6 +68,7 @@ struct OnBoardigView: View {
             .padding([.leading, .trailing], 32)
             .padding([.top, .bottom], 16)
 		}
+        .background(Color.orange.opacity(0.1).edgesIgnoringSafeArea(.all))
 	}
 }
 

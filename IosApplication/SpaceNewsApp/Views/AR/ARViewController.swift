@@ -30,7 +30,16 @@ class ARViewController: UIViewController {
     
     private lazy var sceneView: ARSCNView = {
         var view = ARSCNView()
+        view.showsStatistics = false
+        view.autoenablesDefaultLighting = true
         view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HandleTapGesture(sender:)));
+        let longTapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(HandleLongTabGesture(sender:)))
+        longTapGestureRecognizer.minimumPressDuration = 2
+        view.addGestureRecognizer(tapGestureRecognizer)
+        view.addGestureRecognizer(longTapGestureRecognizer)
+        
         return view
     }()
     
@@ -79,19 +88,10 @@ class ARViewController: UIViewController {
         containerView.addSubview(sceneView)
         containerView.addSubview(createEarthButton)
         addArViewConstraints()
-        sceneView.showsStatistics = true
         satelliteInfoVC.delegate = self
-        sceneView.autoenablesDefaultLighting = true
-//        sceneView.debugOptions = [.showBoundingBoxes, .showCameras, .showWorldOrigin]
         bindung()
         setupBarButtonItem()
         addPinchGestureToSceneView()
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HandleTapGesture(sender:)));
-        let longTapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(HandleLongTabGesture(sender:)))
-        longTapGestureRecognizer.minimumPressDuration = 2
-        sceneView.addGestureRecognizer(tapGestureRecognizer)
-        sceneView.addGestureRecognizer(longTapGestureRecognizer)
     }
     
     @objc private func HandleTapGesture(sender: UITapGestureRecognizer) {

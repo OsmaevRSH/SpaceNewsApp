@@ -26,6 +26,8 @@ class BreakingNewsView: UIView {
         btn.layer.cornerRadius = 16
         btn.tintColor = .black
         btn.addTarget(self, action: #selector(backButtonHandler), for: .touchUpInside)
+        btn.accessibilityValue = "Back button"
+        btn.accessibilityHint = "Return to the news list"
         return btn
     }()
     
@@ -37,6 +39,8 @@ class BreakingNewsView: UIView {
         btn.layer.cornerRadius = 16
         btn.tintColor = .black
         btn.addTarget(self, action: #selector(detailButtonHandler), for: .touchUpInside)
+        btn.accessibilityValue = "Additional parameters"
+        btn.accessibilityHint = "Open additional parameters"
         return btn
     }()
     
