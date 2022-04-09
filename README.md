@@ -20,4 +20,4 @@
 - ```Newspaper``` - Python библиотека, использующаяся на middle back сервере для получения текста новости;
 
 ## Скриншоты приложения
-<img src="/Images/1.jpeg" alt="Employee data" title="Employee Data title">
+<img src="/Images/1.jpeg" width="50%" height="50%">
