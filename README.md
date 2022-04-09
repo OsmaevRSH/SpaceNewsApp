@@ -18,3 +18,6 @@
 - ```YouTube-Player-iOS-Helper``` - используется для добавления youtube проигрывателя;
 - ```Fast API``` - Python библиотека, была необходма для реализации своего middle back сервера;
 - ```Newspaper``` - Python библиотека, использующаяся на middle back сервере для получения текста новости;
+
+## Скриншоты приложения
+<img src="/Images/1.jpeg" alt="Employee data" title="Employee Data title">
