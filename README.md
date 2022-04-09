@@ -21,3 +21,12 @@
 
 ## Скриншоты приложения
 <img src="/Images/1.jpeg" width="50%" height="50%">
+<img src="/Images/2.jpeg" width="50%" height="50%">
+<img src="/Images/3.jpeg" width="50%" height="50%">
+<img src="/Images/4.jpeg" width="50%" height="50%">
+<img src="/Images/5.jpeg" width="50%" height="50%">
+<img src="/Images/6.jpeg" width="50%" height="50%">
+<img src="/Images/7.jpeg" width="50%" height="50%">
+<img src="/Images/8.jpeg" width="50%" height="50%">
+<img src="/Images/9.jpeg" width="50%" height="50%">
+<img src="/Images/10.jpeg" width="50%" height="50%">
