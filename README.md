@@ -7,7 +7,7 @@
 
 ## Используемые библиотеки и технологии:
 ### Технологии встроенные в Swift
-- ```CoreData``` - используется для сохранени новостей в список для чтения;
+- ```CoreData``` - используется для сохранения новостей в список для чтения;
 - ```Combine``` - используется для реализации архитектуры MVVM в UIKit;
 - ```SwiftUI``` - испольуется для создания OnBoarding;
 - ```UIKit``` - весь интерфейс кроме OnBoarding;
@@ -18,3 +18,52 @@
 - ```YouTube-Player-iOS-Helper``` - используется для добавления youtube проигрывателя;
 - ```Fast API``` - Python библиотека, была необходма для реализации своего middle back сервера;
 - ```Newspaper``` - Python библиотека, использующаяся на middle back сервере для получения текста новости;
+
+## Скриншоты приложения
+<table>
+  <tr>
+    <td>
+<img src="/Images/1.jpeg">
+    </td>
+    <td>
+<img src="/Images/2.jpeg">
+    </td>
+  </tr>
+  <tr>
+    <td>
+<img src="/Images/3.jpeg">
+    </td>
+    <td>
+<img src="/Images/4.jpeg">
+    </td>
+  </tr>
+  <tr>
+    <td>
+<img src="/Images/5.jpeg">
+      </td>
+    <td>
+<img src="/Images/6.jpeg">
+      </td>
+  </tr>
+  <tr>
+    <td>
+<img src="/Images/7.jpeg">
+      </td>
+    <td>
+<img src="/Images/8.jpeg">
+      </td>
+  </tr>
+  <tr>
+    <td>
+<img src="/Images/9.jpeg">
+      </td>
+    <td>
+<img src="/Images/10.jpeg">
+      </td>
+  </tr>
+  <tr>
+    <td>
+<img src="/Images/11.jpeg">
+      </td>
+    </tr>
+  </table>
