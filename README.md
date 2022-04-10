@@ -20,14 +20,50 @@
 - ```Newspaper``` - Python библиотека, использующаяся на middle back сервере для получения текста новости;
 
 ## Скриншоты приложения
+<table>
+  <tr>
+    <td>
 <img src="/Images/1.jpeg" width="25%" height="25%">
+    </td>
+    <td>
 <img src="/Images/2.jpeg" width="25%" height="25%">
+    </td>
+  </tr>
+  <tr>
+    <td>
 <img src="/Images/3.jpeg" width="25%" height="25%">
+    </td>
+    <td>
 <img src="/Images/4.jpeg" width="25%" height="25%">
+    </td>
+  </tr>
+  <tr>
+    <td>
 <img src="/Images/5.jpeg" width="25%" height="25%">
+      </td>
+    <td>
 <img src="/Images/6.jpeg" width="25%" height="25%">
+      </td>
+  </tr>
+  <tr>
+    <td>
 <img src="/Images/7.jpeg" width="25%" height="25%">
+      </td>
+    <td>
 <img src="/Images/8.jpeg" width="25%" height="25%">
+      </td>
+  </tr>
+  <tr>
+    <td>
 <img src="/Images/9.jpeg" width="25%" height="25%">
+      </td>
+    <td>
 <img src="/Images/10.jpeg" width="25%" height="25%">
+      </td>
+  </tr>
+  <tr>
+    <td>
 <img src="/Images/11.jpeg" width="25%" height="25%">
+      </td>
+    </tr>
+  </table>
