@@ -23,47 +23,47 @@
 <table>
   <tr>
     <td>
-<img src="/Images/1.jpeg" width="25%" height="25%">
+<img src="/Images/1.jpeg">
     </td>
     <td>
-<img src="/Images/2.jpeg" width="25%" height="25%">
-    </td>
-  </tr>
-  <tr>
-    <td>
-<img src="/Images/3.jpeg" width="25%" height="25%">
-    </td>
-    <td>
-<img src="/Images/4.jpeg" width="25%" height="25%">
+<img src="/Images/2.jpeg">
     </td>
   </tr>
   <tr>
     <td>
-<img src="/Images/5.jpeg" width="25%" height="25%">
+<img src="/Images/3.jpeg">
+    </td>
+    <td>
+<img src="/Images/4.jpeg">
+    </td>
+  </tr>
+  <tr>
+    <td>
+<img src="/Images/5.jpeg">
       </td>
     <td>
-<img src="/Images/6.jpeg" width="25%" height="25%">
+<img src="/Images/6.jpeg">
       </td>
   </tr>
   <tr>
     <td>
-<img src="/Images/7.jpeg" width="25%" height="25%">
+<img src="/Images/7.jpeg">
       </td>
     <td>
-<img src="/Images/8.jpeg" width="25%" height="25%">
-      </td>
-  </tr>
-  <tr>
-    <td>
-<img src="/Images/9.jpeg" width="25%" height="25%">
-      </td>
-    <td>
-<img src="/Images/10.jpeg" width="25%" height="25%">
+<img src="/Images/8.jpeg">
       </td>
   </tr>
   <tr>
     <td>
-<img src="/Images/11.jpeg" width="25%" height="25%">
+<img src="/Images/9.jpeg">
+      </td>
+    <td>
+<img src="/Images/10.jpeg">
+      </td>
+  </tr>
+  <tr>
+    <td>
+<img src="/Images/11.jpeg">
       </td>
     </tr>
   </table>
