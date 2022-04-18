@@ -26,4 +26,8 @@ public class ImageCacheService {
     func saveImageToCache(for image: UIImage, from url: NSURL) {
         cache.setObject(image, forKey: url)
     }
+    
+    func clearCache() {
+        self.cache.removeAllObjects()
+    }
 }

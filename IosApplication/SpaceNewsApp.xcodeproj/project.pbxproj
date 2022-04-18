@@ -23,7 +23,7 @@
 		C1349248279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1349246279AD9D600948C04 /* SpaceNewsApp.xcdatamodeld */; };
 		C134924A279AD9D700948C04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1349249279AD9D700948C04 /* Assets.xcassets */; };
 		C134924D279AD9D700948C04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C134924B279AD9D700948C04 /* LaunchScreen.storyboard */; };
-		C1349258279AD9D700948C04 /* SpaceNewsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349257279AD9D700948C04 /* SpaceNewsAppTests.swift */; };
+		C1349258279AD9D700948C04 /* CoordinateConverterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349257279AD9D700948C04 /* CoordinateConverterTest.swift */; };
 		C1349262279AD9D700948C04 /* SpaceNewsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349261279AD9D700948C04 /* SpaceNewsAppUITests.swift */; };
 		C1349264279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349263279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift */; };
 		C1349271279ADCB300948C04 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1349270279ADCB300948C04 /* BaseTabBarController.swift */; };
@@ -89,6 +89,14 @@
 		C1F9C1A427DF68B00079EF13 /* VideoHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C1A327DF68B00079EF13 /* VideoHttpService.swift */; };
 		C1F9C1A627DF71810079EF13 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C1A527DF71810079EF13 /* HttpHelper.swift */; };
 		C1F9C1A827DF72300079EF13 /* CityHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F9C1A727DF72300079EF13 /* CityHttpService.swift */; };
+		C1FC8C89280D351900EE2FD8 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC8C88280D351900EE2FD8 /* CoreDataTest.swift */; };
+		C1FC8C8C280D3DB200EE2FD8 /* ImageCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC8C8B280D3DB200EE2FD8 /* ImageCacheTest.swift */; };
+		C1FC8C8D280D3DB200EE2FD8 /* ImageCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC8C8B280D3DB200EE2FD8 /* ImageCacheTest.swift */; };
+		C1FC8C8F280D400C00EE2FD8 /* NewsCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC8C8E280D400C00EE2FD8 /* NewsCacheTest.swift */; };
+		C1FC8C90280D400C00EE2FD8 /* NewsCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC8C8E280D400C00EE2FD8 /* NewsCacheTest.swift */; };
+		C1FC8C92280D415600EE2FD8 /* HttpHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC8C91280D415600EE2FD8 /* HttpHelperTest.swift */; };
+		C1FC8C93280D415600EE2FD8 /* HttpHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC8C91280D415600EE2FD8 /* HttpHelperTest.swift */; };
+		C1FC8C95280D4A7900EE2FD8 /* HttpServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC8C94280D4A7900EE2FD8 /* HttpServiceTest.swift */; };
 		E1F4CC558AAC798669256B48 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32516A9B09FF1A5B607D0286 /* Pods_SpaceNewsApp_SpaceNewsAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -134,7 +142,7 @@
 		C134924C279AD9D700948C04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C134924E279AD9D700948C04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1349253279AD9D700948C04 /* SpaceNewsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceNewsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1349257279AD9D700948C04 /* SpaceNewsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceNewsAppTests.swift; sourceTree = "<group>"; };
+		C1349257279AD9D700948C04 /* CoordinateConverterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateConverterTest.swift; sourceTree = "<group>"; };
 		C134925D279AD9D700948C04 /* SpaceNewsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceNewsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1349261279AD9D700948C04 /* SpaceNewsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceNewsAppUITests.swift; sourceTree = "<group>"; };
 		C1349263279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceNewsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -201,6 +209,11 @@
 		C1F9C1A327DF68B00079EF13 /* VideoHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHttpService.swift; sourceTree = "<group>"; };
 		C1F9C1A527DF71810079EF13 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
 		C1F9C1A727DF72300079EF13 /* CityHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHttpService.swift; sourceTree = "<group>"; };
+		C1FC8C88280D351900EE2FD8 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
+		C1FC8C8B280D3DB200EE2FD8 /* ImageCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheTest.swift; sourceTree = "<group>"; };
+		C1FC8C8E280D400C00EE2FD8 /* NewsCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCacheTest.swift; sourceTree = "<group>"; };
+		C1FC8C91280D415600EE2FD8 /* HttpHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelperTest.swift; sourceTree = "<group>"; };
+		C1FC8C94280D4A7900EE2FD8 /* HttpServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
 		ED6E67678E2017322D9BB17C /* Pods-SpaceNewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceNewsApp.release.xcconfig"; path = "Target Support Files/Pods-SpaceNewsApp/Pods-SpaceNewsApp.release.xcconfig"; sourceTree = "<group>"; };
 		F1347A9BD53E63B04F8D576F /* Pods_SpaceNewsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceNewsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -287,7 +300,12 @@
 		C1349256279AD9D700948C04 /* SpaceNewsAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				C1349257279AD9D700948C04 /* SpaceNewsAppTests.swift */,
+				C1FC8C94280D4A7900EE2FD8 /* HttpServiceTest.swift */,
+				C1FC8C91280D415600EE2FD8 /* HttpHelperTest.swift */,
+				C1FC8C8E280D400C00EE2FD8 /* NewsCacheTest.swift */,
+				C1FC8C8B280D3DB200EE2FD8 /* ImageCacheTest.swift */,
+				C1349257279AD9D700948C04 /* CoordinateConverterTest.swift */,
+				C1FC8C88280D351900EE2FD8 /* CoreDataTest.swift */,
 			);
 			path = SpaceNewsAppTests;
 			sourceTree = "<group>";
@@ -988,7 +1006,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1349258279AD9D700948C04 /* SpaceNewsAppTests.swift in Sources */,
+				C1FC8C92280D415600EE2FD8 /* HttpHelperTest.swift in Sources */,
+				C1FC8C89280D351900EE2FD8 /* CoreDataTest.swift in Sources */,
+				C1FC8C8C280D3DB200EE2FD8 /* ImageCacheTest.swift in Sources */,
+				C1FC8C95280D4A7900EE2FD8 /* HttpServiceTest.swift in Sources */,
+				C1349258279AD9D700948C04 /* CoordinateConverterTest.swift in Sources */,
+				C1FC8C8F280D400C00EE2FD8 /* NewsCacheTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,8 +1019,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1FC8C93280D415600EE2FD8 /* HttpHelperTest.swift in Sources */,
 				C1349264279AD9D700948C04 /* SpaceNewsAppUITestsLaunchTests.swift in Sources */,
+				C1FC8C8D280D3DB200EE2FD8 /* ImageCacheTest.swift in Sources */,
 				C1349262279AD9D700948C04 /* SpaceNewsAppUITests.swift in Sources */,
+				C1FC8C90280D400C00EE2FD8 /* NewsCacheTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1210,10 +1236,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R48XY78PWD;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ltheresi.SpaceNewsAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1230,10 +1258,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R48XY78PWD;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ltheresi.SpaceNewsAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1251,6 +1281,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R48XY78PWD;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ltheresi.SpaceNewsAppUITests;
@@ -1269,6 +1300,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R48XY78PWD;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ltheresi.SpaceNewsAppUITests;

@@ -25,4 +25,8 @@ public class NewsCacheService {
     func saveImageToCache(for text: NSString, from url: NSURL) {
         cache.setObject(text, forKey: url)
     }
+    
+    func clearCache() {
+        self.cache.removeAllObjects()
+    }
 }

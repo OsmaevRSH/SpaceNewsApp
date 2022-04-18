@@ -12,7 +12,7 @@ import CoreData
 
 public class NewsReadingList: NSManagedObject {
     
-    private static let dataManager = DataStoreManager.shared
+    static let dataManager = DataStoreManager.shared
     
     class func saveToReadingList(title: String?, text: String?, image: Data?, id: Int) {
         let news = NewsReadingList(context: dataManager.viewContext)

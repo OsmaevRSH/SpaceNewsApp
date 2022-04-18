@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Vector3 {
+struct Vector3: Equatable {
     var x: Double
     var y: Double
     var z: Double
