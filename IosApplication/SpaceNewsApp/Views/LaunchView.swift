@@ -9,7 +9,7 @@ struct LaunchView: View {
 			if viewlaunch.currentPage == "onBoardingView" {
 				OnBoardigView()
 			} else if viewlaunch.currentPage == "ContentView" {
-				CastomUIKitView()
+				BaseTabBarControllerOnSwiftUI()
 					.edgesIgnoringSafeArea(.all)
 			}
 		}
@@ -29,7 +29,7 @@ class ViewLaunch: ObservableObject {
 	@Published var currentPage: String
 }
 
-struct CastomUIKitView: UIViewControllerRepresentable {
+struct BaseTabBarControllerOnSwiftUI: UIViewControllerRepresentable {
 	
 	typealias UIViewControllerType = BaseTabBarController
 	
